@@ -1,0 +1,68 @@
+/* ── Contact (multi-step form) ── */
+.lf-cta{position:relative;z-index:1;background:var(--lf-bg);color:var(--lf-text);overflow:hidden}
+.lf-cta *{box-sizing:border-box}
+.lf-cta-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(40% 60% at 22% 50%,rgba(255,117,31,0.072),transparent 70%),radial-gradient(35% 55% at 78% 40%,rgba(255,117,31,.06),transparent 70%)}
+.lf-theme-light .lf-cta-glow{background:radial-gradient(40% 60% at 22% 50%,rgba(10,41,66,.06),transparent 70%),radial-gradient(35% 55% at 78% 40%,rgba(255,117,31,.06),transparent 70%)}
+.lf-cta-wrap{position:relative;display:grid;grid-template-columns:minmax(0,500px) minmax(0,1fr);gap:72px;align-items:center;max-width:1100px;margin:0 auto;padding:110px 40px 120px}
+.lf-form{position:relative;padding:26px 28px 24px;border-radius:14px;background:linear-gradient(180deg,#1A1D3D,#11132E);border:1px solid rgba(255,255,255,0.12);box-shadow:0 40px 80px -40px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.05)}
+.lf-theme-light .lf-form{background:#FFFFFF;border-color:var(--lf-border);box-shadow:0 1px 2px rgba(10,41,66,.04),0 30px 60px -36px rgba(10,41,66,.3)}
+.lf-form-top{display:flex;justify-content:space-between;align-items:center;font-family:'Geist Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+.lf-form-step{color:var(--lf-accent-text)}
+.lf-form-pct{color:var(--lf-muted)}
+.lf-form-bar{height:3px;margin-top:10px;border-radius:3px;background:var(--lf-border);overflow:hidden}
+.lf-form-bar i{display:block;height:100%;border-radius:3px;background:#FF751F;transition:width .45s cubic-bezier(.2,.7,.2,1)}
+.lf-form-body{min-height:252px;margin-top:22px}
+.lf-form-t{margin:0;font-family:'Instrument Serif',Georgia,serif;font-size:25px;font-weight:400;letter-spacing:-.01em;color:var(--lf-text)}
+.lf-field{margin-top:18px}
+.lf-field label,.lf-field-l{display:block;font-size:12.5px;font-weight:600;color:var(--lf-text)}
+.lf-field label small{font-weight:400;color:var(--lf-muted)}
+.lf-input{display:block;width:100%;height:46px;margin-top:8px;padding:0 14px;border-radius:9px;border:1px solid var(--lf-border-strong);background:rgba(255,255,255,.04);color:var(--lf-text);font:inherit;font-size:14px;outline:none;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
+textarea.lf-input{height:112px;padding:12px 14px;resize:vertical;line-height:1.5}
+.lf-theme-light .lf-input{background:#F8FAFC}
+.lf-input::placeholder{color:var(--lf-muted);opacity:.8}
+.lf-input:focus{border-color:#FF751F;box-shadow:0 0 0 3px rgba(255,117,31,.18)}
+.lf-modes2{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.lf-mode2{height:38px;margin:0;padding:0 14px;border-radius:999px;border:1px solid var(--lf-border-strong);background:transparent;color:var(--lf-text-2);font:inherit;font-size:13px;cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease}
+.lf-mode2:hover{border-color:var(--lf-text-2)}
+.lf-mode2.is-on{background:rgba(255,117,31,.14);border-color:#FF751F;color:var(--lf-text)}
+.lf-form-actions{display:flex;justify-content:space-between;align-items:center;margin-top:22px}
+.lf-form-error{margin:14px 0 0;font-size:13px;line-height:1.45;color:#FF6B81}
+.lf-back{margin:0;padding:8px 4px;border:0;background:none;color:var(--lf-muted);font:inherit;font-size:13px;cursor:pointer}
+.lf-back:hover{color:var(--lf-text)}
+.lf-back[disabled]{opacity:.4;cursor:default}
+.lf-next{display:inline-flex;align-items:center;gap:8px;height:44px;margin:0;padding:0 22px;border:0;border-radius:999px;background:#FF751F;color:#1A0B02;font:inherit;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 10px 28px -10px rgba(255,117,31,.7);transition:translate .25s ease,filter .25s ease,opacity .25s ease}
+.lf-next:hover{translate:0 -2px;filter:brightness(1.06)}
+.lf-next[aria-disabled="true"]{opacity:.4;box-shadow:none;cursor:not-allowed;translate:none}
+.lf-form button:focus-visible{outline:2px solid #FF751F;outline-offset:3px}
+.lf-done{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding-top:20px}
+.lf-done-ico{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(255,117,31,.14);border:1px solid rgba(255,117,31,.45);color:#FF751F}
+.lf-done p{margin:0;font-size:14px;line-height:1.6;color:var(--lf-text-2)}
+.lf-cta-eyebrow{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lf-accent-text)}
+.lf-cta-h{margin:14px 0 0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(38px,3.6vw,52px);line-height:1.04;letter-spacing:-.02em;color:var(--lf-text)}
+.lf-cta-h em{font-style:italic;background:var(--lf-em-accent);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;padding-right:.08em}
+.lf-cta-p{margin:18px 0 0;max-width:470px;font-size:15px;line-height:1.65;color:var(--lf-text-2)}
+.lf-cta-list{margin:22px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.lf-cta-list li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--lf-text-2)}
+.lf-cta-list svg{flex:none;color:var(--lf-accent-text)}
+.lf-cta-mail{margin-top:24px;padding-top:20px;border-top:1px solid var(--lf-border);font-size:13px;color:var(--lf-muted)}
+.lf-cta-mail a{color:var(--lf-text);text-underline-offset:3px}
+.lf-cr{opacity:0}
+.lf-cta-in .lf-cr{animation:lf-cta-rise .65s cubic-bezier(.2,.7,.2,1) both}
+@keyframes lf-cta-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.lf-cta .lf-tk-a{animation:lf-cta-tk-a .45s ease both}
+.lf-cta .lf-tk-b{animation:lf-cta-tk-b .45s ease both}
+@keyframes lf-cta-tk-a{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@keyframes lf-cta-tk-b{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media (max-width:900px){
+.lf-cta-wrap{grid-template-columns:minmax(0,1fr);gap:40px;padding:80px 40px 90px}
+.lf-cta-copy{order:-1}
+}
+@media (max-width:640px){
+.lf-cta-wrap{padding:64px 16px 72px}
+.lf-form{padding:22px 18px 20px}
+}
+@media (prefers-reduced-motion:reduce){
+.lf-cr{opacity:1;animation:none !important}
+.lf-form-bar i{transition:none}
+.lf-cta .lf-tk-a,.lf-cta .lf-tk-b{animation:none !important}
+}

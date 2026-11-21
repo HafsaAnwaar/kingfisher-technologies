@@ -1,0 +1,1396 @@
+[
+  {
+    "file": "About.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "dive",
+        "body": "0%{transform:translate(0,0) rotate(0)}40%{transform:translate(120px,150px) rotate(38deg)}55%{transform:translate(150px,210px) rotate(55deg);opacity:1}62%{opacity:0}100%{transform:t"
+      },
+      {
+        "name": "ripple",
+        "body": "0%,52%{transform:scale(0);opacity:0}58%{opacity:.9}100%{transform:scale(3.2);opacity:0}"
+      },
+      {
+        "name": "wave",
+        "body": "to{transform:translateX(-120px)}"
+      },
+      {
+        "name": "grow",
+        "body": "from{width:0}to{width:100%}"
+      },
+      {
+        "name": "spin",
+        "body": "to{transform:rotate(360deg)}"
+      },
+      {
+        "name": "bob",
+        "body": "0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".dive",
+        "anim": "dive 5s cubic-bezier(.5,0,.8,.4) infinite"
+      },
+      {
+        "sel": ".rp",
+        "anim": "ripple 5s ease-out infinite"
+      },
+      {
+        "sel": ".rp2",
+        "anim": "ripple 5s ease-out .35s infinite"
+      },
+      {
+        "sel": ".wave",
+        "anim": "wave 4s linear infinite"
+      },
+      {
+        "sel": ".gline",
+        "anim": "grow 2.4s .3s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".halo",
+        "anim": "spin 8s linear infinite"
+      },
+      {
+        "sel": ".bob",
+        "anim": "bob 6s ease-in-out infinite"
+      },
+      {
+        "sel": ".bob2",
+        "anim": "bob 6s ease-in-out -2s infinite"
+      },
+      {
+        "sel": ".bob3",
+        "anim": "bob 6s ease-in-out -4s infinite"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Careers.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "bob",
+        "body": "0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}"
+      },
+      {
+        "name": "fade",
+        "body": "from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".b1",
+        "anim": "bob 6s ease-in-out infinite"
+      },
+      {
+        "sel": ".b2",
+        "anim": "bob 7s ease-in-out -2s infinite"
+      },
+      {
+        "sel": ".b3",
+        "anim": "bob 8s ease-in-out -4s infinite"
+      },
+      {
+        "sel": ".b4",
+        "anim": "bob 6.5s ease-in-out -1s infinite"
+      },
+      {
+        "sel": ".b5",
+        "anim": "bob 7.5s ease-in-out -3s infinite"
+      },
+      {
+        "sel": ".fade",
+        "anim": "fade .45s ease both"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Clients.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "mq",
+        "body": "to{transform:translateX(-50%)}"
+      },
+      {
+        "name": "fade",
+        "body": "from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".mq",
+        "anim": "mq 30s linear infinite"
+      },
+      {
+        "sel": ".fade",
+        "anim": "fade .6s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": [
+      "setInterval(("
+    ]
+  },
+  {
+    "file": "Contact.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "draw",
+        "body": "to{stroke-dashoffset:0}"
+      },
+      {
+        "name": "pop",
+        "body": "0%{transform:scale(.5);opacity:0}70%{transform:scale(1.08);opacity:1}100%{transform:scale(1)}"
+      },
+      {
+        "name": "flow",
+        "body": "to{stroke-dashoffset:-320}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".chk",
+        "anim": "draw .7s .2s ease forwards"
+      },
+      {
+        "sel": ".pop",
+        "anim": "pop .6s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".fl",
+        "anim": "flow 7s linear infinite"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Developers.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "ln",
+        "body": "from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "blink",
+        "body": "0%,100%{opacity:1}50%{opacity:0}"
+      },
+      {
+        "name": "up",
+        "body": "to{transform:translateY(-50%)}"
+      },
+      {
+        "name": "flow",
+        "body": "to{stroke-dashoffset:-320}"
+      },
+      {
+        "name": "ping",
+        "body": "0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.6);opacity:0}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".ln",
+        "anim": "ln .35s ease both"
+      },
+      {
+        "sel": ".caret",
+        "anim": "blink 1s steps(1) infinite"
+      },
+      {
+        "sel": ".feed",
+        "anim": "up 18s linear infinite"
+      },
+      {
+        "sel": ".fl",
+        "anim": "flow 6s linear infinite"
+      },
+      {
+        "sel": ".ping",
+        "anim": "ping 2.4s ease-out infinite"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "FAQ.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "open",
+        "body": "from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "bubble",
+        "body": "0%{opacity:0;transform:translateY(16px) scale(.96)}8%,88%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-8px)}"
+      },
+      {
+        "name": "typing",
+        "body": "0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}"
+      },
+      {
+        "name": "dotp",
+        "body": "0%{box-shadow:0 0 0 0 rgba(88,216,164,.7)}100%{box-shadow:0 0 0 10px rgba(88,216,164,0)}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".ans",
+        "anim": "open .4s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".b1",
+        "anim": "bubble 9s ease infinite both"
+      },
+      {
+        "sel": ".b2",
+        "anim": "bubble 9s ease 1.2s infinite both"
+      },
+      {
+        "sel": ".b3",
+        "anim": "bubble 9s ease 2.6s infinite both"
+      },
+      {
+        "sel": ".t1",
+        "anim": "typing 1.2s ease infinite"
+      },
+      {
+        "sel": ".t2",
+        "anim": "typing 1.2s ease .15s infinite"
+      },
+      {
+        "sel": ".t3",
+        "anim": "typing 1.2s ease .3s infinite"
+      },
+      {
+        "sel": ".dotp",
+        "anim": "dotp 1.8s ease-out infinite"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Finance.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "grow",
+        "body": "from{transform:scaleY(0)}to{transform:scaleY(1)}"
+      },
+      {
+        "name": "flow",
+        "body": "to{stroke-dashoffset:-320}"
+      },
+      {
+        "name": "stamp",
+        "body": "0%{opacity:0;transform:scale(1.6) rotate(-14deg)}60%{opacity:1;transform:scale(.95) rotate(-8deg)}100%{opacity:1;transform:scale(1) rotate(-8deg)}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".bar",
+        "anim": "grow 1.1s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".fl",
+        "anim": "flow 5s linear infinite"
+      },
+      {
+        "sel": ".stamp",
+        "anim": "stamp .7s 1.6s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Footer.dc.html",
+    "keyframes": [],
+    "uses": [],
+    "js": []
+  },
+  {
+    "file": "Industries.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "wordin",
+        "body": "from{opacity:0;transform:translateY(40%)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "fade",
+        "body": "from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "orbit",
+        "body": "to{transform:rotate(360deg)}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".word",
+        "anim": "wordin .6s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".fade",
+        "anim": "fade .5s ease both"
+      },
+      {
+        "sel": ".orb",
+        "anim": "orbit 30s linear infinite"
+      },
+      {
+        "sel": ".orbi",
+        "anim": "orbit 30s linear reverse infinite"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": [
+      "setInterval(("
+    ]
+  },
+  {
+    "file": "Legal.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "fade",
+        "body": "from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "scan",
+        "body": "0%{transform:translateY(0)}100%{transform:translateY(150px)}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".fade",
+        "anim": "fade .5s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".scan",
+        "anim": "scan 2.6s ease-in-out infinite alternate"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Login.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "flow",
+        "body": "to{stroke-dashoffset:-320}"
+      },
+      {
+        "name": "spin",
+        "body": "to{transform:rotate(360deg)}"
+      },
+      {
+        "name": "ping",
+        "body": "0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.8);opacity:0}"
+      },
+      {
+        "name": "fade",
+        "body": "from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".fl",
+        "anim": "flow 7s linear infinite"
+      },
+      {
+        "sel": ".spinsvg",
+        "anim": "spin 80s linear infinite"
+      },
+      {
+        "sel": ".ping",
+        "anim": "ping 2.4s ease-out infinite"
+      },
+      {
+        "sel": ".fade",
+        "anim": "fade .4s ease both"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Main.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "flow",
+        "body": "to{stroke-dashoffset:-320}"
+      },
+      {
+        "name": "draw",
+        "body": "to{stroke-dashoffset:0}"
+      },
+      {
+        "name": "bob",
+        "body": "0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}"
+      },
+      {
+        "name": "ping",
+        "body": "0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.8);opacity:0}"
+      },
+      {
+        "name": "dotp",
+        "body": "0%{box-shadow:0 0 0 0 rgba(46,196,230,.7)}100%{box-shadow:0 0 0 10px rgba(46,196,230,0)}"
+      },
+      {
+        "name": "mq",
+        "body": "to{transform:translateX(-50%)}"
+      },
+      {
+        "name": "spin",
+        "body": "to{transform:rotate(360deg)}"
+      },
+      {
+        "name": "mv",
+        "body": "from{offset-distance:0%}to{offset-distance:100%}"
+      },
+      {
+        "name": "fillbar",
+        "body": "0%{width:0%}70%{width:100%}100%{width:100%}"
+      },
+      {
+        "name": "sweep",
+        "body": "from{transform:translateX(-160px)}to{transform:translateX(1400px)}"
+      },
+      {
+        "name": "shimmer",
+        "body": "0%,100%{opacity:.25}50%{opacity:1}"
+      },
+      {
+        "name": "scan",
+        "body": "0%{transform:translateY(0)}100%{transform:translateY(300px)}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".fl",
+        "anim": "flow 7s linear infinite"
+      },
+      {
+        "sel": ".draw",
+        "anim": "draw 1.4s .9s cubic-bezier(.6,0,.2,1) forwards"
+      },
+      {
+        "sel": ".bob",
+        "anim": "bob 6s ease-in-out infinite"
+      },
+      {
+        "sel": ".bob2",
+        "anim": "bob 7s ease-in-out -2.5s infinite"
+      },
+      {
+        "sel": ".bob3",
+        "anim": "bob 8s ease-in-out -4s infinite"
+      },
+      {
+        "sel": ".ping",
+        "anim": "ping 2.4s ease-out infinite"
+      },
+      {
+        "sel": ".ping2",
+        "anim": "ping 2.4s ease-out 1.2s infinite"
+      },
+      {
+        "sel": ".dotp",
+        "anim": "dotp 1.8s ease-out infinite"
+      },
+      {
+        "sel": ".mq",
+        "anim": "mq 40s linear infinite"
+      },
+      {
+        "sel": ".spinsvg",
+        "anim": "spin 90s linear infinite"
+      },
+      {
+        "sel": ".spinrev",
+        "anim": "spin 140s linear reverse infinite"
+      },
+      {
+        "sel": ".m1",
+        "anim": "mv 7s ease-in-out infinite"
+      },
+      {
+        "sel": ".m2",
+        "anim": "mv 11s ease-in-out -3s infinite"
+      },
+      {
+        "sel": ".m3",
+        "anim": "mv 8s ease-in-out -5s infinite"
+      },
+      {
+        "sel": ".m4",
+        "anim": "mv 9s ease-in-out -1s infinite"
+      },
+      {
+        "sel": ".fillbar",
+        "anim": "fillbar 6s cubic-bezier(.6,0,.3,1) infinite"
+      },
+      {
+        "sel": ".sweep",
+        "anim": "sweep 4.5s cubic-bezier(.6,0,.4,1) infinite"
+      },
+      {
+        "sel": ".sh",
+        "anim": "shimmer 2.8s ease-in-out infinite"
+      },
+      {
+        "sel": ".sh2",
+        "anim": "shimmer 2.8s ease-in-out .9s infinite"
+      },
+      {
+        "sel": ".sh3",
+        "anim": "shimmer 2.8s ease-in-out 1.8s infinite"
+      },
+      {
+        "sel": ".scan",
+        "anim": "scan 3.2s ease-in-out infinite alternate"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": [
+      "setInterval(("
+    ]
+  },
+  {
+    "file": "Nav.dc.html",
+    "keyframes": [],
+    "uses": [],
+    "js": []
+  },
+  {
+    "file": "News.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "fade",
+        "body": "from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "flow",
+        "body": "to{stroke-dashoffset:-320}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".fade",
+        "anim": "fade .45s ease both"
+      },
+      {
+        "sel": ".fl",
+        "anim": "flow 6s linear infinite"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Operations.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "drive",
+        "body": "from{transform:translateX(-80px)}to{transform:translateX(1330px)}"
+      },
+      {
+        "name": "dash",
+        "body": "to{background-position:-64px 0}"
+      },
+      {
+        "name": "dotp",
+        "body": "0%{box-shadow:0 0 0 0 rgba(255,122,26,.7)}100%{box-shadow:0 0 0 12px rgba(255,122,26,0)}"
+      },
+      {
+        "name": "fade",
+        "body": "from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".v1",
+        "anim": "drive 9s linear infinite"
+      },
+      {
+        "sel": ".v2",
+        "anim": "drive 14s linear -6s infinite"
+      },
+      {
+        "sel": ".v3",
+        "anim": "drive 11s linear -3s infinite"
+      },
+      {
+        "sel": ".v4",
+        "anim": "drive 9s linear -4.5s infinite"
+      },
+      {
+        "sel": ".lane",
+        "anim": "dash 1.6s linear infinite"
+      },
+      {
+        "sel": ".dotp",
+        "anim": "dotp 1.8s ease-out infinite"
+      },
+      {
+        "sel": ".fade",
+        "anim": "fade .5s ease both"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Partners.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "flow",
+        "body": "to{stroke-dashoffset:-320}"
+      },
+      {
+        "name": "ping",
+        "body": "0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.6);opacity:0}"
+      },
+      {
+        "name": "draw",
+        "body": "to{stroke-dashoffset:0}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".fl",
+        "anim": "flow 6s linear infinite"
+      },
+      {
+        "sel": ".ping",
+        "anim": "ping 2.4s ease-out infinite"
+      },
+      {
+        "sel": ".chk",
+        "anim": "draw .7s .2s ease forwards"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Platform.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "flow",
+        "body": "to{stroke-dashoffset:-320}"
+      },
+      {
+        "name": "spin",
+        "body": "to{transform:rotate(360deg)}"
+      },
+      {
+        "name": "ping",
+        "body": "0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.8);opacity:0}"
+      },
+      {
+        "name": "bob",
+        "body": "0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}"
+      },
+      {
+        "name": "sweepY",
+        "body": "from{transform:translateY(-40px)}to{transform:translateY(560px)}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".fl",
+        "anim": "flow 7s linear infinite"
+      },
+      {
+        "sel": ".spinsvg",
+        "anim": "spin 60s linear infinite"
+      },
+      {
+        "sel": ".spinrev",
+        "anim": "spin 90s linear reverse infinite"
+      },
+      {
+        "sel": ".ping",
+        "anim": "ping 2.4s ease-out infinite"
+      },
+      {
+        "sel": ".bob",
+        "anim": "bob 6s ease-in-out infinite"
+      },
+      {
+        "sel": ".sweepY",
+        "anim": "sweepY 3.6s cubic-bezier(.6,0,.4,1) infinite"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Portals.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "bob",
+        "body": "0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}"
+      },
+      {
+        "name": "ring",
+        "body": "0%,60%,100%{transform:rotate(0)}65%{transform:rotate(16deg)}70%{transform:rotate(-14deg)}75%{transform:rotate(10deg)}80%{transform:rotate(-6deg)}"
+      },
+      {
+        "name": "pop",
+        "body": "0%,55%{transform:scale(0)}65%{transform:scale(1.25)}75%,100%{transform:scale(1)}"
+      },
+      {
+        "name": "slidein",
+        "body": "0%{opacity:0;transform:translateX(30px)}100%{opacity:1;transform:none}"
+      },
+      {
+        "name": "fade",
+        "body": "from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".bob",
+        "anim": "bob 6s ease-in-out infinite"
+      },
+      {
+        "sel": ".bob2",
+        "anim": "bob 7s ease-in-out -3s infinite"
+      },
+      {
+        "sel": ".ring",
+        "anim": "ring 3s ease-in-out infinite"
+      },
+      {
+        "sel": ".pop",
+        "anim": "pop 3s ease-out infinite"
+      },
+      {
+        "sel": ".si1",
+        "anim": "slidein .6s .3s both"
+      },
+      {
+        "sel": ".si2",
+        "anim": "slidein .6s .6s both"
+      },
+      {
+        "sel": ".si3",
+        "anim": "slidein .6s .9s both"
+      },
+      {
+        "sel": ".si4",
+        "anim": "slidein .6s 1.2s both"
+      },
+      {
+        "sel": ".fade",
+        "anim": "fade .5s ease both"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Pricing.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "spin",
+        "body": "to{transform:rotate(360deg)}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".halo",
+        "anim": "spin 6s linear infinite"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Resources.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "fade",
+        "body": "from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "dotp",
+        "body": "0%{box-shadow:0 0 0 0 rgba(88,216,164,.7)}100%{box-shadow:0 0 0 12px rgba(88,216,164,0)}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".fade",
+        "anim": "fade .4s ease both"
+      },
+      {
+        "sel": ".dotp",
+        "anim": "dotp 1.8s ease-out infinite"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Sales.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "travel",
+        "body": "0%,14%{transform:translateX(0)}28%,42%{transform:translateX(149px)}56%,70%{transform:translateX(298px)}84%,100%{transform:translateX(447px)}"
+      },
+      {
+        "name": "hue",
+        "body": "0%,70%{background-color:#0E2336;border-color:#2EC4E6}84%,100%{background-color:#FF7A1A;border-color:#FF7A1A;color:#1A0B00}"
+      },
+      {
+        "name": "gp",
+        "body": "from{width:0}to{width:62%}"
+      },
+      {
+        "name": "blink",
+        "body": "0%,100%{opacity:1}50%{opacity:0}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".travel",
+        "anim": "travel 8s cubic-bezier(.7,0,.3,1) infinite"
+      },
+      {
+        "sel": ".won",
+        "anim": "hue 8s cubic-bezier(.7,0,.3,1) infinite"
+      },
+      {
+        "sel": ".gp",
+        "anim": "gp 1.6s .4s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".caret",
+        "anim": "blink 1s steps(1) infinite"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Security.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "wave",
+        "body": "0%{transform:scale(.7);opacity:.8}100%{transform:scale(1.5);opacity:0}"
+      },
+      {
+        "name": "draw",
+        "body": "to{stroke-dashoffset:0}"
+      },
+      {
+        "name": "packet",
+        "body": "0%{transform:translateX(0)}100%{transform:translateX(1240px)}"
+      },
+      {
+        "name": "lit",
+        "body": "0%,100%{border-color:#1A3650}50%{border-color:#2EC4E6}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".wv",
+        "anim": "wave 3s ease-out infinite"
+      },
+      {
+        "sel": ".wv2",
+        "anim": "wave 3s ease-out 1s infinite"
+      },
+      {
+        "sel": ".wv3",
+        "anim": "wave 3s ease-out 2s infinite"
+      },
+      {
+        "sel": ".chk",
+        "anim": "draw .8s 1s ease forwards"
+      },
+      {
+        "sel": ".pk",
+        "anim": "packet 6s cubic-bezier(.5,0,.5,1) infinite"
+      },
+      {
+        "sel": ".l1",
+        "anim": "lit 6s ease infinite"
+      },
+      {
+        "sel": ".l2",
+        "anim": "lit 6s ease 1s infinite"
+      },
+      {
+        "sel": ".l3",
+        "anim": "lit 6s ease 2s infinite"
+      },
+      {
+        "sel": ".l4",
+        "anim": "lit 6s ease 3s infinite"
+      },
+      {
+        "sel": ".l5",
+        "anim": "lit 6s ease 4s infinite"
+      },
+      {
+        "sel": ".l6",
+        "anim": "lit 6s ease 5s infinite"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Services.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "grow",
+        "body": "0%{width:0%}80%,100%{width:100%}"
+      },
+      {
+        "name": "lit",
+        "body": "0%,100%{background-color:#0B1B2A;color:#F3F0E8}50%{background-color:#FF7A1A;color:#1A0B00}"
+      },
+      {
+        "name": "spin",
+        "body": "to{transform:rotate(360deg)}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".gline",
+        "anim": "grow 7s cubic-bezier(.5,0,.5,1) infinite"
+      },
+      {
+        "sel": ".s1",
+        "anim": "lit 7s ease infinite"
+      },
+      {
+        "sel": ".s2",
+        "anim": "lit 7s ease 1.1s infinite"
+      },
+      {
+        "sel": ".s3",
+        "anim": "lit 7s ease 2.2s infinite"
+      },
+      {
+        "sel": ".s4",
+        "anim": "lit 7s ease 3.3s infinite"
+      },
+      {
+        "sel": ".s5",
+        "anim": "lit 7s ease 4.4s infinite"
+      },
+      {
+        "sel": ".gear",
+        "anim": "spin 12s linear infinite"
+      },
+      {
+        "sel": ".gear2",
+        "anim": "spin 8s linear reverse infinite"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Support.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "dotp",
+        "body": "0%{box-shadow:0 0 0 0 rgba(88,216,164,.7)}100%{box-shadow:0 0 0 10px rgba(88,216,164,0)}"
+      },
+      {
+        "name": "bars",
+        "body": "0%,100%{transform:scaleY(.55)}50%{transform:scaleY(1)}"
+      },
+      {
+        "name": "pop",
+        "body": "0%{transform:scale(.6);opacity:0}70%{transform:scale(1.06);opacity:1}100%{transform:scale(1)}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".dotp",
+        "anim": "dotp 1.8s ease-out infinite"
+      },
+      {
+        "sel": ".ub",
+        "anim": "bars 2.4s ease-in-out infinite"
+      },
+      {
+        "sel": ".pop",
+        "anim": "pop .5s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Track.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "dotp",
+        "body": "0%{box-shadow:0 0 0 0 rgba(255,122,26,.7)}100%{box-shadow:0 0 0 14px rgba(255,122,26,0)}"
+      },
+      {
+        "name": "flow",
+        "body": "to{stroke-dashoffset:-320}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".dotp",
+        "anim": "dotp 1.8s ease-out infinite"
+      },
+      {
+        "sel": ".fl",
+        "anim": "flow 6s linear infinite"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  },
+  {
+    "file": "Warehouse.dc.html",
+    "keyframes": [
+      {
+        "name": "rise",
+        "body": "from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}"
+      },
+      {
+        "name": "conveyor",
+        "body": "from{transform:translateX(-70px)}to{transform:translateX(600px)}"
+      },
+      {
+        "name": "belt",
+        "body": "to{background-position:40px 0}"
+      },
+      {
+        "name": "slot",
+        "body": "0%,20%{opacity:.25}30%,80%{opacity:1}90%,100%{opacity:.25}"
+      },
+      {
+        "name": "outq",
+        "body": "0%{transform:translateX(0);opacity:1}70%{transform:translateX(0);opacity:1}100%{transform:translateX(90px);opacity:0}"
+      }
+    ],
+    "uses": [
+      {
+        "sel": ".r",
+        "anim": "rise .9s cubic-bezier(.2,.7,.2,1) both"
+      },
+      {
+        "sel": ".cv",
+        "anim": "conveyor 6s linear infinite"
+      },
+      {
+        "sel": ".cv2",
+        "anim": "conveyor 6s linear -2s infinite"
+      },
+      {
+        "sel": ".cv3",
+        "anim": "conveyor 6s linear -4s infinite"
+      },
+      {
+        "sel": ".belt",
+        "anim": "belt .8s linear infinite"
+      },
+      {
+        "sel": ".s1",
+        "anim": "slot 5s ease infinite"
+      },
+      {
+        "sel": ".s2",
+        "anim": "slot 5s ease .6s infinite"
+      },
+      {
+        "sel": ".s3",
+        "anim": "slot 5s ease 1.2s infinite"
+      },
+      {
+        "sel": ".s4",
+        "anim": "slot 5s ease 1.8s infinite"
+      },
+      {
+        "sel": ".s5",
+        "anim": "slot 5s ease 2.4s infinite"
+      },
+      {
+        "sel": ".s6",
+        "anim": "slot 5s ease 3s infinite"
+      },
+      {
+        "sel": ".out",
+        "anim": "outq 3.5s ease-in infinite"
+      },
+      {
+        "sel": "media (prefers-reduced-motion:reduce)",
+        "anim": "none!important"
+      }
+    ],
+    "js": []
+  }
+]

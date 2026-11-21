@@ -1,0 +1,33 @@
+/* ── Footer ── */
+.lf-foot{--ft-bg:#04051A;position:relative;z-index:1;background:var(--ft-bg);color:var(--lf-text);border-top:1px solid var(--lf-border)}
+.lf-theme-light .lf-foot{--ft-bg:#F1F5F9}
+.lf-foot-wrap{max-width:1180px;margin:0 auto;padding:72px 40px 32px}
+.lf-foot-grid{display:grid;grid-template-columns:minmax(0,1.7fr) repeat(4,minmax(0,1fr));gap:40px}
+.lf-foot-brand .lf-brand{display:flex;align-items:center;gap:10px;color:var(--lf-text);text-decoration:none}
+.lf-foot-brand .lf-brand:hover{color:var(--lf-text)}
+.lf-foot-brand .lf-brand-logo{display:block;height:52px;width:auto;object-fit:contain}
+.lf-theme-light .lf-foot-brand .lf-brand,.lf-theme-light .lf-foot-brand .lf-brand:hover{color:var(--lf-text)}
+.lf-foot-tag{margin:18px 0 0;max-width:260px;font-size:13px;line-height:1.6;color:var(--lf-text-2)}
+.lf-foot-contact{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--lf-text-2)}
+.lf-foot-contact li{display:flex;align-items:center;gap:8px}
+.lf-foot-contact svg{flex:none;color:var(--lf-muted)}
+.lf-socials{display:flex;gap:8px;margin-top:20px}
+.lf-socials a{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--lf-border);color:var(--lf-text-2);transition:border-color .2s ease,color .2s ease}
+.lf-socials a:hover{border-color:#FF751F;color:#FF751F}
+.lf-foot-col h3{margin:0;font-size:13px;font-weight:600;color:var(--lf-text)}
+.lf-foot-col ul{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.lf-foot-col a{font-size:13px;color:var(--lf-text-2);text-decoration:none;transition:color .2s ease}
+.lf-foot-col a:hover{color:var(--lf-accent-text)}
+.lf-foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px;margin-top:56px;padding-top:22px;border-top:1px solid var(--lf-border);font-size:12px;color:var(--lf-muted)}
+.lf-foot-legal{display:flex;flex-wrap:wrap;gap:20px}
+.lf-foot-legal a{color:var(--lf-accent-text);text-decoration:none}
+.lf-foot-legal a:hover{text-decoration:underline;text-underline-offset:3px}
+.lf-foot a:focus-visible{outline:2px solid #FF751F;outline-offset:3px;border-radius:4px}
+@media (max-width:900px){
+.lf-foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.lf-foot-brand{grid-column:1 / -1}
+}
+@media (max-width:640px){
+.lf-foot-wrap{padding:56px 16px 28px}
+.lf-foot-grid{gap:32px 20px}
+}

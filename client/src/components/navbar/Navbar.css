@@ -1,0 +1,57 @@
+.lf-navwrap{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:50;width:min(1240px,calc(100% - 80px))}
+.lf-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px;padding:0 10px 0 20px;border-radius:48px;background:rgba(9,12,38,.55);border:1px solid rgba(255,255,255,.09);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);box-shadow:0 12px 40px -14px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.05)}
+.lf-brand{display:flex;align-items:center;gap:10px;color:#FFFFFF;text-decoration:none}
+.lf-brand:hover{color:#FFFFFF}
+.lf-brand-logo{display:block;height:48px;width:auto;object-fit:contain}
+.lf-word{display:flex;flex-direction:column;justify-content:center;line-height:.78;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:15px;letter-spacing:-.01em}
+.lf-word-line{display:block;white-space:nowrap}
+.lf-word-accent{font-style:italic;color:#FF751F;margin-top:-.12em}
+.lf-word-sub{font-size:.78em;opacity:.78;margin-top:-.08em}
+.lf-links{display:flex;align-items:center;gap:2px}
+.lf-link{display:inline-flex;align-items:center;gap:4px;padding:10px 14px;border-radius:999px;color:#A1A1B5;text-decoration:none;font-size:14.5px;transition:color .2s,background .2s;border:0;background:none;font:inherit;cursor:pointer}
+.lf-link:hover{color:#FFFFFF;background:rgba(255,255,255,.05)}
+.lf-link svg{opacity:.6}
+.lf-mega{position:absolute;left:0;right:0;top:calc(100% + 10px);padding:22px;border-radius:20px;background:rgba(9,12,38,.94);border:1px solid rgba(255,255,255,.1);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:0 30px 60px -20px rgba(0,0,0,.7);animation:lf-drop .3s ease both}
+.lf-mega-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 28px}
+.lf-mega h4{margin:0 0 10px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#73758A}
+.lf-mega a{display:block;padding:10px 12px;border-radius:12px;color:#FFFFFF;text-decoration:none;font-size:14px}
+.lf-mega a:hover{background:rgba(255,255,255,.05);color:#FFFFFF}
+.lf-mega a small{display:block;margin-top:2px;color:#73758A;font-size:12px}
+.lf-theme-light .lf-mega{background:rgba(255,255,255,.96);border-color:rgba(10,41,66,.1)}
+.lf-theme-light .lf-mega h4,.lf-theme-light .lf-mega a small{color:#64748B}
+.lf-theme-light .lf-mega a{color:#0A2942}
+.lf-theme-light .lf-mega a:hover{background:rgba(10,41,66,.05);color:#0A2942}
+.lf-actions{display:flex;align-items:center;gap:6px}
+.lf-theme-btn{flex:none;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:#FFFFFF;cursor:pointer;transition:background .25s ease,border-color .25s ease}
+.lf-theme-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.28)}
+.lf-menu-btn{display:none;width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:#FFFFFF;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.lf-mpanel{position:absolute;left:0;right:0;top:calc(100% + 10px);padding:10px;border-radius:24px;background:rgba(9,12,38,.92);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;gap:2px;box-shadow:0 30px 60px -20px rgba(0,0,0,.7);animation:lf-drop .3s ease both}
+.lf-mlink{display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:0 16px;border-radius:14px;color:#FFFFFF;text-decoration:none;font-size:16px}
+.lf-mlink:hover{background:rgba(255,255,255,.05);color:#FFFFFF}
+.lf-mrule{height:1px;margin:8px 6px;background:rgba(255,255,255,.08)}
+.lf-mpanel .lf-btn{margin-top:6px;height:50px}
+
+@keyframes lf-drop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+@media (max-width:900px){
+.lf-links,.lf-login,.lf-navcta{display:none}
+.lf-menu-btn{display:inline-flex}
+.lf-nav{height:60px;padding:0 8px 0 16px}
+}
+
+@media (max-width:640px){
+.lf-navwrap{top:14px;width:calc(100% - 32px)}
+}
+
+.lf-theme-light .lf-nav{background:rgba(255,255,255,.78);border-color:rgba(10,41,66,.1);box-shadow:0 12px 40px -18px rgba(10,41,66,.22),inset 0 1px 0 rgba(255,255,255,.9)}
+.lf-theme-light .lf-brand,.lf-theme-light .lf-brand:hover,.lf-theme-light .lf-word{color:#0A2942}
+.lf-theme-light .lf-word-accent{color:#C2410C}
+.lf-theme-light .lf-word-sub{opacity:.72}
+.lf-theme-light .lf-link{color:#64748B}
+.lf-theme-light .lf-link:hover{color:#0A2942;background:rgba(10,41,66,.05)}
+.lf-theme-light .lf-theme-btn,.lf-theme-light .lf-menu-btn{color:#0A2942;border-color:rgba(10,41,66,.14);background:rgba(10,41,66,.04)}
+.lf-theme-light .lf-theme-btn:hover,.lf-theme-light .lf-menu-btn:hover{background:rgba(10,41,66,.08);border-color:rgba(10,41,66,.24)}
+.lf-theme-light .lf-mpanel{background:rgba(255,255,255,.94);border-color:rgba(10,41,66,.1);box-shadow:0 30px 60px -24px rgba(10,41,66,.28)}
+.lf-theme-light .lf-mlink{color:#0A2942}
+.lf-theme-light .lf-mlink:hover{background:rgba(10,41,66,.05);color:#0A2942}
+.lf-theme-light .lf-mrule{background:rgba(10,41,66,.08)}

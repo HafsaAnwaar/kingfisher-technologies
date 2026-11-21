@@ -1,0 +1,8 @@
+node_modules
+dist
+dist-ssr
+.env
+*.local
+server/data/leads.json
+.DS_Store
+client/public/media/freight-ops-demo.mp4

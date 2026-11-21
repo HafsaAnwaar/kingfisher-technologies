@@ -1,0 +1,120 @@
+/* ── Modules for freight: persona configurator ── */
+.lf-stack{position:relative;z-index:1;background:var(--lf-bg);color:var(--lf-text);padding:8px 0 120px;overflow:hidden}
+.lf-stack-glow{position:absolute;inset:0;pointer-events:none}
+.lf-stack-wrap{position:relative;max-width:1180px;margin:0 auto;padding:0 40px}
+.lf-sk-head{display:flex;flex-direction:column;align-items:center;text-align:center}
+.lf-sk-eyebrow{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--lf-accent-text)}
+.lf-sk-h{margin:14px 0 0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(36px,3.6vw,52px);line-height:1.02;letter-spacing:-.02em;color:var(--lf-text)}
+.lf-sk-h span{display:block}
+.lf-sk-h em{display:block;font-style:italic;background:var(--lf-em-accent);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;padding-right:.08em}
+.lf-sk-sub{max-width:560px;margin:16px auto 0;font-size:15px;line-height:1.6;color:var(--lf-text-2)}
+.lf-sk-ask{margin-top:32px;font-family:'Geist Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--lf-muted)}
+.lf-personas{display:flex;justify-content:center;gap:24px;margin-top:20px}
+.lf-persona{flex:none;display:flex;flex-direction:column;align-items:center;width:170px;margin:0;padding:8px 6px;border:0;border-radius:14px;background:none;color:inherit;font:inherit;text-align:center;cursor:pointer;opacity:.45;filter:saturate(.35);transition:opacity .45s ease,filter .45s ease}
+.lf-persona:hover{opacity:.78}
+.lf-persona.is-on{opacity:1;filter:none}
+.lf-persona:focus-visible{outline:2px solid var(--lf-accent);outline-offset:4px}
+.lf-av{position:relative;width:112px;height:112px;border-radius:50%;transform:scale(.84);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s ease,background .45s ease}
+.lf-persona.is-on .lf-av{transform:scale(1)}
+.lf-av-in{position:absolute;inset:0;border-radius:50%;overflow:hidden}
+.lf-sil{display:block;width:100%;height:100%;color:var(--lf-sil)}
+.lf-av-badge{position:absolute;right:0;bottom:4px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:#0A2942;border:2px solid var(--lf-bg)}
+.lf-pname{margin-top:14px;font-size:14px;font-weight:600;color:var(--lf-text)}
+.lf-psub{margin-top:3px;font-size:12px;color:var(--lf-muted)}
+.lf-ppill-row{display:flex;justify-content:center;margin-top:20px}
+.lf-ppill{display:inline-flex;align-items:center;gap:9px;min-height:34px;padding:6px 16px;border-radius:999px;background:var(--lf-surface);border:1px solid;font-size:12.5px;color:var(--lf-text-2);text-align:center}
+.lf-ppill i{flex:none;width:7px;height:7px;border-radius:50%}
+.lf-ppill b{font-weight:600}
+.lf-filters{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;margin-top:28px}
+.lf-filter{height:30px;margin:0;padding:0 13px;border-radius:999px;border:1px solid var(--lf-border);background:transparent;color:var(--lf-muted);font-family:'Geist Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .25s ease,color .25s ease,border-color .25s ease}
+.lf-filter:hover{color:var(--lf-text);border-color:var(--lf-border-strong)}
+.lf-filter.is-on{background:var(--lf-text);border-color:var(--lf-text);color:var(--lf-bg)}
+.lf-filter:focus-visible{outline:2px solid var(--lf-accent);outline-offset:2px}
+.lf-filter-sep{width:1px;height:16px;margin:0 6px;background:var(--lf-border)}
+.lf-mgrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:24px}
+.lf-mc2{display:flex;flex-direction:column;align-items:stretch;min-height:158px;margin:0;padding:13px 13px 12px;border-radius:12px;border:1px solid;color:inherit;font:inherit;text-align:left;cursor:pointer;opacity:.3;transition:opacity .4s ease,border-color .4s ease,background .4s ease,box-shadow .4s ease,translate .25s ease}
+.lf-mc2:hover{opacity:.62;translate:0 -2px}
+.lf-mc2.is-sel{opacity:1}
+.lf-mc2.is-hidden{display:none}
+.lf-mc2:focus-visible{outline:2px solid var(--lf-accent);outline-offset:2px}
+.lf-mc2-top{display:flex;align-items:flex-start;justify-content:space-between}
+.lf-mc2-ico{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;border:1px solid}
+.lf-mc2-check{width:18px;height:18px;border-radius:50%;border:1.5px solid;display:grid;place-items:center;transition:background .3s ease,border-color .3s ease}
+.lf-mc2-check svg{opacity:0;transition:opacity .3s ease}
+.lf-mc2.is-sel .lf-mc2-check svg{opacity:1}
+.lf-mc2-cat{margin-top:12px;font-family:'Geist Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase}
+.lf-cat-ops{color:var(--lf-cat-ops)}
+.lf-cat-biz{color:var(--lf-cat-biz)}
+.lf-cat-admin{color:var(--lf-cat-admin)}
+.lf-mc2-name{margin-top:4px;font-size:13.5px;font-weight:600;line-height:1.25;color:var(--lf-text)}
+.lf-mc2-desc{margin-top:5px;font-size:11.5px;line-height:1.45;color:var(--lf-muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.lf-mc2-route{margin-top:auto;padding-top:10px;font-family:'Geist Mono',ui-monospace,monospace;font-size:9px;color:var(--lf-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lf-pipe{margin-top:20px;padding:22px 24px 22px;border-radius:14px;background:var(--lf-surface);border:1px solid var(--lf-border)}
+.lf-pipe-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 20px}
+.lf-pipe-k{font-family:'Geist Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--lf-muted)}
+.lf-pipe-story{font-size:13px;line-height:1.5;color:var(--lf-text-2)}
+.lf-pipe-scroll{margin-top:22px;overflow-x:auto;padding-bottom:6px}
+.lf-pipe-row{display:flex;min-width:760px}
+.lf-ps{position:relative;flex:1 0 76px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.lf-ps-line{position:absolute;top:21px;left:calc(-50% + 26px);right:calc(50% + 26px);height:2px;border-radius:2px;background:var(--lf-border);transform-origin:left center}
+.lf-ps-line.first{display:none}
+.lf-ps-dot{position:relative;z-index:1;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1.5px solid;transition:background .4s ease,border-color .4s ease,box-shadow .4s ease,color .4s ease,opacity .4s ease}
+.lf-ps.off .lf-ps-dot{opacity:.55}
+.lf-ps-lbl{font-size:11.5px;font-weight:500;color:var(--lf-text-2);white-space:nowrap}
+.lf-ps.off .lf-ps-lbl{color:var(--lf-muted);opacity:.75}
+.lf-pipe-a .lf-ps-line.on{animation:lf-pl-a .6s cubic-bezier(.2,.7,.2,1) both}
+.lf-pipe-b .lf-ps-line.on{animation:lf-pl-b .6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes lf-pl-a{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes lf-pl-b{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.lf-val2{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:32px;margin-top:16px;padding:28px 30px;border-radius:16px;border:1px solid;transition:border-color .45s ease}
+.lf-val2-k{font-family:'Geist Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--lf-muted)}
+.lf-val2-big{margin:10px 0 0;font-family:'Instrument Serif',Georgia,serif;font-size:clamp(30px,3vw,42px);font-weight:400;line-height:1.08;letter-spacing:-.015em;color:var(--lf-text)}
+.lf-val2-big em{font-style:italic}
+.lf-val2-note{margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--lf-muted)}
+.lf-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.lf-chip2{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;background:var(--lf-surface-2);border:1px solid var(--lf-border);font-size:11.5px;color:var(--lf-text-2)}
+.lf-chip2 i{width:7px;height:7px;border-radius:50%}
+.lf-val2-r{display:flex;flex-direction:column;align-items:flex-end;gap:4px;min-width:250px;text-align:right}
+.lf-val2-n{font-family:'Instrument Serif',Georgia,serif;font-size:68px;line-height:.9}
+.lf-val2-nl{font-size:13px;color:var(--lf-text-2)}
+.lf-val2-for{font-size:12px;color:var(--lf-muted)}
+.lf-val2-btn{margin-top:12px;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px;border-radius:999px;background:#FF751F;color:#1A0B02;font-size:14px;font-weight:600;text-decoration:none;box-shadow:0 10px 30px -10px rgba(255,117,31,.7);transition:translate .25s ease,filter .25s ease}
+.lf-val2-btn:hover{color:#1A0B02;translate:0 -2px;filter:brightness(1.06)}
+.lf-val2-btn:focus-visible,.lf-reset:focus-visible{outline:2px solid var(--lf-accent);outline-offset:3px}
+.lf-reset{margin:4px 0 0;padding:4px 0;border:0;background:none;color:var(--lf-muted);font:inherit;font-size:12px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.lf-reset:hover{color:var(--lf-text)}
+.lf-sr2{opacity:0}
+.lf-stack-in .lf-sr2{animation:lf-stack-rise .7s cubic-bezier(.2,.7,.2,1) both}
+@keyframes lf-stack-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.lf-stack .lf-tk-a{animation:lf-stack-tk-a .45s ease both}
+.lf-stack .lf-tk-b{animation:lf-stack-tk-b .45s ease both}
+@keyframes lf-stack-tk-a{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@keyframes lf-stack-tk-b{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media (max-width:1100px){
+.lf-mgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (max-width:900px){
+.lf-personas{justify-content:flex-start;overflow-x:auto;margin:20px -40px 0;padding:6px 40px 10px;scroll-snap-type:x mandatory}
+.lf-persona{scroll-snap-align:center;width:150px}
+.lf-mgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.lf-val2{grid-template-columns:minmax(0,1fr)}
+.lf-val2-r{align-items:flex-start;text-align:left;min-width:0}
+}
+@media (max-width:640px){
+.lf-stack{padding:0 0 80px}
+.lf-stack-wrap{padding:0 16px}
+.lf-personas{margin:16px -16px 0;padding:6px 16px 10px;gap:8px}
+.lf-persona{width:126px}
+.lf-av{width:92px;height:92px}
+.lf-mgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.lf-mc2{min-height:150px}
+.lf-pipe{padding:18px 16px}
+.lf-val2{padding:22px 18px}
+.lf-val2-n{font-size:56px}
+}
+@media (prefers-reduced-motion:reduce){
+.lf-sr2{opacity:1;animation:none !important}
+.lf-pipe-a .lf-ps-line.on,.lf-pipe-b .lf-ps-line.on{animation:none}
+.lf-persona,.lf-av,.lf-mc2{transition:none}
+.lf-stack .lf-tk-a,.lf-stack .lf-tk-b{animation:none !important}
+}

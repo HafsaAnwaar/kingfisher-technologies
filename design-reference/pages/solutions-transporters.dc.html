@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transporters · KINGFISHER</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+body{margin:0;background:#08091F}
+a{color:#A1A1B5}a:hover{color:#FFFFFF}
+*{box-sizing:border-box}
+.lf-page{--lf-bg:#08091F;--lf-surface:#0B0E2C;--lf-surface-2:#0D1133;--lf-border:rgba(255,255,255,.08);--lf-border-strong:rgba(255,255,255,.16);--lf-text:#FFFFFF;--lf-text-2:#A1A1B5;--lf-muted:#73758A;--lf-accent:#FF751F;--lf-accent-text:#FF751F;--lf-em-accent:linear-gradient(95deg,#FFD2B0 0%,#FF9A57 55%,#FF751F 100%);background:var(--lf-bg);color:var(--lf-text);font-family:'Geist',ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+.lf-theme-light{--lf-bg:#F7F9FC;--lf-surface:#FFFFFF;--lf-surface-2:#F1F5F9;--lf-border:#D8E1EA;--lf-border-strong:#B6C3D1;--lf-text:#0A2942;--lf-text-2:#73758A;--lf-muted:#64748B;--lf-accent-text:#C2410C;--lf-em-accent:linear-gradient(95deg,#C2410C 0%,#EA6A16 100%)}
+.lf-theme-light .lf-nav{background:rgba(255,255,255,.78);border-color:rgba(10,41,66,.1);box-shadow:0 12px 40px -18px rgba(10,41,66,.22)}
+.lf-theme-light .lf-brand,.lf-theme-light .lf-word{color:#0A2942}
+.lf-theme-light .lf-link{color:#64748B}
+.lf-theme-light .lf-link:hover{color:#0A2942;background:rgba(10,41,66,.05)}
+.lf-theme-light .lf-mega{background:rgba(255,255,255,.96);border-color:rgba(10,41,66,.1)}
+.lf-theme-light .lf-mpanel{background:rgba(255,255,255,.96)}
+.lf-navwrap{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:50;width:min(1240px,calc(100% - 80px))}
+.lf-nav{position:relative;display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px;padding:0 10px 0 20px;border-radius:48px;background:rgba(9,12,38,.55);border:1px solid rgba(255,255,255,.09);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);box-shadow:0 12px 40px -14px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.05)}
+.lf-brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
+.lf-word{font-size:17px;font-weight:600;letter-spacing:.06em}
+.lf-word b{font-weight:400;color:#FF751F}
+.lf-links{display:flex;align-items:center;gap:2px}
+.lf-link{display:inline-flex;align-items:center;gap:4px;padding:10px 14px;border-radius:999px;color:#A1A1B5;text-decoration:none;font-size:14.5px;border:0;background:none;font:inherit;cursor:pointer}
+.lf-link:hover{color:#fff;background:rgba(255,255,255,.05)}
+.lf-actions{display:flex;align-items:center;gap:6px}
+.lf-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;font-weight:600;text-decoration:none;cursor:pointer;border:0;font:inherit}
+.lf-btn-primary{height:40px;padding:0 18px;background:#FF751F;color:#1A0B02;box-shadow:0 10px 28px -10px rgba(255,117,31,.7)}
+.lf-btn-ghost{height:40px;padding:0 18px;background:rgba(255,255,255,.04);color:var(--lf-text);border:1px solid var(--lf-border-strong)}
+.lf-btn-sm{height:40px;font-size:13.5px}
+.lf-theme-btn,.lf-menu-btn{width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.lf-menu-btn{display:none}
+.lf-mega{display:none;position:absolute;left:0;right:0;top:calc(100% + 10px);padding:22px;border-radius:20px;background:rgba(9,12,38,.94);border:1px solid rgba(255,255,255,.1);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+.lf-mega.is-open{display:block}
+.lf-mega-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 28px}
+.lf-mega h4{margin:0 0 10px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--lf-muted)}
+.lf-mega a{display:block;padding:10px 12px;border-radius:12px;color:var(--lf-text);text-decoration:none;font-size:14px}
+.lf-mega a:hover{background:rgba(255,255,255,.05)}
+.lf-mega a small{display:block;margin-top:2px;color:var(--lf-muted);font-size:12px}
+.lf-mpanel{display:none;position:absolute;left:0;right:0;top:calc(100% + 10px);padding:10px;border-radius:24px;background:rgba(9,12,38,.92);border:1px solid rgba(255,255,255,.1);flex-direction:column;gap:2px}
+.lf-mpanel.is-open{display:flex}
+.lf-mlink{display:flex;min-height:48px;align-items:center;padding:0 16px;border-radius:14px;color:#fff;text-decoration:none}
+.lf-mainpad{padding-top:108px}
+.lf-wrap{max-width:1100px;margin:0 auto;padding:0 40px}
+.lf-hero-p{position:relative;padding:48px 0 72px;overflow:hidden}
+.lf-hero-p::before{content:'';position:absolute;inset:0;background:radial-gradient(50% 60% at 70% 0%,rgba(255,117,31,.12),transparent 70%);pointer-events:none}
+.lf-eyebrow{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lf-accent-text)}
+.lf-h1{margin:14px 0 0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(40px,5vw,64px);line-height:1.05;letter-spacing:-.02em}
+.lf-h1 em{font-style:italic;background:var(--lf-em-accent);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lf-lede{margin:18px 0 0;max-width:560px;font-size:17px;line-height:1.65;color:var(--lf-text-2)}
+.lf-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.lf-section{padding:72px 0;border-top:1px solid var(--lf-border)}
+.lf-h2{margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(28px,3vw,40px);line-height:1.15}
+.lf-sub{margin:12px 0 0;max-width:540px;color:var(--lf-text-2);font-size:15px;line-height:1.6}
+.lf-stage{margin-top:28px;padding:22px;border-radius:16px;background:linear-gradient(180deg,#1A1D3D,#11132E);border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
+.lf-theme-light .lf-stage{background:#fff;border-color:var(--lf-border);box-shadow:0 30px 60px -36px rgba(10,41,66,.25)}
+.lf-stage-top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.lf-stage-top b{font-size:15px}
+.lf-stage-top span{font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;color:var(--lf-muted)}
+.lf-stage-body{margin-top:18px;display:grid;gap:10px}
+.lf-pillrow{display:flex;flex-wrap:wrap;gap:8px}
+.lf-pill{height:34px;padding:0 12px;border-radius:999px;border:1px solid var(--lf-border-strong);display:inline-flex;align-items:center;font-size:12.5px;color:var(--lf-text-2)}
+.lf-pill.on{border-color:#FF751F;background:rgba(255,117,31,.14);color:var(--lf-text)}
+.lf-ba{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+.lf-ba article{padding:20px;border-radius:14px;border:1px solid var(--lf-border);background:var(--lf-surface)}
+.lf-ba h3{margin:0;font-size:14px;font-weight:600}
+.lf-ba ul{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.lf-ba li{font-size:13.5px;line-height:1.5;color:var(--lf-text-2);padding-left:16px;position:relative}
+.lf-ba li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--lf-muted)}
+.lf-ba .good li::before{background:#FF751F}
+.lf-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+.lf-step{padding:20px;border-radius:14px;border:1px solid var(--lf-border);background:var(--lf-surface)}
+.lf-step span{font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;color:var(--lf-accent-text)}
+.lf-step h3{margin:10px 0 0;font-size:18px;font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.lf-step p{margin:10px 0 0;font-size:13.5px;line-height:1.55;color:var(--lf-text-2)}
+.lf-feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:28px}
+.lf-feat{padding:20px;border-radius:14px;border:1px solid var(--lf-border);background:var(--lf-surface)}
+.lf-feat h3{margin:0;font-size:16px}
+.lf-feat p{margin:8px 0 0;font-size:13.5px;line-height:1.55;color:var(--lf-text-2)}
+.lf-proof{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:center;margin-top:28px;padding:28px;border-radius:16px;border:1px solid var(--lf-border);background:var(--lf-surface)}
+.lf-proof b{display:block;font-family:'Instrument Serif',Georgia,serif;font-size:42px;font-weight:400;color:var(--lf-accent-text)}
+.lf-proof small{display:block;margin-top:6px;color:var(--lf-muted);font-size:13px;line-height:1.4}
+.lf-proof blockquote{margin:0;font-size:18px;line-height:1.5;font-family:'Instrument Serif',Georgia,serif}
+.lf-proof cite{display:block;margin-top:12px;font-style:normal;font-size:13px;color:var(--lf-muted)}
+.lf-related{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.lf-related a{padding:12px 14px;border-radius:12px;border:1px solid var(--lf-border);background:var(--lf-surface);color:var(--lf-text);text-decoration:none;font-size:13.5px}
+.lf-related a:hover{border-color:#FF751F}
+.lf-faq{margin-top:22px;display:flex;flex-direction:column;gap:8px}
+.lf-faq details{border:1px solid var(--lf-border);border-radius:12px;background:var(--lf-surface);padding:14px 16px}
+.lf-faq summary{cursor:pointer;font-weight:600;font-size:14px}
+.lf-faq p{margin:10px 0 0;font-size:13.5px;line-height:1.6;color:var(--lf-text-2)}
+.lf-cta{padding:80px 0 100px;position:relative}
+.lf-cta-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:center}
+.lf-form{padding:24px;border-radius:14px;background:linear-gradient(180deg,#1A1D3D,#11132E);border:1px solid rgba(255,255,255,.12)}
+.lf-theme-light .lf-form{background:#fff;border-color:var(--lf-border)}
+.lf-form label{display:block;font-size:12.5px;font-weight:600;margin-top:14px}
+.lf-form input,.lf-form textarea,.lf-form select{width:100%;margin-top:8px;height:44px;padding:0 12px;border-radius:9px;border:1px solid var(--lf-border-strong);background:rgba(255,255,255,.04);color:var(--lf-text);font:inherit}
+.lf-theme-light .lf-form input,.lf-theme-light .lf-form textarea,.lf-theme-light .lf-form select{background:#F8FAFC}
+.lf-form textarea{height:100px;padding:12px;resize:vertical}
+.lf-form .lf-btn{margin-top:18px;width:100%;height:46px}
+.lf-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+.lf-card{display:flex;flex-direction:column;gap:8px;padding:20px;border-radius:14px;border:1px solid var(--lf-border);background:var(--lf-surface);text-decoration:none;color:inherit;transition:border-color .2s}
+.lf-card:hover{border-color:#FF751F;color:inherit}
+.lf-card .cat{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--lf-accent-text)}
+.lf-card h3{margin:0;font-size:18px;font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.lf-card p{margin:0;font-size:13px;line-height:1.5;color:var(--lf-text-2);flex:1}
+.lf-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+.lf-stat{padding:18px;border-radius:14px;border:1px solid var(--lf-border);background:var(--lf-surface);text-align:center}
+.lf-stat b{display:block;font-family:'Instrument Serif',Georgia,serif;font-size:32px;font-weight:400}
+.lf-stat span{display:block;margin-top:6px;font-size:12.5px;color:var(--lf-muted)}
+.lf-table{width:100%;border-collapse:collapse;margin-top:24px;font-size:13.5px}
+.lf-table th,.lf-table td{padding:12px 14px;border-bottom:1px solid var(--lf-border);text-align:left}
+.lf-table th{color:var(--lf-muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.lf-plans{display:flex;gap:8px;margin-top:22px;flex-wrap:wrap}
+.lf-plans button{height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--lf-border-strong);background:transparent;color:var(--lf-text);font:inherit;cursor:pointer}
+.lf-plans button.is-on{background:rgba(255,117,31,.14);border-color:#FF751F}
+.lf-pricebox{margin-top:22px;padding:22px;border-radius:14px;border:1px solid var(--lf-border);background:var(--lf-surface)}
+.lf-pricebox .big{font-family:'Instrument Serif',Georgia,serif;font-size:40px}
+.lf-foot{--ft-bg:#04051A;background:var(--ft-bg);border-top:1px solid var(--lf-border);margin-top:40px}
+.lf-theme-light .lf-foot{--ft-bg:#F1F5F9}
+.lf-foot-wrap{max-width:1180px;margin:0 auto;padding:72px 40px 32px}
+.lf-foot-grid{display:grid;grid-template-columns:minmax(0,1.7fr) repeat(4,minmax(0,1fr));gap:40px}
+.lf-foot-tag{margin:18px 0 0;max-width:260px;font-size:13px;line-height:1.6;color:var(--lf-text-2)}
+.lf-foot-col h3{margin:0;font-size:13px;font-weight:600}
+.lf-foot-col ul{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.lf-foot-col a{font-size:13px;color:var(--lf-text-2);text-decoration:none}
+.lf-foot-col a:hover{color:var(--lf-accent-text)}
+.lf-foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:56px;padding-top:22px;border-top:1px solid var(--lf-border);font-size:12px;color:var(--lf-muted)}
+.lf-foot-legal{display:flex;gap:20px}
+.lf-foot-legal a{color:var(--lf-accent-text);text-decoration:none}
+.lf-logos{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:22px;opacity:.7}
+.lf-logos span{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--lf-muted)}
+.lf-filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.lf-filters button{height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--lf-border-strong);background:transparent;color:var(--lf-text-2);font:inherit;cursor:pointer}
+.lf-filters button.is-on{border-color:#FF751F;color:var(--lf-text);background:rgba(255,117,31,.12)}
+.lf-story{padding:20px;border-radius:14px;border:1px solid var(--lf-border);background:var(--lf-surface)}
+.lf-story h3{margin:0;font-size:17px;font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.lf-story p{margin:10px 0 0;font-size:13.5px;line-height:1.55;color:var(--lf-text-2)}
+.lf-timeline{margin-top:28px;display:flex;flex-direction:column;gap:16px}
+.lf-timeline article{display:grid;grid-template-columns:88px 1fr;gap:16px}
+.lf-timeline b{font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;color:var(--lf-accent-text)}
+@media (max-width:900px){
+.lf-links,.lf-login,.lf-navcta{display:none}
+.lf-menu-btn{display:inline-flex}
+.lf-nav{height:60px}
+.lf-ba,.lf-steps,.lf-feats,.lf-cards,.lf-stats,.lf-cta-grid,.lf-proof{grid-template-columns:1fr}
+.lf-foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.lf-foot-brand{grid-column:1/-1}
+}
+@media (max-width:640px){
+.lf-navwrap{top:14px;width:calc(100% - 32px)}
+.lf-wrap,.lf-foot-wrap{padding-left:16px;padding-right:16px}
+.lf-mainpad{padding-top:92px}
+}
+</style>
+</head>
+<body>
+<div class="lf-page lf-theme-dark">
+
+<header class="lf-navwrap">
+<nav class="lf-nav" aria-label="Primary">
+<a class="lf-brand" href="../Main.dc.html" aria-label="KINGFISHER home"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="10" fill="#FF751F"></rect><path d="M9 22h4c4.6 0 3.4-12 8-12h2" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></path><circle cx="9" cy="22" r="2.4" fill="#FFFFFF"></circle><circle cx="23" cy="10" r="2.4" fill="none" stroke="#FFFFFF" stroke-width="2"></circle></svg><span class="lf-word">KING<b>FISHER</b></span></a>
+<div class="lf-links">
+<button type="button" class="lf-link" data-mega="platform" aria-expanded="false">Platform <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+<button type="button" class="lf-link" data-mega="solutions" aria-expanded="false">Solutions <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+<a class="lf-link" href="customers.dc.html">Customers</a>
+<a class="lf-link" href="pricing.dc.html">Pricing</a>
+<a class="lf-link" href="about.dc.html">Company</a>
+</div>
+<div class="lf-actions">
+<button class="lf-theme-btn" type="button" data-theme-toggle aria-label="Toggle theme">◐</button>
+<a class="lf-link lf-login" href="contact.dc.html">Login</a>
+<a class="lf-btn lf-btn-primary lf-btn-sm lf-navcta" href="contact.dc.html">Book a Demo</a>
+<button class="lf-menu-btn" type="button" data-menu aria-label="Open menu">☰</button>
+</div>
+<div class="lf-mega" id="mega-platform" hidden>
+<div class="lf-mega-grid">
+<div><h4>Operations</h4><a href="platform-air-freight.dc.html">Air Freight<small>Air export and import jobs, AWB workflows, bookings and mileston…</small></a><a href="platform-sea-freight.dc.html">Sea Freight<small>FCL and LCL import/export — containers, vessels, BL workflows an…</small></a><a href="platform-nvocc.dc.html">NVOCC<small>Voyages, bookings, load lists, HBLs, pre-alerts, DOs and voyage …</small></a><a href="platform-land-courier.dc.html">Land &amp; Courier<small>Trucking and courier jobs with the same job discipline as air an…</small></a><a href="platform-customs.dc.html">Customs Clearance<small>Declarations, clearance status and customs requirements attached…</small></a><a href="platform-documentation.dc.html">Documentation<small>Shipment paperwork — BL/AWB drafts, pre-alerts, invoices and ope…</small></a><a href="platform-warehouse.dc.html">Warehouse<small>Cargo handling, inventory movement and warehouse activity connec…</small></a><a href="platform-tracking.dc.html">Shipment Tracking<small>Milestones, movement and delivery progress — one status story fo…</small></a></div>
+<div><h4>Business</h4><a href="platform-finance-accounts.dc.html">Finance &amp; Accounts<small>Job costing, invoicing, receivables and payables linked directly…</small></a><a href="platform-reports.dc.html">Reports &amp; Analytics<small>Operational and financial data turned into management reports — …</small></a>
+<a href="platform.dc.html"><strong>All platform modules</strong><small>Browse the full stack</small></a></div>
+</div></div>
+<div class="lf-mega" id="mega-solutions" hidden>
+<div class="lf-mega-grid">
+<a href="solutions-freight-forwarders.dc.html">Freight Forwarders<small>Multi-modal forwarding on one ERP — quotations to invoice without stitch…</small></a><a href="solutions-nvocc-operators.dc.html">NVOCC Operators<small>Voyage-centric control for consolidators — space, HBLs and voyage P&amp;L to…</small></a><a href="solutions-customs-brokers.dc.html">Customs Brokers<small>Clearance status, document checklists and customer visibility without a …</small></a><a href="solutions-cfs-warehouse.dc.html">CFS &amp; Warehouse Operators<small>Receiving, handling and release tied to freight jobs — CFS floor and ops…</small></a><a href="solutions-importers-exporters.dc.html">Importers &amp; Exporters<small>Work with your forwarder on shared shipment truth — status, docs and com…</small></a><a href="solutions-transporters.dc.html">Transporters<small>Haulage jobs, vendor performance and costs connected to the forwarder’s …</small></a><a href="solutions-courier-companies.dc.html">Courier Companies<small>Consignments, delivery milestones and commercial close inside the same E…</small></a>
+<a href="solutions.dc.html"><strong>All solutions</strong><small>Find your operator profile</small></a>
+</div></div>
+<div class="lf-mpanel" id="mobile-panel" hidden>
+<a class="lf-mlink" href="platform.dc.html">Platform</a>
+<a class="lf-mlink" href="solutions.dc.html">Solutions</a>
+<a class="lf-mlink" href="customers.dc.html">Customers</a>
+<a class="lf-mlink" href="pricing.dc.html">Pricing</a>
+<a class="lf-mlink" href="about.dc.html">Company</a>
+<a class="lf-mlink" href="careers.dc.html">Careers</a>
+<a class="lf-mlink" href="contact.dc.html">Contact</a>
+<a class="lf-btn lf-btn-primary" href="contact.dc.html" style="margin-top:8px">Book a Demo</a>
+</div>
+</nav>
+</header>
+<div class="lf-mainpad">
+
+<section class="lf-hero-p"><div class="lf-wrap">
+<div class="lf-eyebrow">Solutions</div>
+<h1 class="lf-h1">Transporters</h1>
+<p class="lf-lede">Haulage jobs, vendor performance and costs connected to the forwarder’s shipment file.</p>
+<p class="lf-sub">Trucking instructions and costs stop living only in WhatsApp.</p>
+<div class="lf-ctas">
+<a class="lf-btn lf-btn-primary" href="contact.dc.html">Book a Demo</a>
+<a class="lf-btn lf-btn-ghost" href="solutions.dc.html">All solutions</a>
+</div>
+<div class="lf-stage">
+<div class="lf-stage-top"><b>Haulage desk</b><span>14 active land jobs · 3 pickups today</span></div>
+<div class="lf-stage-body"><div class="lf-pillrow">
+<span class="lf-pill on">Land &amp; Courier</span><span class="lf-pill on">Shipment Tracking</span><span class="lf-pill on">Finance &amp; Accounts</span><span class="lf-pill on">Reports &amp; Analytics</span><span class="lf-pill on">Warehouse</span>
+</div></div>
+</div>
+</div></section>
+
+<section class="lf-section"><div class="lf-wrap">
+<div class="lf-eyebrow">Live workflow</div>
+<h2 class="lf-h2">Built for how transporters actually operate.</h2>
+<div class="lf-steps">
+<div class="lf-step"><span>Stage 1</span><h3>Accept the move</h3><p>Land jobs with route, parties and instructions.</p></div><div class="lf-step"><span>Stage 2</span><h3>Execute &amp; update</h3><p>Milestones from pickup to delivery.</p></div><div class="lf-step"><span>Stage 3</span><h3>Bill the work</h3><p>Haulage costs and invoices tied to the job.</p></div>
+</div>
+</div></section>
+
+<section class="lf-section"><div class="lf-wrap">
+<div class="lf-eyebrow">Recommended modules</div>
+<h2 class="lf-h2">The stack for transporters.</h2>
+<div class="lf-related"><a href="platform-land-courier.dc.html">Land &amp; Courier</a><a href="platform-tracking.dc.html">Shipment Tracking</a><a href="platform-finance-accounts.dc.html">Finance &amp; Accounts</a><a href="platform-reports.dc.html">Reports &amp; Analytics</a><a href="platform-warehouse.dc.html">Warehouse</a></div>
+</div></section>
+
+<section class="lf-section"><div class="lf-wrap">
+<div class="lf-proof">
+<div><b>1 platform</b><small>quotation to invoice for your operating model</small></div>
+<div><blockquote>“Forwarders send cleaner instructions when the land job is a real record.”</blockquote><cite>Fleet Ops · Regional transporter</cite></div>
+</div>
+</div></section>
+
+<section class="lf-section"><div class="lf-wrap">
+<div class="lf-eyebrow">FAQ</div>
+<h2 class="lf-h2">Transporters — frequently asked</h2>
+<div class="lf-faq">
+<details><summary>Are transporters tenants or vendors?</summary><p>Often vendors inside a forwarder tenant; transporter companies can also run Land &amp; Courier as operators.</p></details><details><summary>POD?</summary><p>Delivery milestones and documentation capture proof against the job.</p></details><details><summary>Rate cards?</summary><p>Commercial terms live with vendors and job costing.</p></details><details><summary>Multi-stop?</summary><p>Job routing fields support the moves you configure.</p></details><details><summary>Visibility for the forwarder?</summary><p>Shared milestones keep the forwarder and transporter aligned.</p></details><details><summary>Reports?</summary><p>Volume and cost reports help both sides review performance.</p></details>
+</div>
+</div></section>
+
+
+<section class="lf-cta" id="demo">
+<div class="lf-wrap lf-cta-grid">
+<form class="lf-form" aria-label="Request a demo" onsubmit="event.preventDefault();alert('Design artifact — wire to /api/leads in React port.');">
+<h3 class="lf-h2" style="font-size:24px">Request a demo</h3>
+<label>Company email<input type="email" placeholder="you@yourcompany.com" required></label>
+<label>Company name<input type="text" placeholder="Your freight company" required></label>
+<label>Full name<input type="text" placeholder="Your name" required></label>
+<label>Freight modes
+<select><option>Air Freight</option><option>Sea FCL / LCL</option><option>NVOCC</option><option>Land / Courier</option><option>Multi-modal</option></select>
+</label>
+<button class="lf-btn lf-btn-primary" type="submit">Request demo</button>
+</form>
+<div>
+<div class="lf-eyebrow">Get started</div>
+<h2 class="lf-h2">Kingfisher for Transporters.</h2>
+<p class="lf-sub">Haulage jobs, vendor performance and costs connected to the forwarder’s shipment file.</p>
+<ul style="margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;color:var(--lf-text-2);font-size:14px">
+<li>✓ Guided demo tailored to your freight modes</li>
+<li>✓ Onboarding plan for your team and modules</li>
+<li>✓ Direct line to our solutions team</li>
+</ul>
+<p style="margin-top:18px;font-size:13px;color:var(--lf-muted)">Prefer email? Write to <a href="contact.dc.html">[sales email]</a></p>
+</div>
+</div>
+</section>
+
+</div>
+
+<footer class="lf-foot">
+<div class="lf-foot-wrap">
+<div class="lf-foot-grid">
+<div class="lf-foot-brand">
+<a class="lf-brand" href="../Main.dc.html"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="10" fill="#FF751F"></rect><path d="M9 22h4c4.6 0 3.4-12 8-12h2" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></path><circle cx="9" cy="22" r="2.4" fill="#FFFFFF"></circle><circle cx="23" cy="10" r="2.4" fill="none" stroke="#FFFFFF" stroke-width="2"></circle></svg><span class="lf-word">KING<b>FISHER</b></span></a>
+<p class="lf-foot-tag">The freight-forwarding ERP for modern logistics teams — from quotation to invoice.</p>
+</div>
+<nav class="lf-foot-col" aria-label="Platform"><h3>Platform</h3><ul>
+<li><a href="platform-air-freight.dc.html">Air Freight</a></li><li><a href="platform-sea-freight.dc.html">Sea FCL &amp; LCL</a></li><li><a href="platform-nvocc.dc.html">NVOCC</a></li><li><a href="platform-land-courier.dc.html">Land &amp; Courier</a></li><li><a href="platform-customs.dc.html">Customs Clearance</a></li><li><a href="platform-documentation.dc.html">Documentation</a></li><li><a href="platform-warehouse.dc.html">Warehouse</a></li><li><a href="platform-tracking.dc.html">Shipment Tracking</a></li><li><a href="platform-finance-accounts.dc.html">Finance &amp; Accounts</a></li><li><a href="platform-reports.dc.html">Reports &amp; Analytics</a></li>
+</ul></nav>
+<nav class="lf-foot-col" aria-label="Solutions"><h3>Solutions</h3><ul>
+<li><a href="solutions-freight-forwarders.dc.html">Freight Forwarders</a></li><li><a href="solutions-nvocc-operators.dc.html">NVOCC Operators</a></li><li><a href="solutions-customs-brokers.dc.html">Customs Brokers</a></li><li><a href="solutions-cfs-warehouse.dc.html">CFS &amp; Warehouse Operators</a></li><li><a href="solutions-importers-exporters.dc.html">Importers &amp; Exporters</a></li><li><a href="solutions-transporters.dc.html">Transporters</a></li><li><a href="solutions-courier-companies.dc.html">Courier Companies</a></li>
+</ul></nav>
+<nav class="lf-foot-col" aria-label="Company"><h3>Company</h3><ul>
+<li><a href="about.dc.html">About Us</a></li>
+<li><a href="customers.dc.html">Customers</a></li>
+<li><a href="pricing.dc.html">Pricing</a></li>
+<li><a href="careers.dc.html">Careers</a></li>
+<li><a href="contact.dc.html">Contact</a></li>
+</ul></nav>
+<nav class="lf-foot-col" aria-label="Resources"><h3>Resources</h3><ul>
+<li><a href="../Main.dc.html#product-demo">Product Demo</a></li>
+<li><a href="../Main.dc.html#implementation">Implementation</a></li>
+<li><a href="../Main.dc.html#faq">FAQ</a></li>
+<li><a href="platform.dc.html">Platform</a></li>
+<li><a href="solutions.dc.html">Solutions</a></li>
+</ul></nav>
+</div>
+<div class="lf-foot-bottom">
+<span>© 2026 Kingfisher. All rights reserved.</span>
+<nav class="lf-foot-legal" aria-label="Legal"><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Cookies</a></nav>
+</div>
+</div>
+</footer>
+</div>
+
+<script>
+(function(){
+  const page=document.querySelector('.lf-page');
+  const themeBtn=document.querySelector('[data-theme-toggle]');
+  const menuBtn=document.querySelector('[data-menu]');
+  const panel=document.getElementById('mobile-panel');
+  let theme=localStorage.getItem('lf-theme')||'dark';
+  function apply(){
+    page.classList.toggle('lf-theme-light', theme==='light');
+    page.classList.toggle('lf-theme-dark', theme!=='light');
+  }
+  apply();
+  themeBtn&&themeBtn.addEventListener('click',()=>{theme=theme==='light'?'dark':'light';localStorage.setItem('lf-theme',theme);apply();});
+  menuBtn&&menuBtn.addEventListener('click',()=>{
+    const open=!panel.classList.contains('is-open');
+    panel.hidden=!open;panel.classList.toggle('is-open',open);
+    document.querySelectorAll('.lf-mega').forEach(m=>{m.hidden=true;m.classList.remove('is-open');});
+  });
+  document.querySelectorAll('[data-mega]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const id='mega-'+btn.getAttribute('data-mega');
+      const el=document.getElementById(id);
+      const open=!el.classList.contains('is-open');
+      document.querySelectorAll('.lf-mega').forEach(m=>{m.hidden=true;m.classList.remove('is-open');});
+      if(panel){panel.hidden=true;panel.classList.remove('is-open');}
+      el.hidden=!open;el.classList.toggle('is-open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+  });
+  document.addEventListener('click',(e)=>{
+    if(!e.target.closest('.lf-navwrap')){
+      document.querySelectorAll('.lf-mega,.lf-mpanel').forEach(m=>{m.hidden=true;m.classList.remove('is-open');});
+    }
+  });
+})();
+</script>
+</body>
+</html>
