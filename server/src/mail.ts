@@ -1,8 +1,8 @@
 import nodemailer from 'nodemailer'
 import type { Lead } from './leads.js'
 
-/** Inbox that receives form submissions (testing first). */
-const contactInbox = process.env.CONTACT_INBOX || 'hafsaanwaar8@gmail.com'
+/** Inbox that receives form submissions. */
+const contactInbox = process.env.CONTACT_INBOX || 'inquiry@kingfishertec.com'
 /** Public brand address shown on the site / Reply-To fallback. */
 const publicEmail = process.env.PUBLIC_CONTACT_EMAIL || 'inquiry@kingfishertec.com'
 const siteOrigin = process.env.CLIENT_ORIGIN || process.env.SITE_ORIGIN || 'http://localhost:5173'
