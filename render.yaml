@@ -16,6 +16,11 @@ services:
         value: inquiry@kingfishertec.com
       - key: CONTACT_INBOX
         value: hafsaanwaar8@gmail.com
+      # After custom domain is live, set both to https://www.kingfishertec.com
+      - key: CLIENT_ORIGIN
+        value: https://www.kingfishertec.com
+      - key: SITE_ORIGIN
+        value: https://www.kingfishertec.com
       - key: SMTP_HOST
         value: smtp.gmail.com
       - key: SMTP_PORT
