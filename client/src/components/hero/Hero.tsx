@@ -38,7 +38,7 @@ export function Hero() {
     <section
       className="lf-hero"
       id="top"
-      aria-label="KINGFISHER — AI-powered logistics platform"
+      aria-label="KINGFISHER, AI-powered logistics platform"
       onMouseMove={onMove}
       onMouseLeave={() => setOffset({ x: 0, y: 0 })}
     >

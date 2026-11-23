@@ -22,8 +22,6 @@
 .lf-poster-top{top:18px}
 .lf-poster-bot{bottom:18px;color:#A1A1B5}
 .lf-poster-chip{display:inline-flex;align-items:center;gap:8px;height:26px;padding:0 11px;border-radius:999px;background:rgba(10,14,40,.6);border:1px solid rgba(255,255,255,0.108)}
-.lf-demo .lf-live{width:6px;height:6px;border-radius:50%;background:#46D39A;box-shadow:0 0 8px #46D39A;animation:lf-demo-pulse 2s ease-in-out infinite}
-@keyframes lf-demo-pulse{0%,100%{opacity:1}50%{opacity:.45}}
 .lf-poster-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center}
 .lf-playbtn{width:84px;height:84px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 0 0 10px rgba(255,255,255,.04),0 20px 50px -10px rgba(0,0,0,.6);transition:transform .3s ease,background .3s ease}
 .lf-playbtn svg{margin-left:4px}
@@ -50,7 +48,6 @@
 @media (prefers-reduced-motion:reduce){
 .lf-dr{opacity:1;transform:none;transition:none}
 .lf-demo-glow{animation:none;opacity:.72;transition:none}
-.lf-demo .lf-live{animation:none}
 }
 
 .lf-theme-light .lf-demo{background:var(--lf-bg)}

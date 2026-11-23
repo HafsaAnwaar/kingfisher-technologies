@@ -5,7 +5,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: 'Which freight modes does Kingfisher support?',
-    a: 'Air import and export, Sea FCL and LCL import and export, NVOCC operations, Land / Trucking and Courier — each with its own job workflow, documents and milestones.',
+    a: 'Air import and export, Sea FCL and LCL import and export, NVOCC operations, Land / Trucking and Courier, each with its own job workflow, documents and milestones.',
   },
   {
     q: 'Does Kingfisher require an IT team to set up?',
@@ -13,7 +13,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: 'How is Kingfisher different from spreadsheets and separate tools?',
-    a: 'Every shipment lives in one job file — from enquiry and quotation through booking, documentation, customs, delivery, costing and invoicing — so data is entered once and shared across teams.',
+    a: 'Every shipment lives in one job file, from enquiry and quotation through booking, documentation, customs, delivery, costing and invoicing, so data is entered once and shared across teams.',
   },
   {
     q: 'Can Kingfisher handle finance and accounting?',

@@ -19,7 +19,7 @@ export type Vehicle = 'plane' | 'ship' | 'truck'
 type Lane = { id: string; d: string; dur: number; v: Vehicle[] }
 type Port = { x: number; y: number; code: string }
 
-/** Lane sets per fleet — air flies high arcs, sea runs low swells, land runs straighter roads. */
+/** Lane sets per fleet, air flies high arcs, sea runs low swells, land runs straighter roads. */
 const SCENES: Record<Fleet, { lanes: Lane[]; ports: Port[] }> = {
   mix: {
     lanes: [

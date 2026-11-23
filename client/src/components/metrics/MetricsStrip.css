@@ -31,23 +31,6 @@
   color: #86e8be;
 }
 
-.lf-trust-metrics .lf-sdot {
-  position: relative;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #46d39a;
-}
-
-.lf-trust-metrics .lf-sdot::after {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  border: 1px solid #46d39a;
-  animation: lf-ring 2s ease-out infinite;
-}
-
 .lf-livesep {
   width: 1px;
   height: 12px;
@@ -252,9 +235,5 @@
     opacity: 1;
     transform: none;
     transition: none;
-  }
-
-  .lf-trust-metrics .lf-sdot::after {
-    animation: none;
   }
 }

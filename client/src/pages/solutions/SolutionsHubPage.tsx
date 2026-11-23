@@ -32,7 +32,7 @@ export function SolutionsHubPage() {
             Built for how <em>you operate.</em>
           </>
         }
-        lede="Forwarders, NVOCC operators, customs brokers, CFS, shippers, transporters and courier companies — each with a recommended Kingfisher stack."
+        lede="Forwarders, NVOCC operators, customs brokers, CFS, shippers, transporters and courier companies, each with a recommended Kingfisher stack."
         secondaryTo="/platform"
         secondaryLabel="Explore platform"
         caps={SOLUTIONS.slice(0, 4).map((s) => s.name)}
@@ -90,7 +90,7 @@ export function SolutionsHubPage() {
           <>
             <p>
               Operator solutions share one idea: Sales, Ops, Docs, and Accounts know their stage on
-              the same record — whether you clear imports or run multi-modal forwarding.
+              the same record, whether you clear imports or run multi-modal forwarding.
             </p>
           </>
         }

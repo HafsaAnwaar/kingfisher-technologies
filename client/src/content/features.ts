@@ -20,13 +20,13 @@ export const FEATURES: FeaturePage[] = [
     who: ['Operations', 'Customer service', 'Branch managers', 'Tenant admins'],
     functions: [
       ['Multi-mode jobs', 'Air, ocean, inland, courier, NVOCC, warehouse, and customs as first-class work.'],
-      ['Shared costing', 'Sale, cost, and GP live on the job — not in a side spreadsheet.'],
+      ['Shared costing', 'Sale, cost, and GP live on the job, not in a side spreadsheet.'],
       ['Milestones', 'Advance status with a trail the whole desk can trust.'],
       ['Department handoffs', 'Sales → Ops → Docs → Accounts designed into the continuum.'],
     ],
     relatedModules: ['air-freight', 'sea-freight', 'nvocc', 'land-courier', 'customs', 'warehouse'],
     faqs: [
-      ['Does operations cover all modes?', 'Yes — air, ocean FCL/LCL, inland, courier, NVOCC, warehouse-linked, and customs clearance jobs.'],
+      ['Does operations cover all modes?', 'Yes, air, ocean FCL/LCL, inland, courier, NVOCC, warehouse-linked, and customs clearance jobs.'],
       ['Can we start with one mode?', 'Yes. Enable the modules you need and expand as desks come online.'],
     ],
   },
@@ -35,24 +35,24 @@ export const FEATURES: FeaturePage[] = [
     name: 'Shipment Management',
     tagline: 'A booking layer between accepted quotations and executable operational jobs.',
     purpose:
-      'Turn commercial intent into work with clear status — so accepted quotes become bookings and jobs without losing context.',
+      'Turn commercial intent into work with clear status, so accepted quotes become bookings and jobs without losing context.',
     who: ['Sales', 'Operations', 'Customer service'],
     functions: [
       ['Booking layer', 'Bridge accepted quotations into shipments before jobs execute.'],
       ['Status clarity', 'Commercial and operational status stay readable across teams.'],
       ['Containers & cargo', 'Planned and actual containers, dimensions, and cargo detail on the file.'],
-      ['Sub-jobs', 'House–master and related structures where your mode requires them.'],
+      ['Sub-jobs', 'House-master and related structures where your mode requires them.'],
     ],
     relatedModules: ['air-freight', 'sea-freight', 'tracking', 'documentation'],
     faqs: [
       ['Is a shipment the same as a job?', 'Shipments sit as the booking layer; jobs are the operational execution by mode.'],
-      ['Can customers see shipment progress?', 'Yes — via customer portal and public track, without exposing commercial costs.'],
+      ['Can customers see shipment progress?', 'Yes, via customer portal and public track, without exposing commercial costs.'],
     ],
   },
   {
     slug: 'quotations',
     name: 'Quotation Management',
-    tagline: 'Build, verify, send, and convert quotations — with portal accept, reject, or negotiate.',
+    tagline: 'Build, verify, send, and convert quotations, with portal accept, reject, or negotiate.',
     purpose:
       'Keep quoting on the same continuum as jobs and finance so accepted commercial work becomes executable files.',
     who: ['Sales', 'Customer service', 'Customers (portal)'],
@@ -64,7 +64,7 @@ export const FEATURES: FeaturePage[] = [
     ],
     relatedModules: ['finance-accounts', 'tracking', 'documentation'],
     faqs: [
-      ['Can customers negotiate in the portal?', 'Yes — after a quote is sent, portal actions support accept, reject, and negotiate.'],
+      ['Can customers negotiate in the portal?', 'Yes, after a quote is sent, portal actions support accept, reject, and negotiate.'],
       ['Does quoting connect to finance?', 'Converted work carries into job costing and invoicing on the same continuum.'],
     ],
   },
@@ -73,7 +73,7 @@ export const FEATURES: FeaturePage[] = [
     name: 'Customer Management',
     tagline: 'Party profiles, contacts, credit context, and portal users on one commercial record.',
     purpose:
-      'One customer record drives quoting, ops visibility, documents, and AR — without duplicate party masters.',
+      'One customer record drives quoting, ops visibility, documents, and AR, without duplicate party masters.',
     who: ['Sales', 'Customer service', 'Finance', 'Tenant admins'],
     functions: [
       ['Party master', 'Customers and agents with contacts, addresses, and credit fields.'],
@@ -90,20 +90,20 @@ export const FEATURES: FeaturePage[] = [
   {
     slug: 'vendors',
     name: 'Vendor Management',
-    tagline: 'Cost visibility, offers, document exchange, and purchase invoice submit — without opening your books.',
+    tagline: 'Cost visibility, offers, document exchange, and purchase invoice submit, without opening your books.',
     purpose:
       'Coordinate carriers, agents, and service vendors in a controlled space while staff keep posting and approval control.',
     who: ['Operations', 'Finance', 'Vendors (portal)'],
     functions: [
       ['Vendor parties', 'Supplier and agent masters linked to cost-side work.'],
-      ['Cost visibility', 'Vendors see cost-linked job information — not unrelated accounts.'],
+      ['Cost visibility', 'Vendors see cost-linked job information, not unrelated accounts.'],
       ['Purchase invoices', 'Vendors submit drafts; staff review and post.'],
       ['AP views', 'Aging and remittance-oriented visibility for vendor finance.'],
     ],
     relatedModules: ['finance-accounts', 'documentation', 'land-courier'],
     faqs: [
       ['Can vendors post our ledger?', 'No. Vendors submit for review; your team controls posting and approval.'],
-      ['Is there a vendor portal?', 'Yes — a dedicated sign-in path for assigned work and documents.'],
+      ['Is there a vendor portal?', 'Yes, a dedicated sign-in path for assigned work and documents.'],
     ],
   },
   {
@@ -111,7 +111,7 @@ export const FEATURES: FeaturePage[] = [
     name: 'Document Management',
     tagline: 'Collect booking and compliance documents with controlled visibility on the shipment file.',
     purpose:
-      'Keep shipment files organized for staff, customers, and vendors — private storage, authorized downloads, clear visibility rules.',
+      'Keep shipment files organized for staff, customers, and vendors, private storage, authorized downloads, clear visibility rules.',
     who: ['Documentation', 'Operations', 'Customers', 'Vendors'],
     functions: [
       ['Collection', 'Booking and compliance packs attached to the operational file.'],
@@ -141,7 +141,7 @@ export const FEATURES: FeaturePage[] = [
     relatedModules: ['finance-accounts', 'reports'],
     faqs: [
       ['Does Kingfisher store card numbers?', 'No. Online payments are processed by a payment provider; Kingfisher updates invoices and receipts in your books.'],
-      ['Does it replace external accounting?', 'Kingfisher includes GL, AR/AP, and reports. Some companies still integrate externally — discuss fit in a demo.'],
+      ['Does it replace external accounting?', 'Kingfisher includes GL, AR/AP, and reports. Some companies still integrate externally, discuss fit in a demo.'],
     ],
   },
   {
@@ -149,7 +149,7 @@ export const FEATURES: FeaturePage[] = [
     name: 'Business Intelligence',
     tagline: 'MIS dashboards, financial statements, CRM insights, and operational reports.',
     purpose:
-      'Help management and desks understand performance from real GL, CRM, and ops data — without invented KPI theater.',
+      'Help management and desks understand performance from real GL, CRM, and ops data, without invented KPI theater.',
     who: ['Management', 'Finance', 'Sales', 'Operations'],
     functions: [
       ['MIS & statements', 'Profitability views plus trial balance, P&L, balance sheet, and related statements.'],
@@ -159,7 +159,7 @@ export const FEATURES: FeaturePage[] = [
     ],
     relatedModules: ['reports', 'finance-accounts'],
     faqs: [
-      ['Is there a single CEO dashboard?', 'We surface MIS, ops, and CRM views from real endpoints — not a fabricated all-in-one widget wall.'],
+      ['Is there a single CEO dashboard?', 'We surface MIS, ops, and CRM views from real endpoints, not a fabricated all-in-one widget wall.'],
       ['NVOCC reporting?', 'Voyage P&L, utilization, and trade-lane style reports are available for NVOCC ops.'],
     ],
   },
@@ -168,7 +168,7 @@ export const FEATURES: FeaturePage[] = [
     name: 'Users & Permissions',
     tagline: 'Role-based staff access so each team sees the modules and actions they are authorized to use.',
     purpose:
-      'Separate Super Admin, Tenant Admin, and staff roles clearly — finance, ops, and sales see what they should.',
+      'Separate Super Admin, Tenant Admin, and staff roles clearly, finance, ops, and sales see what they should.',
     who: ['Tenant admins', 'Branch managers', 'All staff'],
     functions: [
       ['Role-based access', 'Module permissions and job-type scopes for staff.'],
@@ -197,7 +197,7 @@ export const FEATURES: FeaturePage[] = [
     ],
     relatedModules: ['tracking', 'documentation', 'finance-accounts'],
     faqs: [
-      ['Is activity visible to customers?', 'Customers see portal-appropriate notifications and documents — not internal staff-only notes.'],
+      ['Is activity visible to customers?', 'Customers see portal-appropriate notifications and documents, not internal staff-only notes.'],
       ['Can admins force logout?', 'Authorized administrators can revoke sessions when needed.'],
     ],
   },

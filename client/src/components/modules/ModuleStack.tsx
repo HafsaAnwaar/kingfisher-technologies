@@ -161,11 +161,11 @@ export function ModuleStack() {
             <em>Build your freight stack.</em>
           </h2>
           <p className="lf-sk-sub lf-sr2" style={{ animationDelay: '160ms' }}>
-            Tell us how your freight operation works — we&apos;ll recommend the right modules, show
+            Tell us how your freight operation works, we&apos;ll recommend the right modules, show
             you the workflow, and estimate your potential savings.
           </p>
           <div className="lf-sk-ask lf-sr2" style={{ animationDelay: '220ms' }}>
-            I am — click a role to see my modules
+            I am, click a role to see my modules
           </div>
         </header>
 
@@ -219,7 +219,7 @@ export function ModuleStack() {
           >
             <i style={{ background: per.color }} />
             <span>
-              <b style={{ color: text }}>{per.name}&apos;s stack</b> — {per.pill}
+              <b style={{ color: text }}>{per.name}&apos;s stack</b>, {per.pill}
             </span>
           </span>
         </div>
@@ -359,7 +359,7 @@ export function ModuleStack() {
               <em style={{ color: text }}>{cov}%</em> of your freight pipeline connected
             </p>
             <p className="lf-val2-note">
-              Configured for your freight workflow — based on how many pipeline steps your selected
+              Configured for your freight workflow, based on how many pipeline steps your selected
               modules cover. Your actual value depends on your operation.
             </p>
             <div className="lf-chips">

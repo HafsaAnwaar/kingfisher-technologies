@@ -8,7 +8,7 @@ export function FaqChatStage() {
         <span>Solutions desk · online</span>
       </div>
       <div className="lf-mk-chat-b lf-mk-chat-b1">Can we start with air only?</div>
-      <div className="lf-mk-chat-b lf-mk-chat-b2">Yes — switch on Sea or Finance later.</div>
+      <div className="lf-mk-chat-b lf-mk-chat-b2">Yes, switch on Sea or Finance later.</div>
       <div className="lf-mk-chat-b lf-mk-chat-b3 typing">
         <i />
         <i />

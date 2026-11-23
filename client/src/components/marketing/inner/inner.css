@@ -27,14 +27,12 @@
 .lf-theme-light .lf-x .lf-mk-btn-ghost:hover{border-color:rgba(10,41,66,.4)}
 
 /* ---------- badge / section heads (homepage .lf-hiw-badge) ---------- */
-.lf-x .lf-x-badge,.lf-x .lf-mk-badge{display:inline-flex;align-items:center;gap:9px;height:32px;padding:0 15px 0 12px;border-radius:999px;background:rgba(13,18,53,.6);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lf-text-2);white-space:nowrap;max-width:100%}
+.lf-x .lf-x-badge,.lf-x .lf-mk-badge{display:inline-flex;align-items:center;gap:9px;height:32px;padding:0 15px;border-radius:999px;background:rgba(13,18,53,.6);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lf-text-2);white-space:nowrap;max-width:100%}
 .lf-theme-light .lf-x .lf-x-badge,.lf-theme-light .lf-x .lf-mk-badge{background:#FFFFFF;border-color:var(--lf-border);color:var(--lf-text-2);box-shadow:0 1px 2px rgba(10,41,66,.05)}
-.lf-x .lf-x-badge-dot{position:relative;flex:none;width:7px;height:7px;border-radius:50%;background:#FF751F;box-shadow:0 0 0 3px rgba(255,117,31,.14),0 0 12px #FF751F}
-.lf-x .lf-x-badge-dot::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:1px solid #FF751F;animation:lf-x-ping 2.6s ease-out infinite}
+.lf-x .lf-x-badge-dot{display:none}
 
 /* raw eyebrow labels in page markup → same pill language */
-.lf-x .lf-mk-section .lf-mk-eyebrow{display:inline-flex;align-items:center;gap:9px;height:30px;padding:0 14px 0 11px;border-radius:999px;background:rgba(13,18,53,.6);border:1px solid rgba(255,255,255,.12);font-size:11px;letter-spacing:.16em;color:var(--lf-text-2)}
-.lf-x .lf-mk-section .lf-mk-eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:#FF751F;box-shadow:0 0 10px #FF751F}
+.lf-x .lf-mk-section .lf-mk-eyebrow{display:inline-flex;align-items:center;gap:9px;height:30px;padding:0 14px;border-radius:999px;background:rgba(13,18,53,.6);border:1px solid rgba(255,255,255,.12);font-size:11px;letter-spacing:.16em;color:var(--lf-text-2)}
 .lf-theme-light .lf-x .lf-mk-section .lf-mk-eyebrow{background:#FFFFFF;border-color:var(--lf-border)}
 .lf-x .lf-mk-section .lf-mk-eyebrow + .lf-mk-h2{margin-top:18px}
 
@@ -86,8 +84,8 @@
 
 .lf-x .lf-xh-wrap{position:relative;z-index:1;width:100%}
 .lf-x .lf-xh-copy{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:980px;margin:0 auto}
-.lf-x .lf-xh-badge{display:inline-flex;align-items:center;gap:10px;height:34px;padding:0 15px 0 12px;border-radius:999px;background:rgba(13,18,53,.6);border:1px solid rgba(255,255,255,.132);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF}
-.lf-x .lf-xh-dot{width:7px;height:7px;border-radius:50%;background:#FF751F;box-shadow:0 0 0 3px rgba(255,255,255,.108),0 0 12px #FF751F;animation:lf-x-pulse 2.4s ease-in-out infinite}
+.lf-x .lf-xh-badge{display:inline-flex;align-items:center;gap:10px;height:34px;padding:0 15px;border-radius:999px;background:rgba(13,18,53,.6);border:1px solid rgba(255,255,255,.132);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF}
+.lf-x .lf-xh-dot{display:none}
 .lf-x .lf-xh-title{margin-top:26px;font-size:clamp(44px,6.4vw,92px);line-height:.98;letter-spacing:-.022em;text-wrap:balance}
 .lf-x .lf-xh-title em{background-image:none;-webkit-text-fill-color:currentColor;color:inherit;padding-right:0}
 .lf-x .lf-xh-title .lf-w{display:inline-block;padding-bottom:.06em;animation:lf-x-word 1s var(--lf-x-ease) both;animation-delay:calc(var(--i) * 55ms + 120ms)}

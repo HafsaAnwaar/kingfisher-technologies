@@ -135,7 +135,7 @@ export function FeaturePage() {
       <FaqList
         title={
           <>
-            {accentName(feature.name)} — <em>FAQ</em>
+            {accentName(feature.name)}, <em>FAQ</em>
           </>
         }
         faqs={feature.faqs}

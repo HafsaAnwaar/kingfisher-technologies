@@ -14,7 +14,7 @@ export function GuidesPage() {
             How the continuum <em>works.</em>
           </>
         }
-        lede="Short educational guides for buyers and operators — quote to invoice, portal boundaries, and security basics."
+        lede="Short educational guides for buyers and operators, quote to invoice, portal boundaries, and security basics."
         secondaryTo="/resources"
         secondaryLabel="All resources"
         caps={RESOURCE_GUIDES.map((g) => g.title)}

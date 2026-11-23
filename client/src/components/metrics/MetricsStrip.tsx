@@ -135,10 +135,7 @@ export function MetricsStrip() {
       </div>
       <div className="lf-wrap">
         <div className="lf-livebar">
-          <span className="lf-livetag">
-            <span className="lf-sdot" />
-            Live Network
-          </span>
+          <span className="lf-livetag">Live Network</span>
           <span className="lf-livesep" />
           <span>Freight moving across 18 regions · 24/7 visibility</span>
         </div>

@@ -20,10 +20,10 @@ export function PortalsHubPage() {
         eyebrow="Portals"
         title={
           <>
-            Customer and vendor access — <em>with boundaries.</em>
+            Customer and vendor access, <em>with boundaries.</em>
           </>
         }
-        lede="Give customers a controlled window into their business with you, and vendors a place for assigned work — without opening your internal books."
+        lede="Give customers a controlled window into their business with you, and vendors a place for assigned work, without opening your internal books."
         primaryLabel="Request a demonstration"
         secondaryTo="/security"
         secondaryLabel="Review security"
@@ -40,7 +40,7 @@ export function PortalsHubPage() {
         body={
           <>
             <p>
-              Customers see their quotes, shipments, permitted documents, and invoices — never other
+              Customers see their quotes, shipments, permitted documents, and invoices, never other
               parties&apos; data or your internal costing.
             </p>
             <p>Public track shares progress without commercial leakage.</p>
@@ -59,7 +59,7 @@ export function PortalsHubPage() {
               <IconBadge label="Customer portal">{Icons.portal}</IconBadge>
               <span className="cat">Customers</span>
               <h3>Customer portal</h3>
-              <p>Quotes, shipments, documents, invoices, notifications, and pay — on their records only.</p>
+              <p>Quotes, shipments, documents, invoices, notifications, and pay, on their records only.</p>
               <span className="lf-x-cardgo" aria-hidden="true">
                 <Arrow size={16} />
               </span>
@@ -95,11 +95,11 @@ export function PortalsHubPage() {
         }
         columns={['Capability', 'Customer portal', 'Vendor portal']}
         rows={[
-          ['Quotations', 'Accept / reject / negotiate', '—'],
+          ['Quotations', 'Accept / reject / negotiate', '-'],
           ['Shipments / jobs', 'Own party progress', 'Assigned / cost-linked work'],
           ['Documents', 'Permitted downloads', 'Exchange on linked work'],
           ['Finance', 'Invoices + optional pay', 'Draft PI submit + AP views'],
-          ['Ledger posting', 'No', 'No — staff only'],
+          ['Ledger posting', 'No', 'No, staff only'],
         ]}
       />
 

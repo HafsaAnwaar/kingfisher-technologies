@@ -14,7 +14,7 @@ export function FaqPage() {
             Straight answers about <em>Kingfisher.</em>
           </>
         }
-        lede="Scope, portals, payments, tracking, and what we do not overclaim — drawn from the product investigation."
+        lede="Scope, portals, payments, tracking, and what we do not overclaim, drawn from the product investigation."
         secondaryTo="/resources"
         secondaryLabel="All resources"
       />

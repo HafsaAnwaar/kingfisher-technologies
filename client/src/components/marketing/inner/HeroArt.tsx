@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from 'react'
 import { useReducedMotion, VehicleIcon, type Vehicle } from './HeroFx'
 
 /**
- * Signature hero visuals — one per page or page group, so inner pages don't read as one template.
+ * Signature hero visuals, one per page or page group, so inner pages don't read as one template.
  * Pure SVG/CSS motion; everything freezes under prefers-reduced-motion (see hero-art.css).
  */
 
@@ -68,7 +68,7 @@ const Check = () => (
 )
 
 /* ------------------------------------------------------------------ */
-/* Platform modules — one visual per module                            */
+/* Platform modules, one visual per module                            */
 /* ------------------------------------------------------------------ */
 
 function lanePair(sub: string): [string, string] {
@@ -305,7 +305,7 @@ export function ModuleArt({ slug, title, sub, pills }: { slug: string; title: st
 }
 
 /* ------------------------------------------------------------------ */
-/* Solutions — persona day dial                                       */
+/* Solutions, persona day dial                                       */
 /* ------------------------------------------------------------------ */
 
 export function SolutionArt({ title, sub, beats }: { title: string; sub: string; beats: readonly (readonly [string, string])[] }) {
@@ -341,7 +341,7 @@ export function SolutionArt({ title, sub, beats }: { title: string; sub: string;
 }
 
 /* ------------------------------------------------------------------ */
-/* Features — who-uses-it orbit                                        */
+/* Features, who-uses-it orbit                                        */
 /* ------------------------------------------------------------------ */
 
 export function FeatureArt({ name, who }: { name: string; who: readonly string[] }) {
@@ -559,7 +559,6 @@ export function SecurityArt({ roles }: { roles: readonly string[] }) {
   return (
     <div className="lf-xa-sec">
       <div className="lf-xa-shield">
-        <span className="lf-xa-sweep" />
         <svg viewBox="0 0 120 140" aria-hidden="true">
           <path className="lf-xa-shield-path" d="M60 6 110 24v40c0 34-22 58-50 70C32 122 10 98 10 64V24Z" />
           <rect className="lf-xa-lock" x="42" y="62" width="36" height="28" rx="5" />

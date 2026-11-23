@@ -16,7 +16,7 @@ export const TRUST_LABELS = [
 export const WHY_CELLS = [
   {
     title: 'No disconnected tools',
-    desc: 'Quotations, multi-mode jobs, documents, portals, and ledgers on one operating continuum — not a patchwork of trackers.',
+    desc: 'Quotations, multi-mode jobs, documents, portals, and ledgers on one operating continuum, not a patchwork of trackers.',
     delay: '200ms',
     highlight: false,
   },
@@ -46,7 +46,7 @@ export const WHY_CELLS = [
   },
   {
     title: 'Honest security posture',
-    desc: 'Tenant separation, separate sign-in paths, document privacy, and payment-provider checkout — without fake seals.',
+    desc: 'Tenant separation, separate sign-in paths, document privacy, and payment-provider checkout, without fake seals.',
     delay: '600ms',
     highlight: false,
   },

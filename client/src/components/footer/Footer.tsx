@@ -53,7 +53,7 @@ export function Footer() {
               <img className="lf-brand-logo" src={logo} alt="Kingfisher Wings Technologies" width={160} height={52} />
             </Link>
             <p className="lf-foot-tag">
-              The freight-forwarding ERP for modern logistics teams — from quotation to invoice.
+              The freight-forwarding ERP for modern logistics teams, from quotation to invoice.
             </p>
             <ul className="lf-foot-contact">
               <li>

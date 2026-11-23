@@ -104,7 +104,7 @@ export function ContactPage() {
               ))}
             </div>
             {done ? (
-              <p className="lf-mk-sub">Thanks — we will reply to {email} within one business day.</p>
+              <p className="lf-mk-sub">Thanks, we will reply to {email} within one business day.</p>
             ) : (
               <>
                 {step === 0 ? (
@@ -163,8 +163,8 @@ export function ContactPage() {
                       Monthly jobs (approx)
                       <select value={volume} onChange={(e) => setVolume(e.target.value)}>
                         <option>Under 100</option>
-                        <option>100–500</option>
-                        <option>500–2,000</option>
+                        <option>100-500</option>
+                        <option>500-2,000</option>
                         <option>2,000+</option>
                       </select>
                     </label>
@@ -217,7 +217,6 @@ export function ContactPage() {
 
           <div className="lf-x-contact-side">
             <span className="lf-x-badge">
-              <span className="lf-x-badge-dot" aria-hidden="true" />
               Channels
             </span>
             <div className="lf-mk-feats lf-x-channels">
@@ -251,7 +250,6 @@ export function ContactPage() {
               </div>
             </div>
             <span className="lf-x-badge" style={{ marginTop: 36 }}>
-              <span className="lf-x-badge-dot" aria-hidden="true" />
               Offices
             </span>
             <div className="lf-mk-steps lf-x-offices">

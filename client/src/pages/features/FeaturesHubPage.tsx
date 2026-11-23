@@ -37,7 +37,7 @@ export function FeaturesHubPage() {
             Capabilities across the <em>operating continuum.</em>
           </>
         }
-        lede="Operations, shipments, quotations, parties, documents, finance, intelligence, permissions, and activity — mapped to how freight desks actually work."
+        lede="Operations, shipments, quotations, parties, documents, finance, intelligence, permissions, and activity, mapped to how freight desks actually work."
         secondaryTo="/platform"
         secondaryLabel="Explore platform modules"
         caps={['Operate', 'Quote', 'Document', 'Invoice', 'Report']}
@@ -53,7 +53,7 @@ export function FeaturesHubPage() {
         body={
           <>
             <p>
-              Capabilities show up as live desks — not abstract feature lists. Sales, Ops, Docs, and
+              Capabilities show up as live desks, not abstract feature lists. Sales, Ops, Docs, and
               Finance advance the same file with ranked status the whole company can trust.
             </p>
             <p>Browse each capability below, then open the related platform modules for mode depth.</p>
@@ -105,7 +105,7 @@ export function FeaturesHubPage() {
             Where desks spend their <em>day</em>
           </>
         }
-        sub="Illustrative emphasis across a typical forwarder desk — not a performance KPI."
+        sub="Illustrative emphasis across a typical forwarder desk, not a performance KPI."
         bars={[
           { label: 'Operations', value: 94, tone: 'accent' },
           { label: 'Quotations', value: 78, tone: 'cyan' },
@@ -125,7 +125,7 @@ export function FeaturesHubPage() {
         body={
           <>
             <p>
-              Rank offers, send quotes, and let customers accept, reject, or negotiate in the portal —
+              Rank offers, send quotes, and let customers accept, reject, or negotiate in the portal -
               then convert into bookings and jobs without losing commercial context.
             </p>
           </>

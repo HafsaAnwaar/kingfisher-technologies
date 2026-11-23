@@ -27,7 +27,7 @@ const STEPS: {
     ),
   },
   {
-    day: 'Days 2–5',
+    day: 'Days 2-5',
     title: 'We configure',
     desc: 'Masters, parties, rate cards, document templates and user roles. No coding.',
     delay: '320ms',

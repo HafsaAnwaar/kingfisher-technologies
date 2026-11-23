@@ -72,7 +72,7 @@ function countUp(el: HTMLElement) {
     return useComma ? Number(fixed).toLocaleString('en-US', { minimumFractionDigits: decimals }) : fixed
   }
   const step = (now: number) => {
-    // text node may have been replaced by React — stop quietly
+    // text node may have been replaced by React, stop quietly
     if (node.parentNode !== el) return
     const t = Math.min(1, (now - start) / duration)
     const eased = 1 - Math.pow(1 - t, 3)

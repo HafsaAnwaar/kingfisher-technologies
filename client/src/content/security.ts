@@ -1,4 +1,4 @@
-/** Verified security messaging from product-intelligence/03 + 06 — no invented certifications. */
+/** Verified security messaging from product-intelligence/03 + 06, no invented certifications. */
 
 export const SECURITY_PILLARS = [
   {
@@ -11,7 +11,7 @@ export const SECURITY_PILLARS = [
   },
   {
     title: 'Role-based staff access',
-    body: 'Finance, operations, and sales see the modules and actions they are authorized to use — Tenant Admin manages users within their tenant only.',
+    body: 'Finance, operations, and sales see the modules and actions they are authorized to use, Tenant Admin manages users within their tenant only.',
   },
   {
     title: 'Document privacy',
@@ -23,7 +23,7 @@ export const SECURITY_PILLARS = [
   },
   {
     title: 'Payments by provider',
-    body: 'Online checkout is processed by a payment provider. Kingfisher records the business receipt and invoice status in your books — it does not store full card numbers.',
+    body: 'Online checkout is processed by a payment provider. Kingfisher records the business receipt and invoice status in your books, it does not store full card numbers.',
   },
 ] as const
 
@@ -37,11 +37,11 @@ export const SECURITY_ACCOUNT = [
 ] as const
 
 export const SECURITY_ACCESS = [
-  ['Super Admin', 'Manages companies and tenants at the platform level — not as ordinary tenant staff inside customer books.'],
+  ['Super Admin', 'Manages companies and tenants at the platform level, not as ordinary tenant staff inside customer books.'],
   ['Tenant Admin', 'Manages users and configuration within their own tenant only.'],
   ['Staff', 'Module permissions and job-type scopes (Sales, Ops, Finance, and other desks).'],
   ['Customers', 'Only their party’s permitted shipments, documents, quotes, and invoices.'],
-  ['Vendors', 'Only assigned or cost-linked information — cannot post the tenant’s books.'],
+  ['Vendors', 'Only assigned or cost-linked information, cannot post the tenant’s books.'],
 ] as const
 
 export const SECURITY_DO_NOT_CLAIM = [

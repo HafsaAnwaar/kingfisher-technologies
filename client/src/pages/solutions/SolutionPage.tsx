@@ -64,7 +64,7 @@ export function SolutionPage() {
         eyebrow="Live desk"
         title={
           <>
-            {accentName(name)} — operating <em>board</em>
+            {accentName(name)}, operating <em>board</em>
           </>
         }
         body={
@@ -86,7 +86,7 @@ export function SolutionPage() {
             Built for how <em>{name}</em> actually operate.
           </>
         }
-        sub="Auto-advancing day beats with a live module board for this persona — progress rail, swap, and pause on hover."
+        sub="Auto-advancing day beats with a live module board for this persona, progress rail, swap, and pause on hover."
         beats={solution.dayBeats}
         stack={stack}
         mockTitle={solution.mockTitle}
@@ -121,7 +121,7 @@ export function SolutionPage() {
       <FaqList
         title={
           <>
-            {accentName(name)} — frequently <em>asked</em>
+            {accentName(name)}, frequently <em>asked</em>
           </>
         }
         faqs={solution.faqs}

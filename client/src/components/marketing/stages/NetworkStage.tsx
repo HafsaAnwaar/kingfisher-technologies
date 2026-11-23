@@ -32,7 +32,7 @@ type NetworkStageProps = {
   sub?: string
 }
 
-/** Homepage HowItWorks map — same geometry, vehicles, draw, tick, HUD. */
+/** Homepage HowItWorks map, same geometry, vehicles, draw, tick, HUD. */
 export function NetworkStage({ flowIndex, play, swapKey = 0, title, sub }: NetworkStageProps) {
   const mapRef = useRef<HTMLDivElement>(null)
   const [mapSize, setMapSize] = useState({ w: 640, h: 520 })
