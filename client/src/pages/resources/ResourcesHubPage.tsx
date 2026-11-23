@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { DemoCtaBand, MkWrap, PageHero } from '../../components/marketing/Marketing'
+import { Arrow, SectionHead, DemoCtaBand, MkWrap, PageHero } from '../../components/marketing/Marketing'
 import { AccessHud, FeatureSplit } from '../../components/marketing/LiveHud'
 import { PRODUCT_UPDATES, RESOURCE_GUIDES, RESOURCE_INSIGHTS } from '../../content/resources'
 import '../../components/marketing/marketing.css'
@@ -18,6 +18,7 @@ export function ResourcesHubPage() {
         lede="Practical explanations of the operating continuum, portals, and security — without thin SEO filler."
         secondaryTo="/resources/faq"
         secondaryLabel="Read FAQ"
+        caps={['FAQ', 'Guides', 'Insights', 'Updates']}
       />
 
       <FeatureSplit
@@ -43,37 +44,60 @@ export function ResourcesHubPage() {
 
       <section className="lf-mk-section lf-mk-flush">
         <MkWrap>
-          <div className="lf-mk-eyebrow">Start here</div>
-          <div className="lf-mk-cards" style={{ marginTop: 24 }}>
+          <div className="lf-x-center" style={{ marginTop: 0 }}>
+            <span className="lf-x-badge">
+              <span className="lf-x-badge-dot" aria-hidden="true" />
+              Start here
+            </span>
+          </div>
+          <div className="lf-mk-cards" style={{ marginTop: 32 }}>
             <Link className="lf-mk-card" to="/resources/faq">
               <span className="cat">FAQ</span>
               <h3>Frequently asked questions</h3>
               <p>Product scope, portals, payments, tracking, and honest limits.</p>
+              <span className="lf-x-cardgo" aria-hidden="true">
+                <Arrow size={16} />
+              </span>
             </Link>
             <Link className="lf-mk-card" to="/resources/guides">
               <span className="cat">Guides</span>
               <h3>Operational guides</h3>
               <p>Quote-to-invoice, portal boundaries, and security basics for buyers.</p>
+              <span className="lf-x-cardgo" aria-hidden="true">
+                <Arrow size={16} />
+              </span>
             </Link>
             <Link className="lf-mk-card" to="/resources/insights">
               <span className="cat">Insights</span>
               <h3>Industry notes</h3>
               <p>Why an operating platform beats a tracker-only story.</p>
+              <span className="lf-x-cardgo" aria-hidden="true">
+                <Arrow size={16} />
+              </span>
             </Link>
             <Link className="lf-mk-card" to="/resources/product-updates">
               <span className="cat">Updates</span>
               <h3>Product updates</h3>
               <p>What we are documenting and demonstrating now.</p>
+              <span className="lf-x-cardgo" aria-hidden="true">
+                <Arrow size={16} />
+              </span>
             </Link>
             <Link className="lf-mk-card" to="/security">
               <span className="cat">Trust</span>
               <h3>Security &amp; Privacy</h3>
               <p>Verified protections only — no fake seals.</p>
+              <span className="lf-x-cardgo" aria-hidden="true">
+                <Arrow size={16} />
+              </span>
             </Link>
             <Link className="lf-mk-card" to="/contact">
               <span className="cat">Help</span>
               <h3>Talk to us</h3>
               <p>Demo, sales, or support — tell us your modes and tools.</p>
+              <span className="lf-x-cardgo" aria-hidden="true">
+                <Arrow size={16} />
+              </span>
             </Link>
           </div>
         </MkWrap>
@@ -81,33 +105,47 @@ export function ResourcesHubPage() {
 
       <section className="lf-mk-section">
         <MkWrap>
-          <div className="lf-mk-eyebrow">Featured guides</div>
-          <h2 className="lf-mk-h2" style={{ marginTop: 14, fontSize: 'clamp(28px,3vw,40px)' }}>
-            Built for <em>operators</em>
-          </h2>
-          <div className="lf-mk-feats" style={{ marginTop: 28 }}>
+          <SectionHead
+            eyebrow="Featured guides"
+            title={
+              <>
+                Built for <em>operators</em>
+              </>
+            }
+          />
+          <div className="lf-mk-feats lf-x-feats n-3">
             {RESOURCE_GUIDES.map((g) => (
               <Link className="lf-mk-feat" to={`/resources/guides#${g.slug}`} key={g.slug} style={{ textDecoration: 'none' }}>
+                <span className="lf-x-feat-n">Guide</span>
                 <h3>{g.title}</h3>
                 <p>{g.blurb}</p>
+                <span className="lf-x-feat-line" aria-hidden="true" />
               </Link>
             ))}
           </div>
-          <div className="lf-mk-feats" style={{ marginTop: 16 }}>
+          <div className="lf-mk-feats lf-x-feats n-3" style={{ marginTop: 16 }}>
             {RESOURCE_INSIGHTS.map((g) => (
               <Link className="lf-mk-feat" to={`/resources/insights#${g.slug}`} key={g.slug} style={{ textDecoration: 'none' }}>
+                <span className="lf-x-feat-n">Insight</span>
                 <h3>{g.title}</h3>
                 <p>{g.blurb}</p>
+                <span className="lf-x-feat-line" aria-hidden="true" />
               </Link>
             ))}
           </div>
-          <ul className="lf-mk-list" style={{ marginTop: 28 }}>
+          <div className="lf-mk-timeline lf-x-timeline-narrow">
             {PRODUCT_UPDATES.map((u) => (
-              <li key={u.title}>
-                <strong>{u.date}</strong> — {u.title}: {u.blurb}
-              </li>
+              <article key={u.title}>
+                <b>{u.date}</b>
+                <div>
+                  <h3 style={{ margin: 0 }}>{u.title}</h3>
+                  <p className="lf-mk-sub" style={{ marginTop: 6 }}>
+                    {u.blurb}
+                  </p>
+                </div>
+              </article>
             ))}
-          </ul>
+          </div>
         </MkWrap>
       </section>
 

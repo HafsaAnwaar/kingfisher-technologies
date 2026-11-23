@@ -52,10 +52,10 @@ export function FeaturePage() {
         secondaryLabel="All features"
       />
 
-      <section className="lf-mk-section" style={{ borderTop: 0, paddingTop: 0 }}>
-        <MkWrap>
-          <div className="lf-mk-eyebrow">Who uses it</div>
-          <div className="lf-mk-pills" style={{ marginTop: 16 }}>
+      <section className="lf-mk-section lf-mk-flush">
+        <MkWrap className="lf-x-whostrip lf-x-reveal">
+          <span className="lf-x-whostrip-k">Who uses it</span>
+          <div className="lf-mk-pills">
             {feature.who.map((role, i) => (
               <span className={i === 0 ? 'lf-mk-pill on' : 'lf-mk-pill'} key={role}>
                 {role}

@@ -6,6 +6,7 @@ import {
   FaqList,
   MkWrap,
   PageHero,
+  SectionHead,
 } from '../../components/marketing/Marketing'
 import { SwapFrame, TickText, useInViewPlay, usePlayTick } from '../../components/marketing/motion'
 import { FeatureSplit, FinanceHud } from '../../components/marketing/LiveHud'
@@ -87,7 +88,6 @@ function StoryTicker() {
 
 export function CustomersPage() {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]['id']>('all')
-  const { ref, inView } = useInViewPlay<HTMLElement>(0.15)
   const stories = useMemo(
     () => (filter === 'all' ? STORIES : STORIES.filter((s) => s.tag === filter)),
     [filter],
@@ -106,8 +106,9 @@ export function CustomersPage() {
         lede="Illustrative operator outcomes across forwarders, NVOCC desks, brokers, and logistics teams — not invented logo walls. Request a demo for a live walkthrough."
         secondaryTo="/security"
         secondaryLabel="Review security"
+        caps={['Forwarders', 'NVOCC desks', 'Brokers', 'Logistics teams']}
       />
-      <section className="lf-mk-section" style={{ borderTop: 0, paddingTop: 0 }} ref={ref}>
+      <section className="lf-mk-section lf-mk-flush">
         <MkWrap>
           <div className="lf-mk-stats">
             <div className="lf-mk-stat">
@@ -134,12 +135,17 @@ export function CustomersPage() {
         </MkWrap>
       </section>
 
-      <section className={inView ? 'lf-mk-section lf-mk-inview' : 'lf-mk-section'}>
+      <section className="lf-mk-section">
         <MkWrap>
-          <div className="lf-mk-eyebrow">Stories</div>
-          <h2 className="lf-mk-h2">
-            Operator scenarios and <em>outcomes.</em>
-          </h2>
+          <SectionHead
+            eyebrow="Stories"
+            title={
+              <>
+                Operator scenarios and <em>outcomes.</em>
+              </>
+            }
+          />
+          <div className="lf-x-center">
           <div className="lf-mk-filters">
             {FILTERS.map((item) => (
               <button
@@ -152,13 +158,11 @@ export function CustomersPage() {
               </button>
             ))}
           </div>
-          <div className="lf-mk-cards" style={{ marginTop: 20 }}>
-            {stories.map((story, i) => (
-              <article
-                className={`lf-mk-card lf-mk-rise lf-mk-rise-d${(i % 4) + 1}`}
-                key={story.title}
-                style={{ cursor: 'default' }}
-              >
+          </div>
+          <div className="lf-mk-cards" style={{ marginTop: 28 }}>
+            {stories.map((story) => (
+              <article className="lf-mk-card" key={story.title} style={{ cursor: 'default' }}>
+                <span className="cat">{FILTERS.find((f) => f.id === story.tag)?.label.replace('By ', '')}</span>
                 <h3>{story.title}</h3>
                 <p>{story.body}</p>
               </article>
@@ -212,15 +216,21 @@ export function CustomersPage() {
 
       <section className="lf-mk-section">
         <MkWrap>
-          <div className="lf-mk-eyebrow">Security</div>
-          <h2 className="lf-mk-h2">
-            Tenant isolation and role-based <em>access.</em>
-          </h2>
-          <p className="lf-mk-sub">
-            Companies, tenants and permissions keep forwarder networks governed — SuperAdmin, Tenant
-            Admin and staff roles stay separated. Full verified claims live on the{' '}
-            <Link to="/security">Security &amp; Privacy</Link> page.
-          </p>
+          <SectionHead
+            eyebrow="Security"
+            title={
+              <>
+                Tenant isolation and role-based <em>access.</em>
+              </>
+            }
+            sub={
+              <>
+                Companies, tenants and permissions keep forwarder networks governed — SuperAdmin,
+                Tenant Admin and staff roles stay separated. Full verified claims live on the{' '}
+                <Link to="/security">Security &amp; Privacy</Link> page.
+              </>
+            }
+          />
           <SecurityPacketStage />
           <div className="lf-mk-stats">
             <div className="lf-mk-stat">

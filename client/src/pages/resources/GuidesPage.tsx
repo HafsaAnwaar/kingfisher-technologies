@@ -1,4 +1,4 @@
-import { DemoCtaBand, MkWrap, PageHero } from '../../components/marketing/Marketing'
+import { DemoCtaBand, MkWrap, PageHero, SectionHead } from '../../components/marketing/Marketing'
 import { RESOURCE_GUIDES } from '../../content/resources'
 import '../../components/marketing/marketing.css'
 
@@ -15,16 +15,15 @@ export function GuidesPage() {
         lede="Short educational guides for buyers and operators — quote to invoice, portal boundaries, and security basics."
         secondaryTo="/resources"
         secondaryLabel="All resources"
+        caps={RESOURCE_GUIDES.map((g) => g.title)}
       />
-      {RESOURCE_GUIDES.map((g) => (
+      {RESOURCE_GUIDES.map((g, gi) => (
         <section className="lf-mk-section" id={g.slug} key={g.slug}>
-          <MkWrap>
-            <div className="lf-mk-eyebrow">Guide</div>
-            <h2 className="lf-mk-h2" style={{ marginTop: 14, fontSize: 'clamp(28px,3vw,40px)' }}>
-              {g.title}
-            </h2>
-            <p className="lf-mk-sub">{g.blurb}</p>
-            <div className="lf-mk-timeline" style={{ marginTop: 32 }}>
+          <MkWrap className="lf-x-sidegrid">
+            <div className="lf-x-sidegrid-head">
+              <SectionHead eyebrow={`Guide ${String(gi + 1).padStart(2, '0')}`} title={g.title} sub={g.blurb} align="left" />
+            </div>
+            <div className="lf-mk-timeline" style={{ marginTop: 0 }}>
               {g.body.map((step, i) => (
                 <article key={step}>
                   <b>0{i + 1}</b>

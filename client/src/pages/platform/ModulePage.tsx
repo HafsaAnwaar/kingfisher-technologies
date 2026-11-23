@@ -66,6 +66,7 @@ export function ModulePage() {
         sub={module.outcome}
         secondaryTo="/platform"
         secondaryLabel="All modules"
+        caps={module.stagePills}
       />
 
       <ModuleFlowSection

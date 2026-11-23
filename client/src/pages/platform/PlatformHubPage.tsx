@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { DemoCtaBand, MkWrap, PageHero } from '../../components/marketing/Marketing'
+import { Arrow, DemoCtaBand, MkWrap, PageHero, SectionHead } from '../../components/marketing/Marketing'
 import { LiveOpsStage } from '../../components/marketing/stages/LiveOpsStage'
 import { FeatureSplit, VoyageHud } from '../../components/marketing/LiveHud'
 import '../../components/marketing/motion'
@@ -39,6 +39,7 @@ export function PlatformHubPage() {
         lede="Kingfisher is a multi-tenant freight management platform — quotations, multi-mode jobs, documents, portals, and ledgers — not a patchwork of tools."
         secondaryTo="/features"
         secondaryLabel="Browse features"
+        caps={['Air', 'Ocean', 'NVOCC', 'Land', 'Customs', 'Finance']}
       />
 
       <FeatureSplit
@@ -65,21 +66,22 @@ export function PlatformHubPage() {
 
       <section className="lf-mk-section">
         <MkWrap>
-          <div className="lf-mk-eyebrow">Operating continuum</div>
-          <h2 className="lf-mk-h2" style={{ marginTop: 14, fontSize: 'clamp(28px,3vw,40px)' }}>
-            CRM → Quote → Job → Docs → Finance → <em>Portals</em>
-          </h2>
-          <div className="lf-mk-timeline">
+          <SectionHead
+            eyebrow="Operating continuum"
+            title={
+              <>
+                CRM → Quote → Job → Docs → Finance → <em>Portals</em>
+              </>
+            }
+          />
+          <div className="lf-mk-steps lf-x-steps n-4">
+            <span className="lf-x-steps-rail" aria-hidden="true" />
             {CONTINUUM.map((step) => (
-              <article key={step.label}>
-                <b>{step.label}</b>
-                <div>
-                  <h3 style={{ margin: 0, fontSize: 16 }}>{step.title}</h3>
-                  <p className="lf-mk-sub" style={{ marginTop: 6 }}>
-                    {step.body}
-                  </p>
-                </div>
-              </article>
+              <div className="lf-mk-step" key={step.label}>
+                <span className="lf-x-step-n">{step.label}</span>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+              </div>
             ))}
           </div>
         </MkWrap>
@@ -87,17 +89,23 @@ export function PlatformHubPage() {
 
       <section className="lf-mk-section">
         <MkWrap>
-          <div className="lf-mk-eyebrow">How teams collaborate</div>
-          <h2 className="lf-mk-h2" style={{ marginTop: 14, fontSize: 'clamp(28px,3vw,40px)' }}>
-            Multi-company. Multi-user. <em>One job file.</em>
-          </h2>
-          <p className="lf-mk-sub">
-            Each company works in its own tenant. Tenant Admin manages users within that tenant.
-            Staff roles (Sales, Ops, Finance, and others) see authorized modules. Customers and
-            vendors use separate portals — see <Link to="/portals">portals</Link> and{' '}
-            <Link to="/security">security</Link>.
-          </p>
-          <div className="lf-mk-pills" style={{ marginTop: 18 }}>
+          <SectionHead
+            eyebrow="How teams collaborate"
+            title={
+              <>
+                Multi-company. Multi-user. <em>One job file.</em>
+              </>
+            }
+            sub={
+              <>
+                Each company works in its own tenant. Tenant Admin manages users within that tenant.
+                Staff roles (Sales, Ops, Finance, and others) see authorized modules. Customers and
+                vendors use separate portals — see <Link to="/portals">portals</Link> and{' '}
+                <Link to="/security">security</Link>.
+              </>
+            }
+          />
+          <div className="lf-mk-pills lf-x-pills-center lf-x-reveal">
             <span className="lf-mk-pill on">Air</span>
             <span className="lf-mk-pill on">Ocean</span>
             <span className="lf-mk-pill on">Inland</span>
@@ -110,6 +118,7 @@ export function PlatformHubPage() {
 
       <section className="lf-mk-section lf-mk-flush">
         <MkWrap>
+          <div className="lf-x-center" style={{ marginTop: 0 }}>
           <div className="lf-mk-filters" role="tablist" aria-label="Filter modules">
             {FILTERS.map((item) => (
               <button
@@ -125,6 +134,7 @@ export function PlatformHubPage() {
               </button>
             ))}
           </div>
+          </div>
           <div className="lf-mk-hub-layout">
             <div className="lf-mk-cards" style={{ marginTop: 0 }}>
               {modules.map((m, index) => (
@@ -138,6 +148,9 @@ export function PlatformHubPage() {
                   <span className="cat">{m.cat}</span>
                   <h3>{m.name}</h3>
                   <p>{m.tagline}</p>
+                  <span className="lf-x-cardgo" aria-hidden="true">
+                    <Arrow size={16} />
+                  </span>
                 </Link>
               ))}
             </div>

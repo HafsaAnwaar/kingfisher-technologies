@@ -15,10 +15,11 @@ export function ProductUpdatesPage() {
         lede="High-level updates for website and sales enablement — not a changelog of every API commit."
         secondaryTo="/resources"
         secondaryLabel="All resources"
+        compact
       />
       <section className="lf-mk-section lf-mk-flush">
         <MkWrap>
-          <div className="lf-mk-timeline">
+          <div className="lf-mk-timeline lf-x-timeline-narrow">
             {PRODUCT_UPDATES.map((u) => (
               <article key={u.title}>
                 <b>{u.date}</b>

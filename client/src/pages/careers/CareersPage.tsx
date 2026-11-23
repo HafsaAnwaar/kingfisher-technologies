@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { DemoCtaBand, FeatureGrid, MkWrap, PageHero } from '../../components/marketing/Marketing'
+import { DemoCtaBand, FeatureGrid, MkWrap, PageHero, SectionHead } from '../../components/marketing/Marketing'
 import { ProgressRail, useInViewPlay } from '../../components/marketing/motion'
 import { CareersFloatPills } from '../../components/marketing/stages/ArtifactStages'
 import '../../components/marketing/marketing.css'
@@ -22,7 +22,7 @@ const ROLES = [
 ]
 
 export function CareersPage() {
-  const { ref, play, inView } = useInViewPlay<HTMLElement>(0.2)
+  const { ref, play } = useInViewPlay<HTMLElement>(0.2)
   const [open, setOpen] = useState(0)
   const [hover, setHover] = useState(false)
 
@@ -36,9 +36,10 @@ export function CareersPage() {
           </>
         }
         lede="Build product for people who move freight for a living — desks, cut-offs, documents and margins included."
+        caps={['Freight-native', 'Multi-city', 'Open roles']}
       />
 
-      <section className="lf-mk-section" style={{ borderTop: 0, paddingTop: 0 }}>
+      <section className="lf-mk-section lf-mk-flush">
         <MkWrap>
           <div className="lf-mk-stats">
             <div className="lf-mk-stat">
@@ -77,17 +78,22 @@ export function CareersPage() {
       />
 
       <section
-        className={inView ? 'lf-mk-section lf-mk-inview' : 'lf-mk-section'}
+        className="lf-mk-section"
+        id="open-roles"
         ref={ref}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
         <MkWrap>
-          <div className="lf-mk-eyebrow">Open roles</div>
-          <h2 className="lf-mk-h2">
-            Find your <em>spot</em>
-          </h2>
-          <div className="lf-mk-day" style={{ marginTop: 22 }}>
+          <SectionHead
+            eyebrow="Open roles"
+            title={
+              <>
+                Find your <em>spot</em>
+              </>
+            }
+          />
+          <div className="lf-mk-day lf-x-roles lf-x-reveal">
             {ROLES.map((role, index) => (
               <button
                 type="button"
@@ -100,6 +106,9 @@ export function CareersPage() {
                   <div className="beat-t">{role.title}</div>
                   {index === open ? <div className="beat-d">{role.detail}</div> : null}
                 </span>
+                <span className="lf-x-role-go" aria-hidden="true">
+                  →
+                </span>
                 {index === open ? (
                   <ProgressRail
                     active={play}
@@ -111,7 +120,7 @@ export function CareersPage() {
               </button>
             ))}
           </div>
-          <p className="lf-mk-sub" style={{ marginTop: 14 }}>
+          <p className="lf-mk-sub lf-x-roles-note">
             We still want to hear from great people. Write to{' '}
             <Link to="/contact">[careers email]</Link> with what you build and why freight.
           </p>

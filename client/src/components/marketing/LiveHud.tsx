@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { MkWrap } from './Marketing'
+import { Arrow, MkWrap } from './Marketing'
 import './live-hud.css'
 
 export type HudRow = {
@@ -100,25 +100,28 @@ export function FeatureSplit({
       <MkWrap>
         <div className={reverse ? 'lf-split is-rev' : 'lf-split'}>
           <div className="lf-split-copy">
-            <div className="lf-split-eye">
-              <i />
+            <span className="lf-x-badge">
+              <span className="lf-x-badge-dot" aria-hidden="true" />
               {eyebrow}
-            </div>
+            </span>
             <h2 className="lf-mk-h2 lf-split-h">{title}</h2>
             <div className="lf-mk-sub lf-split-body">{body}</div>
-            <div className="lf-mk-ctas" style={{ marginTop: 22 }}>
-              <Link className="lf-mk-btn lf-mk-btn-primary" to={primaryTo}>
-                {primaryLabel}
+            <div className="lf-mk-ctas" style={{ marginTop: 26 }}>
+              <Link className="lf-btn lf-btn-primary lf-btn-sm lf-x-btn-accent" to={primaryTo}>
+                {primaryLabel} <Arrow size={16} />
               </Link>
               {secondaryTo && secondaryLabel ? (
-                <Link className="lf-mk-btn lf-mk-btn-ghost" to={secondaryTo}>
+                <Link className="lf-btn lf-btn-ghost lf-btn-sm" to={secondaryTo}>
                   {secondaryLabel}
                 </Link>
               ) : null}
             </div>
             {metrics ? <p className="lf-split-metrics">{metrics}</p> : null}
           </div>
-          <div className="lf-split-panel">{panel}</div>
+          <div className="lf-split-panel">
+            <span className="lf-x-panel-glow" aria-hidden="true" />
+            <div className="lf-x-panel-float">{panel}</div>
+          </div>
         </div>
       </MkWrap>
     </section>

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { MkWrap } from './Marketing'
+import { MkWrap, SectionHead } from './Marketing'
 import './visual-kit.css'
 
 export function IconBadge({
@@ -28,14 +28,12 @@ export function IconCardGrid({
   return (
     <section className="lf-mk-section">
       <MkWrap>
-        <div className="lf-mk-eyebrow">{eyebrow}</div>
-        <h2 className="lf-mk-h2" style={{ marginTop: 14, fontSize: 'clamp(28px,3vw,40px)' }}>
-          {title}
-        </h2>
+        <SectionHead eyebrow={eyebrow} title={title} />
         <div className="lf-vk-cards">
           {items.map((item) => (
             <article className="lf-vk-card" key={item.title}>
               <IconBadge label={item.title}>{item.icon}</IconBadge>
+              <span className="lf-x-vk-n" aria-hidden="true">{String(items.indexOf(item) + 1).padStart(2, '0')}</span>
               <h3>{item.title}</h3>
               <p>{item.body}</p>
             </article>
@@ -60,10 +58,7 @@ export function DataTable({
   return (
     <section className="lf-mk-section">
       <MkWrap>
-        <div className="lf-mk-eyebrow">{eyebrow}</div>
-        <h2 className="lf-mk-h2" style={{ marginTop: 14, fontSize: 'clamp(28px,3vw,40px)' }}>
-          {title}
-        </h2>
+        <SectionHead eyebrow={eyebrow} title={title} />
         <div className="lf-vk-table-wrap">
           <table className="lf-mk-table lf-vk-table">
             <thead>
@@ -105,11 +100,7 @@ export function BarChartCard({
     <section className="lf-mk-section">
       <MkWrap>
         <div className="lf-vk-chart-panel">
-          <div className="lf-mk-eyebrow">{eyebrow}</div>
-          <h2 className="lf-mk-h2" style={{ marginTop: 14, fontSize: 'clamp(26px,2.8vw,36px)' }}>
-            {title}
-          </h2>
-          {sub ? <p className="lf-mk-sub">{sub}</p> : null}
+          <SectionHead eyebrow={eyebrow} title={title} sub={sub} align="left" />
           <div className="lf-vk-bars" role="img" aria-label="Comparative capability chart">
             {bars.map((bar) => (
               <div className="lf-vk-bar-row" key={bar.label}>
@@ -166,10 +157,7 @@ export function TwoColVisual({
       <MkWrap>
         <div className={reverse ? 'lf-vk-split is-rev' : 'lf-vk-split'}>
           <div>
-            <div className="lf-mk-eyebrow">{eyebrow}</div>
-            <h2 className="lf-mk-h2" style={{ marginTop: 14, fontSize: 'clamp(28px,3vw,40px)' }}>
-              {title}
-            </h2>
+            <SectionHead eyebrow={eyebrow} title={title} align="left" />
             <div className="lf-mk-sub">{body}</div>
           </div>
           <div className="lf-vk-split-visual">{visual}</div>

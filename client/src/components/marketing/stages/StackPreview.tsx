@@ -2,7 +2,7 @@ import { useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import type { PlatformModule } from '../../../content/platform-modules'
 import { modulePath } from '../../../content/platform-modules'
-import { MkWrap } from '../Marketing'
+import { MkWrap, SectionHead } from '../Marketing'
 import { LiveOpsStage } from './LiveOpsStage'
 import { useInViewPlay } from '../motion'
 
@@ -23,8 +23,7 @@ export function StackPreview({
   return (
     <section className={inView ? 'lf-mk-section lf-mk-inview' : 'lf-mk-section'} ref={ref}>
       <MkWrap>
-        <div className="lf-mk-eyebrow lf-mk-rise">{eyebrow}</div>
-        <h2 className="lf-mk-h2 lf-mk-rise lf-mk-rise-d1">{title}</h2>
+        <SectionHead eyebrow={eyebrow} title={title} />
         <div className="lf-mk-stack">
           <div className="lf-mk-stack-chips">
             {modules.map((m, index) => (

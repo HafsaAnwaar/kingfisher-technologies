@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { MkWrap } from '../Marketing'
+import { MkWrap, SectionHead } from '../Marketing'
 import { useInViewPlay } from '../motion'
 
 export type OutcomeMetric = [string, string]
@@ -18,8 +18,7 @@ export function OutcomeStrip({
   return (
     <section className={inView ? 'lf-mk-section lf-mk-inview' : 'lf-mk-section'} ref={ref}>
       <MkWrap>
-        <div className="lf-mk-eyebrow lf-mk-rise">{eyebrow}</div>
-        <h2 className="lf-mk-h2 lf-mk-rise lf-mk-rise-d1">{title}</h2>
+        <SectionHead eyebrow={eyebrow} title={title} />
         <div className="lf-mk-outcomes">
           {metrics.map(([value, label], i) => (
             <article className={`lf-mk-outcome lf-mk-rise lf-mk-rise-d${i + 1}`} key={label}>

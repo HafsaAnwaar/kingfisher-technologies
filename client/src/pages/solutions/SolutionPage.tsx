@@ -45,6 +45,7 @@ export function SolutionPage() {
         sub={solution.outcome}
         secondaryTo="/solutions"
         secondaryLabel="All solutions"
+        caps={solution.dayBeats.slice(0, 4).map((beat) => beat[0])}
       />
 
       <FeatureSplit
