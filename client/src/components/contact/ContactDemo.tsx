@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
+import { PUBLIC_CONTACT_EMAIL, PUBLIC_CONTACT_MAILTO } from '../../content/site-contact'
 import { submitDemoRequest } from '../../lib/api'
 import './ContactDemo.css'
 
@@ -134,8 +135,12 @@ export function ContactDemo() {
       })
       setStep(4)
       flip()
-    } catch {
-      setSubmitError('Could not send your request. Please try again.')
+    } catch (err) {
+      setSubmitError(
+        err instanceof Error
+          ? err.message
+          : 'Could not send your request. Please try again.',
+      )
     } finally {
       setSubmitting(false)
     }
@@ -369,7 +374,8 @@ export function ContactDemo() {
             </li>
           </ul>
           <div className="lf-cta-mail lf-cr" style={{ animationDelay: '280ms' }}>
-            Prefer email? Write to <a href="#demo">[sales email]</a>
+            Prefer email? Write to{' '}
+            <a href={PUBLIC_CONTACT_MAILTO}>{PUBLIC_CONTACT_EMAIL}</a>
           </div>
         </div>
       </div>

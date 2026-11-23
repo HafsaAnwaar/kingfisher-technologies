@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react'
 import { DemoCtaBand, MkWrap, PageHero } from '../../components/marketing/Marketing'
 import { ProgressRail, useInViewPlay } from '../../components/marketing/motion'
+import { PUBLIC_CONTACT_EMAIL, PUBLIC_CONTACT_MAILTO } from '../../content/site-contact'
 import { submitDemoRequest } from '../../lib/api'
 import '../../components/marketing/marketing.css'
 
@@ -38,8 +39,12 @@ export function ContactPage() {
         note: note.trim() || undefined,
       })
       setDone(true)
-    } catch {
-      setError('Could not send your message. Please try again.')
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : 'Could not send your message. Please try again.',
+      )
     } finally {
       setSubmitting(false)
     }
@@ -213,19 +218,31 @@ export function ContactPage() {
             <div className="lf-mk-feats" style={{ marginTop: 12, gridTemplateColumns: '1fr' }}>
               <div className="lf-mk-feat">
                 <h3>Sales</h3>
-                <p>Talk to a solutions engineer. [sales email]</p>
+                <p>
+                  Talk to a solutions engineer.{' '}
+                  <a href={PUBLIC_CONTACT_MAILTO}>{PUBLIC_CONTACT_EMAIL}</a>
+                </p>
               </div>
               <div className="lf-mk-feat">
                 <h3>Customer support</h3>
-                <p>For existing customers. [support email]</p>
+                <p>
+                  For existing customers.{' '}
+                  <a href={PUBLIC_CONTACT_MAILTO}>{PUBLIC_CONTACT_EMAIL}</a>
+                </p>
               </div>
               <div className="lf-mk-feat">
                 <h3>Partnerships</h3>
-                <p>SI, reseller and tech partners. [partners email]</p>
+                <p>
+                  SI, reseller and tech partners.{' '}
+                  <a href={PUBLIC_CONTACT_MAILTO}>{PUBLIC_CONTACT_EMAIL}</a>
+                </p>
               </div>
               <div className="lf-mk-feat">
                 <h3>Press</h3>
-                <p>Media and analyst inquiries. [press email]</p>
+                <p>
+                  Media and analyst inquiries.{' '}
+                  <a href={PUBLIC_CONTACT_MAILTO}>{PUBLIC_CONTACT_EMAIL}</a>
+                </p>
               </div>
             </div>
             <div className="lf-mk-eyebrow" style={{ marginTop: 28 }}>

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import './ProductDemo.css'
 
 const DEMO_SRC = '/media/freight-ops-demo.mp4'
+const DEMO_POSTER = '/media/freight-ops-demo-poster.jpg'
 
 export function ProductDemo() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -75,6 +76,7 @@ export function ProductDemo() {
             ref={videoRef}
             className="lf-demo-video"
             src={DEMO_SRC}
+            poster={DEMO_POSTER}
             controls={playing}
             playsInline
             preload="metadata"
@@ -88,8 +90,9 @@ export function ProductDemo() {
               className="lf-poster"
               onClick={startPlayback}
               aria-label="Play the product demo video"
+              style={{ backgroundImage: `url(${DEMO_POSTER})` }}
             >
-              <span className="lf-poster-grid" aria-hidden="true" />
+              <span className="lf-poster-shade" aria-hidden="true" />
               <span className="lf-poster-top">
                 <span className="lf-poster-chip">
                   <span className="lf-live" />

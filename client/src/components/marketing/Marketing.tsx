@@ -2,6 +2,7 @@ import { useState, type FormEvent, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { submitDemoRequest } from '../../lib/api'
 import type { Faq, Feature, Step } from '../../content/platform-modules'
+import { PUBLIC_CONTACT_EMAIL, PUBLIC_CONTACT_MAILTO } from '../../content/site-contact'
 import './marketing.css'
 import './live-hud.css'
 
@@ -315,8 +316,12 @@ export function DemoCtaBand({
         modes: [mode],
       })
       setDone(true)
-    } catch {
-      setError('Could not send your request. Please try again.')
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : 'Could not send your request. Please try again.',
+      )
     } finally {
       setSubmitting(false)
     }
@@ -402,7 +407,8 @@ export function DemoCtaBand({
             <li>✓ Direct line to our solutions team</li>
           </ul>
           <p className="lf-mk-sub" style={{ marginTop: 18, fontSize: 13 }}>
-            Prefer email? Write to <Link to="/contact">[sales email]</Link>
+            Prefer email? Write to{' '}
+            <a href={PUBLIC_CONTACT_MAILTO}>{PUBLIC_CONTACT_EMAIL}</a>
           </p>
         </div>
       </MkWrap>
