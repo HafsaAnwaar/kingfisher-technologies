@@ -49,10 +49,7 @@ export function SectionHead({
 }) {
   return (
     <header className={`lf-x-head is-${align} ${className}`.trim()}>
-      <span className="lf-x-badge">
-        <span className="lf-x-badge-dot" aria-hidden="true" />
-        {eyebrow}
-      </span>
+      <span className="lf-x-badge">{eyebrow}</span>
       <h2 className="lf-mk-h2">{title}</h2>
       {sub ? <p className="lf-mk-sub">{sub}</p> : null}
     </header>
@@ -106,10 +103,7 @@ export function PageHero({
   if (art) cls.push('has-art')
 
   const badge = (
-    <span className="lf-xh-badge lf-xh-in">
-      <span className="lf-xh-dot" aria-hidden="true" />
-      {eyebrow}
-    </span>
+    <span className="lf-xh-badge lf-xh-in">{eyebrow}</span>
   )
   const ctas = (
     <div className="lf-mk-ctas lf-xh-in d3">
@@ -511,10 +505,7 @@ export function DemoCtaBand({
           </div>
           <div className="lf-mk-cta-grid">
             <div className="lf-x-cta-copy">
-              <span className="lf-x-badge">
-                <span className="lf-x-badge-dot" aria-hidden="true" />
-                Get started
-              </span>
+              <span className="lf-x-badge">Get started</span>
               <h2 className="lf-mk-h2">{title}</h2>
               <p className="lf-mk-sub">{sub}</p>
               <ul className="lf-mk-list lf-x-checks">
@@ -539,7 +530,7 @@ export function DemoCtaBand({
                 )}
               </h3>
               {done ? (
-                <p className="lf-mk-sub">Thanks — our solutions team will reach out at {email}.</p>
+                <p className="lf-mk-sub">Thanks, our solutions team will reach out at {email}.</p>
               ) : (
                 <>
                   <div className="lf-x-form-row">
@@ -604,7 +595,7 @@ export function DemoCtaBand({
   )
 }
 
-/** Grid of short statements with a check (or cross) badge — used for lists on inner pages. */
+/** Grid of short statements with a check (or cross) badge, used for lists on inner pages. */
 export function CheckGrid({
   items,
   tone = 'good',

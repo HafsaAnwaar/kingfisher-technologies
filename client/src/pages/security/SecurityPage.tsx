@@ -37,7 +37,7 @@ export function SecurityPage() {
             Protected access. Separated companies. <em>Honest claims.</em>
           </>
         }
-        lede="Kingfisher is a multi-tenant freight platform with separate sign-in paths, role-based permissions, document privacy, and payment handling by a provider — without invented certifications."
+        lede="Kingfisher is a multi-tenant freight platform with separate sign-in paths, role-based permissions, document privacy, and payment handling by a provider, without invented certifications."
         primaryLabel="Request a demonstration"
         secondaryTo="/contact"
         secondaryLabel="Security questionnaire"
@@ -69,7 +69,7 @@ export function SecurityPage() {
           <>
             <p>
               Staff, customers, and vendors use separate sign-in paths. Inside each company, roles
-              scope modules and actions — Tenant Admin manages users within their tenant only.
+              scope modules and actions, Tenant Admin manages users within their tenant only.
             </p>
             <p>Walk this model live in a demo; no invented certifications required.</p>
           </>
@@ -112,7 +112,7 @@ export function SecurityPage() {
             Trust signals buyers usually <em>score</em>
           </>
         }
-        sub="Relative emphasis in our security narrative — not a certification score."
+        sub="Relative emphasis in our security narrative, not a certification score."
         bars={[
           { label: 'Tenant split', value: 96, tone: 'accent' },
           { label: 'RBAC', value: 92, tone: 'cyan' },
@@ -157,7 +157,7 @@ export function SecurityPage() {
             Review security on a <em>live walkthrough.</em>
           </>
         }
-        sub="Separate logins, tenant isolation, document visibility, and payment provider flow — demonstrated with your modes in mind."
+        sub="Separate logins, tenant isolation, document visibility, and payment provider flow, demonstrated with your modes in mind."
       />
     </>
   )

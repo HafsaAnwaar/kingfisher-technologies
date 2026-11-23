@@ -13,7 +13,7 @@ export function HeroCopy() {
         </span>
       </h1>
       <p className="lf-lede lf-rise lf-d3">
-        One intelligent platform to plan, procure, track, and optimize every shipment — from first
+        One intelligent platform to plan, procure, track, and optimize every shipment, from first
         mile to final delivery.
       </p>
       <div className="lf-ctas lf-rise lf-d4">

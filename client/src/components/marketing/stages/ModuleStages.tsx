@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { SwapFrame, TickText, usePlayTick } from '../motion'
 
 const AIR_PATH = 'M48 176 C140 48, 250 28, 340 96 S480 210, 552 64'
-/** Ocean lane — low S-curve, not the air high arc. */
+/** Ocean lane, low S-curve, not the air high arc. */
 const SEA_PATH = 'M40 70 C130 210, 250 200, 340 110 S480 40, 560 150'
 
 const PLANE_SHAPE =
@@ -216,7 +216,7 @@ export function SeaBoardBody({ play, mode = 'fcl' }: { play: boolean; mode?: 'fc
   )
 }
 
-/** NVOCC: voyage capacity + booking list — not the homepage map. */
+/** NVOCC: voyage capacity + booking list, not the homepage map. */
 export function VoyageBoardBody({ play }: { play: boolean }) {
   const tick = usePlayTick(play, 2000)
   const filled = 4 + (tick % 6)
@@ -307,7 +307,7 @@ export function PodBoardBody({ play }: { play: boolean }) {
   )
 }
 
-/** Tracking portal: ETA + scan feed — deliberately not an air network map. */
+/** Tracking portal: ETA + scan feed, deliberately not an air network map. */
 export function TrackPortalBody({ play }: { play: boolean }) {
   const tick = usePlayTick(play, 2000)
   const events = [

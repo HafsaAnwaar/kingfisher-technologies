@@ -22,7 +22,7 @@ export const SOLUTIONS: Solution[] = [
     slug: 'freight-forwarders',
     name: 'Freight Forwarders',
     tagline:
-      'Multi-modal forwarding on one ERP — quotations to invoice without stitching five tools.',
+      'Multi-modal forwarding on one ERP, quotations to invoice without stitching five tools.',
     outcome: 'Run air, sea, land and docs as one operating company.',
     mockTitle: 'Forwarder control tower',
     mockSub: 'Today · 86 open jobs · 12 awaiting docs',
@@ -38,7 +38,7 @@ export const SOLUTIONS: Solution[] = [
       ],
       [
         'Ops mid-shift',
-        'Air, sea and land desks update the same file — CS sees status without asking.'
+        'Air, sea and land desks update the same file, CS sees status without asking.'
       ],
       [
         'Docs & customs',
@@ -85,7 +85,7 @@ export const SOLUTIONS: Solution[] = [
       ],
       [
         'How long to go live?',
-        'Most teams follow the homepage implementation plan — timeline depends on modules and data migration.',
+        'Most teams follow the homepage implementation plan, timeline depends on modules and data migration.',
       ],
       [
         'What about agents abroad?',
@@ -130,7 +130,7 @@ export const SOLUTIONS: Solution[] = [
       ['Portals', 'customers & vendors'],
     ],
     modules: ['warehouse', 'land-courier', 'tracking', 'documentation', 'finance-accounts', 'reports'],
-    quote: 'We needed one place for movement, storage handoffs, and settlement — not three exports.',
+    quote: 'We needed one place for movement, storage handoffs, and settlement, not three exports.',
     quoteBy: 'Operations Director · Regional logistics company',
     faqs: [
       [
@@ -162,7 +162,7 @@ export const SOLUTIONS: Solution[] = [
   {
     slug: 'nvocc-operators',
     name: 'NVOCC Operators',
-    tagline: 'Voyage-centric control for consolidators — space, HBLs and voyage P&L together.',
+    tagline: 'Voyage-centric control for consolidators, space, HBLs and voyage P&L together.',
     outcome: 'Manage the voyage as the product, not a folder of bookings.',
     mockTitle: 'Voyage board',
     mockSub: '3 voyages open · 1 cut-off today',
@@ -182,7 +182,7 @@ export const SOLUTIONS: Solution[] = [
       ],
       [
         'Issue HBLs',
-        'Documentation packs against the voyage — not a separate folder.'
+        'Documentation packs against the voyage, not a separate folder.'
       ],
       [
         'Steer profit',
@@ -272,7 +272,7 @@ export const SOLUTIONS: Solution[] = [
       ]
     ],
     modules: ['customs', 'documentation', 'tracking', 'finance-accounts', 'reports'],
-    quote: 'Importers stopped calling us for status we already knew — they can see the holds.',
+    quote: 'Importers stopped calling us for status we already knew, they can see the holds.',
     quoteBy: 'Principal · Customs brokerage',
     faqs: [
       [
@@ -304,7 +304,7 @@ export const SOLUTIONS: Solution[] = [
   {
     slug: 'cfs-warehouse',
     name: 'CFS & Warehouse Operators',
-    tagline: 'Receiving, handling and release tied to freight jobs — CFS floor and ops desk aligned.',
+    tagline: 'Receiving, handling and release tied to freight jobs, CFS floor and ops desk aligned.',
     outcome: 'Warehouse truth feeds the shipment timeline.',
     mockTitle: 'CFS floor',
     mockSub: 'Receiving bay · 6 jobs inbound today',
@@ -372,7 +372,7 @@ export const SOLUTIONS: Solution[] = [
   {
     slug: 'importers-exporters',
     name: 'Importers & Exporters',
-    tagline: 'Work with your forwarder on shared shipment truth — status, docs and commercial clarity.',
+    tagline: 'Work with your forwarder on shared shipment truth, status, docs and commercial clarity.',
     outcome: 'Less chasing. More shipment certainty.',
     mockTitle: 'Shipper view',
     mockSub: '4 active shipments · 1 awaiting clearance',
@@ -439,7 +439,7 @@ export const SOLUTIONS: Solution[] = [
       ],
       [
         'Modes supported?',
-        'Air, sea, land and courier — whatever your operator runs on Kingfisher.',
+        'Air, sea, land and courier, whatever your operator runs on Kingfisher.',
       ],
     ],
   },
@@ -534,7 +534,7 @@ export const SOLUTIONS: Solution[] = [
       ],
       [
         'Track exceptions',
-        'Exceptions stay on the consignment — not a side chat.'
+        'Exceptions stay on the consignment, not a side chat.'
       ],
       [
         'Close commercially',

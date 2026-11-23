@@ -177,7 +177,7 @@ export function Platform() {
               </div>
               <h3 className="lf-ph">One freight file.</h3>
               <p className="lf-pd">
-                From quotation and booking to documentation, tracking, costing, and delivery — every
+                From quotation and booking to documentation, tracking, costing, and delivery, every
                 shipment stays connected in one operational workflow.
               </p>
             </div>
@@ -249,7 +249,7 @@ export function Platform() {
                     </span>
                   </div>
                   <div className="lf-pcap">
-                    Air, Sea FCL, Sea LCL, NVOCC, Land & Courier — managed through connected
+                    Air, Sea FCL, Sea LCL, NVOCC, Land & Courier, managed through connected
                     operational workflows.
                   </div>
                 </div>

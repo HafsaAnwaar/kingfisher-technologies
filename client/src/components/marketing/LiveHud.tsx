@@ -100,10 +100,7 @@ export function FeatureSplit({
       <MkWrap>
         <div className={reverse ? 'lf-split is-rev' : 'lf-split'}>
           <div className="lf-split-copy">
-            <span className="lf-x-badge">
-              <span className="lf-x-badge-dot" aria-hidden="true" />
-              {eyebrow}
-            </span>
+            <span className="lf-x-badge">{eyebrow}</span>
             <h2 className="lf-mk-h2 lf-split-h">{title}</h2>
             <div className="lf-mk-sub lf-split-body">{body}</div>
             <div className="lf-mk-ctas" style={{ marginTop: 26 }}>

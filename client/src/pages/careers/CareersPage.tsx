@@ -37,7 +37,7 @@ export function CareersPage() {
             Help us rewire how <em>forwarders</em> operate.
           </>
         }
-        lede="Build product for people who move freight for a living — desks, cut-offs, documents and margins included."
+        lede="Build product for people who move freight for a living, desks, cut-offs, documents and margins included."
         caps={['Freight-native', 'Multi-city', 'Open roles']}
       />
 
@@ -71,11 +71,11 @@ export function CareersPage() {
         features={[
           [
             'Meaningful ownership',
-            'Own workflows that operators feel every day — not vanity dashboards.',
+            'Own workflows that operators feel every day, not vanity dashboards.',
           ],
           ['Learn the domain', 'Time with forwarding, NVOCC and brokerage reality.'],
           ['Health & support', 'Placeholder benefits block for the live careers page.'],
-          ['Team offsites', 'Build trust in person — placeholder for culture detail.'],
+          ['Team offsites', 'Build trust in person, placeholder for culture detail.'],
         ]}
       />
 

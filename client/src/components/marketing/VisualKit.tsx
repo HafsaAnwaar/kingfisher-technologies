@@ -167,7 +167,7 @@ export function TwoColVisual({
   )
 }
 
-/* Compact SVG icons — brand-consistent stroke set */
+/* Compact SVG icons, brand-consistent stroke set */
 export const Icons = {
   shield: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">

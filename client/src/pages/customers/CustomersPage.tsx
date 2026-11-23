@@ -55,7 +55,7 @@ const STORIES = [
   },
   {
     title: 'Importer network',
-    body: 'Fewer shadow trackers — status comes from the operator system.',
+    body: 'Fewer shadow trackers, status comes from the operator system.',
     tag: 'outcome',
   },
 ] as const
@@ -105,7 +105,7 @@ export function CustomersPage() {
             Built for how freight desks <em>operate.</em>
           </>
         }
-        lede="Illustrative operator outcomes across forwarders, NVOCC desks, brokers, and logistics teams — not invented logo walls. Request a demo for a live walkthrough."
+        lede="Illustrative operator outcomes across forwarders, NVOCC desks, brokers, and logistics teams, not invented logo walls. Request a demo for a live walkthrough."
         secondaryTo="/security"
         secondaryLabel="Review security"
         caps={['Forwarders', 'NVOCC desks', 'Brokers', 'Logistics teams']}
@@ -184,7 +184,7 @@ export function CustomersPage() {
           <>
             <p>
               Operator outcomes show up when costing, invoices, and receipts stay on the same
-              continuum as the shipment — including online pay recorded via a payment provider.
+              continuum as the shipment, including online pay recorded via a payment provider.
             </p>
           </>
         }
@@ -227,7 +227,7 @@ export function CustomersPage() {
             }
             sub={
               <>
-                Companies, tenants and permissions keep forwarder networks governed — SuperAdmin,
+                Companies, tenants and permissions keep forwarder networks governed, SuperAdmin,
                 Tenant Admin and staff roles stay separated. Full verified claims live on the{' '}
                 <Link to="/security">Security &amp; Privacy</Link> page.
               </>
@@ -260,7 +260,7 @@ export function CustomersPage() {
         faqs={[
           [
             'Who uses Kingfisher?',
-            'Freight forwarders, NVOCC operators, customs brokers, CFS/warehouse operators, transporters and courier companies — plus shippers working through those operators.',
+            'Freight forwarders, NVOCC operators, customs brokers, CFS/warehouse operators, transporters and courier companies, plus shippers working through those operators.',
           ],
           [
             'What results do teams aim for?',
@@ -268,7 +268,7 @@ export function CustomersPage() {
           ],
           [
             'Can I speak to a reference?',
-            'Reference conversations are arranged during evaluation after demos — ask via Contact.',
+            'Reference conversations are arranged during evaluation after demos, ask via Contact.',
           ],
         ]}
       />

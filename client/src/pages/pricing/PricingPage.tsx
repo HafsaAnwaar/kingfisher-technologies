@@ -12,9 +12,9 @@ import { PricingArt } from '../../components/marketing/inner/HeroArt'
 const PLANS = ['Starter', 'Growth', 'Enterprise'] as const
 const MODES = ['Air', 'Sea', 'NVOCC', 'Land', 'Customs'] as const
 
-/** Tier highlights — taken from the comparison table below. */
+/** Tier highlights, taken from the comparison table below. */
 const TIER_FACTS: Record<(typeof PLANS)[number], string[]> = {
-  Starter: ['Core job modules · Up to 4', 'Modes · 1–2', 'Onboarding · Guided'],
+  Starter: ['Core job modules · Up to 4', 'Modes · 1-2', 'Onboarding · Guided'],
   Growth: ['Core job modules · Up to 8', 'Modes · Multi-modal', 'Onboarding · Guided + training'],
   Enterprise: ['Core job modules · Full stack', 'Modes · Multi-modal + NVOCC', 'Onboarding · Dedicated'],
 }
@@ -56,7 +56,7 @@ export function PricingPage() {
             Pay for the modules you <em>switch on</em>.
           </>
         }
-        lede="Kingfisher is modular. Start with the modes you run today — add customs, warehouse or finance as you grow. Pricing scales with jobs per month, not truck telematics."
+        lede="Kingfisher is modular. Start with the modes you run today, add customs, warehouse or finance as you grow. Pricing scales with jobs per month, not truck telematics."
         caps={['Starter', 'Growth', 'Enterprise']}
       />
 
@@ -64,7 +64,7 @@ export function PricingPage() {
         eyebrow="Modular packaging"
         title={
           <>
-            Switch on modes — keep one <em>quote desk</em>
+            Switch on modes, keep one <em>quote desk</em>
           </>
         }
         body={
@@ -244,7 +244,7 @@ export function PricingPage() {
               </tr>
               <tr>
                 <td>Modes</td>
-                <td>1–2</td>
+                <td>1-2</td>
                 <td>Multi-modal</td>
                 <td>Multi-modal + NVOCC</td>
               </tr>
@@ -262,7 +262,7 @@ export function PricingPage() {
               </tr>
               <tr>
                 <td>SSO / advanced admin</td>
-                <td>—</td>
+                <td>-</td>
                 <td>Optional</td>
                 <td>Included</td>
               </tr>
@@ -287,7 +287,7 @@ export function PricingPage() {
         faqs={[
           [
             'How is Kingfisher priced?',
-            'By plan tier and the modules you switch on, scaled to monthly job volume and modes — not per GPS device or truck telematics.',
+            'By plan tier and the modules you switch on, scaled to monthly job volume and modes, not per GPS device or truck telematics.',
           ],
           [
             'Do you charge per shipment?',
@@ -295,7 +295,7 @@ export function PricingPage() {
           ],
           [
             'Is there a free trial?',
-            'Evaluations typically run through a guided demo and scoped pilot — contact solutions for the right path.',
+            'Evaluations typically run through a guided demo and scoped pilot, contact solutions for the right path.',
           ],
           [
             'Can we add modules mid-year?',
@@ -313,7 +313,7 @@ export function PricingPage() {
             Talk to a solutions <em>engineer.</em>
           </>
         }
-        sub="Volume pricing, multi-branch rollouts and module mixes — if your setup does not fit a tier, we will scope a plan that does."
+        sub="Volume pricing, multi-branch rollouts and module mixes, if your setup does not fit a tier, we will scope a plan that does."
       />
     </>
   )

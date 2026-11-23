@@ -51,7 +51,7 @@ export const ARTIFACT_SITE_MAP = [
   },
   {
     artifact: 'Developers.dc.html',
-    site: '/platform/tracking scan feed (terminal-like) — no /developers route',
+    site: '/platform/tracking scan feed (terminal-like), no /developers route',
     motions: ['ln', 'blink', 'up', 'flow', 'ping'],
     status: 'borrowed',
   },
@@ -105,7 +105,7 @@ export const ARTIFACT_SITE_MAP = [
   },
   {
     artifact: 'Industries.dc.html',
-    site: '/solutions hub (persona cards) — wordin/orbit not ported as page',
+    site: '/solutions hub (persona cards), wordin/orbit not ported as page',
     motions: ['wordin', 'orbit'],
     status: 'deferred',
   },

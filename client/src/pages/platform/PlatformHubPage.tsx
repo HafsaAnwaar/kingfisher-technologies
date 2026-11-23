@@ -38,7 +38,7 @@ export function PlatformHubPage() {
             Modules for the whole <em>forwarding stack.</em>
           </>
         }
-        lede="Kingfisher is a multi-tenant freight management platform — quotations, multi-mode jobs, documents, portals, and ledgers — not a patchwork of tools."
+        lede="Kingfisher is a multi-tenant freight management platform, quotations, multi-mode jobs, documents, portals, and ledgers, not a patchwork of tools."
         secondaryTo="/features"
         secondaryLabel="Browse features"
         caps={['Air', 'Ocean', 'NVOCC', 'Land', 'Customs', 'Finance']}
@@ -55,7 +55,7 @@ export function PlatformHubPage() {
           <>
             <p>
               Platform modules cover air, ocean, NVOCC, land, customs, warehouse, tracking, finance,
-              and reports — with live stage previews as you browse.
+              and reports, with live stage previews as you browse.
             </p>
             <p>Each company works in its own tenant; desks share one job file across the continuum.</p>
           </>
@@ -102,7 +102,7 @@ export function PlatformHubPage() {
               <>
                 Each company works in its own tenant. Tenant Admin manages users within that tenant.
                 Staff roles (Sales, Ops, Finance, and others) see authorized modules. Customers and
-                vendors use separate portals — see <Link to="/portals">portals</Link> and{' '}
+                vendors use separate portals, see <Link to="/portals">portals</Link> and{' '}
                 <Link to="/security">security</Link>.
               </>
             }

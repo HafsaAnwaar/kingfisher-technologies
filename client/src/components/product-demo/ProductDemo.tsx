@@ -47,7 +47,7 @@ export function ProductDemo() {
         </h2>
         <p className="lf-demo-p lf-dr" style={{ transitionDelay: '180ms' }}>
           See how one connected platform manages bookings, documentation, shipments, operations, and
-          delivery — across air, ocean, NVOCC and ground freight.
+          delivery, across air, ocean, NVOCC and ground freight.
         </p>
       </header>
 
@@ -77,10 +77,7 @@ export function ProductDemo() {
             >
               <span className="lf-poster-shade" aria-hidden="true" />
               <span className="lf-poster-top">
-                <span className="lf-poster-chip">
-                  <span className="lf-live" />
-                  KINGFISHER · Platform walkthrough
-                </span>
+                <span className="lf-poster-chip">KINGFISHER · Platform walkthrough</span>
                 <span className="lf-poster-hide">HD</span>
               </span>
               <span className="lf-poster-c">

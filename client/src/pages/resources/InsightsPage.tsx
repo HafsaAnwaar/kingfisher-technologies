@@ -7,7 +7,7 @@ const BODIES: Record<string, [string, string][]> = {
   'operating-platform-not-tracker': [
     ['Beyond status pages', 'Forwarders need quotations, multi-mode jobs, documents, portals, and ledgers on one record.'],
     ['One job file', 'Sales, ops, docs, and accounts stop reconciling three systems after the cargo moves.'],
-    ['Honest scope', 'Track matters — but track alone is not an operating platform.'],
+    ['Honest scope', 'Track matters, but track alone is not an operating platform.'],
   ],
   'handoffs-that-hold': [
     ['Designed stages', 'Sales → Ops → Docs → Accounts is built into workflows, including customs and NVOCC paths.'],
@@ -15,7 +15,7 @@ const BODIES: Record<string, [string, string][]> = {
     ['Finance closure', 'Invoicing and ledger posting stay connected to the same commercial work.'],
   ],
   'honest-security-copy': [
-    ['Verified only', 'Tenant isolation, separate sign-in, roles, and document privacy — no fake seals.'],
+    ['Verified only', 'Tenant isolation, separate sign-in, roles, and document privacy, no fake seals.'],
     ['Portal boundaries', 'Customers and vendors see what you grant; staff keep posting control.'],
     ['Payments clarity', 'Card checkout by a provider; Kingfisher records the business receipt.'],
   ],

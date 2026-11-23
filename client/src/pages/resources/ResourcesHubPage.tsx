@@ -17,7 +17,7 @@ export function ResourcesHubPage() {
             Guides, insights, and <em>answers.</em>
           </>
         }
-        lede="Practical explanations of the operating continuum, portals, and security — without thin SEO filler."
+        lede="Practical explanations of the operating continuum, portals, and security, without thin SEO filler."
         secondaryTo="/resources/faq"
         secondaryLabel="Read FAQ"
         caps={['FAQ', 'Guides', 'Insights', 'Updates']}
@@ -33,7 +33,7 @@ export function ResourcesHubPage() {
         body={
           <>
             <p>
-              Resources explain the continuum, portal boundaries, and verified security — the same
+              Resources explain the continuum, portal boundaries, and verified security, the same
               model you will see in a demonstration.
             </p>
           </>
@@ -48,7 +48,6 @@ export function ResourcesHubPage() {
         <MkWrap>
           <div className="lf-x-center" style={{ marginTop: 0 }}>
             <span className="lf-x-badge">
-              <span className="lf-x-badge-dot" aria-hidden="true" />
               Start here
             </span>
           </div>
@@ -88,7 +87,7 @@ export function ResourcesHubPage() {
             <Link className="lf-mk-card" to="/security">
               <span className="cat">Trust</span>
               <h3>Security &amp; Privacy</h3>
-              <p>Verified protections only — no fake seals.</p>
+              <p>Verified protections only, no fake seals.</p>
               <span className="lf-x-cardgo" aria-hidden="true">
                 <Arrow size={16} />
               </span>
@@ -96,7 +95,7 @@ export function ResourcesHubPage() {
             <Link className="lf-mk-card" to="/contact">
               <span className="cat">Help</span>
               <h3>Talk to us</h3>
-              <p>Demo, sales, or support — tell us your modes and tools.</p>
+              <p>Demo, sales, or support, tell us your modes and tools.</p>
               <span className="lf-x-cardgo" aria-hidden="true">
                 <Arrow size={16} />
               </span>

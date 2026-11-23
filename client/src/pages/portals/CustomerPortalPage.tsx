@@ -93,7 +93,7 @@ export function CustomerPortalPage() {
             sub={
               <>
                 Public track &amp; trace supports lookup by reference while withholding costs, GP, and
-                internal notes — so customers stay informed without seeing your margin.
+                internal notes, so customers stay informed without seeing your margin.
               </>
             }
           />

@@ -9,7 +9,7 @@ const ROUTE_DELAYS = [0, 90, 180, 270, 330, 390, 440, 490]
 const CARDS = [
   {
     title: 'Air Freight',
-    desc: 'Import & Export — booking, AWB, flight and delivery',
+    desc: 'Import & Export, booking, AWB, flight and delivery',
     summary:
       'Manage complete air shipments from booking and space confirmation through HAWB/MAWB, flight uplift, arrival, pre-alert and delivery.',
     tags: ['Air Export', 'Air Import', 'HAWB / MAWB'],
@@ -205,7 +205,7 @@ export function HowItWorks() {
             Five flows. <em>One platform.</em>
           </h2>
           <p className="lf-hiw-sub">
-            From quotation to booking, documentation to delivery — every shipment moves through one connected freight platform.
+            From quotation to booking, documentation to delivery, every shipment moves through one connected freight platform.
           </p>
         </header>
 

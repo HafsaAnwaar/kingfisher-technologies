@@ -86,12 +86,12 @@ export function ModulePage() {
         title={flowTitle}
         sub={
           layout === 'money'
-            ? 'Costing and KPIs update from the same operational file — no month-end rebuild.'
+            ? 'Costing and KPIs update from the same operational file, no month-end rebuild.'
             : layout === 'process'
-              ? `A desk sequence for ${name.toLowerCase()} — stamps, packs and clearances you can follow.`
+              ? `A desk sequence for ${name.toLowerCase()}, stamps, packs and clearances you can follow.`
               : layout === 'floor'
-                ? 'Cargo moves zone by zone on the job — receive, putaway, pick, gate.'
-                : `A live ${name.toLowerCase()} board — built for this desk, not a copy of the homepage map.`
+                ? 'Cargo moves zone by zone on the job, receive, putaway, pick, gate.'
+                : `A live ${name.toLowerCase()} board, built for this desk, not a copy of the homepage map.`
         }
         steps={module.steps}
         stageKind={module.stageKind}
@@ -246,7 +246,7 @@ export function ModulePage() {
             See {accentName(name)} on your <em>jobs.</em>
           </>
         }
-        sub={`A walkthrough on freight-forwarding workflows — tailored to ${name.toLowerCase()}.`}
+        sub={`A walkthrough on freight-forwarding workflows, tailored to ${name.toLowerCase()}.`}
       />
     </>
   )

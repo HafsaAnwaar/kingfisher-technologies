@@ -1,4 +1,4 @@
-/** Draft legal pages — require company legal review before treating as final. */
+/** Draft legal pages, require company legal review before treating as final. */
 
 export type LegalDoc = {
   slug: string
@@ -11,7 +11,7 @@ export const LEGAL_DOCS: LegalDoc[] = [
   {
     slug: 'privacy-policy',
     title: 'Privacy Policy',
-    updated: 'Draft — November 2026',
+    updated: 'Draft, November 2026',
     sections: [
       {
         heading: 'About this draft',
@@ -49,12 +49,12 @@ export const LEGAL_DOCS: LegalDoc[] = [
   {
     slug: 'terms',
     title: 'Terms of Use',
-    updated: 'Draft — November 2026',
+    updated: 'Draft, November 2026',
     sections: [
       {
         heading: 'About this draft',
         paragraphs: [
-          'These website terms are a draft placeholder. Software subscription terms, SLAs, and acceptable-use rules are defined in customer agreements — not solely on this page.',
+          'These website terms are a draft placeholder. Software subscription terms, SLAs, and acceptable-use rules are defined in customer agreements, not solely on this page.',
         ],
       },
       {
@@ -80,7 +80,7 @@ export const LEGAL_DOCS: LegalDoc[] = [
   {
     slug: 'cookie-policy',
     title: 'Cookie Policy',
-    updated: 'Draft — November 2026',
+    updated: 'Draft, November 2026',
     sections: [
       {
         heading: 'About this draft',
@@ -105,7 +105,7 @@ export const LEGAL_DOCS: LegalDoc[] = [
   {
     slug: 'data-protection',
     title: 'Data Protection',
-    updated: 'Draft — November 2026',
+    updated: 'Draft, November 2026',
     sections: [
       {
         heading: 'About this draft',

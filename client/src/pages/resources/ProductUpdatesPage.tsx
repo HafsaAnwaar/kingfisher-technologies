@@ -14,7 +14,7 @@ export function ProductUpdatesPage() {
             What we are documenting <em>now.</em>
           </>
         }
-        lede="High-level updates for website and sales enablement — not a changelog of every API commit."
+        lede="High-level updates for website and sales enablement, not a changelog of every API commit."
         secondaryTo="/resources"
         secondaryLabel="All resources"
         compact

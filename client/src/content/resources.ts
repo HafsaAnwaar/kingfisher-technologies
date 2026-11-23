@@ -1,4 +1,4 @@
-/** FAQ + resource cards from product-intelligence/06 — honest scope. */
+/** FAQ + resource cards from product-intelligence/06, honest scope. */
 
 export const SITE_FAQS: [string, string][] = [
   [
@@ -11,7 +11,7 @@ export const SITE_FAQS: [string, string][] = [
   ],
   [
     'Does it support air and sea?',
-    'Yes — air import/export, ocean FCL/LCL, plus inland, courier, NVOCC, warehouse, and customs clearance job types.',
+    'Yes, air import/export, ocean FCL/LCL, plus inland, courier, NVOCC, warehouse, and customs clearance job types.',
   ],
   [
     'Is there a customer portal?',
@@ -23,7 +23,7 @@ export const SITE_FAQS: [string, string][] = [
   ],
   [
     'Does Kingfisher replace my accounting system?',
-    'Kingfisher includes general ledger, AR/AP, vouchers, and financial reports. Some companies still integrate with external accounting — discuss fit during a demo.',
+    'Kingfisher includes general ledger, AR/AP, vouchers, and financial reports. Some companies still integrate with external accounting, discuss fit during a demo.',
   ],
   [
     'How do online payments work?',
@@ -62,7 +62,7 @@ export const RESOURCE_GUIDES = [
   {
     slug: 'portals-boundaries',
     title: 'Customer & vendor portal boundaries',
-    blurb: 'What each portal can see — and what stays inside your tenant.',
+    blurb: 'What each portal can see, and what stays inside your tenant.',
     body: [
       'Customer portal: their quotes, shipments, permitted documents, invoices, and notifications.',
       'Vendor portal: assigned work, document exchange, draft purchase invoices, and AP-oriented views.',
@@ -73,7 +73,7 @@ export const RESOURCE_GUIDES = [
   {
     slug: 'security-basics',
     title: 'Security basics for buyers',
-    blurb: 'Verified protections only — tenant isolation, roles, documents, and payments.',
+    blurb: 'Verified protections only, tenant isolation, roles, documents, and payments.',
     body: [
       'Each company works in a separated tenant space with role-based staff permissions.',
       'Documents use private storage patterns and authorized download paths when configured.',
@@ -86,7 +86,7 @@ export const RESOURCE_GUIDES = [
 export const RESOURCE_INSIGHTS = [
   {
     slug: 'operating-platform-not-tracker',
-    title: 'An operating platform — not only a tracker',
+    title: 'An operating platform, not only a tracker',
     blurb: 'Why forwarders need quotations, jobs, docs, portals, and ledgers on one record.',
   },
   {
@@ -97,7 +97,7 @@ export const RESOURCE_INSIGHTS = [
   {
     slug: 'honest-security-copy',
     title: 'Honest security copy',
-    blurb: 'What to expect from tenant isolation and portals — without fake badges.',
+    blurb: 'What to expect from tenant isolation and portals, without fake badges.',
   },
 ] as const
 
