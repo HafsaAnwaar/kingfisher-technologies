@@ -1,11 +1,13 @@
 import { DemoCtaBand, MkWrap, PageHero } from '../../components/marketing/Marketing'
 import { PRODUCT_UPDATES } from '../../content/resources'
 import '../../components/marketing/marketing.css'
+import { ChangelogArt } from '../../components/marketing/inner/HeroArt'
 
 export function ProductUpdatesPage() {
   return (
     <>
       <PageHero
+        variant="split" fleet="land" art={<ChangelogArt items={PRODUCT_UPDATES} />}
         eyebrow="Product updates"
         title={
           <>
@@ -15,10 +17,11 @@ export function ProductUpdatesPage() {
         lede="High-level updates for website and sales enablement — not a changelog of every API commit."
         secondaryTo="/resources"
         secondaryLabel="All resources"
+        compact
       />
       <section className="lf-mk-section lf-mk-flush">
         <MkWrap>
-          <div className="lf-mk-timeline">
+          <div className="lf-mk-timeline lf-x-timeline-narrow">
             {PRODUCT_UPDATES.map((u) => (
               <article key={u.title}>
                 <b>{u.date}</b>

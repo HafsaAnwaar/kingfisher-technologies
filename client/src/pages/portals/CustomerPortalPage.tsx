@@ -3,6 +3,7 @@ import {
   DemoCtaBand,
   MkWrap,
   PageHero,
+  SectionHead,
 } from '../../components/marketing/Marketing'
 import { FeatureSplit, PortalInboxHud } from '../../components/marketing/LiveHud'
 import { IconCardGrid, Icons } from '../../components/marketing/VisualKit'
@@ -10,12 +11,14 @@ import { CUSTOMER_PORTAL } from '../../content/portals'
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/visual-kit.css'
 import '../../components/marketing/live-hud.css'
+import { PortalArt } from '../../components/marketing/inner/HeroArt'
 
 export function CustomerPortalPage() {
   const p = CUSTOMER_PORTAL
   return (
     <>
       <PageHero
+        variant="split" fleet="air" art={<PortalArt kind="customer" rows={p.capabilities.map((c) => c[0])} locked="Internal costing & GP" />}
         eyebrow={p.eyebrow}
         title={
           <>
@@ -26,6 +29,7 @@ export function CustomerPortalPage() {
         secondaryTo="/portals"
         secondaryLabel="All portals"
         primaryLabel="Request a demonstration"
+        caps={['Quotes', 'Shipments', 'Documents', 'Invoices']}
       />
 
       <FeatureSplit
@@ -79,14 +83,20 @@ export function CustomerPortalPage() {
 
       <section className="lf-mk-section">
         <MkWrap>
-          <div className="lf-mk-eyebrow">Track</div>
-          <h2 className="lf-mk-h2" style={{ marginTop: 14, fontSize: 'clamp(28px,3vw,40px)' }}>
-            Progress without commercial <em>leakage</em>
-          </h2>
-          <p className="lf-mk-sub">
-            Public track &amp; trace supports lookup by reference while withholding costs, GP, and
-            internal notes — so customers stay informed without seeing your margin.
-          </p>
+          <SectionHead
+            eyebrow="Track"
+            title={
+              <>
+                Progress without commercial <em>leakage</em>
+              </>
+            }
+            sub={
+              <>
+                Public track &amp; trace supports lookup by reference while withholding costs, GP, and
+                internal notes — so customers stay informed without seeing your margin.
+              </>
+            }
+          />
         </MkWrap>
       </section>
 

@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom'
 import {
   DemoCtaBand,
   FaqList,
+  CheckGrid,
   MkWrap,
   PageHero,
+  SectionHead,
 } from '../../components/marketing/Marketing'
 import { AccessHud, FeatureSplit } from '../../components/marketing/LiveHud'
 import {
@@ -22,11 +24,13 @@ import {
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/visual-kit.css'
 import '../../components/marketing/live-hud.css'
+import { SecurityArt } from '../../components/marketing/inner/HeroArt'
 
 export function SecurityPage() {
   return (
     <>
       <PageHero
+        variant="split" fleet="mix" art={<SecurityArt roles={SECURITY_ACCESS.map((r) => r[0])} />}
         eyebrow="Security & Privacy"
         title={
           <>
@@ -37,6 +41,7 @@ export function SecurityPage() {
         primaryLabel="Request a demonstration"
         secondaryTo="/contact"
         secondaryLabel="Security questionnaire"
+        caps={['Tenant isolation', 'Role-based access', 'Document privacy', 'Provider payments']}
       />
 
       <IconCardGrid
@@ -77,15 +82,15 @@ export function SecurityPage() {
 
       <section className="lf-mk-section">
         <MkWrap>
-          <div className="lf-mk-eyebrow">Account protection</div>
-          <h2 className="lf-mk-h2" style={{ marginTop: 14, fontSize: 'clamp(28px,3vw,40px)' }}>
-            Credentials, sessions, and <em>accountability</em>
-          </h2>
-          <ul className="lf-mk-list">
-            {SECURITY_ACCOUNT.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+          <SectionHead
+            eyebrow="Account protection"
+            title={
+              <>
+                Credentials, sessions, and <em>accountability</em>
+              </>
+            }
+          />
+          <CheckGrid items={SECURITY_ACCOUNT} />
         </MkWrap>
       </section>
 
@@ -119,16 +124,16 @@ export function SecurityPage() {
 
       <section className="lf-mk-section">
         <MkWrap>
-          <div className="lf-mk-eyebrow">Clarity</div>
-          <h2 className="lf-mk-h2" style={{ marginTop: 14, fontSize: 'clamp(28px,3vw,40px)' }}>
-            What we do <em>not</em> claim
-          </h2>
-          <ul className="lf-mk-list">
-            {SECURITY_DO_NOT_CLAIM.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <p className="lf-mk-sub" style={{ marginTop: 20 }}>
+          <SectionHead
+            eyebrow="Clarity"
+            title={
+              <>
+                What we do <em>not</em> claim
+              </>
+            }
+          />
+          <CheckGrid items={SECURITY_DO_NOT_CLAIM} tone="bad" />
+          <p className="lf-mk-sub lf-x-reveal" style={{ margin: '28px auto 0', textAlign: 'center' }}>
             Read draft legal notices on <Link to="/legal/privacy-policy">Privacy</Link>,{' '}
             <Link to="/legal/data-protection">Data Protection</Link>, and explore{' '}
             <Link to="/portals/customer">Customer</Link> / <Link to="/portals/vendor">Vendor</Link>{' '}

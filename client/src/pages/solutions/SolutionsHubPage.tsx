@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { DemoCtaBand, MkWrap, PageHero } from '../../components/marketing/Marketing'
+import { Arrow, DemoCtaBand, MkWrap, PageHero } from '../../components/marketing/Marketing'
 import { CustomsHud, FeatureSplit } from '../../components/marketing/LiveHud'
 import { LiveOpsStage } from '../../components/marketing/stages/LiveOpsStage'
 import '../../components/marketing/motion'
@@ -8,6 +8,7 @@ import { PLATFORM_MODULES } from '../../content/platform-modules'
 import { SOLUTIONS, solutionPath } from '../../content/solutions'
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/live-hud.css'
+import { SolutionsHubArt } from '../../components/marketing/inner/HeroArt'
 
 export function SolutionsHubPage() {
   const [selected, setSelected] = useState(0)
@@ -24,6 +25,7 @@ export function SolutionsHubPage() {
   return (
     <>
       <PageHero
+        variant="split" fleet="mix" art={<SolutionsHubArt items={SOLUTIONS} />}
         eyebrow="Solutions"
         title={
           <>
@@ -31,6 +33,9 @@ export function SolutionsHubPage() {
           </>
         }
         lede="Forwarders, NVOCC operators, customs brokers, CFS, shippers, transporters and courier companies — each with a recommended Kingfisher stack."
+        secondaryTo="/platform"
+        secondaryLabel="Explore platform"
+        caps={SOLUTIONS.slice(0, 4).map((s) => s.name)}
       />
       <section className="lf-mk-section lf-mk-flush">
         <MkWrap>
@@ -50,6 +55,9 @@ export function SolutionsHubPage() {
                   <p style={{ marginTop: 8, fontSize: 12, color: 'var(--lf-accent-text)' }}>
                     {s.dayBeats[0]?.[0]} → {s.dayBeats[s.dayBeats.length - 1]?.[0]}
                   </p>
+                  <span className="lf-x-cardgo" aria-hidden="true">
+                    <Arrow size={16} />
+                  </span>
                 </Link>
               ))}
             </div>

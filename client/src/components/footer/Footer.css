@@ -11,6 +11,8 @@
 .lf-foot-contact{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--lf-text-2)}
 .lf-foot-contact li{display:flex;align-items:center;gap:8px}
 .lf-foot-contact svg{flex:none;color:var(--lf-muted)}
+.lf-foot-contact a{color:var(--lf-text-2);text-decoration:none}
+.lf-foot-contact a:hover{color:var(--lf-accent-text)}
 .lf-socials{display:flex;gap:8px;margin-top:20px}
 .lf-socials a{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--lf-border);color:var(--lf-text-2);transition:border-color .2s ease,color .2s ease}
 .lf-socials a:hover{border-color:#FF751F;color:#FF751F}

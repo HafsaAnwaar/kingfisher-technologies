@@ -1,11 +1,13 @@
 import { DemoCtaBand, FaqList, PageHero } from '../../components/marketing/Marketing'
 import { SITE_FAQS } from '../../content/resources'
 import '../../components/marketing/marketing.css'
+import { QuestionsArt } from '../../components/marketing/inner/HeroArt'
 
 export function FaqPage() {
   return (
     <>
       <PageHero
+        variant="split" compact fleet="air" art={<QuestionsArt questions={SITE_FAQS.map((f) => f[0])} />}
         eyebrow="FAQ"
         title={
           <>

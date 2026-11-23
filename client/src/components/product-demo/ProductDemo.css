@@ -12,10 +12,10 @@
 @keyframes lf-glowdrift{from{transform:translate3d(-1%,0,0) scale(1)}to{transform:translate3d(1%,-1%,0) scale(1.03)}}
 .lf-video2{position:relative;z-index:1;aspect-ratio:16/9;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.084);background:#070A24;box-shadow:0 40px 90px -30px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.05)}
 .lf-demo-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#070A24}
-.lf-poster{position:absolute;inset:0;z-index:2;display:block;width:100%;height:100%;padding:0;border:0;cursor:pointer;color:#FFFFFF;text-decoration:none;background:radial-gradient(60% 70% at 50% 46%,rgba(255,117,31,0.144),transparent 70%),radial-gradient(40% 50% at 82% 92%,rgba(236,72,153,.12),transparent 70%),linear-gradient(180deg,#0B1036,#060920)}
+.lf-poster{position:absolute;inset:0;z-index:2;display:block;width:100%;height:100%;padding:0;border:0;cursor:pointer;color:#FFFFFF;text-decoration:none;background-color:#070A24;background-size:cover;background-position:center;background-repeat:no-repeat}
 .lf-poster:hover{color:#FFFFFF}
 .lf-poster:focus-visible{outline:2px solid #FF751F;outline-offset:-4px;border-radius:14px}
-.lf-poster-grid{position:absolute;inset:0;opacity:.55;background:repeating-linear-gradient(30deg,rgba(255,255,255,0.042) 0 1px,transparent 1px 44px),repeating-linear-gradient(-30deg,rgba(255,255,255,0.042) 0 1px,transparent 1px 44px);-webkit-mask-image:radial-gradient(70% 70% at 50% 55%,#000,transparent);mask-image:radial-gradient(70% 70% at 50% 55%,#000,transparent)}
+.lf-poster-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,10,36,.35),rgba(7,10,36,.55) 45%,rgba(7,10,36,.72));pointer-events:none}
 .lf-poster-top,.lf-poster-bot{position:absolute;left:20px;right:20px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'Geist Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#A1A1B5}
 .lf-poster-top{top:18px}
 .lf-poster-bot{bottom:18px;color:#A1A1B5}

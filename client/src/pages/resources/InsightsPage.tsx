@@ -1,6 +1,7 @@
-import { DemoCtaBand, FeatureGrid, MkWrap, PageHero } from '../../components/marketing/Marketing'
+import { DemoCtaBand, MkWrap, PageHero, SectionHead } from '../../components/marketing/Marketing'
 import { RESOURCE_INSIGHTS } from '../../content/resources'
 import '../../components/marketing/marketing.css'
+import { InsightArt } from '../../components/marketing/inner/HeroArt'
 
 const BODIES: Record<string, [string, string][]> = {
   'operating-platform-not-tracker': [
@@ -24,6 +25,7 @@ export function InsightsPage() {
   return (
     <>
       <PageHero
+        variant="split" compact fleet="mix" art={<InsightArt title={RESOURCE_INSIGHTS[0].title} body={RESOURCE_INSIGHTS[0].blurb} />}
         eyebrow="Insights"
         title={
           <>
@@ -34,20 +36,31 @@ export function InsightsPage() {
         secondaryTo="/resources"
         secondaryLabel="All resources"
       />
-      {RESOURCE_INSIGHTS.map((insight) => (
+      {RESOURCE_INSIGHTS.map((insight, ii) => (
         <section className="lf-mk-section" id={insight.slug} key={insight.slug}>
           <MkWrap>
-            <div className="lf-mk-eyebrow">Insight</div>
-            <h2 className="lf-mk-h2" style={{ marginTop: 14, fontSize: 'clamp(28px,3vw,40px)' }}>
-              {insight.title}
-            </h2>
-            <p className="lf-mk-sub">{insight.blurb}</p>
+            <SectionHead
+              eyebrow={`Insight ${String(ii + 1).padStart(2, '0')}`}
+              title={insight.title}
+              sub={insight.blurb}
+            />
+            <div className="lf-x-subhead lf-x-reveal">
+              <span className="lf-x-subhead-k">Takeaways</span>
+              <span className="lf-x-subhead-t">
+                What matters <em>operationally</em>
+              </span>
+            </div>
+            <div className="lf-mk-feats lf-x-feats n-3" style={{ marginTop: 20 }}>
+              {(BODIES[insight.slug] ?? [[insight.title, insight.blurb]]).map(([heading, body], index) => (
+                <div className="lf-mk-feat" key={heading}>
+                  <span className="lf-x-feat-n">{String(index + 1).padStart(2, '0')}</span>
+                  <h3>{heading}</h3>
+                  <p>{body}</p>
+                  <span className="lf-x-feat-line" aria-hidden="true" />
+                </div>
+              ))}
+            </div>
           </MkWrap>
-          <FeatureGrid
-            eyebrow="Takeaways"
-            title={<>What matters <em>operationally</em></>}
-            features={BODIES[insight.slug] ?? [[insight.title, insight.blurb]]}
-          />
         </section>
       ))}
       <DemoCtaBand title={<>Discuss fit for your <em>desk.</em></>} />

@@ -1,15 +1,23 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, type CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
-import { DemoCtaBand, FaqList, MkWrap, PageHero } from '../../components/marketing/Marketing'
+import { Arrow, DemoCtaBand, FaqList, MkWrap, PageHero, SectionHead } from '../../components/marketing/Marketing'
 import { FeatureSplit, QuoteBoardHud } from '../../components/marketing/LiveHud'
 import { SwapFrame, TickText } from '../../components/marketing/motion'
 import { PLATFORM_MODULES } from '../../content/platform-modules'
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/motion/motion.css'
 import '../../components/marketing/live-hud.css'
+import { PricingArt } from '../../components/marketing/inner/HeroArt'
 
 const PLANS = ['Starter', 'Growth', 'Enterprise'] as const
 const MODES = ['Air', 'Sea', 'NVOCC', 'Land', 'Customs'] as const
+
+/** Tier highlights — taken from the comparison table below. */
+const TIER_FACTS: Record<(typeof PLANS)[number], string[]> = {
+  Starter: ['Core job modules · Up to 4', 'Modes · 1–2', 'Onboarding · Guided'],
+  Growth: ['Core job modules · Up to 8', 'Modes · Multi-modal', 'Onboarding · Guided + training'],
+  Enterprise: ['Core job modules · Full stack', 'Modes · Multi-modal + NVOCC', 'Onboarding · Dedicated'],
+}
 
 export function PricingPage() {
   const [plan, setPlan] = useState<(typeof PLANS)[number]>('Growth')
@@ -41,6 +49,7 @@ export function PricingPage() {
   return (
     <>
       <PageHero
+        variant="split" fleet="mix" art={<PricingArt modules={PLATFORM_MODULES.map((m) => m.name)} />}
         eyebrow="Pricing"
         title={
           <>
@@ -48,6 +57,7 @@ export function PricingPage() {
           </>
         }
         lede="Kingfisher is modular. Start with the modes you run today — add customs, warehouse or finance as you grow. Pricing scales with jobs per month, not truck telematics."
+        caps={['Starter', 'Growth', 'Enterprise']}
       />
 
       <FeatureSplit
@@ -71,40 +81,64 @@ export function PricingPage() {
         panel={<QuoteBoardHud />}
       />
 
-      <section className="lf-mk-section" style={{ borderTop: 0, paddingTop: 0 }}>
+      <section className="lf-mk-section">
         <MkWrap>
-          <div className="lf-mk-plans">
-            {PLANS.map((item) => (
+          <SectionHead
+            eyebrow="Plans"
+            title={
+              <>
+                Pick a tier. Switch on <em>modules.</em>
+              </>
+            }
+          />
+          <div className="lf-x-center">
+            <div className="lf-mk-filters" role="group" aria-label="Billing period">
+              <button
+                type="button"
+                className={!annual ? 'is-on' : undefined}
+                onClick={() => setAnnual(false)}
+              >
+                Monthly
+              </button>
+              <button
+                type="button"
+                className={annual ? 'is-on' : undefined}
+                onClick={() => setAnnual(true)}
+              >
+                Annual · −15%
+              </button>
+            </div>
+          </div>
+          <div className="lf-mk-plans lf-x-tiers">
+            {PLANS.map((item, index) => (
               <button
                 type="button"
                 key={item}
-                className={`lf-mk-plan-card${plan === item ? ' is-on' : ''}`}
+                className={`lf-mk-plan-card lf-x-tier${plan === item ? ' is-on' : ''}`}
                 onClick={() => setPlan(item)}
+                aria-pressed={plan === item}
               >
                 {item === 'Growth' && plan === item ? (
                   <span className="lf-mk-plan-halo" aria-hidden="true" />
                 ) : null}
-                <span>{item}</span>
+                <span className="lf-x-tier-inner">
+                  <span className="lf-x-tier-top">
+                    <span className="lf-x-tier-n">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="lf-x-tier-radio" aria-hidden="true" />
+                  </span>
+                  <span className="lf-x-tier-name">{item}</span>
+                  <span className="lf-x-tier-facts">
+                    {TIER_FACTS[item].map((fact) => (
+                      <span key={fact}>{fact}</span>
+                    ))}
+                  </span>
+                </span>
               </button>
             ))}
-            <button
-              type="button"
-              className={!annual ? 'is-on' : undefined}
-              onClick={() => setAnnual(false)}
-            >
-              Monthly
-            </button>
-            <button
-              type="button"
-              className={annual ? 'is-on' : undefined}
-              onClick={() => setAnnual(true)}
-            >
-              Annual · −15%
-            </button>
           </div>
 
-          <div className="lf-mk-ba" style={{ marginTop: 28 }}>
-            <article>
+          <div className="lf-mk-ba lf-x-pricing" style={{ marginTop: 20 }}>
+            <article className="lf-x-config">
               <h3>Your monthly volume</h3>
               <p style={{ margin: '12px 0 0', fontSize: 13, color: 'var(--lf-text-2)' }}>
                 Jobs / month · {jobs}
@@ -116,7 +150,8 @@ export function PricingPage() {
                 value={jobs}
                 onChange={(e) => setJobs(Number(e.target.value))}
                 aria-label="Jobs per month"
-                style={{ width: '100%', marginTop: 8 }}
+                className="lf-x-range"
+                style={{ '--p': `${((jobs - 50) / (5000 - 50)) * 100}%` } as CSSProperties}
               />
               <p style={{ margin: '16px 0 0', fontSize: 13, color: 'var(--lf-text-2)' }}>
                 Modes in scope
@@ -152,7 +187,7 @@ export function PricingPage() {
               </div>
             </article>
 
-            <article className="lf-mk-pricebox" style={{ margin: 0, position: 'relative', overflow: 'hidden' }}>
+            <article className="lf-mk-pricebox lf-x-quote" style={{ margin: 0 }}>
               <SwapFrame swapKey={`${summary.plan}-${summary.annual}-${summary.jobs}`} par={summary.jobs % 2 ? 'b' : 'a'}>
               <div className="lf-mk-eyebrow">
                 Indicative {summary.plan} · {summary.annual ? 'annual' : 'monthly'}
@@ -172,8 +207,8 @@ export function PricingPage() {
                 <li>Annual prepay discount pattern</li>
                 <li>One-time onboarding scoped separately</li>
               </ul>
-              <Link className="lf-mk-btn lf-mk-btn-primary" to="/contact" style={{ marginTop: 18 }}>
-                Get this quote
+              <Link className="lf-btn lf-btn-primary lf-btn-lg lf-x-btn-accent" to="/contact" style={{ marginTop: 22 }}>
+                Get this quote <Arrow />
               </Link>
             </article>
           </div>
@@ -182,10 +217,15 @@ export function PricingPage() {
 
       <section className="lf-mk-section">
         <MkWrap>
-          <div className="lf-mk-eyebrow">Compare</div>
-          <h2 className="lf-mk-h2">
-            Every capability, side by <em>side.</em>
-          </h2>
+          <SectionHead
+            eyebrow="Compare"
+            title={
+              <>
+                Every capability, side by <em>side.</em>
+              </>
+            }
+          />
+          <div className="lf-vk-table-wrap lf-x-compare">
           <table className="lf-mk-table">
             <thead>
               <tr>
@@ -234,6 +274,7 @@ export function PricingPage() {
               </tr>
             </tbody>
           </table>
+          </div>
         </MkWrap>
       </section>
 

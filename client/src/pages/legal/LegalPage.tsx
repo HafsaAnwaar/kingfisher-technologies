@@ -2,6 +2,7 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import { MkWrap, PageHero } from '../../components/marketing/Marketing'
 import { LEGAL_BY_SLUG, LEGAL_DOCS, legalPath } from '../../content/legal'
 import '../../components/marketing/marketing.css'
+import { LegalArt } from '../../components/marketing/inner/HeroArt'
 
 export function LegalPage() {
   const { slug = '' } = useParams()
@@ -11,6 +12,7 @@ export function LegalPage() {
   return (
     <>
       <PageHero
+        variant="split" fleet="mix" art={<LegalArt docs={LEGAL_DOCS.map((d) => d.title)} current={doc.title} />}
         eyebrow="Legal"
         title={<>{doc.title}</>}
         lede={`${doc.updated}. These pages require company legal review before they are treated as final policy.`}
@@ -18,33 +20,40 @@ export function LegalPage() {
         primaryLabel="Contact us"
         secondaryTo="/security"
         secondaryLabel="Security & Privacy"
+        compact
       />
       <section className="lf-mk-section lf-mk-flush">
-        <MkWrap>
-          <div className="lf-mk-pills" style={{ marginBottom: 28 }}>
+        <MkWrap className="lf-x-legal">
+          <nav className="lf-x-legal-nav lf-x-reveal" aria-label="Legal documents">
+            <span className="lf-x-legal-nav-k">Legal</span>
             {LEGAL_DOCS.map((d) => (
-              <Link
-                key={d.slug}
-                className={d.slug === slug ? 'lf-mk-pill on' : 'lf-mk-pill'}
-                to={legalPath(d.slug)}
-                style={{ textDecoration: 'none' }}
-              >
+              <Link key={d.slug} className={d.slug === slug ? 'on' : undefined} to={legalPath(d.slug)}>
                 {d.title}
               </Link>
             ))}
-          </div>
-          {doc.sections.map((s) => (
-            <article key={s.heading} style={{ marginBottom: 36 }}>
-              <h2 className="lf-mk-h2" style={{ fontSize: 'clamp(22px,2.4vw,30px)', marginTop: 0 }}>
-                {s.heading}
-              </h2>
-              {s.paragraphs.map((p) => (
-                <p className="lf-mk-sub" key={p.slice(0, 48)}>
-                  {p}
-                </p>
+            <div className="lf-x-legal-toc">
+              {doc.sections.map((s, i) => (
+                <a key={s.heading} href={`#legal-${i + 1}`}>
+                  {s.heading}
+                </a>
               ))}
-            </article>
-          ))}
+            </div>
+          </nav>
+          <div className="lf-x-legal-doc lf-x-reveal">
+            {doc.sections.map((s, i) => (
+              <article key={s.heading} id={`legal-${i + 1}`}>
+                <h2 className="lf-mk-h2" style={{ marginTop: 0 }}>
+                  <small>{String(i + 1).padStart(2, '0')}</small>
+                  {s.heading}
+                </h2>
+                {s.paragraphs.map((p) => (
+                  <p className="lf-mk-sub" key={p.slice(0, 48)}>
+                    {p}
+                  </p>
+                ))}
+              </article>
+            ))}
+          </div>
         </MkWrap>
       </section>
     </>

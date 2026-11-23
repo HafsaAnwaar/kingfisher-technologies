@@ -17,6 +17,17 @@ import {
   modulePath,
   type StageKind,
 } from '../../content/platform-modules'
+import { ModuleArt } from '../../components/marketing/inner/HeroArt'
+import type { Fleet } from '../../components/marketing/inner/HeroFx'
+
+const MODULE_FLEET: Record<string, Fleet> = {
+  'air-freight': 'air',
+  'sea-freight': 'sea',
+  nvocc: 'sea',
+  'land-courier': 'land',
+  warehouse: 'land',
+  tracking: 'air',
+}
 
 function layoutFor(kind: StageKind): 'spatial' | 'process' | 'floor' | 'money' {
   if (kind === 'costLedger' || kind === 'kpiCharts') return 'money'
@@ -60,12 +71,14 @@ export function ModulePage() {
   return (
     <>
       <PageHero
+        variant="split" fleet={MODULE_FLEET[module.slug] ?? 'mix'} flip={PLATFORM_MODULES.findIndex((m) => m.slug === module.slug) % 2 === 1} art={<ModuleArt slug={module.slug} title={module.stageTitle} sub={module.stageSub} pills={module.stagePills} />}
         eyebrow={`Platform · ${module.cat}`}
         title={accentName(name)}
         lede={module.tagline}
         sub={module.outcome}
         secondaryTo="/platform"
         secondaryLabel="All modules"
+        caps={module.stagePills}
       />
 
       <ModuleFlowSection

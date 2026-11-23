@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
-import { DemoCtaBand, FeatureGrid, MkWrap, PageHero } from '../../components/marketing/Marketing'
-import { useInViewPlay } from '../../components/marketing/motion'
+import { DemoCtaBand, FeatureGrid, MkWrap, PageHero, SectionHead } from '../../components/marketing/Marketing'
 import { FeatureSplit, JobDeskHud } from '../../components/marketing/LiveHud'
 import {
   IconCardGrid,
@@ -11,6 +10,7 @@ import '../../components/marketing/marketing.css'
 import '../../components/marketing/motion/motion.css'
 import '../../components/marketing/visual-kit.css'
 import '../../components/marketing/live-hud.css'
+import { AboutArt } from '../../components/marketing/inner/HeroArt'
 
 const TIMELINE = [
   {
@@ -44,11 +44,10 @@ const VALUES = [
 ] as [string, string][]
 
 export function AboutPage() {
-  const { ref, inView } = useInViewPlay<HTMLElement>(0.2)
-
   return (
     <>
       <PageHero
+        variant="editorial" fleet="air" art={<AboutArt tag="Air · Sea · NVOCC · Land · Customs" />}
         eyebrow="About"
         title={
           <>
@@ -58,9 +57,10 @@ export function AboutPage() {
         lede="Kingfisher Technologies builds a multi-tenant freight management platform for logistics companies that need operational clarity and financial control in one system."
         secondaryTo="/security"
         secondaryLabel="Security & Privacy"
+        caps={['Clarity', 'Accountability', 'Operational realism']}
       />
 
-      <section className="lf-mk-section" style={{ borderTop: 0, paddingTop: 0 }}>
+      <section className="lf-mk-section lf-mk-flush">
         <MkWrap>
           <div className="lf-mk-stats">
             <div className="lf-mk-stat">
@@ -81,27 +81,41 @@ export function AboutPage() {
 
       <section className="lf-mk-section">
         <MkWrap>
-          <div className="lf-mk-eyebrow">Vision</div>
-          <h2 className="lf-mk-h2">
-            Every quotation, file, document, and entry stays <em>connected.</em>
-          </h2>
-          <p className="lf-mk-sub">
-            A logistics industry where every quotation, shipment file, document, and financial entry
-            stays connected and accountable — so teams stop reconciling after the cargo has moved.
-          </p>
-        </MkWrap>
-      </section>
-
-      <section className="lf-mk-section">
-        <MkWrap>
-          <div className="lf-mk-eyebrow">Mission</div>
-          <h2 className="lf-mk-h2">
-            Deliver a secure platform for how departments <em>collaborate.</em>
-          </h2>
-          <p className="lf-mk-sub">
-            Deliver a secure, multi-tenant freight management platform that helps teams collaborate
-            across sales, operations, documentation, customers, vendors, and finance.
-          </p>
+          <div className="lf-x-duo">
+            <article className="lf-x-manifesto lf-x-spot lf-x-reveal">
+              <span className="lf-x-badge">
+                <span className="lf-x-badge-dot" aria-hidden="true" />
+                Vision
+              </span>
+              <h2 className="lf-mk-h2">
+                Every quotation, file, document, and entry stays <em>connected.</em>
+              </h2>
+              <p className="lf-mk-sub">
+                A logistics industry where every quotation, shipment file, document, and financial
+                entry stays connected and accountable — so teams stop reconciling after the cargo has
+                moved.
+              </p>
+              <span className="lf-x-manifesto-n" aria-hidden="true">
+                01
+              </span>
+            </article>
+            <article className="lf-x-manifesto lf-x-spot lf-x-reveal">
+              <span className="lf-x-badge">
+                <span className="lf-x-badge-dot" aria-hidden="true" />
+                Mission
+              </span>
+              <h2 className="lf-mk-h2">
+                Deliver a secure platform for how departments <em>collaborate.</em>
+              </h2>
+              <p className="lf-mk-sub">
+                Deliver a secure, multi-tenant freight management platform that helps teams
+                collaborate across sales, operations, documentation, customers, vendors, and finance.
+              </p>
+              <span className="lf-x-manifesto-n" aria-hidden="true">
+                02
+              </span>
+            </article>
+          </div>
         </MkWrap>
       </section>
 
@@ -140,13 +154,17 @@ export function AboutPage() {
         panel={<JobDeskHud />}
       />
 
-      <section className="lf-mk-section">
+      <section className="lf-mk-section lf-x-statement">
         <MkWrap>
-          <div className="lf-mk-eyebrow">Philosophy</div>
-          <h2 className="lf-mk-h2">
-            Follow the handoff — not generic <em>project tools.</em>
-          </h2>
-          <p className="lf-mk-sub">
+          <SectionHead
+            eyebrow="Philosophy"
+            title={
+              <>
+                Follow the handoff — not generic <em>project tools.</em>
+              </>
+            }
+          />
+          <p className="lf-mk-sub lf-x-statement-body lf-x-reveal">
             Software should follow how freight departments hand work off. Kingfisher connects
             quotations, multi-mode operations, customs and documentation, customer and vendor
             portals, and financial control — so forwarders run from one secure system instead of
@@ -184,15 +202,19 @@ export function AboutPage() {
         ]}
       />
 
-      <section className={inView ? 'lf-mk-section lf-mk-inview' : 'lf-mk-section'} ref={ref}>
+      <section className="lf-mk-section">
         <MkWrap>
-          <div className="lf-mk-eyebrow">Timeline</div>
-          <h2 className="lf-mk-h2">
-            Building in public <em>chapters</em>
-          </h2>
-          <div className="lf-mk-timeline">
-            {TIMELINE.map((item, i) => (
-              <article className={`lf-mk-rise lf-mk-rise-d${i + 1}`} key={item.label}>
+          <SectionHead
+            eyebrow="Timeline"
+            title={
+              <>
+                Building in public <em>chapters</em>
+              </>
+            }
+          />
+          <div className="lf-mk-timeline lf-x-timeline-narrow">
+            {TIMELINE.map((item) => (
+              <article key={item.label}>
                 <b>{item.label}</b>
                 <div>
                   <h3 style={{ margin: 0, fontSize: 16 }}>{item.title}</h3>

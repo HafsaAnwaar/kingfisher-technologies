@@ -1,13 +1,65 @@
-import { useState, type FormEvent, type ReactNode } from 'react'
+import { useState, type CSSProperties, type FormEvent, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { submitDemoRequest } from '../../lib/api'
 import type { Faq, Feature, Step } from '../../content/platform-modules'
+import { PUBLIC_CONTACT_EMAIL, PUBLIC_CONTACT_MAILTO } from '../../content/site-contact'
 import './marketing.css'
 import './live-hud.css'
+import '../../styles/buttons.css'
+import './inner/inner.css'
+import { HeroFx, splitWords, type Fleet } from './inner/HeroFx'
+import './inner/hero-art.css'
 
 export function MkWrap({ children, className = '' }: { children: ReactNode; className?: string }) {
   return <div className={`lf-mk-wrap ${className}`.trim()}>{children}</div>
 }
+
+export function Arrow({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
+  )
+}
+
+/** Homepage-style section header: glass badge, big serif title with orange italic accent. */
+export function SectionHead({
+  eyebrow,
+  title,
+  sub,
+  align = 'center',
+  className = '',
+}: {
+  eyebrow: string
+  title: ReactNode
+  sub?: ReactNode
+  align?: 'center' | 'left'
+  className?: string
+}) {
+  return (
+    <header className={`lf-x-head is-${align} ${className}`.trim()}>
+      <span className="lf-x-badge">
+        <span className="lf-x-badge-dot" aria-hidden="true" />
+        {eyebrow}
+      </span>
+      <h2 className="lf-mk-h2">{title}</h2>
+      {sub ? <p className="lf-mk-sub">{sub}</p> : null}
+    </header>
+  )
+}
+
+export type HeroVariant = 'center' | 'split' | 'editorial'
 
 export function PageHero({
   eyebrow,
@@ -19,6 +71,12 @@ export function PageHero({
   secondaryTo,
   secondaryLabel,
   stage,
+  caps,
+  compact = false,
+  variant = 'center',
+  art,
+  flip = false,
+  fleet = 'mix',
 }: {
   eyebrow: string
   title: ReactNode
@@ -29,26 +87,91 @@ export function PageHero({
   secondaryTo?: string
   secondaryLabel?: string
   stage?: ReactNode
+  /** Mono capability line under the CTAs (homepage "Plan · Procure · Track"). */
+  caps?: string[]
+  /** Shorter hero for reading pages (legal, updates). */
+  compact?: boolean
+  /** Hero composition: centered (hubs), split copy + signature art, or editorial left-set headline. */
+  variant?: HeroVariant
+  /** Signature animated visual for this page (split: beside the copy, editorial/center: below). */
+  art?: ReactNode
+  /** Split: put the art on the left. Also mirrors the freight lanes. */
+  flip?: boolean
+  /** Vehicles travelling the hero lanes. */
+  fleet?: Fleet
 }) {
+  const cls = ['lf-mk-hero', 'lf-xh', `v-${variant}`]
+  if (compact) cls.push('is-compact')
+  if (flip) cls.push('is-flip')
+  if (art) cls.push('has-art')
+
+  const badge = (
+    <span className="lf-xh-badge lf-xh-in">
+      <span className="lf-xh-dot" aria-hidden="true" />
+      {eyebrow}
+    </span>
+  )
+  const ctas = (
+    <div className="lf-mk-ctas lf-xh-in d3">
+      <Link className="lf-btn lf-btn-primary lf-btn-lg lf-x-btn-accent" to={primaryTo}>
+        {primaryLabel} <Arrow />
+      </Link>
+      {secondaryTo && secondaryLabel ? (
+        <Link className="lf-btn lf-btn-ghost lf-btn-lg" to={secondaryTo}>
+          {secondaryLabel}
+        </Link>
+      ) : null}
+    </div>
+  )
+  const capsLine = caps?.length ? (
+    <div className="lf-xh-caps lf-xh-in d4">
+      {caps.map((cap, i) => (
+        <span className="lf-xh-cap" key={cap}>
+          {i > 0 ? <span className="lf-xh-sep" aria-hidden="true" /> : null}
+          {variant === 'editorial' ? <span className="lf-xh-capn">{String(i + 1).padStart(2, '0')}</span> : null}
+          {cap}
+        </span>
+      ))}
+    </div>
+  ) : null
+
   return (
-    <section className="lf-mk-hero">
-      <MkWrap>
-        <div className="lf-mk-eyebrow">{eyebrow}</div>
-        <h1 className="lf-mk-h1">{title}</h1>
-        <p className="lf-mk-lede">{lede}</p>
-        {sub ? <p className="lf-mk-sub">{sub}</p> : null}
-        <div className="lf-mk-ctas">
-          <Link className="lf-mk-btn lf-mk-btn-primary" to={primaryTo}>
-            {primaryLabel}
-          </Link>
-          {secondaryTo && secondaryLabel ? (
-            <Link className="lf-mk-btn lf-mk-btn-ghost" to={secondaryTo}>
-              {secondaryLabel}
-            </Link>
-          ) : null}
-        </div>
-        {stage}
-      </MkWrap>
+    <section className={cls.join(' ')}>
+      <HeroFx fleet={fleet} flip={flip} />
+      {variant === 'editorial' ? (
+        <MkWrap className="lf-xh-wrap">
+          <div className="lf-xh-ed-top">
+            {badge}
+            {capsLine}
+          </div>
+          <h1 className="lf-mk-h1 lf-xh-title">{splitWords(title)}</h1>
+          <div className="lf-xh-ed-row">
+            <div className="lf-xh-ed-copy">
+              <p className="lf-mk-lede lf-xh-in d1">{lede}</p>
+              {sub ? <p className="lf-mk-sub lf-xh-in d2">{sub}</p> : null}
+              {ctas}
+            </div>
+            {art ? <div className="lf-xh-art lf-xh-in d4">{art}</div> : null}
+          </div>
+        </MkWrap>
+      ) : (
+        <MkWrap className="lf-xh-wrap">
+          <div className="lf-xh-copy">
+            {badge}
+            <h1 className="lf-mk-h1 lf-xh-title">{splitWords(title)}</h1>
+            <p className="lf-mk-lede lf-xh-in d1">{lede}</p>
+            {sub ? <p className="lf-mk-sub lf-xh-in d2">{sub}</p> : null}
+            {ctas}
+            {capsLine}
+          </div>
+          {variant === 'split' && art ? <div className="lf-xh-art lf-xh-in d3">{art}</div> : null}
+          {variant === 'center' && art ? <div className="lf-xh-stage lf-xh-art-wide lf-xh-in d4">{art}</div> : null}
+          {stage ? <div className="lf-xh-stage lf-xh-in d4">{stage}</div> : null}
+        </MkWrap>
+      )}
+      <div className="lf-xh-scroll" aria-hidden="true">
+        <span />
+      </div>
     </section>
   )
 }
@@ -93,6 +216,22 @@ export function accentName(name: string) {
   )
 }
 
+function CrossIcon() {
+  return (
+    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+      <path d="M5 5l6 6M11 5l-6 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+      <path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 export function BeforeAfter({
   eyebrow = 'Before & after',
   title,
@@ -111,26 +250,42 @@ export function BeforeAfter({
   return (
     <section className="lf-mk-section">
       <MkWrap>
-        <header className="lf-mk-head" style={{ alignItems: 'flex-start', textAlign: 'left', margin: 0, maxWidth: 'none' }}>
-          <div className="lf-mk-eyebrow">{eyebrow}</div>
-          <h2 className="lf-mk-h2" style={{ marginTop: 14, fontSize: 'clamp(28px,3vw,40px)' }}>
-            {title}
-          </h2>
-        </header>
-        <div className="lf-mk-ba">
-          <article>
-            <h3>{beforeTitle}</h3>
+        <SectionHead eyebrow={eyebrow} title={title} />
+        <div className="lf-mk-ba lf-x-ba">
+          <article className="bad">
+            <div className="lf-x-ba-top">
+              <span className="lf-x-ba-tag">{beforeTitle}</span>
+              <span className="lf-x-ba-state">Scattered</span>
+            </div>
             <ul>
-              {before.map((item) => (
-                <li key={item}>{item}</li>
+              {before.map((item, i) => (
+                <li key={item} style={{ '--li': i } as CSSProperties}>
+                  <span className="lf-x-ba-ico">
+                    <CrossIcon />
+                  </span>
+                  {item}
+                </li>
               ))}
             </ul>
           </article>
+          <div className="lf-x-ba-arrow" aria-hidden="true">
+            <span>
+              <Arrow size={20} />
+            </span>
+          </div>
           <article className="good">
-            <h3>{afterTitle}</h3>
+            <div className="lf-x-ba-top">
+              <span className="lf-x-ba-tag">{afterTitle}</span>
+              <span className="lf-x-ba-state">Connected</span>
+            </div>
             <ul>
-              {after.map((item) => (
-                <li key={item}>{item}</li>
+              {after.map((item, i) => (
+                <li key={item} style={{ '--li': i } as CSSProperties}>
+                  <span className="lf-x-ba-ico">
+                    <CheckIcon />
+                  </span>
+                  {item}
+                </li>
               ))}
             </ul>
           </article>
@@ -154,12 +309,12 @@ export function Steps3({
   return (
     <section className="lf-mk-section">
       <MkWrap>
-        <div className="lf-mk-eyebrow">{eyebrow}</div>
-        <h2 className="lf-mk-h2">{title}</h2>
-        <div className="lf-mk-steps">
+        <SectionHead eyebrow={eyebrow} title={title} />
+        <div className="lf-mk-steps lf-x-steps">
+          <span className="lf-x-steps-rail" aria-hidden="true" />
           {steps.map(([heading, body], index) => (
             <div className="lf-mk-step" key={heading}>
-              <span>
+              <span className="lf-x-step-n">
                 {labelPrefix === 'Stage' ? `Stage ${index + 1}` : `${labelPrefix}${index + 1}`}
               </span>
               <h3>{heading}</h3>
@@ -184,15 +339,14 @@ export function FeatureGrid({
   return (
     <section className="lf-mk-section">
       <MkWrap>
-        <div className="lf-mk-eyebrow">{eyebrow}</div>
-        <h2 className="lf-mk-h2" style={{ marginTop: 14, fontSize: 'clamp(28px,3vw,40px)' }}>
-          {title}
-        </h2>
-        <div className="lf-mk-feats">
-          {features.map(([heading, body]) => (
+        <SectionHead eyebrow={eyebrow} title={title} />
+        <div className={`lf-mk-feats lf-x-feats n-${Math.min(features.length, 6)}`}>
+          {features.map(([heading, body], index) => (
             <div className="lf-mk-feat" key={heading}>
+              <span className="lf-x-feat-n">{String(index + 1).padStart(2, '0')}</span>
               <h3>{heading}</h3>
               <p>{body}</p>
+              <span className="lf-x-feat-line" aria-hidden="true" />
             </div>
           ))}
         </div>
@@ -215,13 +369,16 @@ export function ProofQuote({
   return (
     <section className="lf-mk-section">
       <MkWrap>
-        <div className="lf-mk-proof">
-          <div>
+        <div className="lf-mk-proof lf-x-proof">
+          <div className="lf-x-proof-metric">
             <b>{metric}</b>
             <small>{metricSub}</small>
           </div>
-          <div>
-            <blockquote>“{quote}”</blockquote>
+          <div className="lf-x-proof-quote">
+            <span className="lf-x-proof-mark" aria-hidden="true">
+              “
+            </span>
+            <blockquote>{quote}</blockquote>
             <cite>{quoteBy}</cite>
           </div>
         </div>
@@ -242,12 +399,15 @@ export function RelatedLinks({
   return (
     <section className="lf-mk-section">
       <MkWrap>
-        <div className="lf-mk-eyebrow">{eyebrow}</div>
-        <h2 className="lf-mk-h2">{title}</h2>
-        <div className="lf-mk-related">
-          {links.map((link) => (
+        <SectionHead eyebrow={eyebrow} title={title} />
+        <div className="lf-mk-related lf-x-related">
+          {links.map((link, i) => (
             <Link key={link.to} to={link.to}>
-              {link.label}
+              <span className="lf-x-rel-n">{String(i + 1).padStart(2, '0')}</span>
+              <span className="lf-x-rel-label">{link.label}</span>
+              <span className="lf-x-rel-go">
+                <Arrow size={16} />
+              </span>
             </Link>
           ))}
         </div>
@@ -267,13 +427,27 @@ export function FaqList({
 }) {
   return (
     <section className="lf-mk-section">
-      <MkWrap>
-        <div className="lf-mk-eyebrow">{eyebrow}</div>
-        <h2 className="lf-mk-h2">{title}</h2>
-        <div className="lf-mk-faq">
-          {faqs.map(([q, a]) => (
-            <details key={q}>
-              <summary>{q}</summary>
+      <MkWrap className="lf-x-faq-grid">
+        <div className="lf-x-faq-side">
+          <SectionHead
+            eyebrow={eyebrow}
+            title={title}
+            align="left"
+            sub={
+              <>
+                Can’t find what you need?{' '}
+                <Link to="/contact">Talk to our team</Link>.
+              </>
+            }
+          />
+        </div>
+        <div className="lf-mk-faq lf-x-faq">
+          {faqs.map(([q, a], i) => (
+            <details key={q} open={i === 0}>
+              <summary>
+                <span>{q}</span>
+                <i className="lf-x-faq-ico" aria-hidden="true" />
+              </summary>
               <p>{a}</p>
             </details>
           ))}
@@ -315,97 +489,139 @@ export function DemoCtaBand({
         modes: [mode],
       })
       setDone(true)
-    } catch {
-      setError('Could not send your request. Please try again.')
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : 'Could not send your request. Please try again.',
+      )
     } finally {
       setSubmitting(false)
     }
   }
 
   return (
-    <section className="lf-mk-cta" id="demo">
-      <MkWrap className="lf-mk-cta-grid">
-        <form className="lf-mk-form" aria-label="Request a demo" onSubmit={onSubmit} noValidate>
-          <h3 className="lf-mk-h2" style={{ fontSize: 24 }}>
-            {done ? (
-              <>
-                Request <em>sent</em>
-              </>
-            ) : (
-              <>
-                Request a <em>demo</em>
-              </>
-            )}
-          </h3>
-          {done ? (
-            <p className="lf-mk-sub">Thanks — our solutions team will reach out at {email}.</p>
-          ) : (
-            <>
-              <label>
-                Company email
-                <input
-                  type="email"
-                  placeholder="you@yourcompany.com"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </label>
-              <label>
-                Company name
-                <input
-                  type="text"
-                  placeholder="Your freight company"
-                  required
-                  value={company}
-                  onChange={(e) => setCompany(e.target.value)}
-                />
-              </label>
-              <label>
-                Full name
-                <input
-                  type="text"
-                  placeholder="Your name"
-                  required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </label>
-              <label>
-                Freight modes
-                <select value={mode} onChange={(e) => setMode(e.target.value)}>
-                  <option>Air Freight</option>
-                  <option>Sea FCL / LCL</option>
-                  <option>NVOCC</option>
-                  <option>Land / Courier</option>
-                  <option>Multi-modal</option>
-                </select>
-              </label>
-              {error ? (
-                <p className="lf-mk-form-error" role="alert">
-                  {error}
-                </p>
-              ) : null}
-              <button className="lf-mk-btn lf-mk-btn-primary" type="submit" disabled={submitting}>
-                {submitting ? 'Sending…' : 'Request demo'}
-              </button>
-            </>
-          )}
-        </form>
-        <div>
-          <div className="lf-mk-eyebrow">Get started</div>
-          <h2 className="lf-mk-h2">{title}</h2>
-          <p className="lf-mk-sub">{sub}</p>
-          <ul className="lf-mk-list">
-            <li>✓ Guided demo tailored to your freight modes</li>
-            <li>✓ Onboarding plan for your team and modules</li>
-            <li>✓ Direct line to our solutions team</li>
-          </ul>
-          <p className="lf-mk-sub" style={{ marginTop: 18, fontSize: 13 }}>
-            Prefer email? Write to <Link to="/contact">[sales email]</Link>
-          </p>
+    <section className="lf-mk-cta lf-x-cta" id="demo">
+      <MkWrap>
+        <div className="lf-mk-cta-panel">
+          <div className="lf-x-cta-fx" aria-hidden="true">
+            <span className="lf-x-cta-orb a" />
+            <span className="lf-x-cta-orb b" />
+            <span className="lf-x-cta-grid" />
+          </div>
+          <div className="lf-mk-cta-grid">
+            <div className="lf-x-cta-copy">
+              <span className="lf-x-badge">
+                <span className="lf-x-badge-dot" aria-hidden="true" />
+                Get started
+              </span>
+              <h2 className="lf-mk-h2">{title}</h2>
+              <p className="lf-mk-sub">{sub}</p>
+              <ul className="lf-mk-list lf-x-checks">
+                <li>Guided demo tailored to your freight modes</li>
+                <li>Onboarding plan for your team and modules</li>
+                <li>Direct line to our solutions team</li>
+              </ul>
+              <p className="lf-mk-sub lf-x-cta-mail">
+                Prefer email? Write to <a href={PUBLIC_CONTACT_MAILTO}>{PUBLIC_CONTACT_EMAIL}</a>
+              </p>
+            </div>
+            <form className="lf-mk-form" aria-label="Request a demo" onSubmit={onSubmit} noValidate>
+              <h3 className="lf-mk-h2 lf-x-form-h">
+                {done ? (
+                  <>
+                    Request <em>sent</em>
+                  </>
+                ) : (
+                  <>
+                    Request a <em>demo</em>
+                  </>
+                )}
+              </h3>
+              {done ? (
+                <p className="lf-mk-sub">Thanks — our solutions team will reach out at {email}.</p>
+              ) : (
+                <>
+                  <div className="lf-x-form-row">
+                    <label>
+                      Company email
+                      <input
+                        type="email"
+                        placeholder="you@yourcompany.com"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </label>
+                    <label>
+                      Company name
+                      <input
+                        type="text"
+                        placeholder="Your freight company"
+                        required
+                        value={company}
+                        onChange={(e) => setCompany(e.target.value)}
+                      />
+                    </label>
+                  </div>
+                  <div className="lf-x-form-row">
+                    <label>
+                      Full name
+                      <input
+                        type="text"
+                        placeholder="Your name"
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </label>
+                    <label>
+                      Freight modes
+                      <select value={mode} onChange={(e) => setMode(e.target.value)}>
+                        <option>Air Freight</option>
+                        <option>Sea FCL / LCL</option>
+                        <option>NVOCC</option>
+                        <option>Land / Courier</option>
+                        <option>Multi-modal</option>
+                      </select>
+                    </label>
+                  </div>
+                  {error ? (
+                    <p className="lf-mk-form-error" role="alert">
+                      {error}
+                    </p>
+                  ) : null}
+                  <button className="lf-btn lf-btn-primary lf-btn-lg lf-x-btn-accent lf-x-submit" type="submit" disabled={submitting}>
+                    {submitting ? 'Sending…' : 'Request demo'} {submitting ? null : <Arrow />}
+                  </button>
+                </>
+              )}
+            </form>
+          </div>
         </div>
       </MkWrap>
     </section>
+  )
+}
+
+/** Grid of short statements with a check (or cross) badge — used for lists on inner pages. */
+export function CheckGrid({
+  items,
+  tone = 'good',
+  columns = 2,
+}: {
+  items: readonly ReactNode[]
+  tone?: 'good' | 'bad'
+  columns?: 1 | 2 | 3
+}) {
+  return (
+    <div className={`lf-x-checkgrid cols-${columns} tone-${tone}`}>
+      {items.map((item, i) => (
+        <div className="lf-x-check lf-x-spot" key={i}>
+          <span className="lf-x-check-ico">{tone === 'good' ? <CheckIcon /> : <CrossIcon />}</span>
+          <span>{item}</span>
+        </div>
+      ))}
+    </div>
   )
 }

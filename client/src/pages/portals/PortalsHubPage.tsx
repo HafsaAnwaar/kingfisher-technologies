@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { DemoCtaBand, MkWrap, PageHero } from '../../components/marketing/Marketing'
+import { Arrow, DemoCtaBand, MkWrap, PageHero } from '../../components/marketing/Marketing'
 import { FeatureSplit, PortalInboxHud, VendorDeskHud } from '../../components/marketing/LiveHud'
 import {
   DataTable,
@@ -9,11 +9,14 @@ import {
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/visual-kit.css'
 import '../../components/marketing/live-hud.css'
+import { PortalsHubArt } from '../../components/marketing/inner/HeroArt'
+import { CUSTOMER_PORTAL, VENDOR_PORTAL } from '../../content/portals'
 
 export function PortalsHubPage() {
   return (
     <>
       <PageHero
+        variant="center" fleet="mix" art={<PortalsHubArt customer={CUSTOMER_PORTAL.capabilities.map((c) => c[0])} vendor={VENDOR_PORTAL.capabilities.map((c) => c[0])} />}
         eyebrow="Portals"
         title={
           <>
@@ -24,6 +27,7 @@ export function PortalsHubPage() {
         primaryLabel="Request a demonstration"
         secondaryTo="/security"
         secondaryLabel="Review security"
+        caps={['Customer portal', 'Vendor portal', 'Tenant boundaries']}
       />
 
       <FeatureSplit
@@ -56,18 +60,27 @@ export function PortalsHubPage() {
               <span className="cat">Customers</span>
               <h3>Customer portal</h3>
               <p>Quotes, shipments, documents, invoices, notifications, and pay — on their records only.</p>
+              <span className="lf-x-cardgo" aria-hidden="true">
+                <Arrow size={16} />
+              </span>
             </Link>
             <Link className="lf-mk-card" to="/portals/vendor">
               <IconBadge label="Vendor portal">{Icons.users}</IconBadge>
               <span className="cat">Vendors</span>
               <h3>Vendor portal</h3>
               <p>Assigned work, document exchange, and purchase invoice submit for staff review.</p>
+              <span className="lf-x-cardgo" aria-hidden="true">
+                <Arrow size={16} />
+              </span>
             </Link>
             <Link className="lf-mk-card" to="/security">
               <IconBadge label="Security">{Icons.shield}</IconBadge>
               <span className="cat">Trust</span>
               <h3>Security boundaries</h3>
               <p>Tenant isolation, RBAC, and payment-provider clarity behind every portal action.</p>
+              <span className="lf-x-cardgo" aria-hidden="true">
+                <Arrow size={16} />
+              </span>
             </Link>
           </div>
         </MkWrap>

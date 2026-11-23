@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { DemoCtaBand, MkWrap, PageHero } from '../../components/marketing/Marketing'
+import { Arrow, DemoCtaBand, MkWrap, PageHero } from '../../components/marketing/Marketing'
 import { FeatureSplit, JobDeskHud, QuoteBoardHud } from '../../components/marketing/LiveHud'
 import {
   BarChartCard,
@@ -11,6 +11,7 @@ import { FEATURES, featurePath } from '../../content/features'
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/visual-kit.css'
 import '../../components/marketing/live-hud.css'
+import { FeaturesHubArt } from '../../components/marketing/inner/HeroArt'
 
 const FEATURE_ICONS = [
   Icons.truck,
@@ -29,6 +30,7 @@ export function FeaturesHubPage() {
   return (
     <>
       <PageHero
+        variant="center" fleet="air" art={<FeaturesHubArt names={FEATURES.map((f) => f.name)} />}
         eyebrow="Features"
         title={
           <>
@@ -38,6 +40,7 @@ export function FeaturesHubPage() {
         lede="Operations, shipments, quotations, parties, documents, finance, intelligence, permissions, and activity — mapped to how freight desks actually work."
         secondaryTo="/platform"
         secondaryLabel="Explore platform modules"
+        caps={['Operate', 'Quote', 'Document', 'Invoice', 'Report']}
       />
 
       <FeatureSplit
@@ -71,6 +74,9 @@ export function FeaturesHubPage() {
                 <span className="cat">Capability</span>
                 <h3>{f.name}</h3>
                 <p>{f.tagline}</p>
+                <span className="lf-x-cardgo" aria-hidden="true">
+                  <Arrow size={16} />
+                </span>
               </Link>
             ))}
           </div>
