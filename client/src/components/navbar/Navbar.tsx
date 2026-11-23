@@ -92,9 +92,13 @@ export function Navbar() {
           >
             {isDark ? <SunIcon /> : <MoonIcon />}
           </button>
-          <Link className="lf-link lf-login" to="/contact" onClick={closeAll}>
+          <a
+            className="lf-link lf-login"
+            href="https://freightnest.kingfishertec.com"
+            onClick={closeAll}
+          >
             Login
-          </Link>
+          </a>
           <Link
             className="lf-btn lf-btn-primary lf-btn-sm lf-navcta"
             to="/contact"
@@ -270,9 +274,13 @@ export function Navbar() {
               Careers
             </Link>
             <div className="lf-mrule" />
-            <Link className="lf-mlink" to="/contact" onClick={closeAll}>
+            <a
+              className="lf-mlink"
+              href="https://freightnest.kingfishertec.com"
+              onClick={closeAll}
+            >
               Login
-            </Link>
+            </a>
             <Link
               className="lf-btn lf-btn-primary"
               to="/contact"

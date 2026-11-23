@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import './ProductDemo.css'
 
-const DEMO_SRC = '/media/freight-ops-demo.mp4'
+const YT_ID = 'ce5A7uPs1PA'
 const DEMO_POSTER = '/media/freight-ops-demo-poster.jpg'
+const YT_EMBED = `https://www.youtube-nocookie.com/embed/${YT_ID}?autoplay=1&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&controls=1&disablekb=0&fs=1&cc_load_policy=0`
 
 export function ProductDemo() {
   const sectionRef = useRef<HTMLElement>(null)
-  const videoRef = useRef<HTMLVideoElement>(null)
   const [inView, setInView] = useState(false)
   const [playing, setPlaying] = useState(false)
 
@@ -32,24 +32,6 @@ export function ProductDemo() {
     return () => observer.disconnect()
   }, [])
 
-  async function startPlayback() {
-    const video = videoRef.current
-    if (!video) return
-    try {
-      video.muted = false
-      await video.play()
-      setPlaying(true)
-    } catch {
-      try {
-        video.muted = true
-        await video.play()
-        setPlaying(true)
-      } catch {
-        /* blocked */
-      }
-    }
-  }
-
   return (
     <section
       className={inView ? 'lf-demo lf-demo-in' : 'lf-demo'}
@@ -72,23 +54,24 @@ export function ProductDemo() {
       <div className="lf-demo-stage">
         <div className="lf-demo-glow" aria-hidden="true" />
         <div className="lf-video2 lf-dr" style={{ transitionDelay: '280ms' }}>
-          <video
-            ref={videoRef}
-            className="lf-demo-video"
-            src={DEMO_SRC}
-            poster={DEMO_POSTER}
-            controls={playing}
-            playsInline
-            preload="metadata"
-            onPlay={() => setPlaying(true)}
-            onPause={() => setPlaying(false)}
-            onEnded={() => setPlaying(false)}
-          />
-          {!playing ? (
+          {playing ? (
+            <div className="lf-yt-wrap">
+              <iframe
+                className="lf-yt-frame"
+                src={YT_EMBED}
+                title="Kingfisher platform walkthrough"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+              <span className="lf-yt-logo-cover" aria-hidden="true" />
+            </div>
+          ) : (
             <button
               type="button"
               className="lf-poster"
-              onClick={startPlayback}
+              onClick={() => setPlaying(true)}
               aria-label="Play the product demo video"
               style={{ backgroundImage: `url(${DEMO_POSTER})` }}
             >
@@ -113,7 +96,7 @@ export function ProductDemo() {
                 <span>Play demo</span>
               </span>
             </button>
-          ) : null}
+          )}
         </div>
       </div>
     </section>
