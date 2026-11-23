@@ -9,12 +9,14 @@ import { VENDOR_PORTAL } from '../../content/portals'
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/visual-kit.css'
 import '../../components/marketing/live-hud.css'
+import { PortalArt } from '../../components/marketing/inner/HeroArt'
 
 export function VendorPortalPage() {
   const p = VENDOR_PORTAL
   return (
     <>
       <PageHero
+        variant="split" flip fleet="sea" art={<PortalArt kind="vendor" rows={p.capabilities.map((c) => c[0])} locked="Your general ledger" />}
         eyebrow={p.eyebrow}
         title={
           <>

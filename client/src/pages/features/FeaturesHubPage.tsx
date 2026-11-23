@@ -11,6 +11,7 @@ import { FEATURES, featurePath } from '../../content/features'
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/visual-kit.css'
 import '../../components/marketing/live-hud.css'
+import { FeaturesHubArt } from '../../components/marketing/inner/HeroArt'
 
 const FEATURE_ICONS = [
   Icons.truck,
@@ -29,6 +30,7 @@ export function FeaturesHubPage() {
   return (
     <>
       <PageHero
+        variant="center" fleet="air" art={<FeaturesHubArt names={FEATURES.map((f) => f.name)} />}
         eyebrow="Features"
         title={
           <>

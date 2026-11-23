@@ -10,6 +10,7 @@ import '../../components/marketing/marketing.css'
 import '../../components/marketing/motion/motion.css'
 import '../../components/marketing/visual-kit.css'
 import '../../components/marketing/live-hud.css'
+import { AboutArt } from '../../components/marketing/inner/HeroArt'
 
 const TIMELINE = [
   {
@@ -46,6 +47,7 @@ export function AboutPage() {
   return (
     <>
       <PageHero
+        variant="editorial" fleet="air" art={<AboutArt tag="Air · Sea · NVOCC · Land · Customs" />}
         eyebrow="About"
         title={
           <>

@@ -1,6 +1,7 @@
 import { DemoCtaBand, MkWrap, PageHero, SectionHead } from '../../components/marketing/Marketing'
 import { RESOURCE_INSIGHTS } from '../../content/resources'
 import '../../components/marketing/marketing.css'
+import { InsightArt } from '../../components/marketing/inner/HeroArt'
 
 const BODIES: Record<string, [string, string][]> = {
   'operating-platform-not-tracker': [
@@ -24,6 +25,7 @@ export function InsightsPage() {
   return (
     <>
       <PageHero
+        variant="split" compact fleet="mix" art={<InsightArt title={RESOURCE_INSIGHTS[0].title} body={RESOURCE_INSIGHTS[0].blurb} />}
         eyebrow="Insights"
         title={
           <>

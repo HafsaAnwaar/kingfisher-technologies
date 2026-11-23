@@ -4,6 +4,19 @@ import { Footer } from '../components/footer/Footer'
 import { Navbar } from '../components/navbar/Navbar'
 import { useInnerMotion, useScrollProgress } from '../components/marketing/inner/useInnerMotion'
 
+function skinFor(path: string) {
+  if (path.startsWith('/platform')) return 'platform'
+  if (path.startsWith('/solutions')) return 'solutions'
+  if (path.startsWith('/features')) return 'features'
+  if (path.startsWith('/portals')) return 'portals'
+  if (path === '/about' || path === '/careers' || path === '/customers') return 'company'
+  if (path.startsWith('/legal') || path.startsWith('/resources')) return 'paper'
+  if (path === '/pricing') return 'pricing'
+  if (path === '/contact') return 'contact'
+  if (path === '/security') return 'security'
+  return 'base'
+}
+
 export function MarketingLayout() {
   const location = useLocation()
   const mainRef = useRef<HTMLElement>(null)
@@ -22,7 +35,7 @@ export function MarketingLayout() {
         <div ref={barRef} />
       </div>
       <Navbar />
-      <main className="lf-mk lf-mk-pad lf-x" ref={mainRef}>
+      <main className="lf-mk lf-mk-pad lf-x" data-skin={skinFor(location.pathname)} ref={mainRef}>
         <Outlet />
       </main>
       <Footer />

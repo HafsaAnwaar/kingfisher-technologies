@@ -19,6 +19,17 @@ import '../../components/marketing/motion'
 import { PLATFORM_MODULES } from '../../content/platform-modules'
 import { SOLUTION_BY_SLUG } from '../../content/solutions'
 import '../../components/marketing/live-hud.css'
+import { SolutionArt } from '../../components/marketing/inner/HeroArt'
+import { SOLUTIONS } from '../../content/solutions'
+import type { Fleet } from '../../components/marketing/inner/HeroFx'
+
+const SOLUTION_FLEET: Record<string, Fleet> = {
+  'nvocc-operators': 'sea',
+  'importers-exporters': 'sea',
+  'cfs-warehouse': 'land',
+  transporters: 'land',
+  'courier-companies': 'land',
+}
 
 function hudForSolution(slug: string) {
   if (slug.includes('nvocc')) return <VoyageHud />
@@ -39,6 +50,7 @@ export function SolutionPage() {
   return (
     <>
       <PageHero
+        variant="split" fleet={SOLUTION_FLEET[solution.slug] ?? 'mix'} flip={SOLUTIONS.findIndex((s) => s.slug === solution.slug) % 2 === 0} art={<SolutionArt title={solution.mockTitle} sub={solution.mockSub} beats={solution.dayBeats} />}
         eyebrow="Solutions"
         title={accentName(name)}
         lede={solution.tagline}

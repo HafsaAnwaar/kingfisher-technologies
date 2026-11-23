@@ -22,6 +22,11 @@ import { PLATFORM_MODULES, modulePath } from '../../content/platform-modules'
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/visual-kit.css'
 import '../../components/marketing/live-hud.css'
+import { FeatureArt } from '../../components/marketing/inner/HeroArt'
+import { FEATURES } from '../../content/features'
+import type { Fleet } from '../../components/marketing/inner/HeroFx'
+
+const FEATURE_FLEETS: Fleet[] = ['mix', 'air', 'sea']
 
 function panelForFeature(slug: string) {
   if (slug === 'quotations') return <QuoteBoardHud />
@@ -44,6 +49,7 @@ export function FeaturePage() {
   return (
     <>
       <PageHero
+        variant="editorial" fleet={FEATURE_FLEETS[FEATURES.findIndex((f) => f.slug === feature.slug) % 3]} art={<FeatureArt name={feature.name} who={feature.who} />}
         eyebrow="Features"
         title={accentName(feature.name)}
         lede={feature.tagline}

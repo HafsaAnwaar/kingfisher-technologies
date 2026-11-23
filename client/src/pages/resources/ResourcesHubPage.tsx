@@ -4,11 +4,13 @@ import { AccessHud, FeatureSplit } from '../../components/marketing/LiveHud'
 import { PRODUCT_UPDATES, RESOURCE_GUIDES, RESOURCE_INSIGHTS } from '../../content/resources'
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/live-hud.css'
+import { ResourcesHubArt } from '../../components/marketing/inner/HeroArt'
 
 export function ResourcesHubPage() {
   return (
     <>
       <PageHero
+        variant="split" fleet="mix" art={<ResourcesHubArt items={[...RESOURCE_GUIDES.map((g) => ({ title: g.title, kind: 'Guide' })), ...RESOURCE_INSIGHTS.map((g) => ({ title: g.title, kind: 'Insight' }))].slice(0, 5)} />}
         eyebrow="Resources"
         title={
           <>

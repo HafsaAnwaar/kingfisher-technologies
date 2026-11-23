@@ -2,6 +2,7 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import { MkWrap, PageHero } from '../../components/marketing/Marketing'
 import { LEGAL_BY_SLUG, LEGAL_DOCS, legalPath } from '../../content/legal'
 import '../../components/marketing/marketing.css'
+import { LegalArt } from '../../components/marketing/inner/HeroArt'
 
 export function LegalPage() {
   const { slug = '' } = useParams()
@@ -11,6 +12,7 @@ export function LegalPage() {
   return (
     <>
       <PageHero
+        variant="split" fleet="mix" art={<LegalArt docs={LEGAL_DOCS.map((d) => d.title)} current={doc.title} />}
         eyebrow="Legal"
         title={<>{doc.title}</>}
         lede={`${doc.updated}. These pages require company legal review before they are treated as final policy.`}

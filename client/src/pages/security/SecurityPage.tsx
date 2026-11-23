@@ -24,11 +24,13 @@ import {
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/visual-kit.css'
 import '../../components/marketing/live-hud.css'
+import { SecurityArt } from '../../components/marketing/inner/HeroArt'
 
 export function SecurityPage() {
   return (
     <>
       <PageHero
+        variant="split" fleet="mix" art={<SecurityArt roles={SECURITY_ACCESS.map((r) => r[0])} />}
         eyebrow="Security & Privacy"
         title={
           <>

@@ -4,6 +4,7 @@ import { ProgressRail, useInViewPlay } from '../../components/marketing/motion'
 import { PUBLIC_CONTACT_EMAIL, PUBLIC_CONTACT_MAILTO } from '../../content/site-contact'
 import { submitDemoRequest } from '../../lib/api'
 import '../../components/marketing/marketing.css'
+import { ContactArt } from '../../components/marketing/inner/HeroArt'
 
 const CHANNELS = ['Sales', 'Support', 'Partnerships', 'Press'] as const
 
@@ -53,6 +54,7 @@ export function ContactPage() {
   return (
     <>
       <PageHero
+        variant="split" fleet="air" art={<ContactArt channels={CHANNELS} email={PUBLIC_CONTACT_EMAIL} />}
         eyebrow="Contact"
         title={
           <>

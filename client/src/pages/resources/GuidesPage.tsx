@@ -2,10 +2,12 @@ import { DemoCtaBand, MkWrap, PageHero, SectionHead } from '../../components/mar
 import { RESOURCE_GUIDES } from '../../content/resources'
 import '../../components/marketing/marketing.css'
 
+
 export function GuidesPage() {
   return (
     <>
       <PageHero
+        variant="editorial" compact fleet="sea"
         eyebrow="Guides"
         title={
           <>

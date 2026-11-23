@@ -7,7 +7,8 @@ import './marketing.css'
 import './live-hud.css'
 import '../../styles/buttons.css'
 import './inner/inner.css'
-import { HeroFx, splitWords } from './inner/HeroFx'
+import { HeroFx, splitWords, type Fleet } from './inner/HeroFx'
+import './inner/hero-art.css'
 
 export function MkWrap({ children, className = '' }: { children: ReactNode; className?: string }) {
   return <div className={`lf-mk-wrap ${className}`.trim()}>{children}</div>
@@ -58,6 +59,8 @@ export function SectionHead({
   )
 }
 
+export type HeroVariant = 'center' | 'split' | 'editorial'
+
 export function PageHero({
   eyebrow,
   title,
@@ -70,6 +73,10 @@ export function PageHero({
   stage,
   caps,
   compact = false,
+  variant = 'center',
+  art,
+  flip = false,
+  fleet = 'mix',
 }: {
   eyebrow: string
   title: ReactNode
@@ -84,42 +91,84 @@ export function PageHero({
   caps?: string[]
   /** Shorter hero for reading pages (legal, updates). */
   compact?: boolean
+  /** Hero composition: centered (hubs), split copy + signature art, or editorial left-set headline. */
+  variant?: HeroVariant
+  /** Signature animated visual for this page (split: beside the copy, editorial/center: below). */
+  art?: ReactNode
+  /** Split: put the art on the left. Also mirrors the freight lanes. */
+  flip?: boolean
+  /** Vehicles travelling the hero lanes. */
+  fleet?: Fleet
 }) {
+  const cls = ['lf-mk-hero', 'lf-xh', `v-${variant}`]
+  if (compact) cls.push('is-compact')
+  if (flip) cls.push('is-flip')
+  if (art) cls.push('has-art')
+
+  const badge = (
+    <span className="lf-xh-badge lf-xh-in">
+      <span className="lf-xh-dot" aria-hidden="true" />
+      {eyebrow}
+    </span>
+  )
+  const ctas = (
+    <div className="lf-mk-ctas lf-xh-in d3">
+      <Link className="lf-btn lf-btn-primary lf-btn-lg lf-x-btn-accent" to={primaryTo}>
+        {primaryLabel} <Arrow />
+      </Link>
+      {secondaryTo && secondaryLabel ? (
+        <Link className="lf-btn lf-btn-ghost lf-btn-lg" to={secondaryTo}>
+          {secondaryLabel}
+        </Link>
+      ) : null}
+    </div>
+  )
+  const capsLine = caps?.length ? (
+    <div className="lf-xh-caps lf-xh-in d4">
+      {caps.map((cap, i) => (
+        <span className="lf-xh-cap" key={cap}>
+          {i > 0 ? <span className="lf-xh-sep" aria-hidden="true" /> : null}
+          {variant === 'editorial' ? <span className="lf-xh-capn">{String(i + 1).padStart(2, '0')}</span> : null}
+          {cap}
+        </span>
+      ))}
+    </div>
+  ) : null
+
   return (
-    <section className={compact ? 'lf-mk-hero lf-xh is-compact' : 'lf-mk-hero lf-xh'}>
-      <HeroFx />
-      <MkWrap className="lf-xh-wrap">
-        <div className="lf-xh-copy">
-          <span className="lf-xh-badge lf-xh-in">
-            <span className="lf-xh-dot" aria-hidden="true" />
-            {eyebrow}
-          </span>
-          <h1 className="lf-mk-h1 lf-xh-title">{splitWords(title)}</h1>
-          <p className="lf-mk-lede lf-xh-in d1">{lede}</p>
-          {sub ? <p className="lf-mk-sub lf-xh-in d2">{sub}</p> : null}
-          <div className="lf-mk-ctas lf-xh-in d3">
-            <Link className="lf-btn lf-btn-primary lf-btn-lg lf-x-btn-accent" to={primaryTo}>
-              {primaryLabel} <Arrow />
-            </Link>
-            {secondaryTo && secondaryLabel ? (
-              <Link className="lf-btn lf-btn-ghost lf-btn-lg" to={secondaryTo}>
-                {secondaryLabel}
-              </Link>
-            ) : null}
+    <section className={cls.join(' ')}>
+      <HeroFx fleet={fleet} flip={flip} />
+      {variant === 'editorial' ? (
+        <MkWrap className="lf-xh-wrap">
+          <div className="lf-xh-ed-top">
+            {badge}
+            {capsLine}
           </div>
-          {caps?.length ? (
-            <div className="lf-xh-caps lf-xh-in d4">
-              {caps.map((cap, i) => (
-                <span className="lf-xh-cap" key={cap}>
-                  {i > 0 ? <span className="lf-xh-sep" aria-hidden="true" /> : null}
-                  {cap}
-                </span>
-              ))}
+          <h1 className="lf-mk-h1 lf-xh-title">{splitWords(title)}</h1>
+          <div className="lf-xh-ed-row">
+            <div className="lf-xh-ed-copy">
+              <p className="lf-mk-lede lf-xh-in d1">{lede}</p>
+              {sub ? <p className="lf-mk-sub lf-xh-in d2">{sub}</p> : null}
+              {ctas}
             </div>
-          ) : null}
-        </div>
-        {stage ? <div className="lf-xh-stage lf-xh-in d4">{stage}</div> : null}
-      </MkWrap>
+            {art ? <div className="lf-xh-art lf-xh-in d4">{art}</div> : null}
+          </div>
+        </MkWrap>
+      ) : (
+        <MkWrap className="lf-xh-wrap">
+          <div className="lf-xh-copy">
+            {badge}
+            <h1 className="lf-mk-h1 lf-xh-title">{splitWords(title)}</h1>
+            <p className="lf-mk-lede lf-xh-in d1">{lede}</p>
+            {sub ? <p className="lf-mk-sub lf-xh-in d2">{sub}</p> : null}
+            {ctas}
+            {capsLine}
+          </div>
+          {variant === 'split' && art ? <div className="lf-xh-art lf-xh-in d3">{art}</div> : null}
+          {variant === 'center' && art ? <div className="lf-xh-stage lf-xh-art-wide lf-xh-in d4">{art}</div> : null}
+          {stage ? <div className="lf-xh-stage lf-xh-in d4">{stage}</div> : null}
+        </MkWrap>
+      )}
       <div className="lf-xh-scroll" aria-hidden="true">
         <span />
       </div>

@@ -1,11 +1,13 @@
 import { DemoCtaBand, MkWrap, PageHero } from '../../components/marketing/Marketing'
 import { PRODUCT_UPDATES } from '../../content/resources'
 import '../../components/marketing/marketing.css'
+import { ChangelogArt } from '../../components/marketing/inner/HeroArt'
 
 export function ProductUpdatesPage() {
   return (
     <>
       <PageHero
+        variant="split" fleet="land" art={<ChangelogArt items={PRODUCT_UPDATES} />}
         eyebrow="Product updates"
         title={
           <>

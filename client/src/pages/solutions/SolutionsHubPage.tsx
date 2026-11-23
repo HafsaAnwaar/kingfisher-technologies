@@ -8,6 +8,7 @@ import { PLATFORM_MODULES } from '../../content/platform-modules'
 import { SOLUTIONS, solutionPath } from '../../content/solutions'
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/live-hud.css'
+import { SolutionsHubArt } from '../../components/marketing/inner/HeroArt'
 
 export function SolutionsHubPage() {
   const [selected, setSelected] = useState(0)
@@ -24,6 +25,7 @@ export function SolutionsHubPage() {
   return (
     <>
       <PageHero
+        variant="split" fleet="mix" art={<SolutionsHubArt items={SOLUTIONS} />}
         eyebrow="Solutions"
         title={
           <>

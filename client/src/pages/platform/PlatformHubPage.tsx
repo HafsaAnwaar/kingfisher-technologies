@@ -7,6 +7,7 @@ import '../../components/marketing/motion'
 import { PLATFORM_MODULES, modulePath } from '../../content/platform-modules'
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/live-hud.css'
+import { PlatformHubArt } from '../../components/marketing/inner/HeroArt'
 
 const FILTERS = ['All', 'Operations', 'Business'] as const
 
@@ -30,6 +31,7 @@ export function PlatformHubPage() {
   return (
     <>
       <PageHero
+        variant="center" fleet="mix" art={<PlatformHubArt modules={PLATFORM_MODULES} />}
         eyebrow="Platform"
         title={
           <>

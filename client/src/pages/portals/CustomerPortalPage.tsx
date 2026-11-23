@@ -11,12 +11,14 @@ import { CUSTOMER_PORTAL } from '../../content/portals'
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/visual-kit.css'
 import '../../components/marketing/live-hud.css'
+import { PortalArt } from '../../components/marketing/inner/HeroArt'
 
 export function CustomerPortalPage() {
   const p = CUSTOMER_PORTAL
   return (
     <>
       <PageHero
+        variant="split" fleet="air" art={<PortalArt kind="customer" rows={p.capabilities.map((c) => c[0])} locked="Internal costing & GP" />}
         eyebrow={p.eyebrow}
         title={
           <>

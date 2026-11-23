@@ -9,11 +9,14 @@ import {
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/visual-kit.css'
 import '../../components/marketing/live-hud.css'
+import { PortalsHubArt } from '../../components/marketing/inner/HeroArt'
+import { CUSTOMER_PORTAL, VENDOR_PORTAL } from '../../content/portals'
 
 export function PortalsHubPage() {
   return (
     <>
       <PageHero
+        variant="center" fleet="mix" art={<PortalsHubArt customer={CUSTOMER_PORTAL.capabilities.map((c) => c[0])} vendor={VENDOR_PORTAL.capabilities.map((c) => c[0])} />}
         eyebrow="Portals"
         title={
           <>

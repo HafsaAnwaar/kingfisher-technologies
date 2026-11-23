@@ -14,6 +14,7 @@ import { SecurityPacketStage } from '../../components/marketing/stages/ArtifactS
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/motion/motion.css'
 import '../../components/marketing/live-hud.css'
+import { CustomersArt } from '../../components/marketing/inner/HeroArt'
 
 const LOGOS = [
   'Forwarder Co',
@@ -97,6 +98,7 @@ export function CustomersPage() {
   return (
     <>
       <PageHero
+        variant="editorial" fleet="sea" art={<CustomersArt stories={STORIES} />}
         eyebrow="Customers"
         title={
           <>

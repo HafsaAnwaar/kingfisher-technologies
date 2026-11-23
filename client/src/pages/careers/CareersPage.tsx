@@ -5,6 +5,7 @@ import { ProgressRail, useInViewPlay } from '../../components/marketing/motion'
 import { CareersFloatPills } from '../../components/marketing/stages/ArtifactStages'
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/motion/motion.css'
+import { CareersArt } from '../../components/marketing/inner/HeroArt'
 
 const ROLES = [
   {
@@ -29,6 +30,7 @@ export function CareersPage() {
   return (
     <>
       <PageHero
+        variant="split" flip fleet="mix" art={<CareersArt teams={['Product', 'Design', 'Engineering', 'Solutions', 'Freight ops']} />}
         eyebrow="Careers"
         title={
           <>
