@@ -18,6 +18,7 @@ import {
   type StageKind,
 } from '../../content/platform-modules'
 import { ModuleArt } from '../../components/marketing/inner/HeroArt'
+import { ProductShowcase } from '../../components/marketing/inner/ProductShowcase'
 import type { Fleet } from '../../components/marketing/inner/HeroFx'
 
 const MODULE_FLEET: Record<string, Fleet> = {
@@ -80,6 +81,43 @@ export function ModulePage() {
         secondaryLabel="All modules"
         caps={module.stagePills}
       />
+
+      {module.slug === 'sea-freight' ? (
+        <ProductShowcase
+          tone="job"
+          eyebrow="Inside the product"
+          title={
+            <>
+              The job file your sea desk actually <em>works in.</em>
+            </>
+          }
+          caption="A live FCL import job — JOB/FI/2026/00223 for Al Noor Trading LLC — with routing, the status pipeline, ops actions and sale-versus-cost costing on a single screen."
+          imageSrc="/media/showcase/job-detail.jpg"
+          imageAlt="Internal Kingfisher job screen for JOB/FI/2026/00223, an FCL import for Al Noor Trading LLC, showing routing fields, a status pipeline, action buttons and a costing grid."
+          imageWidth={1024}
+          imageHeight={522}
+          windowTitle="JOB/FI/2026/00223 · FCL IMPORT · Al Noor Trading LLC"
+          callouts={[
+            {
+              label: 'The whole job, one file',
+              body: 'Shipper, POL AEAUH, POD AUABP, ETD/ETA, FOB incoterms, MBL and container sit in a single operational grid.',
+            },
+            {
+              label: 'Status pipeline',
+              body: 'Enquiry, Quotation, Verified, Approved, Shipment and Job show exactly how far the movement has come.',
+            },
+            {
+              label: 'Actions on the job',
+              body: 'Generate EDI, Track & Trace, Close job, Documents, Invoices, P&L, Milestones and Bills of lading stay one click away.',
+            },
+            {
+              label: 'Costing, GP and vendor',
+              body: 'The costing grid compares sale vs cost, surfaces GP and the vendor — Powered by KingFisher Tech Gold.',
+            },
+          ]}
+        />
+      ) : null}
+
 
       <ModuleFlowSection
         eyebrow={layout === 'money' ? 'Finance loop' : layout === 'process' ? 'Desk flow' : 'How it works'}
