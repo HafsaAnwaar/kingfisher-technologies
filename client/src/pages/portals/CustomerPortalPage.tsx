@@ -12,6 +12,7 @@ import '../../components/marketing/marketing.css'
 import '../../components/marketing/visual-kit.css'
 import '../../components/marketing/live-hud.css'
 import { PortalArt } from '../../components/marketing/inner/HeroArt'
+import { ProductShowcase } from '../../components/marketing/inner/ProductShowcase'
 
 export function CustomerPortalPage() {
   const p = CUSTOMER_PORTAL
@@ -31,6 +32,41 @@ export function CustomerPortalPage() {
         primaryLabel="Request a demonstration"
         caps={['Quotes', 'Shipments', 'Documents', 'Invoices']}
       />
+
+      <ProductShowcase
+        tone="customer"
+        eyebrow="Inside the product"
+        title={
+          <>
+            A customer dashboard built for <em>John&apos;s morning.</em>
+          </>
+        }
+        caption="The customer portal opens on a personal brief for KingFisher Logistic Solutions LLC: what needs attention, the numbers that matter, and every active shipment on one screen."
+        imageSrc="/media/showcase/customer-portal.jpg"
+        imageAlt="Customer portal dashboard for KingFisher Logistic Solutions LLC, greeting John with attention chips, KPI cards and an active shipments table."
+        imageWidth={1024}
+        imageHeight={471}
+        windowTitle="KingFisher Logistic Solutions LLC · Customer portal"
+        callouts={[
+          {
+            label: 'Good morning, John',
+            body: 'Attention chips surface On hold, Documents missing and Invoices overdue before the day even starts.',
+          },
+          {
+            label: 'Four live KPIs',
+            body: 'Active shipments (3 open), pending quotations (1 awaiting), outstanding AED 2.9k and delivered jobs sit above the work.',
+          },
+          {
+            label: 'Active shipments table',
+            body: 'Each job shows route, mode, container, container status, job status such as Booking confirmed, and ETA.',
+          },
+          {
+            label: 'Their workspace, their records',
+            body: 'The navy sidebar covers Dashboard, Booking, Track, Jobs, Customs clearance, Quotes and Invoices — only this customer’s work.',
+          },
+        ]}
+      />
+
 
       <FeatureSplit
         eyebrow="Customer portal"
