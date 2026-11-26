@@ -7,8 +7,9 @@
 .lf-h2{margin:22px 0 0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(42px,5vw,66px);line-height:1;letter-spacing:-.02em;color:#FFFFFF}
 .lf-h2 em{font-style:italic;background:linear-gradient(95deg,#FFD2B0 0%,#FF9A57 55%,#FF751F 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
 .lf-hiw-sub{margin:18px auto 0;max-width:600px;font-size:16px;line-height:1.6;color:#A1A1B5}
-.lf-hiw-main{margin-top:56px;display:grid;grid-template-columns:minmax(0,39fr) minmax(0,61fr);gap:22px;align-items:start}
-.lf-flows{display:flex;flex-direction:column;gap:10px}
+.lf-hiw-main{margin-top:56px;display:flex;align-items:stretch;gap:22px}
+.lf-flows{flex:0 1 39%;min-width:0;display:flex;flex-direction:column;gap:10px}
+.lf-map-slot{flex:1 1 61%;min-width:0;min-height:560px;position:relative;align-self:stretch}
 .lf-fc{position:relative;border-radius:14px;background:rgba(15,23,42,.55);border:1px solid rgba(255,255,255,0.072);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);overflow:hidden;transition:border-color .45s ease,background .45s ease,box-shadow .45s ease}
 .lf-fc:hover{border-color:rgba(255,255,255,0.144)}
 .lf-fc.is-on{border-color:rgba(63,215,166,.45);background:linear-gradient(160deg,rgba(16,58,60,.5),rgba(11,20,50,.72) 62%);box-shadow:0 0 0 1px rgba(63,215,166,.08),0 24px 50px -24px rgba(63,215,166,.32)}
@@ -41,7 +42,7 @@
 .lf-hiw:not(.lf-inview) .lf-fc-bar,.lf-hiw-main:hover .lf-fc-bar{animation-play-state:paused}
 @keyframes lf-progress{from{width:0}to{width:100%}}
 
-.lf-map2{position:relative;height:560px;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,0.084);background:radial-gradient(70% 60% at 50% 58%,rgba(255,117,31,0.09),transparent 70%),radial-gradient(rgba(255,255,255,0.048) 1px,transparent 1.3px) 0 0/22px 22px,#060920;box-shadow:0 40px 80px -40px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.04)}
+.lf-map2{position:absolute;inset:0;width:100%;height:100%;box-sizing:border-box;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,0.084);background:radial-gradient(70% 60% at 50% 58%,rgba(255,117,31,0.09),transparent 70%),radial-gradient(rgba(255,255,255,0.048) 1px,transparent 1.3px) 0 0/22px 22px,#060920;box-shadow:0 40px 80px -40px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.04)}
 .lf-mh{position:absolute;left:0;right:0;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;background:linear-gradient(180deg,rgba(6,9,32,.85),transparent)}
 .lf-mh-l{display:flex;align-items:center;gap:8px;font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#A1A1B5}
 .lf-mh-l svg{color:#3FD7A6}
@@ -146,7 +147,10 @@
 .lf-hstats span{display:block;margin-top:3px;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:#A1A1B5}
 .lf-hudin{animation:lf-fadein .5s ease .5s both}
 @media (max-width:960px){
-.lf-hiw-main{grid-template-columns:minmax(0,1fr)}
+.lf-hiw-main{flex-direction:column}
+.lf-flows{flex:none;width:100%}
+.lf-map-slot{flex:none;width:100%;min-height:560px;height:560px}
+.lf-map2{position:absolute;inset:0}
 }
 
 @media (max-width:640px){
@@ -155,7 +159,7 @@
 .lf-hiw-sub{font-size:15px}
 .lf-hiw-main{margin-top:36px}
 .lf-fc-inner{padding:0 16px}
-.lf-map2{height:430px}
+.lf-map2{height:430px;min-height:430px}
 .lf-ml.minor,.lf-leg,.lf-hud2{display:none}
 .lf-steps{left:12px;top:52px;width:152px;padding:9px 11px 10px}
 .lf-steps-v{font-size:12px}

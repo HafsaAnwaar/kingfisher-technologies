@@ -27,7 +27,7 @@ const STEPS: {
     ),
   },
   {
-    day: 'Days 2-5',
+    day: 'Days 1-2',
     title: 'We configure',
     desc: 'Masters, parties, rate cards, document templates and user roles. No coding.',
     delay: '320ms',
@@ -39,7 +39,7 @@ const STEPS: {
     ),
   },
   {
-    day: 'Week 2',
+    day: 'Week 1',
     title: 'Your team goes live',
     desc: 'Hands-on training. Real bookings, jobs and documents through Kingfisher.',
     delay: '400ms',
@@ -53,7 +53,7 @@ const STEPS: {
     ),
   },
   {
-    day: 'Week 3+',
+    day: 'Week 1+',
     title: 'Insights kick in',
     desc: 'Management reports, job profitability and smart alerts across your operation.',
     delay: '480ms',
