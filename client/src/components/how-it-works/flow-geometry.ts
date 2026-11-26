@@ -394,6 +394,158 @@ function specs(): Spec[] {
         { p: [6.8, 1.25, 18], t: 'Courier', sub: 'Barcode labels' },
       ],
     },
+    {
+      title: 'Warehouse',
+      net: 'Live Warehouse Network',
+      hud: 'Gate-in → receiving → putaway → pick → release → onward dispatch',
+      steps: [
+        { m: 'Inbound', s: ['ASN Received', 'Gate-in', 'Unloaded', 'QC Check', 'Putaway'] },
+        { m: 'Outbound', s: ['Pick', 'Pack', 'Release', 'Handoff to Freight', 'POD'] },
+      ],
+      boxes: [
+        { x: 1.0, y: 1.0, w: 2.4, d: 1.8, h: 28, k: 'accent' },
+        { x: 4.0, y: 1.2, w: 1.2, d: 1.0, h: 14, k: 'cont' },
+        { x: 5.6, y: 1.2, w: 1.2, d: 1.0, h: 18, k: 'cont' },
+        { x: 4.0, y: 2.6, w: 1.2, d: 1.0, h: 12, k: 'cont' },
+        { x: 5.6, y: 2.6, w: 1.2, d: 1.0, h: 16, k: 'cont' },
+        { x: 7.4, y: 1.4, w: 1.6, d: 1.4, h: 22, k: 'accent' },
+        { x: 7.6, y: 7.4, w: 1.4, d: 1.0, h: 14 },
+        { x: 3.2, y: 7.8, w: 1.0, d: 0.8, h: 12 },
+      ],
+      zt: [[[3.6, 0.8], [7.2, 0.8], [7.2, 4.0], [3.6, 4.0]]],
+      zm: [[[0.6, 6.8], [9.4, 6.8], [9.4, 9.2], [0.6, 9.2]]],
+      ra: [
+        [[1.2, 7.4], [2.2, 7.4], [2.2, 2.0]],
+        [[3.4, 1.9], [4.6, 1.9]],
+        [[5.0, 2.0], [6.2, 2.0]],
+        [[6.8, 2.1], [8.2, 2.1]],
+        [[8.2, 3.0], [8.2, 7.9], [9.0, 7.9]],
+      ],
+      rm: [[[0.4, 9.4], [9.6, 9.4]], [[2.2, 4.0], [2.2, 7.4]]],
+      veh: [
+        { r: [[1.2, 7.4], [2.2, 7.4], [2.2, 2.0]], dur: 7, t: 'box' },
+        { r: [[3.4, 1.9], [4.6, 1.9]], dur: 3.5, delay: -1, t: 'pkg' },
+        { r: [[5.0, 2.0], [6.2, 2.0]], dur: 3.5, delay: -2, t: 'pkg' },
+        { r: [[6.8, 2.1], [8.2, 2.1]], dur: 3.2, delay: -1.5, t: 'pkg' },
+        { r: [[8.2, 3.0], [8.2, 7.9], [9.0, 7.9]], dur: 6, delay: -2, t: 'van' },
+      ],
+      nodes: [
+        [[1.2, 7.4], 'act'],
+        [[2.2, 2.0], 'act'],
+        [[4.6, 1.9], 'act'],
+        [[6.2, 2.0], 'act'],
+        [[8.2, 2.1], 'act'],
+        [[9.0, 7.9], 'act'],
+        [[3.7, 8.2], 'mut'],
+      ],
+      labels: [
+        { p: [2.2, 1.9, 36], t: 'Receiving Bay', sub: 'Gate-in · unloaded', k: 'act' },
+        { p: [5.0, 1.9, 24], t: 'Racking', sub: 'Putaway · inventory', k: 'act' },
+        { p: [8.2, 2.1, 30], t: 'Pick / Pack', sub: 'Release ready', k: 'act' },
+        { p: [1.6, 7.6, 18], t: 'Inbound Dock', sub: 'ASN matched' },
+        { p: [8.4, 7.9, 20], t: 'Dispatch', sub: 'Onward freight', k: 'act' },
+        { p: [3.7, 8.6, 16], t: 'Job link', sub: 'WH on shipment', minor: 1 },
+      ],
+    },
+    {
+      title: 'Customs Clearance',
+      net: 'Live Clearance Network',
+      hud: 'Job → declaration → exam / hold → release → DO → delivery handoff',
+      steps: [
+        { m: 'Import Clearance', s: ['Job Linked', 'Docs Checklist', 'Declaration Filed', 'Examination', 'Duty Assessed', 'Release'] },
+        { m: 'Export Clearance', s: ['Filing', 'Inspection', 'Cleared', 'DO / Gate-out'] },
+      ],
+      boxes: [
+        { x: 0.8, y: 1.0, w: 1.6, d: 1.2, h: 18 },
+        { x: 3.2, y: 1.2, w: 2.0, d: 1.6, h: 26, k: 'accent' },
+        { x: 6.0, y: 1.4, w: 1.4, d: 1.0, h: 16, k: 'cont' },
+        { x: 7.8, y: 1.2, w: 1.4, d: 1.2, h: 20, k: 'accent' },
+        { x: 7.6, y: 7.2, w: 1.4, d: 1.0, h: 14 },
+        { x: 4.2, y: 7.6, w: 1.2, d: 0.9, h: 12 },
+      ],
+      zm: [[[2.8, 0.8], [5.6, 0.8], [5.6, 3.4], [2.8, 3.4]]],
+      zt: [[[7.2, 0.8], [9.6, 0.8], [9.6, 3.0], [7.2, 3.0]]],
+      ra: [
+        [[1.6, 2.2], [3.2, 2.2]],
+        [[5.2, 2.0], [6.7, 2.0]],
+        [[7.4, 2.0], [8.5, 2.0]],
+        [[8.5, 2.6], [8.5, 7.7], [5.0, 7.7]],
+      ],
+      rm: [[[0.4, 9.4], [9.6, 9.4]]],
+      rx: [[[6.7, 1.9], [6.7, 4.2], [5.0, 4.2]]],
+      veh: [
+        { r: [[1.6, 2.2], [3.2, 2.2]], dur: 4, t: 'pkg' },
+        { r: [[5.2, 2.0], [6.7, 2.0]], dur: 3.5, delay: -1, t: 'pkg' },
+        { r: [[7.4, 2.0], [8.5, 2.0]], dur: 3, delay: -2, t: 'pkg' },
+        { r: [[8.5, 2.6], [8.5, 7.7], [5.0, 7.7]], dur: 7, delay: -1.5, t: 'van' },
+      ],
+      nodes: [
+        [[1.6, 2.2], 'act'],
+        [[4.2, 2.0], 'act'],
+        [[6.7, 2.0], 'warn'],
+        [[8.5, 1.8], 'act'],
+        [[5.0, 7.7], 'act'],
+        [[8.3, 7.7], 'mut'],
+      ],
+      labels: [
+        { p: [1.6, 1.6, 24], t: 'Shipment Job', sub: 'Docs checklist' },
+        { p: [4.2, 2.0, 34], t: 'Clearance Desk', sub: 'Declaration filed', k: 'act' },
+        { p: [6.7, 1.9, 22], t: 'Exam / Hold', sub: 'Under examination', k: 'warn' },
+        { p: [8.5, 1.8, 28], t: 'Release', sub: 'Duty assessed', k: 'act' },
+        { p: [8.3, 7.7, 20], t: 'DO Issued', sub: 'Gate-out ready' },
+        { p: [5.0, 8.2, 18], t: 'Delivery', k: 'act', minor: 1 },
+      ],
+    },
+    {
+      title: 'General Trading',
+      net: 'Live Trading Network',
+      hud: 'Purchase → freight booking → shipment → sale → docs → settlement',
+      steps: [
+        { m: 'Buy Side', s: ['Purchase Order', 'Supplier Confirm', 'Freight Booked', 'Cargo Shipped', 'Goods Received'] },
+        { m: 'Sell Side', s: ['Sales Order', 'Quotation', 'Dispatch', 'Invoice', 'Settlement'] },
+      ],
+      boxes: [
+        { x: 0.8, y: 1.0, w: 1.6, d: 1.2, h: 18, k: 'accent' },
+        { x: 3.2, y: 1.2, w: 1.4, d: 1.0, h: 16 },
+        { x: 5.2, y: 3.6, w: 2.2, d: 1.4, h: 22, k: 'accent' },
+        { x: 8.0, y: 1.2, w: 1.4, d: 1.0, h: 16, k: 'cont' },
+        { x: 8.0, y: 7.4, w: 1.4, d: 1.0, h: 14 },
+        { x: 1.0, y: 7.4, w: 1.4, d: 1.0, h: 14 },
+      ],
+      zm: [[[4.6, 3.0], [8.0, 3.0], [8.0, 5.6], [4.6, 5.6]]],
+      zt: [[[0.5, 0.6], [2.8, 0.6], [2.8, 2.6], [0.5, 2.6]]],
+      ra: [
+        [[1.6, 2.2], [3.9, 2.2]],
+        [[4.6, 2.2], [6.3, 3.6]],
+        [[7.4, 4.3], [8.7, 2.2]],
+        [[8.7, 2.4], [8.7, 7.9]],
+        [[1.7, 7.9], [6.3, 5.2]],
+      ],
+      rm: [[[0.4, 9.4], [9.6, 9.4]], [[3.9, 2.2], [3.9, 7.9]]],
+      veh: [
+        { r: [[1.6, 2.2], [3.9, 2.2]], dur: 4, t: 'pkg' },
+        { r: [[4.6, 2.2], [6.3, 3.6]], dur: 5, delay: -1, t: 'box' },
+        { r: [[7.4, 4.3], [8.7, 2.2]], dur: 4.5, delay: -2, t: 'pkg' },
+        { r: [[8.7, 2.4], [8.7, 7.9]], dur: 5.5, delay: -1.5, t: 'van' },
+        { r: [[1.7, 7.9], [6.3, 5.2]], dur: 7, delay: -3, mut: 1 },
+      ],
+      nodes: [
+        [[1.6, 1.6], 'act'],
+        [[3.9, 1.7], 'act'],
+        [[6.3, 4.3], 'act'],
+        [[8.7, 1.7], 'act'],
+        [[8.7, 7.9], 'act'],
+        [[1.7, 7.9], 'mut'],
+      ],
+      labels: [
+        { p: [1.6, 1.6, 26], t: 'Purchase', sub: 'Supplier PO', k: 'act' },
+        { p: [3.9, 1.7, 22], t: 'Freight Booked', sub: 'Import / export job' },
+        { p: [6.3, 4.3, 30], t: 'Shipment', sub: 'In transit · docs', k: 'act' },
+        { p: [8.7, 1.7, 22], t: 'Sales Order', sub: 'Quote → confirm', k: 'act' },
+        { p: [8.7, 7.9, 20], t: 'Settlement', sub: 'Invoice · receipt' },
+        { p: [1.7, 8.4, 18], t: 'Goods Received', minor: 1 },
+      ],
+    },
   ]
 }
 
@@ -409,7 +561,9 @@ export function buildFlowData() {
       .join(' '),
   }
 
-  const flows = specs().map((flow, idx) => {
+  const allSpecs = specs()
+  const flowTotal = String(allSpecs.length).padStart(2, '0')
+  const flows = allSpecs.map((flow, idx) => {
     const faces = {
       base: { t: [] as string[], l: [] as string[], r: [] as string[] },
       cont: { t: [] as string[], l: [] as string[], r: [] as string[] },
@@ -434,7 +588,7 @@ export function buildFlowData() {
       ]
     })
     return {
-      num: `Flow 0${idx + 1} / 05 · ${flow.title}`,
+      num: `Flow ${String(idx + 1).padStart(2, '0')} / ${flowTotal} · ${flow.title}`,
       hud: flow.hud,
       net: flow.net,
       steps: flow.steps,

@@ -32,10 +32,11 @@
 .lf-filter:focus-visible{outline:2px solid var(--lf-accent);outline-offset:2px}
 .lf-filter-sep{width:1px;height:16px;margin:0 6px;background:var(--lf-border)}
 .lf-mgrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:24px}
-.lf-mc2{display:flex;flex-direction:column;align-items:stretch;min-height:158px;margin:0;padding:13px 13px 12px;border-radius:12px;border:1px solid;color:inherit;font:inherit;text-align:left;cursor:pointer;opacity:.3;transition:opacity .4s ease,border-color .4s ease,background .4s ease,box-shadow .4s ease,translate .25s ease}
-.lf-mc2:hover{opacity:.62;translate:0 -2px}
-.lf-mc2.is-sel{opacity:1}
-.lf-mc2.is-hidden{display:none}
+.lf-mc2{display:flex;flex-direction:column;align-items:stretch;min-height:158px;margin:0;padding:13px 13px 12px;border-radius:12px;border:1px solid;color:inherit;font:inherit;text-align:left;cursor:pointer;opacity:1;filter:none;transition:opacity .4s ease,border-color .4s ease,background .4s ease,box-shadow .4s ease,translate .25s ease,filter .4s ease}
+.lf-mc2.is-faded{opacity:.3;filter:saturate(.35)}
+.lf-mc2.is-faded:hover{opacity:.62;filter:saturate(.7);translate:0 -2px}
+.lf-mc2.is-sel{opacity:1;filter:none}
+.lf-mc2.is-sel:hover{translate:0 -2px}
 .lf-mc2:focus-visible{outline:2px solid var(--lf-accent);outline-offset:2px}
 .lf-mc2-top{display:flex;align-items:flex-start;justify-content:space-between}
 .lf-mc2-ico{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;border:1px solid}

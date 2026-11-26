@@ -9,7 +9,7 @@ import { ModuleStack } from '../components/modules/ModuleStack'
 import { Navbar } from '../components/navbar/Navbar'
 import { Platform } from '../components/platform/Platform'
 import { ProductDemo } from '../components/product-demo/ProductDemo'
-import { LogoMarquee } from '../components/trust/LogoMarquee'
+// import { LogoMarquee } from '../components/trust/LogoMarquee'
 import { WhyKingfisher } from '../components/why-kingfisher/WhyKingfisher'
 
 export function HomePage() {
@@ -17,8 +17,7 @@ export function HomePage() {
     <>
       <Navbar />
       <Hero />
-      <LogoMarquee />
-      <MetricsStrip />
+      {/* <LogoMarquee /> */}
       <HowItWorks />
       <ProductDemo />
       <Platform />
@@ -26,6 +25,7 @@ export function HomePage() {
       <CustomerVoices />
       <WhyKingfisher />
       <Implementation />
+         <MetricsStrip />
       <ContactDemo />
       <Footer />
     </>

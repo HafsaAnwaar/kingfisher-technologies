@@ -95,6 +95,60 @@ const CARDS = [
       </>
     ),
   },
+  {
+    title: 'Warehouse',
+    desc: 'Receiving, handling, inventory & release to freight',
+    summary:
+      'Log warehouse and CFS activity against the shipment — receiving, putaway, handling and release — so floor truth stays on the job file.',
+    tags: ['Receiving', 'Putaway', 'Release'],
+    get: 'Gate-in · Handling · Inventory · Onward Dispatch',
+    href: '/platform/warehouse',
+    cta: 'Explore Warehouse →',
+    icon: (
+      <>
+        <path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z" />
+        <path d="M9 21V12h6v9" />
+      </>
+    ),
+  },
+  {
+    title: 'Customs Clearance',
+    desc: 'Declarations, exams, holds & release on the job',
+    summary:
+      'Run import and export clearance on the shipment — filings, examinations, holds and release — visible to ops and CS without a side tracker.',
+    tags: ['Filing', 'Examination', 'Release'],
+    get: 'Declaration · Exam / Hold · Cleared · DO',
+    href: '/platform/customs',
+    cta: 'Explore Customs →',
+    icon: (
+      <>
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+        <path d="m9 12 2 2 4-4" />
+      </>
+    ),
+  },
+  {
+    title: 'General Trading',
+    desc: 'Buy, sell, import & export commercial control',
+    summary:
+      'Connect purchase and sales orders to freight jobs — quotations, shipments, documents and settlement — so trading and logistics stay on one continuum.',
+    tags: ['Purchase', 'Sales', 'Import / Export'],
+    get: 'Orders · Shipments · Docs · Settlement',
+    href: '/solutions/importers-exporters',
+    cta: 'Explore Trading →',
+    icon: (
+      <>
+        <path d="M16 3h5v5" />
+        <path d="M8 3H3v5" />
+        <path d="M21 3 14 10" />
+        <path d="m3 3 7 7" />
+        <path d="M8 21H3v-5" />
+        <path d="M16 21h5v-5" />
+        <path d="m3 21 7-7" />
+        <path d="m21 21-7-7" />
+      </>
+    ),
+  },
 ] as const
 
 function Icon({ children }: { children: ReactNode }) {
@@ -202,7 +256,7 @@ export function HowItWorks() {
             How it works
           </span>
           <h2 className="lf-h2" id="lf-hiw-title">
-            Five flows. <em>One platform.</em>
+            Eight flows. <em>One platform.</em>
           </h2>
           <p className="lf-hiw-sub">
             From quotation to booking, documentation to delivery, every shipment moves through one connected freight platform.
@@ -264,6 +318,7 @@ export function HowItWorks() {
             })}
           </div>
 
+          <div className="lf-map-slot">
           <div className="lf-map2" ref={mapRef} role="img" aria-label={`Live network map: ${scene.num}, ${scene.hud}`}>
             <div className="lf-mh">
               <span className="lf-mh-l">
@@ -430,6 +485,7 @@ export function HowItWorks() {
                 <span><i style={{ background: '#F5B454' }} />Alert</span>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

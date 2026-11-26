@@ -57,6 +57,8 @@ export type PersonaDef = {
   story: string
   modules: string[]
   pipeline: [string, string[]][]
+  /** When true, role is kept for defaults but not shown in the picker. */
+  hidden?: boolean
 }
 
 export type FilterDef = {
@@ -235,6 +237,7 @@ export const PERSONAS: PersonaDef[] = [
   {
     id: 'operationsHead',
     name: 'Operations Head',
+    hidden: true,
     sub: 'End-to-end freight control',
     pill: 'End-to-end operational control',
     color: '#FF751F',
@@ -271,6 +274,7 @@ export const PERSONAS: PersonaDef[] = [
   {
     id: 'logisticsManager',
     name: 'Logistics Manager',
+    hidden: true,
     sub: 'Run every shipment efficiently',
     pill: 'Multi-modal shipment execution',
     color: '#67E8F9',
@@ -304,6 +308,7 @@ export const PERSONAS: PersonaDef[] = [
   {
     id: 'finance',
     name: 'CFO / Finance',
+    hidden: true,
     sub: 'Control cost and profitability',
     pill: 'Cost & profitability visibility',
     color: '#A3E635',
@@ -335,6 +340,7 @@ export const PERSONAS: PersonaDef[] = [
   {
     id: 'itAdmin',
     name: 'IT / System Admin',
+    hidden: true,
     sub: 'Connect and control the platform',
     pill: 'Platform control & governance',
     color: '#C4B5FD',

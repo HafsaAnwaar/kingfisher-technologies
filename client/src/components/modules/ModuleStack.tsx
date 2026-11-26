@@ -47,8 +47,11 @@ export function ModuleStack() {
   const light = theme === 'light'
   const sectionRef = useRef<HTMLElement>(null)
   const [seen, setSeen] = useState(false)
+  const visiblePersonas = PERSONAS.filter((p) => !p.hidden)
+  const showPersonas = visiblePersonas.length > 0
+  const allModuleIds = MODULES.map((m) => m.id)
   const [persona, setPersona] = useState(0)
-  const [sel, setSel] = useState<string[] | null>(null)
+  const [sel, setSel] = useState<string[] | null>(() => (showPersonas ? null : allModuleIds.slice()))
   const [filter, setFilter] = useState('all')
   const [pswap, setPswap] = useState<'a' | 'b'>('a')
 
@@ -71,8 +74,8 @@ export function ModuleStack() {
     return () => observer.disconnect()
   }, [])
 
-  const per = PERSONAS[persona]
-  const selected = sel ?? per.modules
+  const per = showPersonas ? visiblePersonas[persona] ?? PERSONAS[0] : PERSONAS[0]
+  const selected = sel ?? (showPersonas ? per.modules : allModuleIds)
   const on = new Set(selected)
   const fdef: FilterDef =
     FILTERS_A.concat(FILTERS_B).find((f) => f.id === filter) ?? FILTERS_A[0]
@@ -122,20 +125,22 @@ export function ModuleStack() {
   }))
 
   function pickPersona(index: number) {
+    const next = visiblePersonas[index]
+    if (!next) return
     setPersona(index)
-    setSel(PERSONAS[index].modules.slice())
+    setSel(next.modules.slice())
     setPswap((current) => (current === 'b' ? 'a' : 'b'))
   }
 
   function toggleModule(id: string) {
     setSel((current) => {
-      const base = current ?? PERSONAS[persona].modules
+      const base = current ?? per.modules
       return base.includes(id) ? base.filter((x) => x !== id) : [...base, id]
     })
   }
 
   function reset() {
-    setSel(PERSONAS[persona].modules.slice())
+    setSel(showPersonas ? per.modules.slice() : allModuleIds.slice())
     setPswap((current) => (current === 'b' ? 'a' : 'b'))
   }
 
@@ -164,65 +169,71 @@ export function ModuleStack() {
             Tell us how your freight operation works, we&apos;ll recommend the right modules, show
             you the workflow, and estimate your potential savings.
           </p>
-          <div className="lf-sk-ask lf-sr2" style={{ animationDelay: '220ms' }}>
-            I am, click a role to see my modules
-          </div>
+          {showPersonas ? (
+            <div className="lf-sk-ask lf-sr2" style={{ animationDelay: '220ms' }}>
+              I am, click a role to see my modules
+            </div>
+          ) : null}
         </header>
 
-        <div
-          className="lf-personas lf-sr2"
-          role="group"
-          aria-label="Choose a role"
-          style={{ animationDelay: '280ms' }}
-        >
-          {PERSONAS.map((p, i) => {
-            const active = i === persona
-            return (
-              <button
-                type="button"
-                className={active ? 'lf-persona is-on' : 'lf-persona'}
-                aria-pressed={active}
-                onClick={() => pickPersona(i)}
-                key={p.id}
-              >
-                <span
-                  className="lf-av"
-                  style={{
-                    background: `radial-gradient(circle at 50% 30%, ${hexA(p.color, active ? 0.55 : 0.3)}, ${hexA(p.color, 0.06)} 72%), var(--lf-surface)`,
-                    boxShadow: active
-                      ? `0 0 0 2px ${p.color}, 0 0 0 8px ${hexA(p.color, 0.16)}, 0 22px 60px -12px ${hexA(p.color, 0.65)}`
-                      : '0 0 0 1px var(--lf-border)',
-                  }}
-                >
-                  <span className="lf-av-in">
-                    <svg className="lf-sil" viewBox="0 0 100 100" aria-hidden="true">
-                      <circle cx="50" cy="40" r="15" fill="currentColor" />
-                      <path d="M20 99c1.5-19 14-31 30-31s28.5 12 30 31Z" fill="currentColor" />
-                    </svg>
-                  </span>
-                  <span className="lf-av-badge" style={{ background: p.color }}>
-                    <PathIcon d={p.badge} size={15} strokeWidth={2} />
-                  </span>
-                </span>
-                <span className="lf-pname">{p.name}</span>
-                <span className="lf-psub">{p.sub}</span>
-              </button>
-            )
-          })}
-        </div>
+        {showPersonas ? (
+          <>
+            <div
+              className="lf-personas lf-sr2"
+              role="group"
+              aria-label="Choose a role"
+              style={{ animationDelay: '280ms' }}
+            >
+              {visiblePersonas.map((p, i) => {
+                const active = i === persona
+                return (
+                  <button
+                    type="button"
+                    className={active ? 'lf-persona is-on' : 'lf-persona'}
+                    aria-pressed={active}
+                    onClick={() => pickPersona(i)}
+                    key={p.id}
+                  >
+                    <span
+                      className="lf-av"
+                      style={{
+                        background: `radial-gradient(circle at 50% 30%, ${hexA(p.color, active ? 0.55 : 0.3)}, ${hexA(p.color, 0.06)} 72%), var(--lf-surface)`,
+                        boxShadow: active
+                          ? `0 0 0 2px ${p.color}, 0 0 0 8px ${hexA(p.color, 0.16)}, 0 22px 60px -12px ${hexA(p.color, 0.65)}`
+                          : '0 0 0 1px var(--lf-border)',
+                      }}
+                    >
+                      <span className="lf-av-in">
+                        <svg className="lf-sil" viewBox="0 0 100 100" aria-hidden="true">
+                          <circle cx="50" cy="40" r="15" fill="currentColor" />
+                          <path d="M20 99c1.5-19 14-31 30-31s28.5 12 30 31Z" fill="currentColor" />
+                        </svg>
+                      </span>
+                      <span className="lf-av-badge" style={{ background: p.color }}>
+                        <PathIcon d={p.badge} size={15} strokeWidth={2} />
+                      </span>
+                    </span>
+                    <span className="lf-pname">{p.name}</span>
+                    <span className="lf-psub">{p.sub}</span>
+                  </button>
+                )
+              })}
+            </div>
 
-        <div className="lf-ppill-row lf-sr2" style={{ animationDelay: '340ms' }}>
-          <span
-            className={`lf-ppill lf-tk-${pswap}`}
-            style={{ borderColor: hexA(per.color, 0.45) }}
-            aria-live="polite"
-          >
-            <i style={{ background: per.color }} />
-            <span>
-              <b style={{ color: text }}>{per.name}&apos;s stack</b>, {per.pill}
-            </span>
-          </span>
-        </div>
+            <div className="lf-ppill-row lf-sr2" style={{ animationDelay: '340ms' }}>
+              <span
+                className={`lf-ppill lf-tk-${pswap}`}
+                style={{ borderColor: hexA(per.color, 0.45) }}
+                aria-live="polite"
+              >
+                <i style={{ background: per.color }} />
+                <span>
+                  <b style={{ color: text }}>{per.name}&apos;s stack</b>, {per.pill}
+                </span>
+              </span>
+            </div>
+          </>
+        ) : null}
 
         <div
           className="lf-filters lf-sr2"
@@ -258,22 +269,26 @@ export function ModuleStack() {
         <div className="lf-mgrid lf-sr2" style={{ animationDelay: '440ms' }}>
           {MODULES.map((m, i) => {
             const a = on.has(m.id)
-            const visible = shows(m.id, m.cat)
+            const inFilter = shows(m.id, m.cat)
+            // All: show every card. Other tabs: keep non-matching cards in grid, faded.
+            const faded = filter === 'all' ? !a : !inFilter || !a
             return (
               <button
                 type="button"
                 key={m.id}
-                className={`lf-mc2${a ? ' is-sel' : ''}${visible ? '' : ' is-hidden'}`}
+                className={`lf-mc2${a && inFilter ? ' is-sel' : ''}${faded ? ' is-faded' : ''}`}
                 aria-pressed={a}
                 onClick={() => toggleModule(m.id)}
                 style={{
-                  borderColor: a ? hexA(m.color, 0.55) : 'var(--lf-border)',
-                  background: a
-                    ? `linear-gradient(160deg, ${hexA(m.color, light ? 0.1 : 0.13)}, ${hexA(m.color, 0.02)} 65%), var(--lf-surface)`
-                    : 'var(--lf-surface)',
-                  boxShadow: a
-                    ? `0 0 0 1px ${hexA(m.color, 0.12)}, 0 14px 34px -18px ${hexA(m.color, light ? 0.45 : 0.6)}`
-                    : 'none',
+                  borderColor: a && inFilter ? hexA(m.color, 0.55) : 'var(--lf-border)',
+                  background:
+                    a && inFilter
+                      ? `linear-gradient(160deg, ${hexA(m.color, light ? 0.1 : 0.13)}, ${hexA(m.color, 0.02)} 65%), var(--lf-surface)`
+                      : 'var(--lf-surface)',
+                  boxShadow:
+                    a && inFilter
+                      ? `0 0 0 1px ${hexA(m.color, 0.12)}, 0 14px 34px -18px ${hexA(m.color, light ? 0.45 : 0.6)}`
+                      : 'none',
                   transitionDelay: `${(i % 6) * 25}ms`,
                 }}
               >
@@ -316,7 +331,11 @@ export function ModuleStack() {
         <div className="lf-pipe lf-sr2" style={{ animationDelay: '520ms' }}>
           <div className="lf-pipe-head">
             <span className="lf-pipe-k">Your freight pipeline</span>
-            <span className="lf-pipe-story">{per.story}</span>
+            <span className="lf-pipe-story">
+              {showPersonas
+                ? per.story
+                : 'Select the modules your freight team needs, from commercial handoff through delivery and finance.'}
+            </span>
           </div>
           <div className="lf-pipe-scroll">
             <div className={`lf-pipe-row lf-pipe-${pswap}`}>
@@ -377,9 +396,13 @@ export function ModuleStack() {
             </span>
             <span className="lf-val2-nl">modules selected</span>
             <span className="lf-val2-for">
-              {modified
-                ? `Customized from the ${per.name} stack`
-                : `Recommended stack for ${per.name}`}
+              {showPersonas
+                ? modified
+                  ? `Customized from the ${per.name} stack`
+                  : `Recommended stack for ${per.name}`
+                : modified
+                  ? 'Customized module stack'
+                  : 'Recommended freight stack'}
             </span>
             <Link className="lf-val2-btn" to={{ pathname: '/', hash: 'how-it-works' }}>
               See how this stack works →
