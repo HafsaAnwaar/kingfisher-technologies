@@ -3,7 +3,7 @@ import './ProductDemo.css'
 
 const YT_ID = 'ce5A7uPs1PA'
 const DEMO_POSTER = '/media/freight-ops-demo-poster.jpg'
-const YT_EMBED = `https://www.youtube-nocookie.com/embed/${YT_ID}?autoplay=1&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&controls=1&disablekb=0&fs=1&cc_load_policy=0`
+const YT_EMBED = `https://www.youtube-nocookie.com/embed/${YT_ID}?autoplay=1&controls=1&rel=0&playsinline=1&fs=1&iv_load_policy=3`
 
 export function ProductDemo() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -65,7 +65,6 @@ export function ProductDemo() {
                 loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"
               />
-              <span className="lf-yt-logo-cover" aria-hidden="true" />
             </div>
           ) : (
             <button
