@@ -29,7 +29,8 @@ app.use((error: unknown, _req: express.Request, res: express.Response, next: exp
 })
 
 app.get('/api/health', (_req, res) => {
-  res.json({ ok: true, mail: getMailTargets() })
+  // Keep this fast and dependency-free — Render fails the deploy if health checks time out.
+  res.status(200).json({ ok: true, mail: getMailTargets() })
 })
 
 app.post('/api/leads', async (req, res) => {

@@ -7,7 +7,8 @@ services:
     region: oregon
     rootDir: .
     buildCommand: npm install && npm run build
-    startCommand: npm start
+    # Start Node directly — `npm start -w` can hang / delay past Render's boot timeout.
+    startCommand: node server/dist/index.js
     healthCheckPath: /api/health
     envVars:
       - key: NODE_VERSION
