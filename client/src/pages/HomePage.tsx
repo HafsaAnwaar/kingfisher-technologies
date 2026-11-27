@@ -18,7 +18,6 @@ export function HomePage() {
       <Navbar />
       <Hero />
       {/* <LogoMarquee /> */}
-      <MetricsStrip />
       <HowItWorks />
       <ProductDemo />
       <Platform />
@@ -26,6 +25,7 @@ export function HomePage() {
       <CustomerVoices />
       <WhyKingfisher />
       <Implementation />
+       <MetricsStrip />
       <ContactDemo />
       <Footer />
     </>
