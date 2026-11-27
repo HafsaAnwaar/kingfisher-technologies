@@ -76,10 +76,10 @@ const CARDS = [
   },
   {
     title: 'Land & Courier',
-    desc: 'Road transport, pickup, delivery & parcel movement',
+    desc: 'Land & Courier jobs and transport handoff',
     summary:
-      'Coordinate trucking and courier movements with transport requests, vehicle assignment, pickup, delivery tracking and POD.',
-    tags: ['Trucking', 'Courier', 'POD'],
+      'Run road and courier jobs with pickup, in-transit, delivery and POD — plus transport request handoff when the move leaves the freight desk. Not a full fleet TMS.',
+    tags: ['Road jobs', 'Courier', 'Handoff'],
     get: 'Pickup · In Transit · Delivery · POD',
     href: '/platform/land-courier',
     cta: 'Explore Ground →',
@@ -97,10 +97,10 @@ const CARDS = [
   },
   {
     title: 'Warehouse',
-    desc: 'Receiving, handling, inventory & release to freight',
+    desc: 'Warehouse handling connected to jobs',
     summary:
-      'Log warehouse and CFS activity against the shipment — receiving, putaway, handling and release — so floor truth stays on the job file.',
-    tags: ['Receiving', 'Putaway', 'Release'],
+      'Log receiving, handling and release against the shipment — CFS via LCL/warehouse workflows, without claiming a full enterprise WMS.',
+    tags: ['Receiving', 'Handling', 'Release'],
     get: 'Gate-in · Handling · Inventory · Onward Dispatch',
     href: '/platform/warehouse',
     cta: 'Explore Warehouse →',
@@ -129,13 +129,13 @@ const CARDS = [
   },
   {
     title: 'General Trading',
-    desc: 'Buy, sell, import & export commercial control',
+    desc: 'Quote-request bridge into freight jobs',
     summary:
-      'Connect purchase and sales orders to freight jobs — quotations, shipments, documents and settlement — so trading and logistics stay on one continuum.',
-    tags: ['Purchase', 'Sales', 'Import / Export'],
-    get: 'Orders · Shipments · Docs · Settlement',
+      'Integration surface — trading quote requests hand off into Kingfisher quotations and jobs. Not a native General Trading ERP.',
+    tags: ['Integration', 'Quote bridge', 'Freight handoff'],
+    get: 'Quote request · Job handoff · Docs on the job',
     href: '/platform/general-trading',
-    cta: 'Explore Trading →',
+    cta: 'Explore bridge →',
     icon: (
       <>
         <path d="M16 3h5v5" />

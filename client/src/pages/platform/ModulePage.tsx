@@ -74,7 +74,9 @@ export function ModulePage() {
     <>
       <PageHero
         variant="split" fleet={MODULE_FLEET[module.slug] ?? 'mix'} flip={PLATFORM_MODULES.findIndex((m) => m.slug === module.slug) % 2 === 1} art={<ModuleArt slug={module.slug} title={module.stageTitle} sub={module.stageSub} pills={module.stagePills} />}
-        eyebrow={`Platform · ${module.cat}`}
+        eyebrow={
+          module.badge ? `Platform · ${module.cat} · ${module.badge}` : `Platform · ${module.cat}`
+        }
         title={accentName(name)}
         lede={module.tagline}
         sub={module.outcome}

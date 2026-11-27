@@ -498,11 +498,11 @@ function specs(): Spec[] {
     },
     {
       title: 'General Trading',
-      net: 'Live Trading Network',
-      hud: 'Purchase → freight booking → shipment → sale → docs → settlement',
+      net: 'Trading Bridge Network',
+      hud: 'Quote request → freight handoff → shipment → docs on the job',
       steps: [
-        { m: 'Buy Side', s: ['Purchase Order', 'Supplier Confirm', 'Freight Booked', 'Cargo Shipped', 'Goods Received'] },
-        { m: 'Sell Side', s: ['Sales Order', 'Quotation', 'Dispatch', 'Invoice', 'Settlement'] },
+        { m: 'Integration', s: ['Quote Request In', 'Mapped to Kingfisher', 'Quotation Open', 'Freight Job', 'Docs Linked'] },
+        { m: 'Freight continuum', s: ['Booking', 'Shipment', 'Documentation', 'Tracking', 'Costing'] },
       ],
       boxes: [
         { x: 0.8, y: 1.0, w: 1.6, d: 1.2, h: 18, k: 'accent' },
@@ -538,12 +538,12 @@ function specs(): Spec[] {
         [[1.7, 7.9], 'mut'],
       ],
       labels: [
-        { p: [1.6, 1.6, 26], t: 'Purchase', sub: 'Supplier PO', k: 'act' },
-        { p: [3.9, 1.7, 22], t: 'Freight Booked', sub: 'Import / export job' },
+        { p: [1.6, 1.6, 26], t: 'Quote request', sub: 'Bridge intake', k: 'act' },
+        { p: [3.9, 1.7, 22], t: 'Freight handoff', sub: 'Quote → job' },
         { p: [6.3, 4.3, 30], t: 'Shipment', sub: 'In transit · docs', k: 'act' },
-        { p: [8.7, 1.7, 22], t: 'Sales Order', sub: 'Quote → confirm', k: 'act' },
-        { p: [8.7, 7.9, 20], t: 'Settlement', sub: 'Invoice · receipt' },
-        { p: [1.7, 8.4, 18], t: 'Goods Received', minor: 1 },
+        { p: [8.7, 1.7, 22], t: 'Documentation', sub: 'On the job', k: 'act' },
+        { p: [8.7, 7.9, 20], t: 'Costing', sub: 'Finance continuum' },
+        { p: [1.7, 8.4, 18], t: 'Native GT', sub: 'Roadmap — not claimed', minor: 1 },
       ],
     },
   ]
