@@ -1,3 +1,7 @@
+import cargoConnectLogo from '../../assets/cargo-connect-logo.jpg'
+import companyLogo from '../../assets/kf-wings-logistics-logo.png'
+import redwoodLogo from '../../assets/redwood-logistics-logo.webp'
+
 export type Voice = {
   id: string
   name: string
@@ -11,84 +15,46 @@ export type Voice = {
   quote: string
 }
 
+/** Featured customers — carousel appears when length > 1. */
 export const VOICES: Voice[] = [
   {
-    id: 'ops',
-    name: 'Customer Name',
-    role: 'Operations Manager',
-    company: 'Customer Company',
+    id: 'kf-wings',
+    name: 'Operations Team',
+    role: 'Freight Operations',
+    company: 'Kingfisher Wings Logistics',
     industry: 'Freight Forwarding',
-    initials: 'OM',
-    capability: 'End-to-end Operations',
+    initials: 'KF',
+    capability: 'Air · Sea · Road',
     accent: '#60A5FA',
-    avatar: '',
+    avatar: companyLogo,
     quote:
-      'Add a verified testimonial about managing bookings, jobs, documentation and shipment milestones from one platform.',
+      'We move cargo every week across the Gulf, Pakistan and China — air, sea and road. One connected platform finally gave our team clear visibility from booking to delivery, cleaner documentation, and the control we need to keep every corridor running on time.',
   },
   {
-    id: 'multimodal',
-    name: 'Customer Name',
-    role: 'Freight Forwarding Manager',
-    company: 'Customer Company',
-    industry: 'Freight Forwarding',
-    initials: 'FF',
-    capability: 'Multi-modal Freight',
-    accent: '#14B8A6',
-    avatar: '',
+    id: 'cargo-connect',
+    name: 'Operations Team',
+    role: 'Logistics Operations',
+    company: 'Cargo Connect',
+    industry: 'Logistics',
+    initials: 'CC',
+    capability: 'End-to-end Logistics',
+    accent: '#EA580C',
+    avatar: cargoConnectLogo,
     quote:
-      'Add a verified testimonial about managing air, sea, NVOCC and related freight workflows in one connected system.',
+      'From booking to last-mile, our desk used to juggle separate tools for jobs, docs and customer updates. Running logistics on one platform means our team sees every movement clearly — and customers get answers without the chase.',
   },
   {
-    id: 'finance',
-    name: 'Customer Name',
-    role: 'Finance Manager / CFO',
-    company: 'Customer Company',
-    industry: 'Freight Forwarding',
-    initials: 'CF',
-    capability: 'Finance & Profitability',
-    accent: '#059669',
-    avatar: '',
+    id: 'redwood',
+    name: 'Operations Team',
+    role: '4PL Operations',
+    company: 'Redwood Logistics',
+    industry: '4PL · Supply Chain',
+    initials: 'RW',
+    capability: 'Open 4PL Orchestration',
+    accent: '#DC2626',
+    avatar: redwoodLogo,
     quote:
-      'Add a verified testimonial about connecting operational costs, revenue, invoicing and profitability.',
-  },
-  {
-    id: 'docs',
-    name: 'Customer Name',
-    role: 'Documentation / Compliance Manager',
-    company: 'Customer Company',
-    industry: 'Customs & Documentation',
-    initials: 'DC',
-    capability: 'Documentation & Compliance',
-    accent: '#FACC15',
-    avatar: '',
-    quote:
-      'Add a verified testimonial about reducing fragmented documentation work and improving shipment paperwork visibility.',
-  },
-  {
-    id: 'management',
-    name: 'Customer Name',
-    role: 'Management / Director',
-    company: 'Customer Company',
-    industry: 'Freight Forwarding',
-    initials: 'MD',
-    capability: 'Management Visibility',
-    accent: '#84CC16',
-    avatar: '',
-    quote:
-      'Add a verified testimonial about gaining a consolidated view of operations, customers, revenue and business performance.',
-  },
-  {
-    id: 'it',
-    name: 'Customer Name',
-    role: 'IT / System Administrator',
-    company: 'Customer Company',
-    industry: 'Freight Forwarding',
-    initials: 'IT',
-    capability: 'Platform Control',
-    accent: '#C4B5FD',
-    avatar: '',
-    quote:
-      'Add a verified testimonial about centralized modules, permissions, configuration and system administration.',
+      'Orchestrating shippers, carriers and partners across modes used to mean fragmented systems and constant chase-downs. One connected platform gave our teams the visibility and control to run flexible, end-to-end supply chain execution without the spreadsheet handoffs.',
   },
 ]
 

@@ -8,54 +8,72 @@ const SEA_PATH = 'M40 70 C130 210, 250 200, 340 110 S480 40, 560 150'
 const PLANE_SHAPE =
   'M14 0 L12.5 -1.2 L8 -1.2 L5.5 -6 L4 -6 L5.5 -1.2 L1.5 -1.2 L0.2 -3.5 L-0.6 -3.5 L0 -1.2 L0 1.2 L-0.6 3.5 L0.2 3.5 L1.5 1.2 L5.5 1.2 L4 6 L5.5 6 L8 1.2 L12.5 1.2 Z'
 
+/** Maps How-it-works accordion steps → board phase (book → docs/flight → delivery). */
+const AIR_PHASES = [
+  {
+    mileIdx: 1,
+    docs: 1,
+    status: 'AWB issued',
+    exportHint: 'Space confirmed · Cargo accepted',
+    planeBegin: '-0.5s',
+  },
+  {
+    mileIdx: 2,
+    docs: 3,
+    status: 'Departed',
+    exportHint: 'Flight uplift · MAWB live',
+    planeBegin: '-3.5s',
+  },
+  {
+    mileIdx: 4,
+    docs: 3,
+    status: 'Delivered',
+    exportHint: 'Arrived · CAN · POD',
+    planeBegin: '-7.5s',
+  },
+] as const
+
 /** Air desk: geographic map background + real airplane on flight path. */
-export function AirBoardBody({ play }: { play: boolean }) {
+export function AirBoardBody({ play, step = 0 }: { play: boolean; step?: number }) {
   const tick = usePlayTick(play, 1800)
-  const steps = ['Booked', 'AWB issued', 'Departed', 'Arrived', 'Delivered']
-  const idx = tick % steps.length
+  const milestones = ['Booked', 'AWB issued', 'Departed', 'Arrived', 'Delivered']
+  const phase = AIR_PHASES[Math.min(Math.max(step, 0), AIR_PHASES.length - 1)]
+  const idx = phase.mileIdx
   const docs = [
     ['HAWB', 'H-88421'],
     ['MAWB', '157-440918'],
     ['Pre-alert', 'Sent'],
   ]
-  const onDocs = Math.min(docs.length, 1 + (tick % docs.length))
+  const onDocs = phase.docs
 
   return (
     <div className="lf-mk-air is-deep">
       <div className="lf-mk-air-flight" aria-hidden="true">
         <svg className="lf-mk-air-map" viewBox="0 0 600 220" preserveAspectRatio="xMidYMid slice">
           <defs>
-            <linearGradient id="lf-mk-air-land" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stopColor="#1A2F48" />
-              <stop offset="1" stopColor="#0E1C30" />
-            </linearGradient>
             <pattern id="lf-mk-air-grid" width="28" height="28" patternUnits="userSpaceOnUse">
-              <path d="M28 0H0V28" fill="none" stroke="rgba(255,255,255,.05)" strokeWidth="1" />
+              <path className="lf-mk-map-grid-line" d="M28 0H0V28" fill="none" strokeWidth="1" />
             </pattern>
           </defs>
-          <rect width="600" height="220" fill="#060920" />
+          <rect className="lf-mk-map-bg" width="600" height="220" />
           <rect width="600" height="220" fill="url(#lf-mk-air-grid)" />
           {/* Stylized land masses DXB corridor → Europe */}
           <path
             className="lf-mk-map-land"
-            fill="url(#lf-mk-air-land)"
             d="M0 150 C40 120, 70 130, 95 155 C120 185, 150 190, 180 165 C210 140, 230 150, 250 175 L250 220 H0 Z"
           />
           <path
             className="lf-mk-map-land"
-            fill="url(#lf-mk-air-land)"
             d="M200 40 C260 20, 320 35, 360 70 C400 105, 430 90, 470 55 C510 20, 550 30, 600 50 V0 H200 Z"
           />
           <path
             className="lf-mk-map-land"
-            fill="url(#lf-mk-air-land)"
             d="M380 140 C420 120, 460 130, 500 160 C540 190, 570 175, 600 185 V220 H360 C365 180, 350 160, 380 140 Z"
           />
           <path
             className="lf-mk-map-coast"
             d="M0 150 C40 120, 70 130, 95 155 M200 40 C260 20, 320 35, 360 70 C400 105, 430 90, 470 55 M380 140 C420 120, 460 130, 500 160"
             fill="none"
-            stroke="rgba(63,215,166,.22)"
             strokeWidth="1"
           />
           <path d={AIR_PATH} pathLength={100} className="lf-mk-route-path lf-mk-air-path" />
@@ -63,7 +81,14 @@ export function AirBoardBody({ play }: { play: boolean }) {
           <circle cx="48" cy="176" r="5" className="lf-mk-route-dot" />
           <circle cx="552" cy="64" r="5" className="lf-mk-route-dot act" />
           <g className="lf-mk-plane-g">
-            <animateMotion dur="9s" repeatCount="indefinite" path={AIR_PATH} rotate="auto" />
+            <animateMotion
+              key={phase.planeBegin}
+              dur="9s"
+              begin={phase.planeBegin}
+              repeatCount="indefinite"
+              path={AIR_PATH}
+              rotate="auto"
+            />
             <g transform="scale(1.85) translate(-4,0)">
               <path d={PLANE_SHAPE} className="lf-mk-plane-shape" />
             </g>
@@ -85,20 +110,20 @@ export function AirBoardBody({ play }: { play: boolean }) {
           ))}
         </div>
         <div className="lf-mk-mile">
-          <div className="lf-mk-mile-k">Air milestones</div>
+          <div className="lf-mk-mile-k act">Air milestones</div>
           <div className="lf-mk-mile-row">
-            {steps.map((_, i) => (
+            {milestones.map((_, i) => (
               <span key={i} className={`lf-mk-sd${i < idx ? ' done' : i === idx ? ' now' : ''}`} />
             ))}
           </div>
           <div className="lf-mk-mile-v">
-            <TickText text={steps[idx]} tick={tick} />
+            <TickText text={phase.status} tick={tick + idx} />
             <span className="lf-mk-mile-n">
-              {idx + 1} / {steps.length}
+              {idx + 1} / {milestones.length}
             </span>
           </div>
           <div className="lf-mk-air-meta">
-            <span>Chargeable</span>
+            <span>{phase.exportHint}</span>
             <b>482 kg</b>
           </div>
         </div>
@@ -121,35 +146,22 @@ export function SeaBoardBody({ play, mode = 'fcl' }: { play: boolean; mode?: 'fc
       <div className="lf-mk-sea-route" aria-hidden="true">
         <svg className="lf-mk-sea-map" viewBox="0 0 600 220" preserveAspectRatio="xMidYMid slice">
           <defs>
-            <linearGradient id="lf-mk-sea-water" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stopColor="#0A1A2E" />
-              <stop offset="1" stopColor="#061018" />
-            </linearGradient>
             <pattern id="lf-mk-sea-grid" width="32" height="32" patternUnits="userSpaceOnUse">
-              <path d="M32 0H0V32" fill="none" stroke="rgba(96,165,250,.06)" strokeWidth="1" />
+              <path className="lf-mk-map-grid-line" d="M32 0H0V32" fill="none" strokeWidth="1" />
             </pattern>
           </defs>
-          <rect width="600" height="220" fill="url(#lf-mk-sea-water)" />
+          <rect className="lf-mk-map-bg" width="600" height="220" />
           <rect width="600" height="220" fill="url(#lf-mk-sea-grid)" />
           <path
             className="lf-mk-map-land"
-            fill="#1B334F"
-            stroke="rgba(147,197,253,.2)"
-            strokeWidth="1"
             d="M0 0 H160 C140 40, 100 70, 60 90 C30 110, 20 140, 0 160 Z"
           />
           <path
             className="lf-mk-map-land"
-            fill="#1B334F"
-            stroke="rgba(147,197,253,.2)"
-            strokeWidth="1"
             d="M480 0 C520 30, 560 50, 600 40 V0 Z"
           />
           <path
             className="lf-mk-map-land"
-            fill="#1B334F"
-            stroke="rgba(147,197,253,.2)"
-            strokeWidth="1"
             d="M520 220 C560 180, 580 160, 600 150 V220 Z"
           />
           <path

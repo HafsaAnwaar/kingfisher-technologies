@@ -27,12 +27,21 @@ type LiveOpsStageProps = {
   flowIndex?: number
   step?: number
   swapKey?: string | number
+  onPillSelect?: (index: number) => void
 }
+
+const AIR_SUBS = [
+  'AE-24091 · DXB → LHR · Booking confirmed',
+  'AE-24091 · DXB → LHR · In flight',
+  'AE-24091 · DXB → LHR · Delivery / POD',
+]
 
 function StageShell({
   title,
   sub,
   pills,
+  activePill = 0,
+  onPillSelect,
   children,
   play,
   rootRef,
@@ -44,6 +53,8 @@ function StageShell({
   title: string
   sub: string
   pills?: string[]
+  activePill?: number
+  onPillSelect?: (index: number) => void
   children: ReactNode
   play: boolean
   rootRef: RefObject<HTMLDivElement | null>
@@ -53,6 +64,7 @@ function StageShell({
   showRail?: boolean
 }) {
   const [hover, setHover] = useState(false)
+  const interactive = Boolean(onPillSelect)
   return (
     <div
       className={`lf-mk-stage-live${tall ? ' is-tall' : ''}${play ? ' lf-mk-inview' : ''}`}
@@ -70,12 +82,29 @@ function StageShell({
         </div>
         <div className="lf-mk-stage-meta">{sub}</div>
         {pills?.length ? (
-          <div className="lf-mk-pills">
-            {pills.map((pill, index) => (
-              <span className={index === 0 ? 'lf-mk-pill on' : 'lf-mk-pill'} key={pill}>
-                {pill}
-              </span>
-            ))}
+          <div className="lf-mk-pills" role={interactive ? 'tablist' : undefined}>
+            {pills.map((pill, index) => {
+              const on = index === activePill
+              if (interactive) {
+                return (
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={on}
+                    className={on ? 'lf-mk-pill on' : 'lf-mk-pill'}
+                    key={pill}
+                    onClick={() => onPillSelect?.(index)}
+                  >
+                    {pill}
+                  </button>
+                )
+              }
+              return (
+                <span className={on ? 'lf-mk-pill on' : 'lf-mk-pill'} key={pill}>
+                  {pill}
+                </span>
+              )
+            })}
           </div>
         ) : null}
       </div>
@@ -103,9 +132,13 @@ export function LiveOpsStage({
   slug,
   step = 0,
   highlight,
+  onPillSelect,
 }: LiveOpsStageProps) {
   const { ref, play } = useInViewPlay<HTMLDivElement>(0.15)
   const [cycle, setCycle] = useState(0)
+  const air = stageKind === 'routeMap' && !isSeaSlug(slug, title, sub)
+  const activePill = Math.min(Math.max(step, 0), Math.max((pills?.length ?? 1) - 1, 0))
+  const stageSub = air ? AIR_SUBS[activePill] ?? sub : sub
 
   const body = (() => {
     switch (stageKind) {
@@ -113,7 +146,7 @@ export function LiveOpsStage({
         return isSeaSlug(slug, title, sub) ? (
           <SeaBoardBody play={play} mode={step % 2 === 0 ? 'fcl' : 'lcl'} />
         ) : (
-          <AirBoardBody play={play} />
+          <AirBoardBody play={play} step={step} />
         )
       case 'voyageHud':
         return <VoyageBoardBody play={play} />
@@ -146,8 +179,10 @@ export function LiveOpsStage({
   return (
     <StageShell
       title={title}
-      sub={sub}
+      sub={stageSub}
       pills={pills}
+      activePill={activePill}
+      onPillSelect={onPillSelect}
       play={play}
       rootRef={ref}
       durationSec={8}

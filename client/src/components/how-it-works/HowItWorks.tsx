@@ -134,7 +134,7 @@ const CARDS = [
       'Connect purchase and sales orders to freight jobs — quotations, shipments, documents and settlement — so trading and logistics stay on one continuum.',
     tags: ['Purchase', 'Sales', 'Import / Export'],
     get: 'Orders · Shipments · Docs · Settlement',
-    href: '/solutions/importers-exporters',
+    href: '/platform/general-trading',
     cta: 'Explore Trading →',
     icon: (
       <>

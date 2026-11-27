@@ -16,10 +16,12 @@
 .lf-voices-in .lf-vglow{opacity:.34}
 .lf-theme-light .lf-voices-in .lf-vglow{opacity:.2}
 .lf-vid{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
-.lf-vlogo{width:76px;height:76px;border-radius:20px;display:grid;place-items:center;background:var(--lf-surface-2);border:1px solid;font-family:'Instrument Serif',Georgia,serif;font-size:30px;letter-spacing:.02em;transition:border-color .5s ease,color .5s ease}
+.lf-vlogo{width:76px;height:76px;border-radius:20px;display:grid;place-items:center;background:var(--lf-surface-2);border:1px solid;font-family:'Instrument Serif',Georgia,serif;font-size:30px;letter-spacing:.02em;overflow:hidden;transition:border-color .5s ease,color .5s ease,background .35s ease,box-shadow .35s ease}
+.lf-vlogo.is-logo{padding:4px;background:transparent;box-shadow:none}
+.lf-theme-light .lf-vlogo.is-logo,.lf-theme-dark .lf-vlogo.is-logo{background:transparent;box-shadow:none}
+.lf-vlogo.is-logo img{display:block;width:100%;height:100%;object-fit:contain}
 .lf-vco{margin-top:16px;font-size:16px;font-weight:600;color:var(--lf-text)}
 .lf-vind{margin-top:5px;font-family:'Geist Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--lf-muted)}
-.lf-vph{margin-top:14px;padding:3px 8px;border-radius:6px;border:1px dashed var(--lf-border-strong);font-family:'Geist Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--lf-muted)}
 .lf-vright{display:flex;align-items:center;padding:38px 44px}
 .lf-vbody{width:100%}
 .lf-vtop{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
@@ -59,7 +61,6 @@
 .lf-vid{flex-direction:row;flex-wrap:wrap;align-items:center;text-align:left;column-gap:14px}
 .lf-vlogo{width:54px;height:54px;border-radius:14px;font-size:22px;grid-row:span 2}
 .lf-vco{margin-top:0}
-.lf-vph{display:none}
 .lf-vright{padding:22px 22px 24px}
 .lf-vquote{font-size:16.5px}
 .lf-vpills{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;margin:20px -40px 0;padding:2px 40px 8px;scroll-snap-type:x mandatory}

@@ -3,19 +3,34 @@
 /* —— Unique module stages (not homepage HIW map) —— */
 .lf-mk-air,.lf-mk-sea,.lf-mk-voyage-board,.lf-mk-track-portal,.lf-mk-wh{flex:1;display:flex;flex-direction:column;gap:14px;min-height:280px}
 .lf-mk-air-flight,.lf-mk-sea-route{position:relative;height:168px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#060920}
-.lf-theme-light .lf-mk-air-flight,.lf-theme-light .lf-mk-sea-route{border-color:var(--lf-border)}
+.lf-theme-light .lf-mk-air-flight,.lf-theme-light .lf-mk-sea-route{border-color:var(--lf-border);background:#E8EEF5;box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
 .lf-mk-air-map,.lf-mk-sea-map{position:absolute;inset:0;width:100%;height:100%}
-.lf-theme-light .lf-mk-map-land{fill:#D5DEE8 !important}
-.lf-theme-light .lf-mk-air-map rect:first-child{fill:#E8EEF5}
+.lf-mk-map-bg{fill:#060920}
+.lf-theme-light .lf-mk-map-bg{fill:#E8EEF5}
+.lf-mk-map-grid-line{stroke:rgba(255,255,255,.05)}
+.lf-theme-light .lf-mk-map-grid-line{stroke:rgba(10,41,66,.08)}
+.lf-mk-map-land{fill:#1A2F48}
+.lf-theme-light .lf-mk-map-land{fill:#C5D2E0 !important}
+.lf-mk-map-coast{stroke:rgba(63,215,166,.22)}
+.lf-theme-light .lf-mk-map-coast{stroke:rgba(15,118,110,.35)}
 .lf-mk-air-ends,.lf-mk-sea-ends{position:absolute;left:14px;right:14px;bottom:10px;z-index:3;display:flex;justify-content:space-between;font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.14em;color:#5EE6B8;pointer-events:none}
+.lf-theme-light .lf-mk-air-ends{color:#0F766E}
 .lf-mk-sea-ends{color:#93C5FD}
+.lf-theme-light .lf-mk-sea-ends{color:#1D4ED8}
 .lf-mk-air-path{stroke:#FF751F}
 .lf-mk-air-flow{stroke:#3FD7A6}
+.lf-theme-light .lf-mk-air-flow{stroke:#0F766E}
 .lf-mk-sea-path{stroke:#60A5FA}
 .lf-mk-sea-flow{stroke:#93C5FD}
 .lf-mk-plane-g{filter:drop-shadow(0 0 8px rgba(63,215,166,.8))}
+.lf-theme-light .lf-mk-plane-g{filter:drop-shadow(0 2px 6px rgba(10,41,66,.28))}
 .lf-mk-plane-shape{fill:#FFFFFF}
 .lf-theme-light .lf-mk-plane-shape{fill:#0A2942}
+.lf-theme-light .lf-mk-mile-n{color:#0F766E}
+.lf-theme-light .lf-mk-mile-k.act{color:#0F766E}
+.lf-mk-pill{cursor:default}
+button.lf-mk-pill{margin:0;padding:0 12px;height:34px;font:inherit;background:transparent;cursor:pointer}
+button.lf-mk-pill:focus-visible{outline:2px solid var(--lf-accent);outline-offset:2px}
 .lf-mk-ship-g{filter:drop-shadow(0 0 8px rgba(96,165,250,.55))}
 .lf-mk-ship-shape{fill:#FF751F;stroke:#121A48;stroke-width:1.2}
 .lf-theme-light .lf-mk-ship-shape{stroke:#0A2942}

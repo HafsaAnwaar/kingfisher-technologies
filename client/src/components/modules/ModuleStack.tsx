@@ -162,7 +162,7 @@ export function ModuleStack() {
         <header className="lf-sk-head">
           <div className="lf-sk-eyebrow lf-sr2">Modules for freight</div>
           <h2 className="lf-sk-h lf-sr2" id="lf-stack-title" style={{ animationDelay: '80ms' }}>
-            <span>18 modules. One platform.</span>
+            <span>{MODULES.length} modules. One platform.</span>
             <em>Build your freight stack.</em>
           </h2>
           <p className="lf-sk-sub lf-sr2" style={{ animationDelay: '160ms' }}>

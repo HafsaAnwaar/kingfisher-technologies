@@ -27,6 +27,7 @@ const MODULE_FLEET: Record<string, Fleet> = {
   nvocc: 'sea',
   'land-courier': 'land',
   warehouse: 'land',
+  'general-trading': 'mix',
   tracking: 'air',
 }
 

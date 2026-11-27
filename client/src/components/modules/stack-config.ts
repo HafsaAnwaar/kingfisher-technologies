@@ -34,6 +34,8 @@ export const ICONS = {
     'M6 16a3 3 0 1 1 0 6 3 3 0 1 1 0-6 M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15 M18 2a3 3 0 1 1 0 6 3 3 0 1 1 0-6',
   server:
     'M4 2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z M4 14h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2z M6 6h.01 M6 18h.01',
+  trade:
+    'M16 3h5v5 M8 3H3v5 M21 3 14 10 M3 3l7 7 M8 21H3v-5 M16 21h5v-5 M3 21l7-7 M21 21l-7-7',
 } as const
 
 export type ModuleDef = {
@@ -133,6 +135,15 @@ export const MODULES: ModuleDef[] = [
     desc: 'Manage voyages, bookings, load lists, HBLs, pre-alerts, DOs and voyage profitability.',
   },
   {
+    id: 'transport',
+    name: 'Transport',
+    cat: OPS,
+    color: '#38BDF8',
+    route: '/operations/transport-requests',
+    icon: ICONS.route,
+    desc: 'Coordinate road transport, trucking and courier movements with pickup, delivery tracking and POD.',
+  },
+  {
     id: 'customs',
     name: 'Customs Clearance',
     cat: OPS,
@@ -167,6 +178,15 @@ export const MODULES: ModuleDef[] = [
     route: '/warehouse',
     icon: ICONS.warehouse,
     desc: 'Manage warehouse activity, cargo handling, inventory movement and operational records.',
+  },
+  {
+    id: 'trading',
+    name: 'General Trading',
+    cat: OPS,
+    color: '#F97316',
+    route: '/platform/general-trading',
+    icon: ICONS.trade,
+    desc: 'Connect purchase and sales orders to freight jobs — quotations, shipments, documents and settlement.',
   },
   {
     id: 'management',
@@ -252,9 +272,11 @@ export const PERSONAS: PersonaDef[] = [
       'air',
       'sea',
       'nvocc',
+      'transport',
       'customs',
       'docs',
       'tracking',
+      'trading',
       'management',
       'reports',
     ],
@@ -262,7 +284,8 @@ export const PERSONAS: PersonaDef[] = [
       ['Enquiry', ['sales']],
       ['Quotation', ['quotations']],
       ['Booking', ['customers']],
-      ['Job', ['air', 'sea', 'nvocc']],
+      ['Job', ['air', 'sea', 'nvocc', 'transport']],
+      ['Trading', ['trading']],
       ['Documentation', ['docs']],
       ['Tracking', ['tracking']],
       ['Customs', ['customs']],
@@ -289,15 +312,19 @@ export const PERSONAS: PersonaDef[] = [
       'air',
       'sea',
       'nvocc',
+      'transport',
       'customs',
       'docs',
       'tracking',
       'warehouse',
+      'trading',
     ],
     pipeline: [
       ['Quotation', ['quotations']],
       ['Booking', ['customers']],
       ['Air / Sea', ['air', 'sea']],
+      ['Transport', ['transport']],
+      ['Trading', ['trading']],
       ['Documentation', ['docs']],
       ['Customs', ['customs']],
       ['Warehouse', ['warehouse']],
@@ -383,6 +410,8 @@ export const FILTERS_B: FilterDef[] = [
   { id: 'air', l: 'Air', ids: ['air'] },
   { id: 'sea', l: 'Sea', ids: ['sea', 'customs'] },
   { id: 'nvocc', l: 'NVOCC', ids: ['nvocc'] },
+  { id: 'transport', l: 'Transport', ids: ['transport'] },
+  { id: 'trading', l: 'Trading', ids: ['trading'] },
   { id: 'finance', l: 'Finance', ids: ['finance', 'accounts'] },
   { id: 'reporting', l: 'Reporting', ids: ['reports', 'management'] },
 ]

@@ -119,6 +119,7 @@ export function ModuleFlowSection({
               swapKey={`${active}-${swap}`}
               highlight={steps[active]?.[0]}
               showRail={false}
+              onPillSelect={pick}
             />
           </div>
         </div>
