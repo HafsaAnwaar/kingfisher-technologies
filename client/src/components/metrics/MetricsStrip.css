@@ -1,4 +1,10 @@
+/* Self-contained — do not rely on LogoMarquee.css (marquee is optional on the homepage). */
 .lf-trust-metrics {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: #08091f;
+  color: #ffffff;
   padding: 0 0 104px;
 }
 
@@ -101,6 +107,11 @@
 
 .lf-hr-b {
   margin-top: 56px;
+}
+
+.lf-theme-light .lf-trust-metrics {
+  background: var(--lf-bg);
+  color: var(--lf-text);
 }
 
 .lf-theme-light .lf-trust-metrics .lf-trust-glow {

@@ -124,15 +124,6 @@ export function MetricsStrip() {
   return (
     <section className="lf-trust lf-trust-metrics" aria-label="Network scale">
       <div className="lf-trust-glow" aria-hidden="true" />
-      <div className="lf-trust-grain" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg">
-          <filter id="lf-noise-metrics">
-            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
-            <feColorMatrix type="saturate" values="0" />
-          </filter>
-          <rect width="100%" height="100%" filter="url(#lf-noise-metrics)" />
-        </svg>
-      </div>
       <div className="lf-wrap">
         <div className="lf-livebar">
           <span className="lf-livetag">Live Network</span>

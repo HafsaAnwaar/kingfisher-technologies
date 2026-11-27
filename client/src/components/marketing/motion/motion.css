@@ -147,16 +147,18 @@
 .lf-mk-fc:hover{border-color:rgba(255,255,255,.144)}
 .lf-mk-flow.is-teal .lf-mk-fc.is-on{border-color:rgba(63,215,166,.45);background:linear-gradient(160deg,rgba(16,58,60,.5),rgba(11,20,50,.72) 62%);box-shadow:0 0 0 1px rgba(63,215,166,.08),0 24px 50px -24px rgba(63,215,166,.32)}
 .lf-mk-flow.is-orange .lf-mk-fc.is-on{border-color:rgba(255,117,31,.5);background:linear-gradient(160deg,rgba(80,36,12,.45),rgba(11,20,50,.72) 62%);box-shadow:0 0 0 1px rgba(255,117,31,.1),0 24px 50px -24px rgba(255,117,31,.3)}
-.lf-theme-light .lf-mk-fc{background:#fff;border-color:var(--lf-border)}
 .lf-mk-fc-head{display:flex;align-items:flex-start;gap:14px;width:100%;min-height:62px;margin:0;padding:14px 16px;border:0;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer}
 .lf-mk-fc-n{flex:none;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;color:var(--lf-accent-text);padding-top:2px}
 .lf-mk-flow.is-teal .is-on .lf-mk-fc-n{color:#5EE6B8}
+.lf-mk-flow.is-orange .is-on .lf-mk-fc-n{color:#FFB078}
 .lf-mk-fc-txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
 .lf-mk-fc-title{font-size:15px;font-weight:500;color:var(--lf-text)}
 .lf-mk-fc-desc{font-size:12.5px;color:var(--lf-text-2);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
 .is-on .lf-mk-fc-desc{display:none}
 .lf-mk-fc-chev{flex:none;color:var(--lf-muted);transition:transform .45s ease,color .45s ease;margin-top:4px}
 .is-on .lf-mk-fc-chev{transform:rotate(180deg)}
+.lf-mk-flow.is-teal .is-on .lf-mk-fc-chev{color:#5EE6B8}
+.lf-mk-flow.is-orange .is-on .lf-mk-fc-chev{color:#FFB078}
 .lf-mk-fc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,.7,.2,1)}
 .is-on .lf-mk-fc-body{grid-template-rows:1fr}
 .lf-mk-fc-inner{min-height:0;overflow:hidden;padding:0 16px 0 42px;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility 0s linear .45s}
@@ -164,8 +166,25 @@
 .lf-mk-fc-sum{margin:0 0 16px;font-size:13.5px;line-height:1.55;color:var(--lf-text-2)}
 .lf-mk-flow.is-teal .lf-mk-prog{background:rgba(63,215,166,.12)}
 .lf-mk-flow.is-teal .lf-mk-bar{background:linear-gradient(90deg,rgba(63,215,166,.35),#3FD7A6);box-shadow:0 0 8px rgba(63,215,166,.7)}
+.lf-mk-flow.is-orange .lf-mk-prog{background:rgba(255,117,31,.12)}
+.lf-mk-flow.is-orange .lf-mk-bar{background:linear-gradient(90deg,rgba(255,117,31,.35),#FF751F);box-shadow:0 0 8px rgba(255,117,31,.7)}
 .lf-mk-flow-stage{min-height:560px}
 .lf-mk-flow-stage .lf-mk-stage-live{margin-top:0;height:100%;min-height:560px}
+
+/* Light theme — match How it Works accordion cards */
+.lf-theme-light .lf-mk-fc{background:#FFFFFF;border-color:var(--lf-border);box-shadow:0 1px 2px rgba(10,41,66,.04);-webkit-backdrop-filter:none;backdrop-filter:none}
+.lf-theme-light .lf-mk-fc:hover{border-color:var(--lf-border-strong)}
+.lf-theme-light .lf-mk-flow.is-teal .lf-mk-fc.is-on{border-color:rgba(13,148,136,.55);background:linear-gradient(160deg,rgba(20,184,166,.09),#FFFFFF 62%);box-shadow:0 20px 40px -26px rgba(13,148,136,.45)}
+.lf-theme-light .lf-mk-flow.is-orange .lf-mk-fc.is-on{border-color:rgba(194,65,12,.45);background:linear-gradient(160deg,rgba(255,117,31,.1),#FFFFFF 62%);box-shadow:0 20px 40px -26px rgba(255,117,31,.35)}
+.lf-theme-light .lf-mk-fc-title{color:var(--lf-text)}
+.lf-theme-light .lf-mk-fc-desc,.lf-theme-light .lf-mk-fc-sum{color:var(--lf-muted)}
+.lf-theme-light .lf-mk-fc-chev{color:#A1A1B5}
+.lf-theme-light .lf-mk-fc-n{color:#0A2942}
+.lf-theme-light .lf-mk-flow.is-teal .is-on .lf-mk-fc-n,
+.lf-theme-light .lf-mk-flow.is-teal .is-on .lf-mk-fc-chev{color:#0F766E}
+.lf-theme-light .lf-mk-flow.is-orange .is-on .lf-mk-fc-n,
+.lf-theme-light .lf-mk-flow.is-orange .is-on .lf-mk-fc-chev{color:#C2410C}
+.lf-theme-light .lf-mk-stage-live .lf-mk-stage-top span{background:rgba(255,255,255,.82);border-color:rgba(10,41,66,.1);color:#047857}
 
 .lf-mk-prog{z-index:4}
 .lf-mk-flow:not(.lf-mk-inview) .lf-mk-bar,.lf-mk-flow-main:hover .lf-mk-bar{animation-play-state:paused}
