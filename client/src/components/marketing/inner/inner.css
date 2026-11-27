@@ -131,7 +131,9 @@
 /* spotlight edge */
 .lf-x .lf-mk-card::after,.lf-x .lf-mk-feat::after,.lf-x .lf-vk-card::after,.lf-x .lf-mk-step::after,.lf-x .lf-mk-stat::after,.lf-x .lf-mk-ba > article::after,.lf-x .lf-mk-related > a::after,.lf-x .lf-mk-pricebox::after,.lf-x .lf-x-spot::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;padding:1px;opacity:0;transition:opacity .4s ease;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(255,170,110,.85),transparent 60%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
 .lf-x .lf-mk-card:hover,.lf-x .lf-mk-feat:hover,.lf-x .lf-vk-card:hover,.lf-x .lf-mk-step:hover,.lf-x .lf-mk-stat:hover,.lf-x .lf-mk-ba > article:hover,.lf-x .lf-mk-related > a:hover,.lf-x .lf-mk-pricebox:hover,.lf-x .lf-x-spot:hover{border-color:rgba(255,255,255,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 34px 60px -34px rgba(0,0,0,.9),0 0 0 1px rgba(255,117,31,.06)}
-.lf-theme-light .lf-x .lf-mk-card:hover,.lf-theme-light .lf-x .lf-mk-feat:hover,.lf-theme-light .lf-x .lf-vk-card:hover,.lf-theme-light .lf-x .lf-mk-step:hover,.lf-theme-light .lf-x .lf-mk-stat:hover,.lf-theme-light .lf-x .lf-mk-ba > article:hover,.lf-theme-light .lf-x .lf-mk-related > a:hover,.lf-theme-light .lf-x .lf-x-spot:hover{border-color:var(--lf-border-strong);box-shadow:0 1px 2px rgba(10,41,66,.05),0 26px 50px -30px rgba(10,41,66,.35)}
+.lf-theme-light .lf-x .lf-mk-card:hover,.lf-theme-light .lf-x .lf-mk-feat:hover,.lf-theme-light .lf-x .lf-vk-card:hover,.lf-theme-light .lf-x .lf-mk-step:hover,.lf-theme-light .lf-x .lf-mk-stat:hover,.lf-theme-light .lf-x .lf-mk-ba > article:hover,.lf-theme-light .lf-x .lf-x-spot:hover{border-color:var(--lf-border-strong);box-shadow:0 1px 2px rgba(10,41,66,.05),0 26px 50px -30px rgba(10,41,66,.35)}
+.lf-theme-light .lf-x .lf-mk-related > a:hover{border-color:rgba(194,65,12,.4);background:linear-gradient(160deg,rgba(255,117,31,.1),#FFFFFF 62%);box-shadow:0 1px 2px rgba(10,41,66,.05),0 22px 44px -28px rgba(194,65,12,.32)}
+.lf-theme-light .lf-x .lf-mk-related > a:hover::before,.lf-theme-light .lf-x .lf-mk-related > a:hover::after{opacity:0}
 .lf-x .lf-mk-card:hover::before,.lf-x .lf-mk-feat:hover::before,.lf-x .lf-vk-card:hover::before,.lf-x .lf-mk-step:hover::before,.lf-x .lf-mk-stat:hover::before,.lf-x .lf-mk-ba > article:hover::before,.lf-x .lf-mk-related > a:hover::before,.lf-x .lf-mk-pricebox:hover::before,.lf-x .lf-x-spot:hover::before,
 .lf-x .lf-mk-card:hover::after,.lf-x .lf-mk-feat:hover::after,.lf-x .lf-vk-card:hover::after,.lf-x .lf-mk-step:hover::after,.lf-x .lf-mk-stat:hover::after,.lf-x .lf-mk-ba > article:hover::after,.lf-x .lf-mk-related > a:hover::after,.lf-x .lf-mk-pricebox:hover::after,.lf-x .lf-x-spot:hover::after{opacity:1}
 .lf-x .lf-mk-card:hover,.lf-x .lf-mk-feat:hover,.lf-x .lf-vk-card:hover,.lf-x .lf-mk-related > a:hover{transform:translateY(-5px)}
@@ -250,9 +252,12 @@
 .lf-x .lf-x-related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:48px}
 .lf-x .lf-x-related a{display:flex;align-items:center;gap:14px;padding:22px 20px;font-size:15px;font-weight:500}
 .lf-x .lf-x-rel-n{font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;color:var(--lf-accent-text)}
-.lf-x .lf-x-rel-label{flex:1}
-.lf-x .lf-x-rel-go{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid var(--lf-border-strong);color:var(--lf-text-2);transition:transform .35s var(--lf-x-ease),background .3s ease,color .3s ease,border-color .3s ease}
+.lf-x .lf-x-rel-label{flex:1;color:var(--lf-text)}
+.lf-x .lf-x-rel-go{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid var(--lf-border-strong);color:var(--lf-text-2);background:var(--lf-surface-2);transition:transform .35s var(--lf-x-ease),background .3s ease,color .3s ease,border-color .3s ease}
+.lf-theme-light .lf-x .lf-x-rel-go{background:#FFFFFF;border-color:var(--lf-border);color:#0A2942}
 .lf-x .lf-x-related a:hover .lf-x-rel-go{background:#FF751F;border-color:#FF751F;color:#1A0B02;transform:rotate(-45deg)}
+.lf-theme-light .lf-x .lf-x-related a:hover .lf-x-rel-n{color:#C2410C}
+.lf-theme-light .lf-x .lf-x-related a:hover .lf-x-rel-label{color:#0A2942}
 
 /* ==========================================================================
    FAQ — split layout + animated accordion

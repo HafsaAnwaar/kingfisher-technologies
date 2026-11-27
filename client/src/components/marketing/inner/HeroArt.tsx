@@ -239,6 +239,25 @@ export function ModuleArt({ slug, title, sub, pills }: { slug: string; title: st
           </div>
         </Frame>
       )
+    case 'general-trading':
+      return (
+        <Frame label={title} meta={code} className="is-docs" foot={<Pills items={pills} />}>
+          <div className="lf-xa-fan">
+            {['Purchase order', 'Freight booking', 'Sales order', 'Settlement'].map((d, i) => (
+              <div className="lf-xa-page" key={d} style={v(i)}>
+                <b>{d}</b>
+                <i />
+                <i />
+                <i />
+              </div>
+            ))}
+          </div>
+          <div className="lf-xa-row">
+            <span className="lf-xa-k">Buy → freight → sell</span>
+            <span className="lf-xa-v">{status}</span>
+          </div>
+        </Frame>
+      )
     case 'tracking':
       return (
         <Frame label={title} meta={code} className="is-track" foot={<Pills items={pills} />}>

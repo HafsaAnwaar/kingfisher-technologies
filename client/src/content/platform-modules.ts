@@ -45,8 +45,8 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     outcome: 'Run every air job from booking to delivery without spreadsheet handoffs.',
     stageKind: 'routeMap',
     stageTitle: 'Air job board',
-    stageSub: 'AE-24091 · DXB → LHR · AWB issued',
-    stagePills: ['AWB live','Flight up','Delivery open'],
+    stageSub: 'AE-24091 · DXB → LHR · Booking confirmed',
+    stagePills: ['AWB live', 'Flight up', 'Delivery open'],
     before: [
       'AWB numbers live in email threads and WhatsApp groups',
       'Export and import teams keep separate trackers',
@@ -58,9 +58,18 @@ export const PLATFORM_MODULES: PlatformModule[] = [
       'Customer gets a clean status link instead of a phone chase',
     ],
     steps: [
-      ['Book the job', 'Convert a quotation into an air export or import job with parties, route and chargeable weight.'],
-      ['Move the docs', 'Track AWB, HAWB, invoices and pre-alerts against the same job file.'],
-      ['Close the loop', 'Update milestones through delivery and push costing into finance.'],
+      [
+        'Book the job',
+        'Raise an air export or import job from quotation — parties, route, chargeable weight and space confirmation through cargo accepted.',
+      ],
+      [
+        'Move the docs',
+        'Issue HAWB/MAWB, send pre-alerts and keep paperwork on the same job through flight uplift and departure.',
+      ],
+      [
+        'Close the loop',
+        'Track arrival, customs/CAN, delivery and POD, then push job costing into finance.',
+      ],
     ],
     features: [
       ['Export & import workflows', 'Separate flows for air export and import with mode-specific fields.'],
@@ -351,6 +360,80 @@ export const PLATFORM_MODULES: PlatformModule[] = [
       ['How does it relate to tracking?', 'Warehouse events feed the operational timeline customers and CS care about.'],
       ['Multi-warehouse?', 'Organization and masters configure locations your tenant operates.'],
       ['Barcode scanning?', 'Field capture patterns depend on implementation; the artifact assumes job-linked activity records.'],
+    ],
+  },
+  {
+    slug: 'general-trading',
+    name: 'General Trading',
+    footerLabel: 'Trading',
+    cat: 'Operations',
+    tagline:
+      'Connect purchase and sales orders to freight jobs — quotations, shipments, documents and settlement on one continuum.',
+    outcome: 'Trading and logistics stop living in separate spreadsheets.',
+    stageKind: 'docPack',
+    stageTitle: 'Trading desk',
+    stageSub: 'PO-4418 · Freight booked · Sale open',
+    stagePills: ['Purchase', 'Shipment', 'Settlement'],
+    before: [
+      'Purchase orders sit in email while freight jobs live in another system',
+      'Sales invoices never reconcile cleanly to the inbound shipment',
+      'Docs and settlement chase starts only after cargo has already moved',
+    ],
+    after: [
+      'Buy-side and sell-side orders linked to the freight job',
+      'Shipment, documents and commercial status on one timeline',
+      'Settlement follows the same file from purchase through delivery',
+    ],
+    steps: [
+      [
+        'Open the trade',
+        'Raise purchase and sales orders with suppliers and buyers, then book the linked import or export freight job.',
+      ],
+      [
+        'Move cargo & docs',
+        'Drive the shipment with documentation, pre-alerts and milestones against the same trading file.',
+      ],
+      [
+        'Settle the deal',
+        'Invoice, receipt and close costs so trading P&L stays tied to the freight job.',
+      ],
+    ],
+    features: [
+      ['Purchase & sales orders', 'Commercial orders that stay attached to the operational job.'],
+      ['Freight handoff', 'Book air, sea or land moves from the trade without re-keying parties.'],
+      ['Docs on the continuum', 'Invoices, packing lists and shipment packs share one file.'],
+      ['Settlement visibility', 'Revenue, cost and receipt follow the trade through delivery.'],
+    ],
+    metric: '1 continuum',
+    metricSub: 'from purchase order to settlement on the job',
+    quote: 'Our traders finally see freight status without leaving the commercial file.',
+    quoteBy: 'Trading Manager · Importer / exporter',
+    related: ['documentation', 'sea-freight', 'air-freight', 'finance-accounts'],
+    faqs: [
+      [
+        'Is General Trading only for pure traders?',
+        'It fits importers, exporters and forwarders who also buy and sell cargo — anyone who needs orders and freight on one continuum.',
+      ],
+      [
+        'Does it replace a full ERP inventory module?',
+        'It connects commercial orders to freight jobs and settlement. Deep stock accounting follows your finance and warehouse setup.',
+      ],
+      [
+        'Can we link one PO to multiple shipments?',
+        'Related jobs and documentation keep multi-leg or split moves coherent against the trade.',
+      ],
+      [
+        'How does settlement work?',
+        'Invoices and costs attach to the trading file and feed Finance / Accounts the same way other jobs do.',
+      ],
+      [
+        'Does this cover import and export?',
+        'Yes. Buy-side inbound and sell-side outbound trades both connect to the freight modes you operate.',
+      ],
+      [
+        'Who should use this module?',
+        'Trading desks, importer/exporter tenants and forwarders running general trading alongside logistics.',
+      ],
     ],
   },
   {
