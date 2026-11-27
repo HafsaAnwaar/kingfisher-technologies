@@ -147,7 +147,10 @@ export function PlatformHubPage() {
                   onMouseEnter={() => setSelected(index)}
                   onFocus={() => setSelected(index)}
                 >
-                  <span className="cat">{m.cat}</span>
+                  <span className="cat">
+                    {m.cat}
+                    {m.badge ? ` · ${m.badge}` : ''}
+                  </span>
                   <h3>{m.name}</h3>
                   <p>{m.tagline}</p>
                   <span className="lf-x-cardgo" aria-hidden="true">
