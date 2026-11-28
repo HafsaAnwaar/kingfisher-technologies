@@ -8,27 +8,41 @@ const SEA_PATH = 'M40 70 C130 210, 250 200, 340 110 S480 40, 560 150'
 const PLANE_SHAPE =
   'M14 0 L12.5 -1.2 L8 -1.2 L5.5 -6 L4 -6 L5.5 -1.2 L1.5 -1.2 L0.2 -3.5 L-0.6 -3.5 L0 -1.2 L0 1.2 L-0.6 3.5 L0.2 3.5 L1.5 1.2 L5.5 1.2 L4 6 L5.5 6 L8 1.2 L12.5 1.2 Z'
 
-/** Maps How-it-works accordion steps → board phase (book → docs/flight → delivery). */
+/** Maps platform Air Freight accordion steps → board phase. */
 const AIR_PHASES = [
+  {
+    mileIdx: 0,
+    docs: 1,
+    status: 'Booked',
+    exportHint: 'Quote → air job opened',
+    planeBegin: '0s',
+  },
   {
     mileIdx: 1,
     docs: 1,
     status: 'AWB issued',
     exportHint: 'Space confirmed · Cargo accepted',
-    planeBegin: '-0.5s',
+    planeBegin: '-1.5s',
+  },
+  {
+    mileIdx: 1,
+    docs: 3,
+    status: 'AWB issued',
+    exportHint: 'HAWB / MAWB · Pre-alert',
+    planeBegin: '-2.5s',
   },
   {
     mileIdx: 2,
     docs: 3,
     status: 'Departed',
-    exportHint: 'Flight uplift · MAWB live',
-    planeBegin: '-3.5s',
+    exportHint: 'Flight uplift · In flight',
+    planeBegin: '-4.5s',
   },
   {
     mileIdx: 4,
     docs: 3,
     status: 'Delivered',
-    exportHint: 'Arrived · CAN · POD',
+    exportHint: 'Track · Invoice · POD',
     planeBegin: '-7.5s',
   },
 ] as const

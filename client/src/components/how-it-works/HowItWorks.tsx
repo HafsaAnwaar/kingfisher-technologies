@@ -9,11 +9,11 @@ const ROUTE_DELAYS = [0, 90, 180, 270, 330, 390, 440, 490]
 const CARDS = [
   {
     title: 'Air Freight',
-    desc: 'Import & Export, booking, AWB, flight and delivery',
+    desc: 'Import & export — AWB, flight milestones, and delivery on one job',
     summary:
-      'Manage complete air shipments from booking and space confirmation through HAWB/MAWB, flight uplift, arrival, pre-alert and delivery.',
-    tags: ['Air Export', 'Air Import', 'HAWB / MAWB'],
-    get: 'House + Master Jobs · AWB Management · Flight Milestones',
+      'Quote → book job → issue HAWB/MAWB → flight milestones → Track & Trace → invoice & POD on one air job file.',
+    tags: ['Air Export', 'Air Import', 'HAWB / MAWB', 'Pre-alert'],
+    get: 'House + Master · HAWB / MAWB · Flight milestones · Pre-alert · POD',
     href: '/platform/air-freight',
     cta: 'Explore Air →',
     icon: (
@@ -22,11 +22,11 @@ const CARDS = [
   },
   {
     title: 'Sea FCL',
-    desc: 'Full container import & export operations',
+    desc: 'Full-container ocean — vessels, BL, VGM, cut-offs, customs, DO',
     summary:
-      'Manage full-container shipments with vessel bookings, container tracking, BL workflows, SI, VGM, cut-offs, customs and delivery.',
-    tags: ['FCL Export', 'FCL Import', 'Containers'],
-    get: 'Booking · Containers · BL · VGM · Cut-offs',
+      'Export and import FCL: booking → containers → VGM → HBL/MBL → Arrival Notice → customs → DO → costing on one job.',
+    tags: ['FCL Export', 'FCL Import', 'Containers', 'VGM', 'DO'],
+    get: 'Booking · Containers · BL · VGM · Cut-offs · DO',
     href: '/platform/sea-freight',
     cta: 'Explore FCL →',
     icon: (
@@ -41,11 +41,11 @@ const CARDS = [
   },
   {
     title: 'Sea LCL',
-    desc: 'Consolidation, de-stuffing & per-consignment control',
+    desc: 'House + master consolidation with CFS handoff and prorated cost',
     summary:
-      'Manage LCL consolidation from house bookings and master consolidation through CFS handling, de-stuffing, customs and individual deliveries.',
-    tags: ['LCL Export', 'LCL Import', 'CFS'],
-    get: 'House + Master · Consolidation · CFS · Prorated Cost',
+      'LCL export/import: house bookings → master consolidation → CFS / warehouse → customs & DO per consignment → prorated costing.',
+    tags: ['LCL Export', 'LCL Import', 'CFS', 'Prorated cost'],
+    get: 'House + Master · Consolidation · CFS · DO · Prorated cost',
     href: '/platform/sea-freight',
     cta: 'Explore LCL →',
     icon: (
@@ -59,11 +59,11 @@ const CARDS = [
   },
   {
     title: 'NVOCC',
-    desc: 'Voyages, bookings, HBL & space management',
+    desc: 'Voyages, bookings, load lists, HBL and voyage P&L',
     summary:
-      'Operate as the carrier with voyage management, enquiries, bookings, load lists, NVOCC HBLs, space utilization and voyage profitability.',
-    tags: ['Voyages', 'HBL', 'Space Utilization'],
-    get: 'Voyage Control · Load List · HBL · Voyage P&L',
+      'Voyage master → enquiry & booking → load list → HBL / pre-alert / DO → voyage P&L and reports — operate as the carrier.',
+    tags: ['Voyages', 'Bookings', 'Load list', 'HBL', 'Voyage P&L'],
+    get: 'Voyage control · Load list · HBL · Voyage P&L',
     href: '/platform/nvocc',
     cta: 'Explore NVOCC →',
     icon: (
@@ -113,11 +113,11 @@ const CARDS = [
   },
   {
     title: 'Customs Clearance',
-    desc: 'Declarations, exams, holds & release on the job',
+    desc: 'Declarations, exams, holds and release on the shipment',
     summary:
-      'Run import and export clearance on the shipment — filings, examinations, holds and release — visible to ops and CS without a side tracker.',
-    tags: ['Filing', 'Examination', 'Release'],
-    get: 'Declaration · Exam / Hold · Cleared · DO',
+      'Docs checklist → HS classify → declaration → duty → exam / hold → cleared → DO → agency invoice — visible to ops, CS and portal.',
+    tags: ['Declaration', 'Exam / Hold', 'Duty', 'Cleared', 'DO'],
+    get: 'Declaration · Exam / Hold · Duty · Cleared · DO',
     href: '/platform/customs',
     cta: 'Explore Customs →',
     icon: (

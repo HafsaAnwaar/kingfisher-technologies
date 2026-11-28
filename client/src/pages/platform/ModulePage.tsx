@@ -127,12 +127,12 @@ export function ModulePage() {
         title={flowTitle}
         sub={
           layout === 'money'
-            ? 'Costing and KPIs update from the same operational file, no month-end rebuild.'
+            ? 'Quotation → Job → Costing → Invoice → Payment → Ledger → Report — money follows the shipment.'
             : layout === 'process'
-              ? `A desk sequence for ${name.toLowerCase()}, stamps, packs and clearances you can follow.`
+              ? `Enquiry → Quotation → Booking → Job → Documentation → Tracking → Customs / Delivery → Costing — walk the ${name.toLowerCase()} desk sequence.`
               : layout === 'floor'
-                ? 'Cargo moves zone by zone on the job, receive, putaway, pick, gate.'
-                : `A live ${name.toLowerCase()} board, built for this desk, not a copy of the homepage map.`
+                ? 'Gate-in → ASN/GRN → inventory → GDO → onward dispatch — warehouse truth on the job.'
+                : `A live ${name.toLowerCase()} board for this desk — same continuum as the rest of the platform.`
         }
         steps={module.steps}
         stageKind={module.stageKind}
