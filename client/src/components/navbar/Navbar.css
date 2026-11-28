@@ -17,6 +17,12 @@
 .lf-mega a{display:block;padding:10px 12px;border-radius:12px;color:#FFFFFF;text-decoration:none;font-size:14px}
 .lf-mega a:hover{background:rgba(255,255,255,.05);color:#FFFFFF}
 .lf-mega a small{display:block;margin-top:2px;color:#73758A;font-size:12px}
+.lf-mega-name{display:inline-flex;align-items:center;gap:8px}
+.lf-mega-icon{
+  width:24px;height:24px;border-radius:7px;flex-shrink:0;
+  display:inline-grid;place-items:center;border:1px solid transparent;
+}
+.lf-mega-icon svg{width:14px;height:14px;display:block}
 .lf-theme-light .lf-mega{background:rgba(255,255,255,.96);border-color:rgba(10,41,66,.1)}
 .lf-theme-light .lf-mega h4,.lf-theme-light .lf-mega a small{color:#64748B}
 .lf-theme-light .lf-mega a{color:#0A2942}

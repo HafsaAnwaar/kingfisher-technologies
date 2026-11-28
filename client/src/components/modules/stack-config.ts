@@ -87,7 +87,7 @@ export const MODULES: ModuleDef[] = [
     color: '#E879F9',
     route: '/parties · /customers',
     icon: ICONS.users,
-    desc: 'Party master for shippers, consignees and agents — plus CS and portal collaboration.',
+    desc: 'Party master for shippers, consignees and agents, plus CS and portal collaboration.',
   },
   {
     id: 'vendors',
@@ -96,7 +96,7 @@ export const MODULES: ModuleDef[] = [
     color: '#D97706',
     route: '/parties · /vendors',
     icon: ICONS.vendor,
-    desc: 'Vendor parties and vendor portal — carriers and partners on the same job file.',
+    desc: 'Vendor parties and vendor portal, carriers and partners on the same job file.',
   },
   {
     id: 'quotations',
@@ -123,7 +123,7 @@ export const MODULES: ModuleDef[] = [
     color: '#14B8A6',
     route: '/jobs/sea-export · /jobs/sea-import',
     icon: ICONS.sea,
-    desc: 'FCL and LCL import/export — containers, vessels, BL, VGM and ocean milestones.',
+    desc: 'FCL and LCL import/export, containers, vessels, BL, VGM and ocean milestones.',
   },
   {
     id: 'nvocc',
@@ -132,7 +132,7 @@ export const MODULES: ModuleDef[] = [
     color: '#9333EA',
     route: '/nvocc',
     icon: ICONS.anchor,
-    desc: 'Voyage control & profitability — bookings, load lists, HBLs, pre-alerts and DOs.',
+    desc: 'Voyage control & profitability, bookings, load lists, HBLs, pre-alerts and DOs.',
   },
   {
     id: 'transport',
@@ -141,7 +141,7 @@ export const MODULES: ModuleDef[] = [
     color: '#38BDF8',
     route: '/operations/transport-requests',
     icon: ICONS.route,
-    desc: 'Land & Courier jobs and transport handoff — not a full fleet TMS.',
+    desc: 'Land & Courier jobs and transport handoff, not a full fleet TMS.',
   },
   {
     id: 'customs',
@@ -168,7 +168,7 @@ export const MODULES: ModuleDef[] = [
     color: '#67E8F9',
     route: 'Job Track & Trace · /track',
     icon: ICONS.track,
-    desc: 'Milestones for ops, CS, portal and public track — one status story.',
+    desc: 'Milestones for ops, CS, portal and public track, one status story.',
   },
   {
     id: 'warehouse',
@@ -177,7 +177,7 @@ export const MODULES: ModuleDef[] = [
     color: '#0D9488',
     route: '/warehouse',
     icon: ICONS.warehouse,
-    desc: 'Warehouse handling connected to jobs — receiving, stock and release.',
+    desc: 'Warehouse handling connected to jobs, receiving, stock and release.',
   },
   {
     id: 'trading',
@@ -186,7 +186,7 @@ export const MODULES: ModuleDef[] = [
     color: '#F97316',
     route: '/platform/general-trading',
     icon: ICONS.trade,
-    desc: 'Integration — quote-request bridge into freight jobs (not a native GT ERP).',
+    desc: 'Integration, quote-request bridge into freight jobs (not a native GT ERP).',
   },
   {
     id: 'management',
@@ -231,7 +231,7 @@ export const MODULES: ModuleDef[] = [
     color: '#DB2777',
     route: '/hr',
     icon: ICONS.hr,
-    desc: 'HR for logistics teams — employees, leave and payroll (not enterprise HCM).',
+    desc: 'HR for logistics teams, employees, leave and payroll (not enterprise HCM).',
   },
   {
     id: 'masters',

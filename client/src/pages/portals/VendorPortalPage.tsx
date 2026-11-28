@@ -38,7 +38,7 @@ export function VendorPortalPage() {
             Klaus&apos;s payables desk, <em>permissioned.</em>
           </>
         }
-        caption="The vendor portal welcomes Klaus into an accounts payable overview for Euro Logistics Partners GmbH — invoices, aging and upcoming dues, without opening your general ledger."
+        caption="The vendor portal welcomes Klaus into an accounts payable overview for Euro Logistics Partners GmbH, invoices, aging and upcoming dues, without opening your general ledger."
         imageSrc="/media/showcase/vendor-portal.jpg"
         imageAlt="Vendor portal for Euro Logistics Partners GmbH, welcoming Klaus with invoice KPIs, an upcoming due list and an open invoice card."
         imageWidth={1024}
@@ -59,7 +59,7 @@ export function VendorPortalPage() {
           },
           {
             label: 'A vendor-safe menu',
-            body: 'Home, Invoices, Payments, Advances, Credit notes, Schedule, Statement and TDS — assigned work, not your books.',
+            body: 'Home, Invoices, Payments, Advances, Credit notes, Schedule, Statement and TDS, assigned work, not your books.',
           },
         ]}
       />

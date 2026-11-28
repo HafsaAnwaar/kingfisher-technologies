@@ -1,4 +1,4 @@
-/* Shared marketing page sections — spacing matches homepage .lf-wrap / section rhythm */
+/* Shared marketing page sections, spacing matches homepage .lf-wrap / section rhythm */
 .lf-mk{position:relative;color:var(--lf-text);background:var(--lf-bg)}
 .lf-mk *{box-sizing:border-box}
 .lf-mk-pad{padding-top:108px}

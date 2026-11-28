@@ -1,0 +1,21 @@
+---
+description: Never use em dashes (—) or en dashes (–) in frontend copy or code
+globs: client/**/*
+alwaysApply: true
+---
+
+# No em dashes in frontend
+
+Never use the em dash character (`—`) or en dash (`–`) anywhere in the marketing site / frontend (`client/**`).
+
+## Use instead
+
+- Comma: `Air, Sea, and Road`
+- Colon: `Yes: FCL and LCL are supported.`
+- Period (new sentence) when the clause stands alone
+- Regular hyphen only for compound words (`real-time`, `gate-in`) or file/ID ranges when required (`JOB/FI/2026/00223`)
+
+## Do not
+
+- Do not use `—` in UI strings, meta descriptions, testimonials, comments, or CSS
+- Do not “fix” with spaced hyphens as a stand-in for em dashes (`word - word`); prefer comma or colon

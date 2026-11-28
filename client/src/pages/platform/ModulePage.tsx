@@ -94,7 +94,7 @@ export function ModulePage() {
               The job file your sea desk actually <em>works in.</em>
             </>
           }
-          caption="A live FCL import job — JOB/FI/2026/00223 for Al Noor Trading LLC — with routing, the status pipeline, ops actions and sale-versus-cost costing on a single screen."
+          caption="A live FCL import job, JOB/FI/2026/00223 for Al Noor Trading LLC, with routing, the status pipeline, ops actions and sale-versus-cost costing on a single screen."
           imageSrc="/media/showcase/job-detail.jpg"
           imageAlt="Internal Kingfisher job screen for JOB/FI/2026/00223, an FCL import for Al Noor Trading LLC, showing routing fields, a status pipeline, action buttons and a costing grid."
           imageWidth={1024}
@@ -115,7 +115,7 @@ export function ModulePage() {
             },
             {
               label: 'Costing, GP and vendor',
-              body: 'The costing grid compares sale vs cost, surfaces GP and the vendor — Powered by KingFisher Tech Gold.',
+              body: 'The costing grid compares sale vs cost, surfaces GP and the vendor, Powered by KingFisher Tech Gold.',
             },
           ]}
         />
@@ -127,12 +127,12 @@ export function ModulePage() {
         title={flowTitle}
         sub={
           layout === 'money'
-            ? 'Quotation → Job → Costing → Invoice → Payment → Ledger → Report — money follows the shipment.'
+            ? 'Quotation → Job → Costing → Invoice → Payment → Ledger → Report, money follows the shipment.'
             : layout === 'process'
-              ? `Enquiry → Quotation → Booking → Job → Documentation → Tracking → Customs / Delivery → Costing — walk the ${name.toLowerCase()} desk sequence.`
+              ? `Enquiry → Quotation → Booking → Job → Documentation → Tracking → Customs / Delivery → Costing, walk the ${name.toLowerCase()} desk sequence.`
               : layout === 'floor'
-                ? 'Gate-in → ASN/GRN → inventory → GDO → onward dispatch — warehouse truth on the job.'
-                : `A live ${name.toLowerCase()} board for this desk — same continuum as the rest of the platform.`
+                ? 'Gate-in → ASN/GRN → inventory → GDO → onward dispatch, warehouse truth on the job.'
+                : `A live ${name.toLowerCase()} board for this desk, same continuum as the rest of the platform.`
         }
         steps={module.steps}
         stageKind={module.stageKind}

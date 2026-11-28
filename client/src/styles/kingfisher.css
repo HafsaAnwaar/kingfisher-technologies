@@ -29,7 +29,7 @@ body:has(.lf-theme-light){background:#F7F9FC}
 .lf-theme-light .lf-hiw-badge{background:#FFFFFF;border-color:var(--lf-border);color:var(--lf-text-2)}
 .lf-theme-light .lf-hiw-badge svg{color:#0A2942}
 .lf-theme-light .lf-h2,.lf-theme-light .lf-demo-h,.lf-theme-light .lf-plat-h,.lf-theme-light .lf-pstat-big{color:var(--lf-text)}
-/* Light theme: solid accent ink — gradient + background-clip:text paints as orange boxes when shorthand resets clip */
+/* Light theme: solid accent ink, gradient + background-clip:text paints as orange boxes when shorthand resets clip */
 .lf-theme-light .lf-h2 em,
 .lf-theme-light .lf-demo-h em,
 .lf-theme-light .lf-plat-h em,

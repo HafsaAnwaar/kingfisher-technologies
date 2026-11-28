@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Inner pages v2 — hero vehicles, hero compositions, signature art, page skins.
-   Everything scoped under .lf-x (inner-page <main>) — never reaches the homepage.
+   Inner pages v2, hero vehicles, hero compositions, signature art, page skins.
+   Everything scoped under .lf-x (inner-page <main>), never reaches the homepage.
    ========================================================================== */
 
 /* ---------- Vehicles on hero lanes ---------- */
@@ -506,10 +506,10 @@
 @media (max-width:640px){.lf-x .lf-xh.v-editorial .lf-xa-orbit.is-feature .lf-xa-sat{transform:rotate(var(--a)) translateX(36vw)}}
 
 /* ==========================================================================
-   Page skins — each page group gets its own section language on the same theme.
+   Page skins, each page group gets its own section language on the same theme.
    data-skin is set on <main> by MarketingLayout.
    ========================================================================== */
-/* platform — blueprint: grid paper, corner brackets, left-set heads */
+/* platform, blueprint: grid paper, corner brackets, left-set heads */
 .lf-x[data-skin=platform] .lf-mk-section:not(.lf-xh){background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:56px 56px}
 .lf-theme-light .lf-x[data-skin=platform] .lf-mk-section:not(.lf-xh){background-image:linear-gradient(rgba(10,41,66,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(10,41,66,.035) 1px,transparent 1px)}
 .lf-x[data-skin=platform] :is(.lf-mk-card,.lf-mk-feat,.lf-vk-card):not(.is-sel){border-radius:12px;background:linear-gradient(#FF751F,#FF751F) 0 0/18px 2px no-repeat,linear-gradient(#FF751F,#FF751F) 0 0/2px 18px no-repeat,linear-gradient(#FF751F,#FF751F) 100% 100%/18px 2px no-repeat,linear-gradient(#FF751F,#FF751F) 100% 100%/2px 18px no-repeat,var(--lf-x-card),var(--lf-surface)}
@@ -517,13 +517,13 @@
 .lf-x[data-skin=platform] .lf-x-head:not(:has(~ .lf-mk-filters,~ .lf-x-pills-center,~ .lf-x-center)) .lf-mk-sub{margin-left:0}
 .lf-x[data-skin=platform] .lf-x-badge{border-radius:6px}
 
-/* solutions — persona: dotted field, accent bars, oversized heads */
+/* solutions, persona: dotted field, accent bars, oversized heads */
 .lf-x[data-skin=solutions] .lf-mk-section:not(.lf-xh){background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1.4px);background-size:24px 24px}
 .lf-theme-light .lf-x[data-skin=solutions] .lf-mk-section:not(.lf-xh){background-image:radial-gradient(rgba(10,41,66,.07) 1px,transparent 1.4px)}
 .lf-x[data-skin=solutions] :is(.lf-mk-card,.lf-mk-feat,.lf-vk-card):not(.is-sel){border-radius:26px;background:linear-gradient(180deg,#FF9A57,#FF751F) 0 28px/3px 44px no-repeat,var(--lf-x-card),var(--lf-surface)}
 .lf-x[data-skin=solutions] .lf-x-head .lf-mk-h2{font-size:clamp(40px,4.6vw,66px)}
 
-/* features — spec sheet: ruled paper, dashed cards, heads with a running rule */
+/* features, spec sheet: ruled paper, dashed cards, heads with a running rule */
 .lf-x[data-skin=features] .lf-mk-section:not(.lf-xh){background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.022) 0 1px,transparent 1px 40px)}
 .lf-theme-light .lf-x[data-skin=features] .lf-mk-section:not(.lf-xh){background-image:repeating-linear-gradient(0deg,rgba(10,41,66,.035) 0 1px,transparent 1px 40px)}
 .lf-x[data-skin=features] :is(.lf-mk-card,.lf-mk-feat,.lf-vk-card):not(.is-sel){border-style:dashed;border-radius:14px}
@@ -532,11 +532,11 @@
 .lf-x[data-skin=features] .lf-x-head:not(:has(~ .lf-mk-filters,~ .lf-x-pills-center,~ .lf-x-center))::after{content:"";align-self:stretch;height:1px;margin-top:26px;background:linear-gradient(90deg,#FF751F,rgba(255,117,31,0) 55%)}
 .lf-x[data-skin=features] .lf-x-badge{font-family:'Geist Mono',ui-monospace,monospace}
 
-/* portals — window chrome on every card */
+/* portals, window chrome on every card */
 .lf-x[data-skin=portals] :is(.lf-mk-card,.lf-mk-feat,.lf-vk-card):not(.is-sel){border-radius:16px;padding-top:48px;background:radial-gradient(circle,#FF751F 0 3.5px,transparent 4px) 12px 9px/16px 16px no-repeat,radial-gradient(circle,rgba(255,255,255,.22) 0 3.5px,transparent 4px) 28px 9px/16px 16px no-repeat,radial-gradient(circle,rgba(255,255,255,.22) 0 3.5px,transparent 4px) 44px 9px/16px 16px no-repeat,linear-gradient(rgba(255,255,255,.045),rgba(255,255,255,.045)) 0 0/100% 34px no-repeat,var(--lf-x-card),var(--lf-surface)}
 .lf-theme-light .lf-x[data-skin=portals] :is(.lf-mk-card,.lf-mk-feat,.lf-vk-card):not(.is-sel){background:radial-gradient(circle,#FF751F 0 3.5px,transparent 4px) 12px 9px/16px 16px no-repeat,radial-gradient(circle,rgba(10,41,66,.18) 0 3.5px,transparent 4px) 28px 9px/16px 16px no-repeat,radial-gradient(circle,rgba(10,41,66,.18) 0 3.5px,transparent 4px) 44px 9px/16px 16px no-repeat,linear-gradient(#F3F6FA,#F3F6FA) 0 0/100% 34px no-repeat,var(--lf-x-card),var(--lf-surface)}
 
-/* company (about, careers, customers) — editorial: hairline-led heads, open cards */
+/* company (about, careers, customers), editorial: hairline-led heads, open cards */
 .lf-x[data-skin=company] .lf-x-head:not(:has(~ .lf-mk-filters,~ .lf-x-pills-center,~ .lf-x-center)){align-items:flex-start;text-align:left;margin:0;max-width:none;padding-top:26px;border-top:1px solid var(--lf-x-card-b)}
 .lf-x[data-skin=company] .lf-x-head:not(:has(~ .lf-mk-filters,~ .lf-x-pills-center,~ .lf-x-center)) .lf-mk-sub{margin-left:0}
 .lf-x[data-skin=company] .lf-x-head .lf-mk-h2{font-size:clamp(40px,4.8vw,70px);letter-spacing:-.02em}
@@ -544,21 +544,21 @@
 .lf-theme-light .lf-x[data-skin=company] :is(.lf-mk-feat,.lf-vk-card):not(.is-sel){box-shadow:none}
 .lf-x[data-skin=company] :is(.lf-mk-feat,.lf-vk-card):not(.is-sel):hover{transform:none;border-top-color:#FF751F}
 
-/* pricing — ledger lines */
+/* pricing, ledger lines */
 .lf-x[data-skin=pricing] :is(.lf-mk-card,.lf-mk-feat,.lf-vk-card):not(.is-sel){background:repeating-linear-gradient(180deg,transparent 0 31px,rgba(255,255,255,.035) 31px 32px),var(--lf-x-card),var(--lf-surface)}
 .lf-theme-light .lf-x[data-skin=pricing] :is(.lf-mk-card,.lf-mk-feat,.lf-vk-card):not(.is-sel){background:repeating-linear-gradient(180deg,transparent 0 31px,rgba(10,41,66,.04) 31px 32px),var(--lf-x-card),var(--lf-surface)}
 
-/* contact — soft, rounded, warm-lit */
+/* contact, soft, rounded, warm-lit */
 .lf-x[data-skin=contact] :is(.lf-mk-card,.lf-mk-feat,.lf-vk-card,.lf-mk-step):not(.is-sel){border-radius:28px;background:radial-gradient(70% 60% at 50% 0%,rgba(255,117,31,.12),transparent 70%),var(--lf-x-card),var(--lf-surface)}
 
-/* security — terminal: scanlines, mono badges, green status rail */
+/* security, terminal: scanlines, mono badges, green status rail */
 .lf-x[data-skin=security] .lf-mk-section:not(.lf-xh){background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.016) 0 1px,transparent 1px 4px)}
 .lf-x[data-skin=security] :is(.lf-mk-card,.lf-mk-feat,.lf-vk-card):not(.is-sel){border-radius:10px;background:linear-gradient(90deg,#22C55E,rgba(34,197,94,0) 70%) 0 0/100% 2px no-repeat,var(--lf-x-card),var(--lf-surface)}
 .lf-x[data-skin=security] .lf-x-badge{font-family:'Geist Mono',ui-monospace,monospace;border-radius:6px}
 .lf-x[data-skin=security] .lf-x-head:not(:has(~ .lf-mk-filters,~ .lf-x-pills-center,~ .lf-x-center)){align-items:flex-start;text-align:left;margin:0;max-width:none}
 .lf-x[data-skin=security] .lf-x-head:not(:has(~ .lf-mk-filters,~ .lf-x-pills-center,~ .lf-x-center)) .lf-mk-sub{margin-left:0}
 
-/* paper (resources, legal) — folded-corner sheets, serif-led */
+/* paper (resources, legal), folded-corner sheets, serif-led */
 .lf-x[data-skin=paper] :is(.lf-mk-card,.lf-mk-feat,.lf-vk-card):not(.is-sel){border-radius:6px 22px 6px 6px;background:linear-gradient(225deg,var(--lf-bg) 50%,rgba(255,117,31,.45) 50%) 100% 0/22px 22px no-repeat,var(--lf-x-card),var(--lf-surface)}
 .lf-x[data-skin=paper] .lf-mk-feat h3,.lf-x[data-skin=paper] .lf-mk-card h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:24px;letter-spacing:0}
 .lf-x[data-skin=platform] .lf-x-head:not(:has(~ .lf-mk-filters,~ .lf-x-pills-center,~ .lf-x-center)) ~ .lf-mk-sub{text-align:left;margin-left:0}

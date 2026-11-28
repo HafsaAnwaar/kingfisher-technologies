@@ -1,4 +1,4 @@
-/* Self-contained — do not rely on LogoMarquee.css (marquee is optional on the homepage). */
+/* Self-contained, do not rely on LogoMarquee.css (marquee is optional on the homepage). */
 .lf-trust-metrics {
   position: relative;
   z-index: 1;

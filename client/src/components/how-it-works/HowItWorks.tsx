@@ -9,7 +9,7 @@ const ROUTE_DELAYS = [0, 90, 180, 270, 330, 390, 440, 490]
 const CARDS = [
   {
     title: 'Air Freight',
-    desc: 'Import & export — AWB, flight milestones, and delivery on one job',
+    desc: 'Import & export, AWB, flight milestones, and delivery on one job',
     summary:
       'Quote → book job → issue HAWB/MAWB → flight milestones → Track & Trace → invoice & POD on one air job file.',
     tags: ['Air Export', 'Air Import', 'HAWB / MAWB', 'Pre-alert'],
@@ -22,7 +22,7 @@ const CARDS = [
   },
   {
     title: 'Sea FCL',
-    desc: 'Full-container ocean — vessels, BL, VGM, cut-offs, customs, DO',
+    desc: 'Full-container ocean, vessels, BL, VGM, cut-offs, customs, DO',
     summary:
       'Export and import FCL: booking → containers → VGM → HBL/MBL → Arrival Notice → customs → DO → costing on one job.',
     tags: ['FCL Export', 'FCL Import', 'Containers', 'VGM', 'DO'],
@@ -61,7 +61,7 @@ const CARDS = [
     title: 'NVOCC',
     desc: 'Voyages, bookings, load lists, HBL and voyage P&L',
     summary:
-      'Voyage master → enquiry & booking → load list → HBL / pre-alert / DO → voyage P&L and reports — operate as the carrier.',
+      'Voyage master → enquiry & booking → load list → HBL / pre-alert / DO → voyage P&L and reports, operate as the carrier.',
     tags: ['Voyages', 'Bookings', 'Load list', 'HBL', 'Voyage P&L'],
     get: 'Voyage control · Load list · HBL · Voyage P&L',
     href: '/platform/nvocc',
@@ -78,7 +78,7 @@ const CARDS = [
     title: 'Land & Courier',
     desc: 'Land & Courier jobs and transport handoff',
     summary:
-      'Run road and courier jobs with pickup, in-transit, delivery and POD — plus transport request handoff when the move leaves the freight desk. Not a full fleet TMS.',
+      'Run road and courier jobs with pickup, in-transit, delivery and POD, plus transport request handoff when the move leaves the freight desk. Not a full fleet TMS.',
     tags: ['Road jobs', 'Courier', 'Handoff'],
     get: 'Pickup · In Transit · Delivery · POD',
     href: '/platform/land-courier',
@@ -99,7 +99,7 @@ const CARDS = [
     title: 'Warehouse',
     desc: 'Warehouse handling connected to jobs',
     summary:
-      'Log receiving, handling and release against the shipment — CFS via LCL/warehouse workflows, without claiming a full enterprise WMS.',
+      'Log receiving, handling and release against the shipment, CFS via LCL/warehouse workflows, without claiming a full enterprise WMS.',
     tags: ['Receiving', 'Handling', 'Release'],
     get: 'Gate-in · Handling · Inventory · Onward Dispatch',
     href: '/platform/warehouse',
@@ -115,7 +115,7 @@ const CARDS = [
     title: 'Customs Clearance',
     desc: 'Declarations, exams, holds and release on the shipment',
     summary:
-      'Docs checklist → HS classify → declaration → duty → exam / hold → cleared → DO → agency invoice — visible to ops, CS and portal.',
+      'Docs checklist → HS classify → declaration → duty → exam / hold → cleared → DO → agency invoice, visible to ops, CS and portal.',
     tags: ['Declaration', 'Exam / Hold', 'Duty', 'Cleared', 'DO'],
     get: 'Declaration · Exam / Hold · Duty · Cleared · DO',
     href: '/platform/customs',
@@ -131,7 +131,7 @@ const CARDS = [
     title: 'General Trading',
     desc: 'Quote-request bridge into freight jobs',
     summary:
-      'Integration surface — trading quote requests hand off into Kingfisher quotations and jobs. Not a native General Trading ERP.',
+      'Integration surface, trading quote requests hand off into Kingfisher quotations and jobs. Not a native General Trading ERP.',
     tags: ['Integration', 'Quote bridge', 'Freight handoff'],
     get: 'Quote request · Job handoff · Docs on the job',
     href: '/platform/general-trading',

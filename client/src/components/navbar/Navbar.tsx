@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useTheme } from '../../app/theme-context'
 import { FEATURES, featurePath } from '../../content/features'
 import { PLATFORM_MODULES, modulePath } from '../../content/platform-modules'
+import { PlatformModuleIcon } from '../../content/platform-module-icons'
 import { SOLUTIONS, solutionPath } from '../../content/solutions'
 import '../../styles/buttons.css'
 import { Logo } from './Logo'
@@ -128,7 +129,10 @@ export function Navbar() {
                 <h4>Operations</h4>
                 {OPS.map((m) => (
                   <Link key={m.slug} to={modulePath(m.slug)} onClick={closeAll}>
-                    {m.name}
+                    <span className="lf-mega-name">
+                      <PlatformModuleIcon slug={m.slug} size={14} className="lf-mega-icon" />
+                      {m.name}
+                    </span>
                     <small>{m.tagline.slice(0, 64)}…</small>
                   </Link>
                 ))}
@@ -137,7 +141,10 @@ export function Navbar() {
                 <h4>Business</h4>
                 {BIZ.map((m) => (
                   <Link key={m.slug} to={modulePath(m.slug)} onClick={closeAll}>
-                    {m.name}
+                    <span className="lf-mega-name">
+                      <PlatformModuleIcon slug={m.slug} size={14} className="lf-mega-icon" />
+                      {m.name}
+                    </span>
                     <small>{m.tagline.slice(0, 64)}…</small>
                   </Link>
                 ))}

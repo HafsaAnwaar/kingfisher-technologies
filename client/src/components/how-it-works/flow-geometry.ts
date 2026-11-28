@@ -543,7 +543,7 @@ function specs(): Spec[] {
         { p: [6.3, 4.3, 30], t: 'Shipment', sub: 'In transit · docs', k: 'act' },
         { p: [8.7, 1.7, 22], t: 'Documentation', sub: 'On the job', k: 'act' },
         { p: [8.7, 7.9, 20], t: 'Costing', sub: 'Finance continuum' },
-        { p: [1.7, 8.4, 18], t: 'Native GT', sub: 'Roadmap — not claimed', minor: 1 },
+        { p: [1.7, 8.4, 18], t: 'Native GT', sub: 'Roadmap, not claimed', minor: 1 },
       ],
     },
   ]
