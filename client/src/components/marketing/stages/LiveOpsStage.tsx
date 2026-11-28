@@ -31,9 +31,11 @@ type LiveOpsStageProps = {
 }
 
 const AIR_SUBS = [
-  'AE-24091 · DXB → LHR · Booking confirmed',
-  'AE-24091 · DXB → LHR · In flight',
-  'AE-24091 · DXB → LHR · Delivery / POD',
+  'AE-24091 · DXB → LHR · Quote → book job',
+  'AE-24091 · DXB → LHR · Flight & space confirmed',
+  'AE-24091 · DXB → LHR · HAWB / MAWB issued',
+  'AE-24091 · DXB → LHR · Flight milestones',
+  'AE-24091 · DXB → LHR · Track · invoice · POD',
 ]
 
 function StageShell({

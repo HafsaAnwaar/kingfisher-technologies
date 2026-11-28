@@ -12,10 +12,10 @@ import { PlatformHubArt } from '../../components/marketing/inner/HeroArt'
 const FILTERS = ['All', 'Operations', 'Business'] as const
 
 const CONTINUUM = [
-  { label: '01', title: 'Enquiry & quote', body: 'CRM and quotations that customers can accept, reject, or negotiate.' },
-  { label: '02', title: 'Booking & job', body: 'Commercial intent becomes executable multi-mode work with milestones.' },
-  { label: '03', title: 'Docs & customs', body: 'Document packs and clearance stages stay on the operational file.' },
-  { label: '04', title: 'Finance & portals', body: 'Invoice into the ledger; customers and vendors get controlled access.' },
+  { label: '01', title: 'Enquiry → Quotation', body: 'CRM and quotations that customers can accept, reject, or negotiate.' },
+  { label: '02', title: 'Booking → Job', body: 'Commercial intent becomes executable multi-mode work with milestones.' },
+  { label: '03', title: 'Docs → Tracking → Customs', body: 'Document packs, status and clearance stages stay on the operational file.' },
+  { label: '04', title: 'Costing → Invoice → Reporting', body: 'Finance on the job; customers and vendors collaborate through portals.' },
 ]
 
 export function PlatformHubPage() {
@@ -38,10 +38,10 @@ export function PlatformHubPage() {
             Modules for the whole <em>forwarding stack.</em>
           </>
         }
-        lede="Kingfisher is a multi-tenant freight management platform, quotations, multi-mode jobs, documents, portals, and ledgers, not a patchwork of tools."
+        lede="From quotation to booking, documentation to delivery, every shipment moves through one connected freight platform — Air, Sea, NVOCC, Land & Courier, Customs, Warehouse, Tracking, Finance, and Reports."
         secondaryTo="/features"
         secondaryLabel="Browse features"
-        caps={['Air', 'Ocean', 'NVOCC', 'Land', 'Customs', 'Finance']}
+        caps={['Air', 'Ocean', 'NVOCC', 'Land', 'Customs', 'Warehouse', 'Finance']}
       />
 
       <FeatureSplit
@@ -72,7 +72,7 @@ export function PlatformHubPage() {
             eyebrow="Operating continuum"
             title={
               <>
-                CRM → Quote → Job → Docs → Finance → <em>Portals</em>
+                Enquiry → Quotation → Job → Docs → Tracking → <em>Finance</em>
               </>
             }
           />
