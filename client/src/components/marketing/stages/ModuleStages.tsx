@@ -15,35 +15,30 @@ const AIR_PHASES = [
     docs: 1,
     status: 'Booked',
     exportHint: 'Quote → air job opened',
-    planeBegin: '0s',
   },
   {
     mileIdx: 1,
     docs: 1,
     status: 'AWB issued',
     exportHint: 'Space confirmed · Cargo accepted',
-    planeBegin: '-1.5s',
   },
   {
     mileIdx: 1,
     docs: 3,
     status: 'AWB issued',
     exportHint: 'HAWB / MAWB · Pre-alert',
-    planeBegin: '-2.5s',
   },
   {
     mileIdx: 2,
     docs: 3,
     status: 'Departed',
     exportHint: 'Flight uplift · In flight',
-    planeBegin: '-4.5s',
   },
   {
     mileIdx: 4,
     docs: 3,
     status: 'Delivered',
     exportHint: 'Track · Invoice · POD',
-    planeBegin: '-7.5s',
   },
 ] as const
 
@@ -60,57 +55,99 @@ export function AirBoardBody({ play, step = 0 }: { play: boolean; step?: number 
   ]
   const onDocs = phase.docs
 
+  const flightDur = phase.mileIdx >= 4 ? '4.2s' : phase.mileIdx >= 2 ? '5.5s' : '7s'
+
   return (
     <div className="lf-mk-air is-deep">
-      <div className="lf-mk-air-flight" aria-hidden="true">
-        <svg className="lf-mk-air-map" viewBox="0 0 600 220" preserveAspectRatio="xMidYMid slice">
+      <div className="lf-mk-air-flight is-live" aria-hidden="true">
+        <div className="lf-mk-air-sky" />
+        <div className="lf-mk-air-atmos">
+          <i className="lf-mk-air-haze" />
+          <i className="lf-mk-air-sweep" />
+          <i className="lf-mk-air-cloud c1" />
+          <i className="lf-mk-air-cloud c2" />
+          <i className="lf-mk-air-cloud c3" />
+          <i className="lf-mk-air-cloud c4" />
+        </div>
+        <svg className="lf-mk-air-map is-bg" viewBox="0 0 600 220" preserveAspectRatio="xMidYMid slice">
           <defs>
-            <pattern id="lf-mk-air-grid" width="28" height="28" patternUnits="userSpaceOnUse">
-              <path className="lf-mk-map-grid-line" d="M28 0H0V28" fill="none" strokeWidth="1" />
+            <pattern id="lf-mk-air-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+              <path className="lf-mk-map-grid-line" d="M24 0H0V24" fill="none" strokeWidth="1" />
             </pattern>
+            <linearGradient id="lf-mk-air-skygrad" x1="0" y1="0" x2="0" y2="1">
+              <stop className="lf-mk-air-sky-top" offset="0%" />
+              <stop className="lf-mk-air-sky-bot" offset="100%" />
+            </linearGradient>
           </defs>
-          <rect className="lf-mk-map-bg" width="600" height="220" />
-          <rect width="600" height="220" fill="url(#lf-mk-air-grid)" />
-          {/* Stylized land masses DXB corridor → Europe */}
-          <path
-            className="lf-mk-map-land"
-            d="M0 150 C40 120, 70 130, 95 155 C120 185, 150 190, 180 165 C210 140, 230 150, 250 175 L250 220 H0 Z"
-          />
-          <path
-            className="lf-mk-map-land"
-            d="M200 40 C260 20, 320 35, 360 70 C400 105, 430 90, 470 55 C510 20, 550 30, 600 50 V0 H200 Z"
-          />
-          <path
-            className="lf-mk-map-land"
-            d="M380 140 C420 120, 460 130, 500 160 C540 190, 570 175, 600 185 V220 H360 C365 180, 350 160, 380 140 Z"
-          />
-          <path
-            className="lf-mk-map-coast"
-            d="M0 150 C40 120, 70 130, 95 155 M200 40 C260 20, 320 35, 360 70 C400 105, 430 90, 470 55 M380 140 C420 120, 460 130, 500 160"
-            fill="none"
-            strokeWidth="1"
-          />
+          <rect width="600" height="220" fill="url(#lf-mk-air-skygrad)" />
+          <g className="lf-mk-air-grid-layer">
+            <rect x="-24" y="-12" width="648" height="244" fill="url(#lf-mk-air-grid)" />
+          </g>
+          <g className="lf-mk-air-lands">
+            <path
+              className="lf-mk-map-land"
+              d="M0 150 C40 120, 70 130, 95 155 C120 185, 150 190, 180 165 C210 140, 230 150, 250 175 L250 220 H0 Z"
+            />
+            <path
+              className="lf-mk-map-land"
+              d="M200 40 C260 20, 320 35, 360 70 C400 105, 430 90, 470 55 C510 20, 550 30, 600 50 V0 H200 Z"
+            />
+            <path
+              className="lf-mk-map-land"
+              d="M380 140 C420 120, 460 130, 500 160 C540 190, 570 175, 600 185 V220 H360 C365 180, 350 160, 380 140 Z"
+            />
+            <path
+              className="lf-mk-map-coast"
+              d="M0 150 C40 120, 70 130, 95 155 M200 40 C260 20, 320 35, 360 70 C400 105, 430 90, 470 55 M380 140 C420 120, 460 130, 500 160"
+              fill="none"
+              strokeWidth="1.2"
+            />
+          </g>
+        </svg>
+        <svg className="lf-mk-air-map is-fg" viewBox="0 0 600 220" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <radialGradient id="lf-mk-air-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#FF751F" stopOpacity="0.55" />
+              <stop offset="100%" stopColor="#FF751F" stopOpacity="0" />
+            </radialGradient>
+            <filter id="lf-mk-air-soft" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="2.2" />
+            </filter>
+          </defs>
+          <path d={AIR_PATH} pathLength={100} className="lf-mk-air-path-glow" filter="url(#lf-mk-air-soft)" />
           <path d={AIR_PATH} pathLength={100} className="lf-mk-route-path lf-mk-air-path" />
           <path d={AIR_PATH} pathLength={100} className="lf-mk-route-flow lf-mk-air-flow" />
-          <circle cx="48" cy="176" r="5" className="lf-mk-route-dot" />
-          <circle cx="552" cy="64" r="5" className="lf-mk-route-dot act" />
+          <path d={AIR_PATH} pathLength={100} className="lf-mk-air-progress" />
+          <circle cx="48" cy="176" r="18" className="lf-mk-air-beacon origin" />
+          <circle cx="48" cy="176" r="18" className="lf-mk-air-beacon origin delay" />
+          <circle cx="552" cy="64" r="18" className="lf-mk-air-beacon dest" />
+          <circle cx="552" cy="64" r="18" className="lf-mk-air-beacon dest delay" />
+          <circle cx="48" cy="176" r="6" className="lf-mk-route-dot" />
+          <circle cx="552" cy="64" r="6" className="lf-mk-route-dot act" />
           <g className="lf-mk-plane-g">
-            <animateMotion
-              key={phase.planeBegin}
-              dur="9s"
-              begin={phase.planeBegin}
-              repeatCount="indefinite"
-              path={AIR_PATH}
-              rotate="auto"
-            />
-            <g transform="scale(1.85) translate(-4,0)">
+            <animateMotion key={flightDur} dur={flightDur} repeatCount="indefinite" path={AIR_PATH} rotate="auto" />
+            <circle cx="0" cy="0" r="22" fill="url(#lf-mk-air-glow)" className="lf-mk-plane-wake" />
+            <g transform="scale(2.15) translate(-4,0)">
               <path d={PLANE_SHAPE} className="lf-mk-plane-shape" />
             </g>
           </g>
         </svg>
+        <div className="lf-mk-air-hud">
+          <span className="lf-mk-air-chip">
+            <i />
+            In flight
+          </span>
+          <span className="lf-mk-air-eta">ETA 06:40</span>
+        </div>
         <div className="lf-mk-air-ends">
-          <span>DXB</span>
-          <span>LHR</span>
+          <span>
+            <b>DXB</b>
+            <small>Origin</small>
+          </span>
+          <span>
+            <b>LHR</b>
+            <small>Destination</small>
+          </span>
         </div>
       </div>
       <div className="lf-mk-air-grid">
@@ -157,50 +194,98 @@ export function SeaBoardBody({ play, mode = 'fcl' }: { play: boolean; mode?: 'fc
 
   return (
     <div className="lf-mk-sea is-deep">
-      <div className="lf-mk-sea-route" aria-hidden="true">
-        <svg className="lf-mk-sea-map" viewBox="0 0 600 220" preserveAspectRatio="xMidYMid slice">
+      <div className="lf-mk-sea-route is-live" aria-hidden="true">
+        <div className="lf-mk-sea-ocean" />
+        <div className="lf-mk-sea-atmos">
+          <i className="lf-mk-sea-haze" />
+          <i className="lf-mk-sea-wave w1" />
+          <i className="lf-mk-sea-wave w2" />
+          <i className="lf-mk-sea-wave w3" />
+          <i className="lf-mk-sea-foam f1" />
+          <i className="lf-mk-sea-foam f2" />
+          <i className="lf-mk-sea-foam f3" />
+        </div>
+        <svg className="lf-mk-sea-map is-bg" viewBox="0 0 600 220" preserveAspectRatio="xMidYMid slice">
           <defs>
-            <pattern id="lf-mk-sea-grid" width="32" height="32" patternUnits="userSpaceOnUse">
-              <path className="lf-mk-map-grid-line" d="M32 0H0V32" fill="none" strokeWidth="1" />
+            <pattern id="lf-mk-sea-grid" width="28" height="28" patternUnits="userSpaceOnUse">
+              <path className="lf-mk-sea-grid-line" d="M28 0H0V28" fill="none" strokeWidth="1" />
             </pattern>
+            <linearGradient id="lf-mk-sea-skygrad" x1="0" y1="0" x2="0" y2="1">
+              <stop className="lf-mk-sea-sky-top" offset="0%" />
+              <stop className="lf-mk-sea-sky-bot" offset="100%" />
+            </linearGradient>
           </defs>
-          <rect className="lf-mk-map-bg" width="600" height="220" />
-          <rect width="600" height="220" fill="url(#lf-mk-sea-grid)" />
-          <path
-            className="lf-mk-map-land"
-            d="M0 0 H160 C140 40, 100 70, 60 90 C30 110, 20 140, 0 160 Z"
-          />
-          <path
-            className="lf-mk-map-land"
-            d="M480 0 C520 30, 560 50, 600 40 V0 Z"
-          />
-          <path
-            className="lf-mk-map-land"
-            d="M520 220 C560 180, 580 160, 600 150 V220 Z"
-          />
-          <path
-            d="M80 40 C160 80, 220 120, 300 100 S420 60, 520 100"
-            fill="none"
-            stroke="rgba(96,165,250,.12)"
-            strokeWidth="1"
-            strokeDasharray="4 8"
-          />
-          <path d={SEA_PATH} pathLength={100} className="lf-mk-route-path lf-mk-sea-path" />
-          <path d={SEA_PATH} pathLength={100} className="lf-mk-route-flow lf-mk-sea-flow" />
-          <circle cx="40" cy="70" r="5" className="lf-mk-route-dot" />
-          <circle cx="560" cy="150" r="5" className="lf-mk-route-dot act" />
-          <g className="lf-mk-ship-g">
-            <animateMotion dur="11s" repeatCount="indefinite" path={SEA_PATH} rotate="auto" />
+          <rect width="600" height="220" fill="url(#lf-mk-sea-skygrad)" />
+          <g className="lf-mk-sea-grid-layer">
+            <rect x="-28" y="-14" width="656" height="248" fill="url(#lf-mk-sea-grid)" />
+          </g>
+          <g className="lf-mk-sea-lands">
             <path
-              className="lf-mk-ship-shape"
-              d="M-18 -5 H12 L22 0 L12 5 H-18 Z"
-              transform="translate(0,0)"
+              className="lf-mk-sea-land"
+              d="M0 0 H160 C140 40, 100 70, 60 90 C30 110, 20 140, 0 160 Z"
+            />
+            <path
+              className="lf-mk-sea-land"
+              d="M480 0 C520 30, 560 50, 600 40 V0 Z"
+            />
+            <path
+              className="lf-mk-sea-land"
+              d="M520 220 C560 180, 580 160, 600 150 V220 Z"
+            />
+            <path
+              className="lf-mk-sea-coast"
+              d="M160 0 C140 40, 100 70, 60 90 C30 110, 20 140, 0 160 M480 0 C520 30, 560 50, 600 40 M520 220 C560 180, 580 160, 600 150"
+              fill="none"
+              strokeWidth="1.2"
             />
           </g>
         </svg>
-        <div className="lf-mk-air-ends lf-mk-sea-ends">
-          <span>CNSHA</span>
-          <span>PKKHI</span>
+        <svg className="lf-mk-sea-map is-fg" viewBox="0 0 600 220" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <radialGradient id="lf-mk-sea-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.55" />
+              <stop offset="100%" stopColor="#60A5FA" stopOpacity="0" />
+            </radialGradient>
+            <filter id="lf-mk-sea-soft" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="2.4" />
+            </filter>
+          </defs>
+          <path
+            d="M80 40 C160 80, 220 120, 300 100 S420 60, 520 100"
+            className="lf-mk-sea-lane-soft"
+          />
+          <path d={SEA_PATH} pathLength={100} className="lf-mk-sea-path-glow" filter="url(#lf-mk-sea-soft)" />
+          <path d={SEA_PATH} pathLength={100} className="lf-mk-route-path lf-mk-sea-path" />
+          <path d={SEA_PATH} pathLength={100} className="lf-mk-route-flow lf-mk-sea-flow" />
+          <path d={SEA_PATH} pathLength={100} className="lf-mk-sea-progress" />
+          <circle cx="40" cy="70" r="18" className="lf-mk-sea-beacon origin" />
+          <circle cx="40" cy="70" r="18" className="lf-mk-sea-beacon origin delay" />
+          <circle cx="560" cy="150" r="18" className="lf-mk-sea-beacon dest" />
+          <circle cx="560" cy="150" r="18" className="lf-mk-sea-beacon dest delay" />
+          <circle cx="40" cy="70" r="6" className="lf-mk-route-dot lf-mk-sea-dot" />
+          <circle cx="560" cy="150" r="6" className="lf-mk-route-dot act lf-mk-sea-dot" />
+          <g className="lf-mk-ship-g">
+            <animateMotion dur="7s" repeatCount="indefinite" path={SEA_PATH} rotate="auto" />
+            <circle cx="0" cy="0" r="20" fill="url(#lf-mk-sea-glow)" className="lf-mk-ship-wake" />
+            <path className="lf-mk-ship-shape" d="M-20 -6 H14 L24 0 L14 6 H-20 Z" />
+          </g>
+        </svg>
+        <div className="lf-mk-sea-hud">
+          <span className="lf-mk-sea-chip">
+            <i />
+            On voyage
+          </span>
+          <span className="lf-mk-sea-eta">{mode === 'fcl' ? 'FCL · 8 TEU' : 'LCL · SE-22014'}</span>
+        </div>
+        <div className="lf-mk-sea-ends">
+          <span>
+            <b>CNSHA</b>
+            <small>Origin</small>
+          </span>
+          <span>
+            <b>PKKHI</b>
+            <small>Destination</small>
+          </span>
         </div>
       </div>
       <div className="lf-mk-sea-grid">

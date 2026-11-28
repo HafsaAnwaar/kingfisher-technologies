@@ -5,6 +5,7 @@ import { LiveOpsStage } from '../../components/marketing/stages/LiveOpsStage'
 import { FeatureSplit, VoyageHud } from '../../components/marketing/LiveHud'
 import '../../components/marketing/motion'
 import { PLATFORM_MODULES, modulePath } from '../../content/platform-modules'
+import { PlatformModuleIcon } from '../../content/platform-module-icons'
 import '../../components/marketing/marketing.css'
 import '../../components/marketing/live-hud.css'
 import { PlatformHubArt } from '../../components/marketing/inner/HeroArt'
@@ -38,7 +39,7 @@ export function PlatformHubPage() {
             Modules for the whole <em>forwarding stack.</em>
           </>
         }
-        lede="From quotation to booking, documentation to delivery, every shipment moves through one connected freight platform — Air, Sea, NVOCC, Land & Courier, Customs, Warehouse, Tracking, Finance, and Reports."
+        lede="From quotation to booking, documentation to delivery, every shipment moves through one connected freight platform, Air, Sea, NVOCC, Land & Courier, Customs, Warehouse, Tracking, Finance, and Reports."
         secondaryTo="/features"
         secondaryLabel="Browse features"
         caps={['Air', 'Ocean', 'NVOCC', 'Land', 'Customs', 'Warehouse', 'Finance']}
@@ -147,6 +148,7 @@ export function PlatformHubPage() {
                   onMouseEnter={() => setSelected(index)}
                   onFocus={() => setSelected(index)}
                 >
+                  <PlatformModuleIcon slug={m.slug} />
                   <span className="cat">
                     {m.cat}
                     {m.badge ? ` · ${m.badge}` : ''}

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Kingfisher — inner-page redesign layer
+   Kingfisher, inner-page redesign layer
    Everything is scoped to .lf-x (the <main> of MarketingLayout) so the
    homepage, navbar and footer are never affected. Uses the same tokens,
    fonts (Geist / Instrument Serif / Geist Mono), orange accent and motion
@@ -122,7 +122,7 @@
 .lf-theme-light .lf-x .lf-xh-scroll{border-color:rgba(10,41,66,.25)}
 
 /* ==========================================================================
-   CARDS — glass surface, cursor spotlight, gradient edge, lift
+   CARDS, glass surface, cursor spotlight, gradient edge, lift
    ========================================================================== */
 .lf-x .lf-mk-card,.lf-x .lf-mk-feat,.lf-x .lf-vk-card,.lf-x .lf-mk-step,.lf-x .lf-mk-stat,.lf-x .lf-mk-ba > article,.lf-x .lf-mk-related > a,.lf-x .lf-mk-pricebox,.lf-x .lf-x-spot{position:relative;isolation:isolate;overflow:hidden;border-radius:20px;border:1px solid var(--lf-x-card-b);background:var(--lf-x-card),var(--lf-surface);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 24px 48px -36px rgba(0,0,0,.8);transition:transform .45s var(--lf-x-ease),border-color .35s ease,box-shadow .45s var(--lf-x-ease),background .35s ease}
 .lf-theme-light .lf-x .lf-mk-card,.lf-theme-light .lf-x .lf-mk-feat,.lf-theme-light .lf-x .lf-vk-card,.lf-theme-light .lf-x .lf-mk-step,.lf-theme-light .lf-x .lf-mk-stat,.lf-theme-light .lf-x .lf-mk-ba > article,.lf-theme-light .lf-x .lf-mk-related > a,.lf-theme-light .lf-x .lf-mk-pricebox,.lf-theme-light .lf-x .lf-x-spot{box-shadow:0 1px 2px rgba(10,41,66,.04),0 18px 36px -28px rgba(10,41,66,.28)}
@@ -260,7 +260,7 @@
 .lf-theme-light .lf-x .lf-x-related a:hover .lf-x-rel-label{color:#0A2942}
 
 /* ==========================================================================
-   FAQ — split layout + animated accordion
+   FAQ, split layout + animated accordion
    ========================================================================== */
 .lf-x .lf-x-faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:start}
 .lf-x .lf-x-faq-side{position:sticky;top:120px}
@@ -486,7 +486,7 @@
 }
 
 /* ==========================================================================
-   REDUCED MOTION — everything visible, nothing loops
+   REDUCED MOTION, everything visible, nothing loops
    ========================================================================== */
 @media (prefers-reduced-motion:reduce){
 .lf-x *,.lf-x *::before,.lf-x *::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;transition-delay:0s !important;scroll-behavior:auto !important}

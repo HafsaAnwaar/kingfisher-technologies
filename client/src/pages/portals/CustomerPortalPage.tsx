@@ -62,7 +62,7 @@ export function CustomerPortalPage() {
           },
           {
             label: 'Their workspace, their records',
-            body: 'The navy sidebar covers Dashboard, Booking, Track, Jobs, Customs clearance, Quotes and Invoices — only this customer’s work.',
+            body: 'The navy sidebar covers Dashboard, Booking, Track, Jobs, Customs clearance, Quotes and Invoices, only this customer’s work.',
           },
         ]}
       />

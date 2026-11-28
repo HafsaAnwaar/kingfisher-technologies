@@ -1,4 +1,4 @@
-/* Live product HUD splits — unique lf-livehud* names (avoid HowItWorks .lf-hud collision) */
+/* Live product HUD splits, unique lf-livehud* names (avoid HowItWorks .lf-hud collision) */
 
 .lf-split-sec{position:relative;overflow:hidden}
 .lf-split-sec::before{

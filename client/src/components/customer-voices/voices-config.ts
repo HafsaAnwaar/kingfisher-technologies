@@ -15,7 +15,7 @@ export type Voice = {
   quote: string
 }
 
-/** Featured customers — carousel appears when length > 1. */
+/** Featured customers, carousel appears when length > 1. */
 export const VOICES: Voice[] = [
   {
     id: 'kf-wings',
@@ -28,7 +28,7 @@ export const VOICES: Voice[] = [
     accent: '#60A5FA',
     avatar: companyLogo,
     quote:
-      'We move cargo every week across the Gulf, Pakistan and China — air, sea and road. One connected platform finally gave our team clear visibility from booking to delivery, cleaner documentation, and the control we need to keep every corridor running on time.',
+      'We move cargo every week across the Gulf, Pakistan and China, air, sea and road. One connected platform finally gave our team clear visibility from booking to delivery, cleaner documentation, and the control we need to keep every corridor running on time.',
   },
   {
     id: 'cargo-connect',
@@ -41,7 +41,7 @@ export const VOICES: Voice[] = [
     accent: '#EA580C',
     avatar: cargoConnectLogo,
     quote:
-      'From booking to last-mile, our desk used to juggle separate tools for jobs, docs and customer updates. Running logistics on one platform means our team sees every movement clearly — and customers get answers without the chase.',
+      'From booking to last-mile, our desk used to juggle separate tools for jobs, docs and customer updates. Running logistics on one platform means our team sees every movement clearly, and customers get answers without the chase.',
   },
   {
     id: 'redwood',

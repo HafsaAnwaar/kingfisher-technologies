@@ -44,7 +44,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     name: 'Air Freight',
     cat: 'Operations',
     tagline:
-      'Import & export air shipments — booking, AWB, flight milestones, and delivery on one job file.',
+      'Import & export air shipments, booking, AWB, flight milestones, and delivery on one job file.',
     outcome:
       'House + Master jobs, HAWB / MAWB, flight milestones, pre-alert, Track & Trace, costing and invoice on one continuum.',
     stageKind: 'routeMap',
@@ -109,8 +109,8 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     footerLabel: 'Sea FCL & LCL',
     cat: 'Operations',
     tagline:
-      'Full-container and LCL ocean operations — vessels, containers, BL, VGM, cut-offs, customs, and delivery.',
-    outcome: 'Booking, containers, HBL / MBL, VGM, cut-offs, Arrival Notice, DO, costing — FCL and LCL on one platform.',
+      'Full-container and LCL ocean operations, vessels, containers, BL, VGM, cut-offs, customs, and delivery.',
+    outcome: 'Booking, containers, HBL / MBL, VGM, cut-offs, Arrival Notice, DO, costing, FCL and LCL on one platform.',
     stageKind: 'routeMap',
     stageTitle: 'Sea FCL job',
     stageSub: 'SE-11802 · CNSHA → PKKHI · Container gated in',
@@ -123,7 +123,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     after: [
       'FCL and LCL export/import jobs with container and vessel context',
       'VGM, cut-offs, Arrival Notice and DO on the operational file',
-      'Customs handoff and inland haul when needed — same continuum',
+      'Customs handoff and inland haul when needed, same continuum',
     ],
     steps: [
       [
@@ -159,7 +159,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     quoteBy: 'Sea Ops Manager · Regional forwarder',
     related: ['nvocc', 'customs', 'documentation', 'tracking'],
     faqs: [
-      ['Do you support both FCL and LCL?', 'Yes — FCL and LCL import and export with mode-specific operational fields.'],
+      ['Do you support both FCL and LCL?', 'Yes, FCL and LCL import and export with mode-specific operational fields.'],
       ['Where do BL drafts live?', 'Operational status sits on the Sea job; Documentation manages BL/HBL paperwork against that job.'],
       ['Can NVOCC voyages link here?', 'NVOCC is voyage-centric; Sea Freight is forwarder ocean jobs. Teams often run both.'],
       ['How are vessel ETAs tracked?', 'Vessel and voyage fields plus milestones keep ETA updates on the job.'],
@@ -171,7 +171,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     slug: 'nvocc',
     name: 'NVOCC',
     cat: 'Operations',
-    tagline: 'Operate as the carrier — voyages, bookings, load lists, HBL, space, and voyage profitability.',
+    tagline: 'Operate as the carrier, voyages, bookings, load lists, HBL, space, and voyage profitability.',
     outcome: 'Voyage control, enquiry & booking, load list, HBL, pre-alert / DO and voyage P&L on one board.',
     stageKind: 'voyageHud',
     stageTitle: 'Voyage control',
@@ -190,7 +190,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     steps: [
       [
         'Open the voyage',
-        'Maintain vessel / voyage master — ports, ETD / ETA and capacity context; capture NVOCC enquiries and tariffs.',
+        'Maintain vessel / voyage master, ports, ETD / ETA and capacity context; capture NVOCC enquiries and tariffs.',
       ],
       [
         'Bookings → load list',
@@ -209,7 +209,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
       ['Voyage control', 'Treat the voyage as the operating spine for NVOCC work.'],
       ['Enquiry · booking · load list', 'Confirmed, pending and cut-off risk in one view.'],
       ['HBL · pre-alert · DO', 'Documentation steps owned against voyage context.'],
-      ['Voyage P&L', 'Revenue and cost while bookings are open — not an airline-style space RMS.'],
+      ['Voyage P&L', 'Revenue and cost while bookings are open, not an airline-style space RMS.'],
     ],
     metric: 'Voyage P&L',
     metricSub: 'Space held → HBL draft → load list locked → P&L live → pre-alerts queued',
@@ -223,7 +223,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
       ['How is voyage profit calculated?', 'Revenue and costs attached to voyage bookings roll into voyage-level profitability views.'],
       [
         'Is this advanced space utilization / yield?',
-        'Kingfisher covers voyage control, load lists and voyage P&L — not airline-style space revenue management.',
+        'Kingfisher covers voyage control, load lists and voyage P&L, not airline-style space revenue management.',
       ],
       ['Who should use this module?', 'NVOCC operators and forwarders running consolidation voyages with HBL issuance.'],
     ],
@@ -232,7 +232,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     slug: 'land-courier',
     name: 'Land & Courier',
     cat: 'Operations',
-    tagline: 'Road transport and courier movements — pickup, assignment, in-transit tracking, and POD.',
+    tagline: 'Road transport and courier movements, pickup, assignment, in-transit tracking, and POD.',
     outcome:
       'Pickup, vehicle / trucker assignment or transport handoff, in transit, border when used, delivery and POD on the job.',
     stageKind: 'podRun',
@@ -256,7 +256,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
       ],
       [
         'Assign or hand off',
-        'Assign trucker, driver, vehicle and trailer — or pass the job to Transport handoff.',
+        'Assign trucker, driver, vehicle and trailer, or pass the job to Transport handoff.',
       ],
       [
         'Pickup → in transit',
@@ -269,7 +269,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     ],
     features: [
       ['Road freight & courier jobs', 'Domestic and cross-border land moves as first-class jobs.'],
-      ['Assignment or transport handoff', 'Vehicle / trucker on the job — not a full fleet TMS.'],
+      ['Assignment or transport handoff', 'Vehicle / trucker on the job, not a full fleet TMS.'],
       ['Pickup · in transit · POD', 'Shared milestones with international modes.'],
       ['Costing on the same file', 'Haulage and courier charges feed Finance.'],
     ],
@@ -281,7 +281,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     faqs: [
       [
         'Is this a full fleet TMS?',
-        'No. Position as land & courier jobs + transport handoff — not a fleet TMS / routing engine.',
+        'No. Position as land & courier jobs + transport handoff, not a fleet TMS / routing engine.',
       ],
       ['Is Land separate from Courier?', 'Both share the job model with fields suited to trucking vs consignments.'],
       ['Can transporters be vendors?', 'Yes. Carriers and haulage partners tie into job costs via vendor parties and the vendor portal.'],
@@ -294,7 +294,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     slug: 'customs',
     name: 'Customs Clearance',
     cat: 'Operations',
-    tagline: 'Declarations, exams, holds, and release — clearance stages on the operational shipment.',
+    tagline: 'Declarations, exams, holds, and release, clearance stages on the operational shipment.',
     outcome: 'Docs checklist, HS classify, declaration, duty, exam / hold, cleared, DO and invoice on one clearance file.',
     stageKind: 'clearance',
     stageTitle: 'Clearance desk',
@@ -353,7 +353,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     name: 'Documentation',
     cat: 'Operations',
     tagline:
-      'Shipment paperwork, BL / AWB workflows, pre-alerts, EDI, and operational uploads — on the job and in one docs hub.',
+      'Shipment paperwork, BL / AWB workflows, pre-alerts, EDI, and operational uploads, on the job and in one docs hub.',
     outcome:
       'Job document packs, pre-alerts, regional EDI, bulk uploads, charge templates and closed-job DO / BL updates.',
     stageKind: 'docPack',
@@ -404,10 +404,10 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     quoteBy: 'Documentation Lead · Ocean forwarder',
     related: ['air-freight', 'sea-freight', 'nvocc', 'customs'],
     faqs: [
-      ['Is this a DMS like SharePoint?', 'It is operational documentation on the freight job — not a general file share.'],
+      ['Is this a DMS like SharePoint?', 'It is operational documentation on the freight job, not a general file share.'],
       ['Can we store customer invoices?', 'Commercial and operational docs attach to the job; Finance handles billing documents.'],
       ['Who can edit drafts?', 'Access follows Administration & Access permissions by role.'],
-      ['Does it cover HBL and HAWB?', 'Yes — against NVOCC, air and sea jobs.'],
+      ['Does it cover HBL and HAWB?', 'Yes, against NVOCC, air and sea jobs.'],
       ['How do pre-alerts work?', 'Pre-alert status is tracked on the job so ops knows what has been sent.'],
       ['Can CS download packs?', 'Authorized roles access job documentation without ops forwarding email attachments.'],
     ],
@@ -416,7 +416,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     slug: 'warehouse',
     name: 'Warehouse',
     cat: 'Operations',
-    tagline: 'Receiving, handling, inventory, and release — warehouse / CFS activity connected to the freight job.',
+    tagline: 'Receiving, handling, inventory, and release, warehouse / CFS activity connected to the freight job.',
     outcome: 'Gate-in, ASN → GRN, inventory, GDO / GDN, storage charges and onward dispatch on the job continuum.',
     stageKind: 'yardGrid',
     stageTitle: 'Warehouse activity',
@@ -453,7 +453,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     features: [
       ['ASN → GRN → inventory', 'Inbound truth connected to the job.'],
       ['GDO / GDN · storage', 'Outbound and storage charges without a second WMS claim.'],
-      ['CFS via LCL / warehouse', 'Consolidation and de-stuff through job workflows — not a standalone CFS SKU.'],
+      ['CFS via LCL / warehouse', 'Consolidation and de-stuff through job workflows, not a standalone CFS SKU.'],
       ['Onward to Land & Courier', 'Release into road delivery milestones.'],
     ],
     metric: 'One timeline',
@@ -464,9 +464,9 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     faqs: [
       [
         'Is this a full WMS?',
-        'Core warehouse handling connected to jobs. Advanced putaway rules remain partial — do not sell as enterprise WMS.',
+        'Core warehouse handling connected to jobs. Advanced putaway rules remain partial, do not sell as enterprise WMS.',
       ],
-      ['Can CFS operators use it?', 'Yes — via LCL / warehouse workflows, not a separate CFS product.'],
+      ['Can CFS operators use it?', 'Yes, via LCL / warehouse workflows, not a separate CFS product.'],
       ['Does inventory sync to finance?', 'Handling and storage costs can feed job costing; valuation follows your finance setup.'],
       ['How does it relate to tracking?', 'Warehouse events feed the operational timeline customers and CS care about.'],
       ['Multi-warehouse?', 'Organization and masters configure locations your tenant operates.'],
@@ -480,7 +480,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     badge: 'Integration',
     cat: 'Operations',
     tagline:
-      'Connect external trading quote requests to freight quotations and jobs — commercial intent flows into logistics on one continuum.',
+      'Connect external trading quote requests to freight quotations and jobs, commercial intent flows into logistics on one continuum.',
     outcome:
       'Quote-request integration (KFPP / KFQA), sync to quotations, convert to freight jobs, then standard docs and settlement.',
     stageKind: 'docPack',
@@ -512,11 +512,11 @@ export const PLATFORM_MODULES: PlatformModule[] = [
       ],
       [
         'Execute the continuum',
-        'Run documentation, tracking, costing and settlement in standard modules — not a native buy/sell GT ERP.',
+        'Run documentation, tracking, costing and settlement in standard modules, not a native buy/sell GT ERP.',
       ],
     ],
     features: [
-      ['Quote-request bridge', 'KFPP / KFQA intake — not a full merchandising ERP.'],
+      ['Quote-request bridge', 'KFPP / KFQA intake, not a full merchandising ERP.'],
       ['Sync → quotation', 'Commercial intent becomes a priced freight quote.'],
       ['Convert to freight job', 'Air, sea, land and other modes on the same continuum.'],
       ['Docs & settlement', 'Standard Documentation and Finance after the job exists.'],
@@ -533,7 +533,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
       ],
       [
         'What can we demo today?',
-        'Admin quote-request intake into quotations and jobs — not a buy/sell inventory suite.',
+        'Admin quote-request intake into quotations and jobs, not a buy/sell inventory suite.',
       ],
       [
         'Does it replace trading software?',
@@ -557,7 +557,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     slug: 'tracking',
     name: 'Shipment Tracking',
     cat: 'Operations',
-    tagline: 'One status story for ops, CS, and customers — milestones, movement, and delivery progress.',
+    tagline: 'One status story for ops, CS, and customers, milestones, movement, and delivery progress.',
     outcome:
       'Job Track & Trace, CS tracking, Customer Portal track, public track / widget, and POD close-out.',
     stageKind: 'liveTrack',
@@ -599,15 +599,15 @@ export const PLATFORM_MODULES: PlatformModule[] = [
       ['POD close-out', 'Delivery acknowledgement ends the continuum cleanly.'],
     ],
     metric: 'One status',
-    metricSub: 'ops, CS, portal and public track — same reference',
+    metricSub: 'ops, CS, portal and public track, same reference',
     quote: 'Customer service stopped camping on the ops floor for status.',
     quoteBy: 'CS Lead · Freight forwarder',
     related: ['air-freight', 'sea-freight', 'land-courier', 'documentation'],
     faqs: [
-      ['Is this GPS / SIM tracking?', 'Milestone and status tracking on the Kingfisher job — not a telematics product.'],
+      ['Is this GPS / SIM tracking?', 'Milestone and status tracking on the Kingfisher job, not a telematics product.'],
       ['Can customers see status?', 'Yes via portal and public track / widget when rolled out.'],
       ['Who updates milestones?', 'Operations owns updates; permissions control who can edit.'],
-      ['Does it work multi-modal?', 'Yes — milestones attach to whatever mode jobs you run.'],
+      ['Does it work multi-modal?', 'Yes, milestones attach to whatever mode jobs you run.'],
       ['How does it help sales?', 'Sales sees the same operational truth without a shadow tracker.'],
       ['Alerts?', 'Exception and milestone visibility is the foundation; notification channels follow implementation.'],
     ],
@@ -617,7 +617,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     name: 'Finance & Accounts',
     cat: 'Business',
     tagline:
-      'Job costing through invoicing, receivables, payables, and the ledger — finance linked directly to operational jobs.',
+      'Job costing through invoicing, receivables, payables, and the ledger, finance linked directly to operational jobs.',
     outcome:
       'Job costing & P&L, sales / purchase invoices, credit / debit notes, AR / AP, payments, GL and financial statements on one continuum.',
     stageKind: 'costLedger',
@@ -653,7 +653,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
       ],
       [
         'Statements & MIS',
-        'Run trial balance, P&L, balance sheet, cash flow and VAT / MIS packs — Quotation → Job → Costing → Invoice → Payment → Ledger → Report.',
+        'Run trial balance, P&L, balance sheet, cash flow and VAT / MIS packs, Quotation → Job → Costing → Invoice → Payment → Ledger → Report.',
       ],
     ],
     features: [
@@ -673,7 +673,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
         'Paired on the marketing site as one continuum; in-product they split ops AR/AP docs vs GL.',
       ],
       ['Does this replace my GL?', 'Kingfisher owns job-level commercial truth; GL posting depends on your accounting setup.'],
-      ['Can we see per-job margin?', 'Yes — job costing is designed for shipment-level profitability.'],
+      ['Can we see per-job margin?', 'Yes, job costing is designed for shipment-level profitability.'],
       ['Multi-currency?', 'Commercial fields support currencies configured in masters.'],
       ['Vendor bills?', 'Payables link vendor costs back to jobs and vendors / portal.'],
       ['Who can approve invoices?', 'Administration & Access controls approval permissions by role.'],
@@ -684,7 +684,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     name: 'Reports & Analytics',
     cat: 'Business',
     tagline:
-      'Turn operational and financial data into management reports — without stitching five spreadsheets.',
+      'Turn operational and financial data into management reports, without stitching five spreadsheets.',
     outcome:
       'Report formats catalogue, ops KPI / exception packs, sales & quotation analytics, docs / NVOCC / HR reports, GL & MIS dashboards.',
     stageKind: 'kpiCharts',
@@ -732,7 +732,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     related: ['finance-accounts', 'tracking', 'air-freight', 'sea-freight'],
     faqs: [
       ['Is this a full BI suite?', 'Focused on freight ops and commercial performance from Kingfisher data.'],
-      ['Can we export?', 'Yes — exports support offline needs; the platform remains source of truth.'],
+      ['Can we export?', 'Yes, exports support offline needs; the platform remains source of truth.'],
       ['Branch-level views?', 'Organization structure and job ownership feed branch reporting.'],
       ['Real-time?', 'Reports reflect the operational data your teams maintain on jobs.'],
       ['Custom KPIs?', 'Core freight KPIs ship in-product; deeper custom analytics via implementation.'],
